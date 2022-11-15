@@ -1,30 +1,406 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id><%= config.url %></id>
-    <title><%= config.title %></title>
-    <subtitle><%= config.subtitle %></subtitle>
-    <icon><%= full_url_for('/images/favicon.ico') %></icon>
-    <link href="<%= config.url %>" />
-    <author>
-      <name><%= config.author %></name>
-    </author>
-    <updated><%= moment(lastBuildDate).toISOString() %></updated>
-    <%_ for (item of (config.keywords ? config.keywords.split(',') : [])) { _%>
-    <category term="<%= item %>" />
-    <%_ } _%>
-    <%_ for (const post of posts) { _%>
-    <entry>
-        <id><%= post.permalink %></id>
-        <title><%= post.title %></title>
-        <link rel="alternate" href="<%= post.permalink %>"/>
-        <content type="html"><%= post.content %></content>
-        <%_ for (const { name, path } of (post.categories ? post.categories.toArray() : [])) { _%>
-        <category term="<%= name %>" scheme="<%= full_url_for(path) %>" />
-        <%_ } _%>
-        <%_ for (const { name, path } of (post.tags ? post.tags.toArray() : [])) { _%>
-        <category term="<%= name %>" scheme="<%= full_url_for(path) %>" />
-        <%_ } _%>
-        <updated><%= moment(post.date).toISOString() %></updated>
-    </entry>
-    <%_ } _%>
+  <title>命运转轮</title>
+  
+  <subtitle>Life is ...the time you did something you&#39;re afraid of doing</subtitle>
+  <link href="https://arachnid.cc/atom.xml" rel="self"/>
+  
+  <link href="https://arachnid.cc/"/>
+  <updated>2022-11-14T15:24:46.376Z</updated>
+  <id>https://arachnid.cc/</id>
+  
+  <author>
+    <name>夏沫の浅雨</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>wireshark使用</title>
+    <link href="https://arachnid.cc/docs/wireshark%E4%BD%BF%E7%94%A8/"/>
+    <id>https://arachnid.cc/docs/wireshark%E4%BD%BF%E7%94%A8/</id>
+    <published>2022-10-05T07:55:39.000Z</published>
+    <updated>2022-11-14T15:24:46.376Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    
+    <category term="history" scheme="https://arachnid.cc/tags/history/"/>
+    
+    <category term="工具" scheme="https://arachnid.cc/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>markdown语法测试</title>
+    <link href="https://arachnid.cc/docs/markdown%E8%AF%AD%E6%B3%95%E6%B5%8B%E8%AF%95/"/>
+    <id>https://arachnid.cc/docs/markdown%E8%AF%AD%E6%B3%95%E6%B5%8B%E8%AF%95/</id>
+    <published>2022-04-28T07:45:50.867Z</published>
+    <updated>2022-05-15T10:07:51.251Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>基于官方指导安装 Arch Linux</title>
+    <link href="https://arachnid.cc/docs/Linux/%E5%9F%BA%E4%BA%8E%E5%AE%98%E6%96%B9%E6%8C%87%E5%AF%BC%E5%AE%89%E8%A3%85%20Arch%20Linux/"/>
+    <id>https://arachnid.cc/docs/Linux/%E5%9F%BA%E4%BA%8E%E5%AE%98%E6%96%B9%E6%8C%87%E5%AF%BC%E5%AE%89%E8%A3%85%20Arch%20Linux/</id>
+    <published>2022-04-12T03:02:19.000Z</published>
+    <updated>2022-11-12T16:17:46.109Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    
+    <category term="history" scheme="https://arachnid.cc/tags/history/"/>
+    
+    <category term="Linux" scheme="https://arachnid.cc/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>X/YModem传输协议</title>
+    <link href="https://arachnid.cc/docs/%E9%80%9A%E8%AE%AF%E5%8D%8F%E8%AE%AE/XYModem%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE/"/>
+    <id>https://arachnid.cc/docs/%E9%80%9A%E8%AE%AF%E5%8D%8F%E8%AE%AE/XYModem%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE/</id>
+    <published>2022-03-27T15:41:27.000Z</published>
+    <updated>2022-05-01T12:29:51.817Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="传输协议" scheme="https://arachnid.cc/categories/%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE/"/>
+    
+    
+    <category term="history" scheme="https://arachnid.cc/tags/history/"/>
+    
+    <category term="Modem" scheme="https://arachnid.cc/tags/Modem/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Modbus家族之 ASCII</title>
+    <link href="https://arachnid.cc/docs/Modbus/Modbus%E5%AE%B6%E6%97%8F%E4%B9%8B%20ASCII/"/>
+    <id>https://arachnid.cc/docs/Modbus/Modbus%E5%AE%B6%E6%97%8F%E4%B9%8B%20ASCII/</id>
+    <published>2022-03-20T07:42:45.000Z</published>
+    <updated>2022-05-03T03:12:18.208Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="传输协议" scheme="https://arachnid.cc/categories/%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE/"/>
+    
+    
+    <category term="history" scheme="https://arachnid.cc/tags/history/"/>
+    
+    <category term="modbus" scheme="https://arachnid.cc/tags/modbus/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Modbus家族之 RTU</title>
+    <link href="https://arachnid.cc/docs/Modbus/Modbus%E5%AE%B6%E6%97%8F%E4%B9%8B%20RTU/"/>
+    <id>https://arachnid.cc/docs/Modbus/Modbus%E5%AE%B6%E6%97%8F%E4%B9%8B%20RTU/</id>
+    <published>2022-03-18T13:01:20.000Z</published>
+    <updated>2022-05-03T03:14:48.623Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="传输协议" scheme="https://arachnid.cc/categories/%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE/"/>
+    
+    
+    <category term="history" scheme="https://arachnid.cc/tags/history/"/>
+    
+    <category term="modbus" scheme="https://arachnid.cc/tags/modbus/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>RT-Thread 应用总结</title>
+    <link href="https://arachnid.cc/docs/RTOS/RT-Thread%20%E5%BA%94%E7%94%A8%E6%80%BB%E7%BB%93/"/>
+    <id>https://arachnid.cc/docs/RTOS/RT-Thread%20%E5%BA%94%E7%94%A8%E6%80%BB%E7%BB%93/</id>
+    <published>2022-02-25T13:33:59.000Z</published>
+    <updated>2022-05-06T12:49:05.092Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="实时系统" scheme="https://arachnid.cc/categories/%E5%AE%9E%E6%97%B6%E7%B3%BB%E7%BB%9F/"/>
+    
+    
+    <category term="history" scheme="https://arachnid.cc/tags/history/"/>
+    
+    <category term="RTOS" scheme="https://arachnid.cc/tags/RTOS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Modbus家族之开篇</title>
+    <link href="https://arachnid.cc/docs/Modbus/Modbus%E5%AE%B6%E6%97%8F%E4%B9%8B%E5%BC%80%E7%AF%87/"/>
+    <id>https://arachnid.cc/docs/Modbus/Modbus%E5%AE%B6%E6%97%8F%E4%B9%8B%E5%BC%80%E7%AF%87/</id>
+    <published>2022-02-08T10:37:49.000Z</published>
+    <updated>2022-05-03T03:08:20.040Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="传输协议" scheme="https://arachnid.cc/categories/%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE/"/>
+    
+    
+    <category term="history" scheme="https://arachnid.cc/tags/history/"/>
+    
+    <category term="modbus" scheme="https://arachnid.cc/tags/modbus/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>步进电机及丝杆</title>
+    <link href="https://arachnid.cc/docs/%E6%AD%A5%E8%BF%9B%E7%94%B5%E6%9C%BA%E5%8F%8A%E4%B8%9D%E6%9D%86/"/>
+    <id>https://arachnid.cc/docs/%E6%AD%A5%E8%BF%9B%E7%94%B5%E6%9C%BA%E5%8F%8A%E4%B8%9D%E6%9D%86/</id>
+    <published>2021-10-30T14:51:43.000Z</published>
+    <updated>2022-05-01T14:00:49.580Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    
+    <category term="history" scheme="https://arachnid.cc/tags/history/"/>
+    
+    <category term="电机" scheme="https://arachnid.cc/tags/%E7%94%B5%E6%9C%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Kicad应用总结</title>
+    <link href="https://arachnid.cc/docs/Kicad%E5%BA%94%E7%94%A8%E6%80%BB%E7%BB%93/"/>
+    <id>https://arachnid.cc/docs/Kicad%E5%BA%94%E7%94%A8%E6%80%BB%E7%BB%93/</id>
+    <published>2021-08-14T09:00:24.000Z</published>
+    <updated>2022-11-12T16:00:16.974Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    
+    <category term="history" scheme="https://arachnid.cc/tags/history/"/>
+    
+    <category term="EDA" scheme="https://arachnid.cc/tags/EDA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Cortex-M3/M4/M7 故障异常分析</title>
+    <link href="https://arachnid.cc/docs/Cortex-M3M4M7%20%E6%95%85%E9%9A%9C%E5%BC%82%E5%B8%B8%E5%88%86%E6%9E%90/"/>
+    <id>https://arachnid.cc/docs/Cortex-M3M4M7%20%E6%95%85%E9%9A%9C%E5%BC%82%E5%B8%B8%E5%88%86%E6%9E%90/</id>
+    <published>2021-07-17T04:58:01.000Z</published>
+    <updated>2022-11-12T16:21:39.330Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    
+    <category term="MCU" scheme="https://arachnid.cc/tags/MCU/"/>
+    
+    <category term="history" scheme="https://arachnid.cc/tags/history/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>常用校验算法</title>
+    <link href="https://arachnid.cc/docs/%E7%AE%97%E6%B3%95/%E5%B8%B8%E7%94%A8%E6%A0%A1%E9%AA%8C%E7%AE%97%E6%B3%95/"/>
+    <id>https://arachnid.cc/docs/%E7%AE%97%E6%B3%95/%E5%B8%B8%E7%94%A8%E6%A0%A1%E9%AA%8C%E7%AE%97%E6%B3%95/</id>
+    <published>2021-05-05T13:36:25.000Z</published>
+    <updated>2022-11-12T16:00:47.926Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="算法" scheme="https://arachnid.cc/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+    <category term="history" scheme="https://arachnid.cc/tags/history/"/>
+    
+    <category term="算法" scheme="https://arachnid.cc/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>cJSON库 API解析（下）</title>
+    <link href="https://arachnid.cc/docs/cJSON/cJSON%E5%BA%93%20API%E8%A7%A3%E6%9E%90%EF%BC%88%E4%B8%8B%EF%BC%89/"/>
+    <id>https://arachnid.cc/docs/cJSON/cJSON%E5%BA%93%20API%E8%A7%A3%E6%9E%90%EF%BC%88%E4%B8%8B%EF%BC%89/</id>
+    <published>2021-01-31T14:43:39.000Z</published>
+    <updated>2022-05-01T12:29:05.764Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="middleware" scheme="https://arachnid.cc/categories/middleware/"/>
+    
+    
+    <category term="history" scheme="https://arachnid.cc/tags/history/"/>
+    
+    <category term="JSON" scheme="https://arachnid.cc/tags/JSON/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>cJSON库 API解析（上）</title>
+    <link href="https://arachnid.cc/docs/cJSON/cJSON%E5%BA%93%20API%E8%A7%A3%E6%9E%90%EF%BC%88%E4%B8%8A%EF%BC%89/"/>
+    <id>https://arachnid.cc/docs/cJSON/cJSON%E5%BA%93%20API%E8%A7%A3%E6%9E%90%EF%BC%88%E4%B8%8A%EF%BC%89/</id>
+    <published>2021-01-29T15:54:23.000Z</published>
+    <updated>2022-05-01T13:43:27.514Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="middleware" scheme="https://arachnid.cc/categories/middleware/"/>
+    
+    
+    <category term="history" scheme="https://arachnid.cc/tags/history/"/>
+    
+    <category term="JSON" scheme="https://arachnid.cc/tags/JSON/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>逻辑门、锁存器和触发器</title>
+    <link href="https://arachnid.cc/docs/%E9%80%BB%E8%BE%91%E9%97%A8%E3%80%81%E9%94%81%E5%AD%98%E5%99%A8%E5%92%8C%E8%A7%A6%E5%8F%91%E5%99%A8/"/>
+    <id>https://arachnid.cc/docs/%E9%80%BB%E8%BE%91%E9%97%A8%E3%80%81%E9%94%81%E5%AD%98%E5%99%A8%E5%92%8C%E8%A7%A6%E5%8F%91%E5%99%A8/</id>
+    <published>2020-11-14T11:39:48.000Z</published>
+    <updated>2022-05-01T14:00:21.414Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    
+    <category term="history" scheme="https://arachnid.cc/tags/history/"/>
+    
+    <category term="电子电路" scheme="https://arachnid.cc/tags/%E7%94%B5%E5%AD%90%E7%94%B5%E8%B7%AF/"/>
+    
+  </entry>
+  
 </feed>
