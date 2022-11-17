@@ -6,7 +6,7 @@
     <title>命运转轮</title>
     <link>https://arachnid.cc/</link>
     
-    <atom:link href="https://arachnid.cc/rss2.xml" rel="self" type="application/rss+xml"/>
+    <atom:link href="https://arachnid.cc/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description>不曾亏欠, 不曾辜负, 如此足矣</description>
     <pubDate>Mon, 14 Nov 2022 15:24:46 GMT</pubDate>
