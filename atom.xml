@@ -42,6 +42,81 @@
   </entry>
   
   <entry>
+    <title>博客搭建笔记之功能扩展</title>
+    <link href="https://arachnid.cc/docs/Hexo/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%AC%94%E8%AE%B0%E4%B9%8B%E5%8A%9F%E8%83%BD%E6%89%A9%E5%B1%95/"/>
+    <id>https://arachnid.cc/docs/Hexo/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%AC%94%E8%AE%B0%E4%B9%8B%E5%8A%9F%E8%83%BD%E6%89%A9%E5%B1%95/</id>
+    <published>2022-05-25T15:23:42.722Z</published>
+    <updated>2022-11-28T04:06:20.988Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="Hexo-shoka" scheme="https://arachnid.cc/categories/Hexo-shoka/"/>
+    
+    
+    <category term="hexo" scheme="https://arachnid.cc/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>博客搭建笔记之 shoka配置</title>
+    <link href="https://arachnid.cc/docs/Hexo/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%AC%94%E8%AE%B0%E4%B9%8B%20shoka%E9%85%8D%E7%BD%AE/"/>
+    <id>https://arachnid.cc/docs/Hexo/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%AC%94%E8%AE%B0%E4%B9%8B%20shoka%E9%85%8D%E7%BD%AE/</id>
+    <published>2022-05-25T12:38:40.634Z</published>
+    <updated>2022-11-15T09:03:49.498Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="Hexo-shoka" scheme="https://arachnid.cc/categories/Hexo-shoka/"/>
+    
+    
+    <category term="hexo" scheme="https://arachnid.cc/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>博客搭建笔记之 Hexo-shoka</title>
+    <link href="https://arachnid.cc/docs/Hexo/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%AC%94%E8%AE%B0%E4%B9%8B%20Hexo-shoka/"/>
+    <id>https://arachnid.cc/docs/Hexo/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%AC%94%E8%AE%B0%E4%B9%8B%20Hexo-shoka/</id>
+    <published>2022-05-03T05:16:58.610Z</published>
+    <updated>2022-12-19T04:26:03.888Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="Hexo-shoka" scheme="https://arachnid.cc/categories/Hexo-shoka/"/>
+    
+    
+    <category term="hexo" scheme="https://arachnid.cc/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
     <title>markdown语法测试</title>
     <link href="https://arachnid.cc/docs/markdown%E8%AF%AD%E6%B3%95%E6%B5%8B%E8%AF%95/"/>
     <id>https://arachnid.cc/docs/markdown%E8%AF%AD%E6%B3%95%E6%B5%8B%E8%AF%95/</id>
@@ -321,6 +396,56 @@
     <category term="history" scheme="https://arachnid.cc/tags/history/"/>
     
     <category term="算法" scheme="https://arachnid.cc/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>常用设备接口类型</title>
+    <link href="https://arachnid.cc/docs/%E5%B8%B8%E7%94%A8%E8%AE%BE%E5%A4%87%E6%8E%A5%E5%8F%A3%E7%B1%BB%E5%9E%8B/%E5%B8%B8%E7%94%A8%E8%AE%BE%E5%A4%87%E6%8E%A5%E5%8F%A3%E7%B1%BB%E5%9E%8B/"/>
+    <id>https://arachnid.cc/docs/%E5%B8%B8%E7%94%A8%E8%AE%BE%E5%A4%87%E6%8E%A5%E5%8F%A3%E7%B1%BB%E5%9E%8B/%E5%B8%B8%E7%94%A8%E8%AE%BE%E5%A4%87%E6%8E%A5%E5%8F%A3%E7%B1%BB%E5%9E%8B/</id>
+    <published>2021-04-12T13:16:37.000Z</published>
+    <updated>2022-12-19T04:30:17.778Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    
+    <category term="history" scheme="https://arachnid.cc/tags/history/"/>
+    
+    <category term="硬件" scheme="https://arachnid.cc/tags/%E7%A1%AC%E4%BB%B6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>差分传输及其应用</title>
+    <link href="https://arachnid.cc/docs/%E5%B7%AE%E5%88%86%E4%BC%A0%E8%BE%93%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8/"/>
+    <id>https://arachnid.cc/docs/%E5%B7%AE%E5%88%86%E4%BC%A0%E8%BE%93%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8/</id>
+    <published>2021-03-03T11:48:46.000Z</published>
+    <updated>2022-12-19T05:02:16.440Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    
+    <category term="history" scheme="https://arachnid.cc/tags/history/"/>
+    
+    <category term="硬件" scheme="https://arachnid.cc/tags/%E7%A1%AC%E4%BB%B6/"/>
     
   </entry>
   
