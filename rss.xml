@@ -9,8 +9,37 @@
     <atom:link href="https://arachnid.cc/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description>不曾亏欠, 不曾辜负, 如此足矣</description>
-    <pubDate>Mon, 14 Nov 2022 15:24:46 GMT</pubDate>
+    <pubDate>Mon, 09 Jan 2023 15:25:31 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Ubuntu下 FTP的搭建配置</title>
+      <link>https://arachnid.cc/docs/Linux/Ubuntu%E4%B8%8B%20FTP%E7%9A%84%E6%90%AD%E5%BB%BA%E9%85%8D%E7%BD%AE/</link>
+      <guid>https://arachnid.cc/docs/Linux/Ubuntu%E4%B8%8B%20FTP%E7%9A%84%E6%90%AD%E5%BB%BA%E9%85%8D%E7%BD%AE/</guid>
+      <pubDate>Thu, 03 Nov 2022 13:13:57 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description></description>
+          
+        
+      
+      
+      
+      
+      
+      <category domain="https://arachnid.cc/tags/history/">history</category>
+      
+      <category domain="https://arachnid.cc/tags/Linux/">Linux</category>
+      
+      <category domain="https://arachnid.cc/tags/Ubuntu/">Ubuntu</category>
+      
+      
+      <comments>https://arachnid.cc/docs/Linux/Ubuntu%E4%B8%8B%20FTP%E7%9A%84%E6%90%AD%E5%BB%BA%E9%85%8D%E7%BD%AE/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>wireshark使用</title>
@@ -56,7 +85,7 @@
       
       
       
-      <category domain="https://arachnid.cc/categories/Hexo-shoka/">Hexo-shoka</category>
+      <category domain="https://arachnid.cc/categories/Hexo/">Hexo-shoka</category>
       
       
       <category domain="https://arachnid.cc/tags/hexo/">hexo</category>
@@ -83,7 +112,7 @@
       
       
       
-      <category domain="https://arachnid.cc/categories/Hexo-shoka/">Hexo-shoka</category>
+      <category domain="https://arachnid.cc/categories/Hexo/">Hexo-shoka</category>
       
       
       <category domain="https://arachnid.cc/tags/hexo/">hexo</category>
@@ -110,7 +139,7 @@
       
       
       
-      <category domain="https://arachnid.cc/categories/Hexo-shoka/">Hexo-shoka</category>
+      <category domain="https://arachnid.cc/categories/Hexo/">Hexo-shoka</category>
       
       
       <category domain="https://arachnid.cc/tags/hexo/">hexo</category>
@@ -201,8 +230,8 @@
     
     <item>
       <title>Modbus家族之 ASCII</title>
-      <link>https://arachnid.cc/docs/Modbus/Modbus%E5%AE%B6%E6%97%8F%E4%B9%8B%20ASCII/</link>
-      <guid>https://arachnid.cc/docs/Modbus/Modbus%E5%AE%B6%E6%97%8F%E4%B9%8B%20ASCII/</guid>
+      <link>https://arachnid.cc/docs/%E9%80%9A%E8%AE%AF%E5%8D%8F%E8%AE%AE/Modbus%E5%AE%B6%E6%97%8F%E4%B9%8B%20ASCII/</link>
+      <guid>https://arachnid.cc/docs/%E9%80%9A%E8%AE%AF%E5%8D%8F%E8%AE%AE/Modbus%E5%AE%B6%E6%97%8F%E4%B9%8B%20ASCII/</guid>
       <pubDate>Sun, 20 Mar 2022 07:42:45 GMT</pubDate>
       
         
@@ -216,7 +245,7 @@
       
       
       
-      <category domain="https://arachnid.cc/categories/%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE/">传输协议</category>
+      <category domain="https://arachnid.cc/categories/modbus/">modbus</category>
       
       
       <category domain="https://arachnid.cc/tags/history/">history</category>
@@ -224,14 +253,14 @@
       <category domain="https://arachnid.cc/tags/modbus/">modbus</category>
       
       
-      <comments>https://arachnid.cc/docs/Modbus/Modbus%E5%AE%B6%E6%97%8F%E4%B9%8B%20ASCII/#disqus_thread</comments>
+      <comments>https://arachnid.cc/docs/%E9%80%9A%E8%AE%AF%E5%8D%8F%E8%AE%AE/Modbus%E5%AE%B6%E6%97%8F%E4%B9%8B%20ASCII/#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>Modbus家族之 RTU</title>
-      <link>https://arachnid.cc/docs/Modbus/Modbus%E5%AE%B6%E6%97%8F%E4%B9%8B%20RTU/</link>
-      <guid>https://arachnid.cc/docs/Modbus/Modbus%E5%AE%B6%E6%97%8F%E4%B9%8B%20RTU/</guid>
+      <link>https://arachnid.cc/docs/%E9%80%9A%E8%AE%AF%E5%8D%8F%E8%AE%AE/Modbus%E5%AE%B6%E6%97%8F%E4%B9%8B%20RTU/</link>
+      <guid>https://arachnid.cc/docs/%E9%80%9A%E8%AE%AF%E5%8D%8F%E8%AE%AE/Modbus%E5%AE%B6%E6%97%8F%E4%B9%8B%20RTU/</guid>
       <pubDate>Fri, 18 Mar 2022 13:01:20 GMT</pubDate>
       
         
@@ -245,7 +274,7 @@
       
       
       
-      <category domain="https://arachnid.cc/categories/%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE/">传输协议</category>
+      <category domain="https://arachnid.cc/categories/modbus/">modbus</category>
       
       
       <category domain="https://arachnid.cc/tags/history/">history</category>
@@ -253,7 +282,7 @@
       <category domain="https://arachnid.cc/tags/modbus/">modbus</category>
       
       
-      <comments>https://arachnid.cc/docs/Modbus/Modbus%E5%AE%B6%E6%97%8F%E4%B9%8B%20RTU/#disqus_thread</comments>
+      <comments>https://arachnid.cc/docs/%E9%80%9A%E8%AE%AF%E5%8D%8F%E8%AE%AE/Modbus%E5%AE%B6%E6%97%8F%E4%B9%8B%20RTU/#disqus_thread</comments>
       
     </item>
     
@@ -274,8 +303,6 @@
       
       
       
-      <category domain="https://arachnid.cc/categories/%E5%AE%9E%E6%97%B6%E7%B3%BB%E7%BB%9F/">实时系统</category>
-      
       
       <category domain="https://arachnid.cc/tags/history/">history</category>
       
@@ -288,8 +315,8 @@
     
     <item>
       <title>Modbus家族之开篇</title>
-      <link>https://arachnid.cc/docs/Modbus/Modbus%E5%AE%B6%E6%97%8F%E4%B9%8B%E5%BC%80%E7%AF%87/</link>
-      <guid>https://arachnid.cc/docs/Modbus/Modbus%E5%AE%B6%E6%97%8F%E4%B9%8B%E5%BC%80%E7%AF%87/</guid>
+      <link>https://arachnid.cc/docs/%E9%80%9A%E8%AE%AF%E5%8D%8F%E8%AE%AE/Modbus%E5%AE%B6%E6%97%8F%E4%B9%8B%E5%BC%80%E7%AF%87/</link>
+      <guid>https://arachnid.cc/docs/%E9%80%9A%E8%AE%AF%E5%8D%8F%E8%AE%AE/Modbus%E5%AE%B6%E6%97%8F%E4%B9%8B%E5%BC%80%E7%AF%87/</guid>
       <pubDate>Tue, 08 Feb 2022 10:37:49 GMT</pubDate>
       
         
@@ -303,7 +330,7 @@
       
       
       
-      <category domain="https://arachnid.cc/categories/%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE/">传输协议</category>
+      <category domain="https://arachnid.cc/categories/modbus/">modbus</category>
       
       
       <category domain="https://arachnid.cc/tags/history/">history</category>
@@ -311,7 +338,7 @@
       <category domain="https://arachnid.cc/tags/modbus/">modbus</category>
       
       
-      <comments>https://arachnid.cc/docs/Modbus/Modbus%E5%AE%B6%E6%97%8F%E4%B9%8B%E5%BC%80%E7%AF%87/#disqus_thread</comments>
+      <comments>https://arachnid.cc/docs/%E9%80%9A%E8%AE%AF%E5%8D%8F%E8%AE%AE/Modbus%E5%AE%B6%E6%97%8F%E4%B9%8B%E5%BC%80%E7%AF%87/#disqus_thread</comments>
       
     </item>
     
@@ -344,8 +371,8 @@
     
     <item>
       <title>Kicad应用总结</title>
-      <link>https://arachnid.cc/docs/Kicad%E5%BA%94%E7%94%A8%E6%80%BB%E7%BB%93/</link>
-      <guid>https://arachnid.cc/docs/Kicad%E5%BA%94%E7%94%A8%E6%80%BB%E7%BB%93/</guid>
+      <link>https://arachnid.cc/docs/EDA/Kicad%E5%BA%94%E7%94%A8%E6%80%BB%E7%BB%93/</link>
+      <guid>https://arachnid.cc/docs/EDA/Kicad%E5%BA%94%E7%94%A8%E6%80%BB%E7%BB%93/</guid>
       <pubDate>Sat, 14 Aug 2021 09:00:24 GMT</pubDate>
       
         
@@ -365,7 +392,7 @@
       <category domain="https://arachnid.cc/tags/EDA/">EDA</category>
       
       
-      <comments>https://arachnid.cc/docs/Kicad%E5%BA%94%E7%94%A8%E6%80%BB%E7%BB%93/#disqus_thread</comments>
+      <comments>https://arachnid.cc/docs/EDA/Kicad%E5%BA%94%E7%94%A8%E6%80%BB%E7%BB%93/#disqus_thread</comments>
       
     </item>
     
@@ -393,6 +420,33 @@
       
       
       <comments>https://arachnid.cc/docs/Cortex-M3M4M7%20%E6%95%85%E9%9A%9C%E5%BC%82%E5%B8%B8%E5%88%86%E6%9E%90/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>USART、I2C、SPI通信方式扫盲</title>
+      <link>https://arachnid.cc/docs/%E9%80%9A%E8%AE%AF%E5%8D%8F%E8%AE%AE/USART%E3%80%81I2C%E3%80%81SPI%E9%80%9A%E4%BF%A1%E6%96%B9%E5%BC%8F%E6%89%AB%E7%9B%B2/</link>
+      <guid>https://arachnid.cc/docs/%E9%80%9A%E8%AE%AF%E5%8D%8F%E8%AE%AE/USART%E3%80%81I2C%E3%80%81SPI%E9%80%9A%E4%BF%A1%E6%96%B9%E5%BC%8F%E6%89%AB%E7%9B%B2/</guid>
+      <pubDate>Sat, 17 Jul 2021 04:58:01 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description></description>
+          
+        
+      
+      
+      
+      
+      
+      <category domain="https://arachnid.cc/tags/MCU/">MCU</category>
+      
+      <category domain="https://arachnid.cc/tags/history/">history</category>
+      
+      
+      <comments>https://arachnid.cc/docs/%E9%80%9A%E8%AE%AF%E5%8D%8F%E8%AE%AE/USART%E3%80%81I2C%E3%80%81SPI%E9%80%9A%E4%BF%A1%E6%96%B9%E5%BC%8F%E6%89%AB%E7%9B%B2/#disqus_thread</comments>
       
     </item>
     
@@ -427,8 +481,8 @@
     
     <item>
       <title>常用设备接口类型</title>
-      <link>https://arachnid.cc/docs/%E5%B8%B8%E7%94%A8%E8%AE%BE%E5%A4%87%E6%8E%A5%E5%8F%A3%E7%B1%BB%E5%9E%8B/%E5%B8%B8%E7%94%A8%E8%AE%BE%E5%A4%87%E6%8E%A5%E5%8F%A3%E7%B1%BB%E5%9E%8B/</link>
-      <guid>https://arachnid.cc/docs/%E5%B8%B8%E7%94%A8%E8%AE%BE%E5%A4%87%E6%8E%A5%E5%8F%A3%E7%B1%BB%E5%9E%8B/%E5%B8%B8%E7%94%A8%E8%AE%BE%E5%A4%87%E6%8E%A5%E5%8F%A3%E7%B1%BB%E5%9E%8B/</guid>
+      <link>https://arachnid.cc/docs/%E5%B8%B8%E7%94%A8%E8%AE%BE%E5%A4%87%E6%8E%A5%E5%8F%A3%E7%B1%BB%E5%9E%8B/</link>
+      <guid>https://arachnid.cc/docs/%E5%B8%B8%E7%94%A8%E8%AE%BE%E5%A4%87%E6%8E%A5%E5%8F%A3%E7%B1%BB%E5%9E%8B/</guid>
       <pubDate>Mon, 12 Apr 2021 13:16:37 GMT</pubDate>
       
         
@@ -448,7 +502,7 @@
       <category domain="https://arachnid.cc/tags/%E7%A1%AC%E4%BB%B6/">硬件</category>
       
       
-      <comments>https://arachnid.cc/docs/%E5%B8%B8%E7%94%A8%E8%AE%BE%E5%A4%87%E6%8E%A5%E5%8F%A3%E7%B1%BB%E5%9E%8B/%E5%B8%B8%E7%94%A8%E8%AE%BE%E5%A4%87%E6%8E%A5%E5%8F%A3%E7%B1%BB%E5%9E%8B/#disqus_thread</comments>
+      <comments>https://arachnid.cc/docs/%E5%B8%B8%E7%94%A8%E8%AE%BE%E5%A4%87%E6%8E%A5%E5%8F%A3%E7%B1%BB%E5%9E%8B/#disqus_thread</comments>
       
     </item>
     
@@ -481,8 +535,8 @@
     
     <item>
       <title>cJSON库 API解析（下）</title>
-      <link>https://arachnid.cc/docs/cJSON/cJSON%E5%BA%93%20API%E8%A7%A3%E6%9E%90%EF%BC%88%E4%B8%8B%EF%BC%89/</link>
-      <guid>https://arachnid.cc/docs/cJSON/cJSON%E5%BA%93%20API%E8%A7%A3%E6%9E%90%EF%BC%88%E4%B8%8B%EF%BC%89/</guid>
+      <link>https://arachnid.cc/docs/Library/cJSON%E5%BA%93%20API%E8%A7%A3%E6%9E%90%EF%BC%88%E4%B8%8B%EF%BC%89/</link>
+      <guid>https://arachnid.cc/docs/Library/cJSON%E5%BA%93%20API%E8%A7%A3%E6%9E%90%EF%BC%88%E4%B8%8B%EF%BC%89/</guid>
       <pubDate>Sun, 31 Jan 2021 14:43:39 GMT</pubDate>
       
         
@@ -504,63 +558,7 @@
       <category domain="https://arachnid.cc/tags/JSON/">JSON</category>
       
       
-      <comments>https://arachnid.cc/docs/cJSON/cJSON%E5%BA%93%20API%E8%A7%A3%E6%9E%90%EF%BC%88%E4%B8%8B%EF%BC%89/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>cJSON库 API解析（上）</title>
-      <link>https://arachnid.cc/docs/cJSON/cJSON%E5%BA%93%20API%E8%A7%A3%E6%9E%90%EF%BC%88%E4%B8%8A%EF%BC%89/</link>
-      <guid>https://arachnid.cc/docs/cJSON/cJSON%E5%BA%93%20API%E8%A7%A3%E6%9E%90%EF%BC%88%E4%B8%8A%EF%BC%89/</guid>
-      <pubDate>Fri, 29 Jan 2021 15:54:23 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description></description>
-          
-        
-      
-      
-      
-      
-      <category domain="https://arachnid.cc/categories/middleware/">middleware</category>
-      
-      
-      <category domain="https://arachnid.cc/tags/history/">history</category>
-      
-      <category domain="https://arachnid.cc/tags/JSON/">JSON</category>
-      
-      
-      <comments>https://arachnid.cc/docs/cJSON/cJSON%E5%BA%93%20API%E8%A7%A3%E6%9E%90%EF%BC%88%E4%B8%8A%EF%BC%89/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>逻辑门、锁存器和触发器</title>
-      <link>https://arachnid.cc/docs/%E9%80%BB%E8%BE%91%E9%97%A8%E3%80%81%E9%94%81%E5%AD%98%E5%99%A8%E5%92%8C%E8%A7%A6%E5%8F%91%E5%99%A8/</link>
-      <guid>https://arachnid.cc/docs/%E9%80%BB%E8%BE%91%E9%97%A8%E3%80%81%E9%94%81%E5%AD%98%E5%99%A8%E5%92%8C%E8%A7%A6%E5%8F%91%E5%99%A8/</guid>
-      <pubDate>Sat, 14 Nov 2020 11:39:48 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description></description>
-          
-        
-      
-      
-      
-      
-      
-      <category domain="https://arachnid.cc/tags/history/">history</category>
-      
-      <category domain="https://arachnid.cc/tags/%E7%94%B5%E5%AD%90%E7%94%B5%E8%B7%AF/">电子电路</category>
-      
-      
-      <comments>https://arachnid.cc/docs/%E9%80%BB%E8%BE%91%E9%97%A8%E3%80%81%E9%94%81%E5%AD%98%E5%99%A8%E5%92%8C%E8%A7%A6%E5%8F%91%E5%99%A8/#disqus_thread</comments>
+      <comments>https://arachnid.cc/docs/Library/cJSON%E5%BA%93%20API%E8%A7%A3%E6%9E%90%EF%BC%88%E4%B8%8B%EF%BC%89/#disqus_thread</comments>
       
     </item>
     
