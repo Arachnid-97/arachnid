@@ -366,6 +366,33 @@
     </item>
     
     <item>
+      <title>关于 FreeRTOS和 newlib库共存问题</title>
+      <link>https://arachnid.cc/docs/Essay/%E5%85%B3%E4%BA%8E%20FreeRTOS%E5%92%8C%20newlib%E5%BA%93%E5%85%B1%E5%AD%98%E9%97%AE%E9%A2%98/</link>
+      <guid>https://arachnid.cc/docs/Essay/%E5%85%B3%E4%BA%8E%20FreeRTOS%E5%92%8C%20newlib%E5%BA%93%E5%85%B1%E5%AD%98%E9%97%AE%E9%A2%98/</guid>
+      <pubDate>Sat, 23 Oct 2021 15:03:20 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description></description>
+          
+        
+      
+      
+      
+      
+      
+      <category domain="https://arachnid.cc/tags/history/">history</category>
+      
+      <category domain="https://arachnid.cc/tags/FreeRTOS/">FreeRTOS</category>
+      
+      
+      <comments>https://arachnid.cc/docs/Essay/%E5%85%B3%E4%BA%8E%20FreeRTOS%E5%92%8C%20newlib%E5%BA%93%E5%85%B1%E5%AD%98%E9%97%AE%E9%A2%98/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
       <title>Kicad应用总结</title>
       <link>https://arachnid.cc/docs/EDA/Kicad%E5%BA%94%E7%94%A8%E6%80%BB%E7%BB%93/</link>
       <guid>https://arachnid.cc/docs/EDA/Kicad%E5%BA%94%E7%94%A8%E6%80%BB%E7%BB%93/</guid>
@@ -416,33 +443,6 @@
       
       
       <comments>https://arachnid.cc/docs/Essay/Cortex-M3M4M7%20%E6%95%85%E9%9A%9C%E5%BC%82%E5%B8%B8%E5%88%86%E6%9E%90/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>USART、I2C、SPI通信方式扫盲</title>
-      <link>https://arachnid.cc/docs/%E9%80%9A%E8%AE%AF%E5%8D%8F%E8%AE%AE/USART%E3%80%81I2C%E3%80%81SPI%E9%80%9A%E4%BF%A1%E6%96%B9%E5%BC%8F%E6%89%AB%E7%9B%B2/</link>
-      <guid>https://arachnid.cc/docs/%E9%80%9A%E8%AE%AF%E5%8D%8F%E8%AE%AE/USART%E3%80%81I2C%E3%80%81SPI%E9%80%9A%E4%BF%A1%E6%96%B9%E5%BC%8F%E6%89%AB%E7%9B%B2/</guid>
-      <pubDate>Sat, 17 Jul 2021 04:58:01 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description></description>
-          
-        
-      
-      
-      
-      
-      
-      <category domain="https://arachnid.cc/tags/history/">history</category>
-      
-      <category domain="https://arachnid.cc/tags/MCU/">MCU</category>
-      
-      
-      <comments>https://arachnid.cc/docs/%E9%80%9A%E8%AE%AF%E5%8D%8F%E8%AE%AE/USART%E3%80%81I2C%E3%80%81SPI%E9%80%9A%E4%BF%A1%E6%96%B9%E5%BC%8F%E6%89%AB%E7%9B%B2/#disqus_thread</comments>
       
     </item>
     
