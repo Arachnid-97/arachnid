@@ -6,7 +6,7 @@
   <link href="https://arachnid.cc/atom.xml" rel="self"/>
   
   <link href="https://arachnid.cc/"/>
-  <updated>2023-01-09T15:25:31.826Z</updated>
+  <updated>2023-02-02T11:38:04.015Z</updated>
   <id>https://arachnid.cc/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux 系统构成：bootloader、kernel、rootfs</title>
+    <link href="https://arachnid.cc/docs/Linux/Linux%20%E7%B3%BB%E7%BB%9F%E6%9E%84%E6%88%90%EF%BC%9Abootloader%E3%80%81kernel%E3%80%81rootfs/"/>
+    <id>https://arachnid.cc/docs/Linux/Linux%20%E7%B3%BB%E7%BB%9F%E6%9E%84%E6%88%90%EF%BC%9Abootloader%E3%80%81kernel%E3%80%81rootfs/</id>
+    <published>2023-02-02T11:34:26.713Z</published>
+    <updated>2023-02-02T11:38:04.015Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    
+    <category term="Linux" scheme="https://arachnid.cc/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>Ubuntu下 FTP的搭建配置</title>
@@ -73,7 +96,7 @@
     <link href="https://arachnid.cc/docs/Hexo/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%AC%94%E8%AE%B0%E4%B9%8B%E5%8A%9F%E8%83%BD%E6%89%A9%E5%B1%95/"/>
     <id>https://arachnid.cc/docs/Hexo/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%AC%94%E8%AE%B0%E4%B9%8B%E5%8A%9F%E8%83%BD%E6%89%A9%E5%B1%95/</id>
     <published>2022-05-25T15:23:42.722Z</published>
-    <updated>2022-11-28T04:06:20.988Z</updated>
+    <updated>2023-02-01T15:08:04.746Z</updated>
     
     
       
@@ -488,33 +511,6 @@
     
     
     <category term="history" scheme="https://arachnid.cc/tags/history/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>cJSON库 API解析（下）</title>
-    <link href="https://arachnid.cc/docs/Library/cJSON%E5%BA%93%20API%E8%A7%A3%E6%9E%90%EF%BC%88%E4%B8%8B%EF%BC%89/"/>
-    <id>https://arachnid.cc/docs/Library/cJSON%E5%BA%93%20API%E8%A7%A3%E6%9E%90%EF%BC%88%E4%B8%8B%EF%BC%89/</id>
-    <published>2021-01-31T14:43:39.000Z</published>
-    <updated>2022-05-01T12:29:05.764Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html"></summary>
-        
-      
-    
-    
-    
-    <category term="middleware" scheme="https://arachnid.cc/categories/middleware/"/>
-    
-    
-    <category term="history" scheme="https://arachnid.cc/tags/history/"/>
-    
-    <category term="JSON" scheme="https://arachnid.cc/tags/JSON/"/>
     
   </entry>
   

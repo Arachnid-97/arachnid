@@ -9,8 +9,33 @@
     <atom:link href="https://arachnid.cc/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description>不曾亏欠, 不曾辜负, 如此足矣</description>
-    <pubDate>Mon, 09 Jan 2023 15:25:31 GMT</pubDate>
+    <pubDate>Thu, 02 Feb 2023 11:38:04 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Linux 系统构成：bootloader、kernel、rootfs</title>
+      <link>https://arachnid.cc/docs/Linux/Linux%20%E7%B3%BB%E7%BB%9F%E6%9E%84%E6%88%90%EF%BC%9Abootloader%E3%80%81kernel%E3%80%81rootfs/</link>
+      <guid>https://arachnid.cc/docs/Linux/Linux%20%E7%B3%BB%E7%BB%9F%E6%9E%84%E6%88%90%EF%BC%9Abootloader%E3%80%81kernel%E3%80%81rootfs/</guid>
+      <pubDate>Thu, 02 Feb 2023 11:34:26 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description></description>
+          
+        
+      
+      
+      
+      
+      
+      <category domain="https://arachnid.cc/tags/Linux/">Linux</category>
+      
+      
+      <comments>https://arachnid.cc/docs/Linux/Linux%20%E7%B3%BB%E7%BB%9F%E6%9E%84%E6%88%90%EF%BC%9Abootloader%E3%80%81kernel%E3%80%81rootfs/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>Ubuntu下 FTP的搭建配置</title>
@@ -522,35 +547,6 @@
       
       
       <comments>https://arachnid.cc/docs/Essay/%E5%B7%AE%E5%88%86%E4%BC%A0%E8%BE%93%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>cJSON库 API解析（下）</title>
-      <link>https://arachnid.cc/docs/Library/cJSON%E5%BA%93%20API%E8%A7%A3%E6%9E%90%EF%BC%88%E4%B8%8B%EF%BC%89/</link>
-      <guid>https://arachnid.cc/docs/Library/cJSON%E5%BA%93%20API%E8%A7%A3%E6%9E%90%EF%BC%88%E4%B8%8B%EF%BC%89/</guid>
-      <pubDate>Sun, 31 Jan 2021 14:43:39 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description></description>
-          
-        
-      
-      
-      
-      
-      <category domain="https://arachnid.cc/categories/middleware/">middleware</category>
-      
-      
-      <category domain="https://arachnid.cc/tags/history/">history</category>
-      
-      <category domain="https://arachnid.cc/tags/JSON/">JSON</category>
-      
-      
-      <comments>https://arachnid.cc/docs/Library/cJSON%E5%BA%93%20API%E8%A7%A3%E6%9E%90%EF%BC%88%E4%B8%8B%EF%BC%89/#disqus_thread</comments>
       
     </item>
     
