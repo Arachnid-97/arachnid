@@ -6,7 +6,7 @@
   <link href="https://arachnid.cc/atom.xml" rel="self"/>
   
   <link href="https://arachnid.cc/"/>
-  <updated>2023-02-02T11:38:04.015Z</updated>
+  <updated>2023-02-05T08:02:04.249Z</updated>
   <id>https://arachnid.cc/</id>
   
   <author>
@@ -15,6 +15,52 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux 路由表说明</title>
+    <link href="https://arachnid.cc/docs/Essay/Linux%20%E8%B7%AF%E7%94%B1%E8%A1%A8%E8%AF%B4%E6%98%8E/"/>
+    <id>https://arachnid.cc/docs/Essay/Linux%20%E8%B7%AF%E7%94%B1%E8%A1%A8%E8%AF%B4%E6%98%8E/</id>
+    <published>2023-02-05T06:32:47.036Z</published>
+    <updated>2023-02-05T08:02:04.249Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    
+    <category term="Linux" scheme="https://arachnid.cc/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SQLite 知识整理</title>
+    <link href="https://arachnid.cc/docs/Essay/SQLite%20%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/"/>
+    <id>https://arachnid.cc/docs/Essay/SQLite%20%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/</id>
+    <published>2023-02-03T12:44:39.504Z</published>
+    <updated>2023-02-05T04:34:15.138Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    
+    <category term="SQL" scheme="https://arachnid.cc/tags/SQL/"/>
+    
+  </entry>
   
   <entry>
     <title>Linux 系统构成：bootloader、kernel、rootfs</title>
@@ -465,52 +511,6 @@
     <category term="history" scheme="https://arachnid.cc/tags/history/"/>
     
     <category term="算法" scheme="https://arachnid.cc/tags/%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>常用设备接口类型</title>
-    <link href="https://arachnid.cc/docs/Essay/%E5%B8%B8%E7%94%A8%E8%AE%BE%E5%A4%87%E6%8E%A5%E5%8F%A3%E7%B1%BB%E5%9E%8B/"/>
-    <id>https://arachnid.cc/docs/Essay/%E5%B8%B8%E7%94%A8%E8%AE%BE%E5%A4%87%E6%8E%A5%E5%8F%A3%E7%B1%BB%E5%9E%8B/</id>
-    <published>2021-04-12T13:16:37.000Z</published>
-    <updated>2023-01-14T06:50:53.835Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html"></summary>
-        
-      
-    
-    
-    
-    
-    <category term="history" scheme="https://arachnid.cc/tags/history/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>差分传输及其应用</title>
-    <link href="https://arachnid.cc/docs/Essay/%E5%B7%AE%E5%88%86%E4%BC%A0%E8%BE%93%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8/"/>
-    <id>https://arachnid.cc/docs/Essay/%E5%B7%AE%E5%88%86%E4%BC%A0%E8%BE%93%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8/</id>
-    <published>2021-03-03T11:48:46.000Z</published>
-    <updated>2023-01-14T06:50:43.949Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html"></summary>
-        
-      
-    
-    
-    
-    
-    <category term="history" scheme="https://arachnid.cc/tags/history/"/>
     
   </entry>
   
