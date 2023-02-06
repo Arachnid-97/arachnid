@@ -14,8 +14,8 @@
     
     <item>
       <title>Linux 路由表说明</title>
-      <link>https://arachnid.cc/docs/Essay/Linux%20%E8%B7%AF%E7%94%B1%E8%A1%A8%E8%AF%B4%E6%98%8E/</link>
-      <guid>https://arachnid.cc/docs/Essay/Linux%20%E8%B7%AF%E7%94%B1%E8%A1%A8%E8%AF%B4%E6%98%8E/</guid>
+      <link>https://arachnid.cc/docs/Linux/Linux%20%E8%B7%AF%E7%94%B1%E8%A1%A8%E8%AF%B4%E6%98%8E/</link>
+      <guid>https://arachnid.cc/docs/Linux/Linux%20%E8%B7%AF%E7%94%B1%E8%A1%A8%E8%AF%B4%E6%98%8E/</guid>
       <pubDate>Sun, 05 Feb 2023 06:32:47 GMT</pubDate>
       
         
@@ -33,14 +33,14 @@
       <category domain="https://arachnid.cc/tags/Linux/">Linux</category>
       
       
-      <comments>https://arachnid.cc/docs/Essay/Linux%20%E8%B7%AF%E7%94%B1%E8%A1%A8%E8%AF%B4%E6%98%8E/#disqus_thread</comments>
+      <comments>https://arachnid.cc/docs/Linux/Linux%20%E8%B7%AF%E7%94%B1%E8%A1%A8%E8%AF%B4%E6%98%8E/#disqus_thread</comments>
       
     </item>
     
     <item>
       <title>SQLite 知识整理</title>
-      <link>https://arachnid.cc/docs/Essay/SQLite%20%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/</link>
-      <guid>https://arachnid.cc/docs/Essay/SQLite%20%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/</guid>
+      <link>https://arachnid.cc/docs/Library/SQLite%20%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/</link>
+      <guid>https://arachnid.cc/docs/Library/SQLite%20%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/</guid>
       <pubDate>Fri, 03 Feb 2023 12:44:39 GMT</pubDate>
       
         
@@ -58,7 +58,7 @@
       <category domain="https://arachnid.cc/tags/SQL/">SQL</category>
       
       
-      <comments>https://arachnid.cc/docs/Essay/SQLite%20%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/#disqus_thread</comments>
+      <comments>https://arachnid.cc/docs/Library/SQLite%20%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/#disqus_thread</comments>
       
     </item>
     
@@ -485,9 +485,9 @@
       
       
       
-      <category domain="https://arachnid.cc/tags/EDA/">EDA</category>
-      
       <category domain="https://arachnid.cc/tags/history/">history</category>
+      
+      <category domain="https://arachnid.cc/tags/EDA/">EDA</category>
       
       
       <comments>https://arachnid.cc/docs/EDA/Kicad%E5%BA%94%E7%94%A8%E6%80%BB%E7%BB%93/#disqus_thread</comments>
