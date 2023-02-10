@@ -6,7 +6,7 @@
   <link href="https://arachnid.cc/atom.xml" rel="self"/>
   
   <link href="https://arachnid.cc/"/>
-  <updated>2023-02-05T08:02:04.249Z</updated>
+  <updated>2023-02-10T14:07:01.841Z</updated>
   <id>https://arachnid.cc/</id>
   
   <author>
@@ -18,10 +18,10 @@
   
   <entry>
     <title>Linux 路由表说明</title>
-    <link href="https://arachnid.cc/docs/Linux/Linux%20%E8%B7%AF%E7%94%B1%E8%A1%A8%E8%AF%B4%E6%98%8E/"/>
-    <id>https://arachnid.cc/docs/Linux/Linux%20%E8%B7%AF%E7%94%B1%E8%A1%A8%E8%AF%B4%E6%98%8E/</id>
+    <link href="https://arachnid.cc/linux-routing-table/"/>
+    <id>https://arachnid.cc/linux-routing-table/</id>
     <published>2023-02-05T06:32:47.036Z</published>
-    <updated>2023-02-05T08:02:04.249Z</updated>
+    <updated>2023-02-10T14:07:01.841Z</updated>
     
     
       
@@ -41,10 +41,10 @@
   
   <entry>
     <title>SQLite 知识整理</title>
-    <link href="https://arachnid.cc/docs/Library/SQLite%20%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/"/>
-    <id>https://arachnid.cc/docs/Library/SQLite%20%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/</id>
+    <link href="https://arachnid.cc/aqlite-summarize/"/>
+    <id>https://arachnid.cc/aqlite-summarize/</id>
     <published>2023-02-03T12:44:39.504Z</published>
-    <updated>2023-02-05T04:34:15.138Z</updated>
+    <updated>2023-02-10T14:06:21.840Z</updated>
     
     
       
@@ -64,10 +64,10 @@
   
   <entry>
     <title>Linux 系统构成：bootloader、kernel、rootfs</title>
-    <link href="https://arachnid.cc/docs/Linux/Linux%20%E7%B3%BB%E7%BB%9F%E6%9E%84%E6%88%90%EF%BC%9Abootloader%E3%80%81kernel%E3%80%81rootfs/"/>
-    <id>https://arachnid.cc/docs/Linux/Linux%20%E7%B3%BB%E7%BB%9F%E6%9E%84%E6%88%90%EF%BC%9Abootloader%E3%80%81kernel%E3%80%81rootfs/</id>
+    <link href="https://arachnid.cc/linux-system-constitute/"/>
+    <id>https://arachnid.cc/linux-system-constitute/</id>
     <published>2023-02-02T11:34:26.713Z</published>
-    <updated>2023-02-02T11:38:04.015Z</updated>
+    <updated>2023-02-10T14:08:51.298Z</updated>
     
     
       
@@ -87,10 +87,10 @@
   
   <entry>
     <title>Ubuntu下 FTP的搭建配置</title>
-    <link href="https://arachnid.cc/docs/Linux/Ubuntu%E4%B8%8B%20FTP%E7%9A%84%E6%90%AD%E5%BB%BA%E9%85%8D%E7%BD%AE/"/>
-    <id>https://arachnid.cc/docs/Linux/Ubuntu%E4%B8%8B%20FTP%E7%9A%84%E6%90%AD%E5%BB%BA%E9%85%8D%E7%BD%AE/</id>
+    <link href="https://arachnid.cc/ubuntu-ftp-create/"/>
+    <id>https://arachnid.cc/ubuntu-ftp-create/</id>
     <published>2022-11-03T13:13:57.653Z</published>
-    <updated>2023-01-09T15:25:31.826Z</updated>
+    <updated>2023-02-10T14:09:40.460Z</updated>
     
     
       
@@ -113,11 +113,11 @@
   </entry>
   
   <entry>
-    <title>wireshark使用</title>
-    <link href="https://arachnid.cc/docs/Essay/wireshark%E4%BD%BF%E7%94%A8/"/>
-    <id>https://arachnid.cc/docs/Essay/wireshark%E4%BD%BF%E7%94%A8/</id>
+    <title>wireshark 使用</title>
+    <link href="https://arachnid.cc/using-wireshark/"/>
+    <id>https://arachnid.cc/using-wireshark/</id>
     <published>2022-10-05T07:55:39.000Z</published>
-    <updated>2022-11-14T15:24:46.376Z</updated>
+    <updated>2023-02-10T13:58:24.859Z</updated>
     
     
       
@@ -139,10 +139,10 @@
   
   <entry>
     <title>博客搭建笔记之功能扩展</title>
-    <link href="https://arachnid.cc/docs/Hexo/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%AC%94%E8%AE%B0%E4%B9%8B%E5%8A%9F%E8%83%BD%E6%89%A9%E5%B1%95/"/>
-    <id>https://arachnid.cc/docs/Hexo/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%AC%94%E8%AE%B0%E4%B9%8B%E5%8A%9F%E8%83%BD%E6%89%A9%E5%B1%95/</id>
+    <link href="https://arachnid.cc/shoka-function-expansion/"/>
+    <id>https://arachnid.cc/shoka-function-expansion/</id>
     <published>2022-05-25T15:23:42.722Z</published>
-    <updated>2023-02-01T15:08:04.746Z</updated>
+    <updated>2023-02-09T13:57:53.825Z</updated>
     
     
       
@@ -163,11 +163,11 @@
   </entry>
   
   <entry>
-    <title>博客搭建笔记之 shoka配置</title>
-    <link href="https://arachnid.cc/docs/Hexo/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%AC%94%E8%AE%B0%E4%B9%8B%20shoka%E9%85%8D%E7%BD%AE/"/>
-    <id>https://arachnid.cc/docs/Hexo/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%AC%94%E8%AE%B0%E4%B9%8B%20shoka%E9%85%8D%E7%BD%AE/</id>
+    <title>博客搭建笔记之 shoka 配置</title>
+    <link href="https://arachnid.cc/shoka-config/"/>
+    <id>https://arachnid.cc/shoka-config/</id>
     <published>2022-05-25T12:38:40.634Z</published>
-    <updated>2023-02-05T15:13:44.536Z</updated>
+    <updated>2023-02-10T14:31:05.161Z</updated>
     
     
       
@@ -189,10 +189,10 @@
   
   <entry>
     <title>博客搭建笔记之 Hexo-shoka</title>
-    <link href="https://arachnid.cc/docs/Hexo/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%AC%94%E8%AE%B0%E4%B9%8B%20Hexo-shoka/"/>
-    <id>https://arachnid.cc/docs/Hexo/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%AC%94%E8%AE%B0%E4%B9%8B%20Hexo-shoka/</id>
+    <link href="https://arachnid.cc/hexo-shoka-create/"/>
+    <id>https://arachnid.cc/hexo-shoka-create/</id>
     <published>2022-05-03T05:16:58.610Z</published>
-    <updated>2022-12-19T04:26:03.888Z</updated>
+    <updated>2023-02-09T13:58:00.854Z</updated>
     
     
       
@@ -213,11 +213,11 @@
   </entry>
   
   <entry>
-    <title>markdown语法测试</title>
-    <link href="https://arachnid.cc/docs/markdown%E8%AF%AD%E6%B3%95%E6%B5%8B%E8%AF%95/"/>
-    <id>https://arachnid.cc/docs/markdown%E8%AF%AD%E6%B3%95%E6%B5%8B%E8%AF%95/</id>
+    <title>markdown 语法测试</title>
+    <link href="https://arachnid.cc/markdown-syntax-testing/"/>
+    <id>https://arachnid.cc/markdown-syntax-testing/</id>
     <published>2022-04-28T07:45:50.867Z</published>
-    <updated>2022-05-15T10:07:51.251Z</updated>
+    <updated>2023-02-10T14:32:37.158Z</updated>
     
     
       
@@ -235,10 +235,10 @@
   
   <entry>
     <title>基于官方指导安装 Arch Linux</title>
-    <link href="https://arachnid.cc/docs/Linux/%E5%9F%BA%E4%BA%8E%E5%AE%98%E6%96%B9%E6%8C%87%E5%AF%BC%E5%AE%89%E8%A3%85%20Arch%20Linux/"/>
-    <id>https://arachnid.cc/docs/Linux/%E5%9F%BA%E4%BA%8E%E5%AE%98%E6%96%B9%E6%8C%87%E5%AF%BC%E5%AE%89%E8%A3%85%20Arch%20Linux/</id>
+    <link href="https://arachnid.cc/arch-linux-install/"/>
+    <id>https://arachnid.cc/arch-linux-install/</id>
     <published>2022-04-12T03:02:19.000Z</published>
-    <updated>2022-11-12T16:17:46.109Z</updated>
+    <updated>2023-02-10T14:10:04.957Z</updated>
     
     
       
@@ -259,11 +259,11 @@
   </entry>
   
   <entry>
-    <title>X/YModem传输协议</title>
-    <link href="https://arachnid.cc/docs/%E9%80%9A%E8%AE%AF%E5%8D%8F%E8%AE%AE/XYModem%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE/"/>
-    <id>https://arachnid.cc/docs/%E9%80%9A%E8%AE%AF%E5%8D%8F%E8%AE%AE/XYModem%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE/</id>
+    <title>X/YModem 传输协议</title>
+    <link href="https://arachnid.cc/x-ymodem-protocol/"/>
+    <id>https://arachnid.cc/x-ymodem-protocol/</id>
     <published>2022-03-27T15:41:27.000Z</published>
-    <updated>2023-01-14T05:49:55.918Z</updated>
+    <updated>2023-02-10T14:18:35.025Z</updated>
     
     
       
@@ -285,10 +285,10 @@
   
   <entry>
     <title>Modbus家族之 ASCII</title>
-    <link href="https://arachnid.cc/docs/%E9%80%9A%E8%AE%AF%E5%8D%8F%E8%AE%AE/Modbus%E5%AE%B6%E6%97%8F%E4%B9%8B%20ASCII/"/>
-    <id>https://arachnid.cc/docs/%E9%80%9A%E8%AE%AF%E5%8D%8F%E8%AE%AE/Modbus%E5%AE%B6%E6%97%8F%E4%B9%8B%20ASCII/</id>
+    <link href="https://arachnid.cc/modbus-ascii-protocol/"/>
+    <id>https://arachnid.cc/modbus-ascii-protocol/</id>
     <published>2022-03-20T07:42:45.000Z</published>
-    <updated>2023-01-09T15:12:20.639Z</updated>
+    <updated>2023-02-10T14:18:47.274Z</updated>
     
     
       
@@ -312,10 +312,10 @@
   
   <entry>
     <title>Modbus家族之 RTU</title>
-    <link href="https://arachnid.cc/docs/%E9%80%9A%E8%AE%AF%E5%8D%8F%E8%AE%AE/Modbus%E5%AE%B6%E6%97%8F%E4%B9%8B%20RTU/"/>
-    <id>https://arachnid.cc/docs/%E9%80%9A%E8%AE%AF%E5%8D%8F%E8%AE%AE/Modbus%E5%AE%B6%E6%97%8F%E4%B9%8B%20RTU/</id>
+    <link href="https://arachnid.cc/modbus-rtu-protocol/"/>
+    <id>https://arachnid.cc/modbus-rtu-protocol/</id>
     <published>2022-03-18T13:01:20.000Z</published>
-    <updated>2023-01-09T15:12:13.674Z</updated>
+    <updated>2023-02-10T14:18:53.450Z</updated>
     
     
       
@@ -339,10 +339,10 @@
   
   <entry>
     <title>RT-Thread 应用总结</title>
-    <link href="https://arachnid.cc/docs/RTOS/RT-Thread%20%E5%BA%94%E7%94%A8%E6%80%BB%E7%BB%93/"/>
-    <id>https://arachnid.cc/docs/RTOS/RT-Thread%20%E5%BA%94%E7%94%A8%E6%80%BB%E7%BB%93/</id>
+    <link href="https://arachnid.cc/rt-thread-summarize/"/>
+    <id>https://arachnid.cc/rt-thread-summarize/</id>
     <published>2022-02-25T13:33:59.000Z</published>
-    <updated>2023-01-09T15:13:35.085Z</updated>
+    <updated>2023-02-10T14:19:38.878Z</updated>
     
     
       
@@ -364,10 +364,10 @@
   
   <entry>
     <title>Modbus家族之开篇</title>
-    <link href="https://arachnid.cc/docs/%E9%80%9A%E8%AE%AF%E5%8D%8F%E8%AE%AE/Modbus%E5%AE%B6%E6%97%8F%E4%B9%8B%E5%BC%80%E7%AF%87/"/>
-    <id>https://arachnid.cc/docs/%E9%80%9A%E8%AE%AF%E5%8D%8F%E8%AE%AE/Modbus%E5%AE%B6%E6%97%8F%E4%B9%8B%E5%BC%80%E7%AF%87/</id>
+    <link href="https://arachnid.cc/modbus-family/"/>
+    <id>https://arachnid.cc/modbus-family/</id>
     <published>2022-02-08T10:37:49.000Z</published>
-    <updated>2023-01-09T15:12:06.861Z</updated>
+    <updated>2023-02-10T14:16:57.782Z</updated>
     
     
       
@@ -391,10 +391,10 @@
   
   <entry>
     <title>步进电机及丝杆</title>
-    <link href="https://arachnid.cc/docs/Essay/%E6%AD%A5%E8%BF%9B%E7%94%B5%E6%9C%BA%E5%8F%8A%E4%B8%9D%E6%9D%86/"/>
-    <id>https://arachnid.cc/docs/Essay/%E6%AD%A5%E8%BF%9B%E7%94%B5%E6%9C%BA%E5%8F%8A%E4%B8%9D%E6%9D%86/</id>
+    <link href="https://arachnid.cc/stepper-motor/"/>
+    <id>https://arachnid.cc/stepper-motor/</id>
     <published>2021-10-30T14:51:43.000Z</published>
-    <updated>2023-01-14T06:50:35.706Z</updated>
+    <updated>2023-02-10T13:59:43.892Z</updated>
     
     
       
@@ -414,10 +414,10 @@
   
   <entry>
     <title>关于 FreeRTOS和 newlib库共存问题</title>
-    <link href="https://arachnid.cc/docs/Essay/%E5%85%B3%E4%BA%8E%20FreeRTOS%E5%92%8C%20newlib%E5%BA%93%E5%85%B1%E5%AD%98%E9%97%AE%E9%A2%98/"/>
-    <id>https://arachnid.cc/docs/Essay/%E5%85%B3%E4%BA%8E%20FreeRTOS%E5%92%8C%20newlib%E5%BA%93%E5%85%B1%E5%AD%98%E9%97%AE%E9%A2%98/</id>
+    <link href="https://arachnid.cc/FreeRTOS-newlib-coexist/"/>
+    <id>https://arachnid.cc/FreeRTOS-newlib-coexist/</id>
     <published>2021-10-23T15:03:20.000Z</published>
-    <updated>2023-01-30T13:46:19.991Z</updated>
+    <updated>2023-02-10T14:02:07.250Z</updated>
     
     
       
@@ -438,11 +438,11 @@
   </entry>
   
   <entry>
-    <title>Kicad应用总结</title>
-    <link href="https://arachnid.cc/docs/EDA/Kicad%E5%BA%94%E7%94%A8%E6%80%BB%E7%BB%93/"/>
-    <id>https://arachnid.cc/docs/EDA/Kicad%E5%BA%94%E7%94%A8%E6%80%BB%E7%BB%93/</id>
+    <title>Kicad 应用总结</title>
+    <link href="https://arachnid.cc/kicad-summary/"/>
+    <id>https://arachnid.cc/kicad-summary/</id>
     <published>2021-08-14T09:00:24.000Z</published>
-    <updated>2022-11-12T16:00:16.974Z</updated>
+    <updated>2023-02-09T14:00:34.081Z</updated>
     
     
       
@@ -456,18 +456,18 @@
     
     
     
-    <category term="history" scheme="https://arachnid.cc/tags/history/"/>
-    
     <category term="EDA" scheme="https://arachnid.cc/tags/EDA/"/>
+    
+    <category term="history" scheme="https://arachnid.cc/tags/history/"/>
     
   </entry>
   
   <entry>
     <title>Cortex-M3/M4/M7 故障异常分析</title>
-    <link href="https://arachnid.cc/docs/Essay/Cortex-M3M4M7%20%E6%95%85%E9%9A%9C%E5%BC%82%E5%B8%B8%E5%88%86%E6%9E%90/"/>
-    <id>https://arachnid.cc/docs/Essay/Cortex-M3M4M7%20%E6%95%85%E9%9A%9C%E5%BC%82%E5%B8%B8%E5%88%86%E6%9E%90/</id>
+    <link href="https://arachnid.cc/Cortex-M-abnormal/"/>
+    <id>https://arachnid.cc/Cortex-M-abnormal/</id>
     <published>2021-07-17T04:58:01.000Z</published>
-    <updated>2022-11-12T16:21:39.330Z</updated>
+    <updated>2023-02-10T13:57:10.465Z</updated>
     
     
       
@@ -489,10 +489,10 @@
   
   <entry>
     <title>常用校验算法</title>
-    <link href="https://arachnid.cc/docs/%E7%AE%97%E6%B3%95/%E5%B8%B8%E7%94%A8%E6%A0%A1%E9%AA%8C%E7%AE%97%E6%B3%95/"/>
-    <id>https://arachnid.cc/docs/%E7%AE%97%E6%B3%95/%E5%B8%B8%E7%94%A8%E6%A0%A1%E9%AA%8C%E7%AE%97%E6%B3%95/</id>
+    <link href="https://arachnid.cc/check-algorithm/"/>
+    <id>https://arachnid.cc/check-algorithm/</id>
     <published>2021-05-05T13:36:25.000Z</published>
-    <updated>2023-01-15T09:02:21.184Z</updated>
+    <updated>2023-02-10T14:14:09.446Z</updated>
     
     
       

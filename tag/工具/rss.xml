@@ -1,0 +1,372 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>命运转轮 • Posts by &#34;工具&#34; tag</title>
+        <link>https://arachnid.cc</link>
+        <description>不曾亏欠, 不曾辜负, 如此足矣</description>
+        <language>zh-CN</language>
+        <pubDate>Wed, 05 Oct 2022 15:55:39 +0800</pubDate>
+        <lastBuildDate>Wed, 05 Oct 2022 15:55:39 +0800</lastBuildDate>
+        <category>EDA</category>
+        <category>history</category>
+        <category>电子</category>
+        <category>C</category>
+        <category>MCU</category>
+        <category>工具</category>
+        <category>FreeRTOS</category>
+        <category>hexo</category>
+        <category>IDE</category>
+        <category>SQL</category>
+        <category>JSON</category>
+        <category>Linux</category>
+        <category>Ubuntu</category>
+        <category>RTOS</category>
+        <category>算法</category>
+        <category>DMX512</category>
+        <category>modbus</category>
+        <category>Modem</category>
+        <item>
+            <guid isPermalink="true">https://arachnid.cc/using-wireshark/</guid>
+            <title>wireshark 使用</title>
+            <link>https://arachnid.cc/using-wireshark/</link>
+            <category>history</category>
+            <category>工具</category>
+            <pubDate>Wed, 05 Oct 2022 15:55:39 +0800</pubDate>
+            <description><![CDATA[ &lt;p&gt;官方说明：&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLndpcmVzaGFyay5vcmcvSG9tZQ==&#34;&gt;https://wiki.wireshark.org/Home&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cud2lyZXNoYXJrLm9yZy9kb2NzL3dzdWdfaHRtbF9jaHVua2VkLw==&#34;&gt;https://www.wireshark.org/docs/wsug_html_chunked/&lt;/span&gt;&lt;/p&gt;
+&lt;h1 id=&#34;着色规则&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#着色规则&#34;&gt;#&lt;/a&gt; 着色规则&lt;/h1&gt;
+&lt;p&gt;在 wireshark 监控界面上，不同的报文会显示不一样样的颜色，它们分别表示不同的含义；而这些颜色，都是是由着色规则设置的：&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20221006162351042.png&#34; alt=&#34;image-20221006162351042&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;在默认的着色规则中，一般黑色背景代表报文的各类错误，红色背景代表各类异常情景，其它颜色代表正常。&lt;/p&gt;
+&lt;p&gt;官方的说明可以看：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cud2lyZXNoYXJrLm9yZy9kb2NzL3dzdWdfaHRtbF9jaHVua2VkL0NoQ3VzdENvbG9yaXphdGlvblNlY3Rpb24uaHRtbA==&#34;&gt;https://www.wireshark.org/docs/wsug_html_chunked/ChCustColorizationSection.html&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;着色规则分析：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1、Bad TCP：&lt;/strong&gt; tcp.analysis.flags &amp;amp;&amp;amp; !tcp.analysis.window_update &amp;amp;&amp;amp; !tcp.analysis.keep_alive &amp;amp;&amp;amp; !tcp.analysis.keep_alive_ack&lt;/p&gt;
+&lt;p&gt;即 TCP 包损坏，通常表示为重传，乱序，丢包，重复响应等都在此条规则的范围内。具体看第三大点。&lt;/p&gt;
+&lt;p&gt;参看：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cud2lyZXNoYXJrLm9yZy9kb2NzL3dzdWdfaHRtbF9jaHVua2VkL0NoQWR2VENQQW5hbHlzaXMuaHRtbA==&#34;&gt;https://www.wireshark.org/docs/wsug_html_chunked/ChAdvTCPAnalysis.html&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2、HSRP State Change：&lt;/strong&gt; hsrp.state != 8 &amp;amp;&amp;amp; hsrp.state != 16&lt;/p&gt;
+&lt;p&gt;HSRP 即热备份路由协议（Hot Standby Router Protocol），这条规则表明当前报文状态非 Standby 和 Active。&lt;/p&gt;
+&lt;p&gt;HSRP 的状态值可以是以下几种：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;0 - Initial&lt;/li&gt;
+&lt;li&gt;1 - Learn&lt;/li&gt;
+&lt;li&gt;2 - Listen&lt;/li&gt;
+&lt;li&gt;4 - Speak&lt;/li&gt;
+&lt;li&gt;8 - Standby&lt;/li&gt;
+&lt;li&gt;16 - Active&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;参考：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cucmZjLWVkaXRvci5vcmcvcmZjL3JmYzIyODE=&#34;&gt;https://www.rfc-editor.org/rfc/rfc2281&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;3、Spanning Tree Topology  Change：&lt;/strong&gt; stp.type == 0x80&lt;/p&gt;
+&lt;p&gt;当生成树协议的状态标记为  &lt;code&gt;0x80&lt;/code&gt; ，表示着生成树拓扑发生变化。即 STP 协议数据单元 (BPDU) 的  &lt;code&gt;flag&lt;/code&gt;  字段发生变化（使用 IEEE-802.1d）：&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;bpdu.png&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;参考：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly90ZWNoaHViLmhwZS5jb20vZWdpbmZvbGliL25ldHdvcmtpbmcvZG9jcy9zd2l0Y2hlcy81OTgwLzUyMDAtMzkyMV9sMi1sYW5fY2cvY29udGVudC80OTkwMzY2NzIuaHRt&#34;&gt;https://techhub.hpe.com/eginfolib/networking/docs/switches/5980/5200-3921_l2-lan_cg/content/499036672.htm&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;4、OSPF State Change：&lt;/strong&gt; ospf.msg != 1&lt;/p&gt;
+&lt;p&gt;OSPF（Open Shortest Path First，开放式最短路径优先协议）的 msg 类型不是 Hello 报文。&lt;/p&gt;
+&lt;p&gt;OSPF 报文的类型，有下面几种类型：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;1：Hello 报文；&lt;/li&gt;
+&lt;li&gt;2：DD 报文；&lt;/li&gt;
+&lt;li&gt;3：LSR 报文；&lt;/li&gt;
+&lt;li&gt;4：LSU 报文；&lt;/li&gt;
+&lt;li&gt;5：LSAck 报文。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;参考：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3d3dy4wMjN3Zy5jb20vbWVzc2FnZS9tZXNzYWdlL2NkX2ZlYXR1cmVfb3NwZl9tZXNzYWdlLmh0bWw=&#34;&gt;http://www.023wg.com/message/message/cd_feature_ospf_message.html&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;5、ICMP errors：&lt;/strong&gt; icmp.type eq 3 || icmp.type eq 4 || icmp.type eq 5 || icmp.type eq 11 || icmpv6.type eq 1 || icmpv6.type eq 2 || icmpv6.type eq 3 || icmpv6.type eq 4&lt;/p&gt;
+&lt;p&gt;ICMP 协议错误，协议的 type 字段值错误。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;6、ARP：&lt;/strong&gt; arp&lt;/p&gt;
+&lt;p&gt;即 ARP 协议。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;7、ICMP：&lt;/strong&gt; icmp || icmpv6&lt;/p&gt;
+&lt;p&gt;即 ICMP 协议。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;8、TCP RST：&lt;/strong&gt; tcp.flags.reset eq 1&lt;/p&gt;
+&lt;p&gt;TCP 流产生 reset。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;9、SCTP ABORT：&lt;/strong&gt; sctp.chunk_type eq ABORT&lt;/p&gt;
+&lt;p&gt;SCTP（即流控制传输协议）发生中止。&lt;/p&gt;
+&lt;p&gt;参考：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cucmZjLWVkaXRvci5vcmcvcmZjL3JmYzQ5NjAjc2VjdGlvbi0zLjMuNw==&#34;&gt;https://www.rfc-editor.org/rfc/rfc4960#section-3.3.7&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;10、TTL low or unexpected：&lt;/strong&gt; ( ! ip.dst == 224.0.0.0/4 &amp;amp;&amp;amp; ip.ttl &amp;lt; 5 &amp;amp;&amp;amp; !pim &amp;amp;&amp;amp; !ospf) || (ip.dst == 224.0.0.0/24 &amp;amp;&amp;amp; ip.dst != 224.0.0.251 &amp;amp;&amp;amp; ip.ttl != 1 &amp;amp;&amp;amp; !(vrrp || carp))&lt;/p&gt;
+&lt;p&gt;TTL (Time-To-Live) 指解析记录在本地 DNS 服务器中的缓存时间。该规则表示 TTL 产生异常。&lt;/p&gt;
+&lt;p&gt;在 IP 组播中，通过 TTL 控件来管理转发数据包的范围，按照惯例：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;0 - 仅限于同一主机上&lt;/li&gt;
+&lt;li&gt;1 - 被限制在同一个子网内&lt;/li&gt;
+&lt;li&gt;32 仅限于同一站点&lt;/li&gt;
+&lt;li&gt;64 - 仅限于同一区域&lt;/li&gt;
+&lt;li&gt;128 - 仅限于同一大陆&lt;/li&gt;
+&lt;li&gt;255 - 不受限制&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;参考：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cudGVjaHRhcmdldC5jb20vc2VhcmNobmV0d29ya2luZy9kZWZpbml0aW9uL3RpbWUtdG8tbGl2ZQ==&#34;&gt;https://www.techtarget.com/searchnetworking/definition/time-to-live&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;11、Checksum Errors：&lt;/strong&gt; eth.fcs.status == &amp;quot;Bad&amp;quot; || ip.checksum.status == &amp;quot;Bad&amp;quot; || tcp.checksum.status == &amp;quot;Bad&amp;quot; || udp.checksum.status == &amp;quot;Bad&amp;quot; || sctp.checksum.status == &amp;quot;Bad&amp;quot; || mstp.checksum.status == &amp;quot;Bad&amp;quot; || cdp.checksum.status == &amp;quot;Bad&amp;quot; || edp.checksum.status == &amp;quot;Bad&amp;quot; || wlan.fcs.status == &amp;quot;Bad&amp;quot; || stt.checksum.status == &amp;quot;Bad&amp;quot;&lt;/p&gt;
+&lt;p&gt;条件中的各类协议的 checksum 出现异常。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;12、SMB：&lt;/strong&gt; smb || nbss || nbns || netbios&lt;/p&gt;
+&lt;p&gt;Server Message Block 类协议。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;13、HTTP：&lt;/strong&gt; http || tcp.port == 80 || http2&lt;/p&gt;
+&lt;p&gt;Hyper Text Transfer Protocol（超文本传输协议），这是很简陋的识别方法。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;14、DCERPC：&lt;/strong&gt; dcerpc&lt;/p&gt;
+&lt;p&gt;即 DCE/RPC，分散式运算环境 / 远端过程调用（Distributed Computing Environment / Remote Procedure Calls）协议。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;15、Routing：&lt;/strong&gt; hsrp || eigrp || ospf || bgp || cdp || vrrp || carp || gvrp || igmp || ismp&lt;/p&gt;
+&lt;p&gt;路由类协议。&lt;/p&gt;
+&lt;p&gt;**16、TCP SYN/FIN： ** tcp.flags &amp;amp; 0x02 || tcp.flags.fin == 1&lt;/p&gt;
+&lt;p&gt;TCP 连接的起始和关闭。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;17、TCP：&lt;/strong&gt; tcp&lt;/p&gt;
+&lt;p&gt;TCP 协议。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;18、UDP：&lt;/strong&gt; udp&lt;/p&gt;
+&lt;p&gt;UDP 协议。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;19、Broadcast：&lt;/strong&gt; eth[0] &amp;amp; 1&lt;/p&gt;
+&lt;p&gt;广播数据。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;20、System Event：&lt;/strong&gt; systemd_journal || sysdig&lt;/p&gt;
+&lt;p&gt;系统调用及系统事件等系统活动。&lt;/p&gt;
+&lt;h1 id=&#34;专家信息&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#专家信息&#34;&gt;#&lt;/a&gt; 专家信息&lt;/h1&gt;
+&lt;p&gt;在报文的信息栏中，通常也有颜色限定，如下图：&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20221006185352059.png&#34; alt=&#34;image-20221006185352059&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;而这次的颜色区别是属于对应的信息条目的：&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20221006185105048.png&#34; alt=&#34;image-20221006185105048&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;每个专家信息项都有一个严重性级别。使用以下级别，从最低到最高。Wireshark 使用不同的颜色标记它们：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;聊天（蓝色）&lt;/p&gt;
+&lt;p&gt;有关常用的工作流程信息，例如设置了 SYN 标志的 TCP 数据包；数据包都符合常规流量的特征，包括 SYN、FIN、RST 以及各种状态码的 HTTP 事件。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;注意（青色）&lt;/p&gt;
+&lt;p&gt;值得注意的事件，例如应用程序返回了一个常见的错误代码，例如 HTTP 404；数据包中有可能会引发故障的异常现象，例如 TCP 重传、重复确认、快速重传等现象。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;警告（黄色）&lt;/p&gt;
+&lt;p&gt;警告，例如应用程序返回异常错误代码，如连接问题。&lt;/p&gt;
+&lt;p&gt;与 TCP 窗口有关的事件 TCP window full 或 TCP zero window，一般是连接设备忙不过来所致。&lt;/p&gt;
+&lt;p&gt;与 TCP 报文段丢失或失序有关的事件，丢失是因为未抓全某个 TCP 数据流的所有 TCP 报文段；失序是因其感知到了 TCP 报文段未按发出的顺序到达接收主机。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;错误（红色）&lt;/p&gt;
+&lt;p&gt;严重的问题。&lt;/p&gt;
+&lt;p&gt;校验和错误：Ethernet 及 IP 校验和错误。&lt;/p&gt;
+&lt;p&gt;伪造的数据包：一般涉及具体的应用层协议。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;参看：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cud2lyZXNoYXJrLm9yZy9kb2NzL3dzdWdfaHRtbF9jaHVua2VkL0NoQWR2RXhwZXJ0Lmh0bWw=&#34;&gt;https://www.wireshark.org/docs/wsug_html_chunked/ChAdvExpert.html&lt;/span&gt;&lt;/p&gt;
+&lt;h1 id=&#34;tcp-info&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#tcp-info&#34;&gt;#&lt;/a&gt; TCP Info&lt;/h1&gt;
+&lt;p&gt;参看：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLndpcmVzaGFyay5vcmcvVENQX0FuYWx5emVfU2VxdWVuY2VfTnVtYmVycw==&#34;&gt;https://wiki.wireshark.org/TCP_Analyze_Sequence_Numbers&lt;/span&gt;&lt;/p&gt;
+&lt;h2 id=&#34;a-ack信息&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#a-ack信息&#34;&gt;#&lt;/a&gt; A、ACK 信息&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;1、TCP ACKed unseen segment&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;表示 Wireshark 发现该条 ACK 在整个网络包中找不到所对应的 Seq（排除了乱序），就会提示。&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20221012210009741.png&#34; alt=&#34;image-20221012210009741&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;如图，在这组网络中，第 296 号包出现这种情况，然后在上面的包中是找不到它所对应的 Seq 的。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2、TCP Dup ACK &lt;em&gt;&amp;lt;frame&amp;gt;&lt;/em&gt; #&lt;em&gt;&amp;lt;acknowledgement number&amp;gt;&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;重复 ACK 包，当收发不稳定时，会出现重复响应的情况；而这种情况就是响应端会向请求端回复重复 ACK。 &lt;code&gt;#&lt;/code&gt;  符号前面的数字表示对应的重复包号，后面的数字表示确认次数，也可以说是出现的次数。&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20221012221850769.png&#34; alt=&#34;image-20221012221850769&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;如图，在第 31191 号包的信息中可以看到提示是说跟第 31188 号包出现重复，通过查看第 31188 号包，而这一包其实是为了响应第 31187 号的。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;3、TCP Fast Retransmission&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;标志着前面接收到重复的 ACK 包（即出现了 [TCP Dup ACK] ）达 3 个或 3 个以上，进而触发了 TCP 的快速重传（这是 RFC 的规定）。&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20221012224854822.png&#34; alt=&#34;image-20221012224854822&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;如图， [TCP Dup ACK] 出现了 3 次，而且都是对应第 1309 号包，因此触发快速重传包第 1330 号包，重传了第 1309 号包所响应的请求包第 1245 号包，如下图：&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20221012230828693.png&#34; alt=&#34;image-20221012230828693&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;然后通过对比原包第 1245 号包和快速重传包第 1330 号包，你会发现并不相同，实际上原始数据应该是相同的，只不过数据加密了，才出现不同的现象。&lt;/p&gt;
+&lt;h2 id=&#34;b-保活探测&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#b-保活探测&#34;&gt;#&lt;/a&gt; B、保活探测&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;4、TCP Keep-Alive&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;这个应该不陌生，一般 TCP 长链接时，如果启用保活功能，则在特定时间段没有数据交互，那么将会传输一条保活字段，如下图：&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20221012233735152.png&#34; alt=&#34;image-20221012233735152&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;5、TCP Keep-Alive ACK&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;作为上一点 [TCP Keep-Alive] 的响应包，例图看上一张。&lt;/p&gt;
+&lt;h2 id=&#34;c-乱序-or-丢包&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#c-乱序-or-丢包&#34;&gt;#&lt;/a&gt; C、乱序 or 丢包&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;6、TCP Out-Of-Order&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;标志着 TCP 传输出现乱序。&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20221013201521709.png&#34; alt=&#34;image-20221013201521709&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;如图，在 TCP 传输过程中（不包括三次握手和四次挥手），同一台主机发出的数据包应该是连续的，即后一个包的 Seq 号等于前一个包的 Seq + Len；也可以说，后一个包的 Seq 会大于或等于前一个包的 Seq。当 Wireshark 发现后一个包的 Seq 值小于前一个包的 Seq + Len 时，就会认为是乱序了，因此标志 [TCP Out-of-Order]。&lt;/p&gt;
+&lt;p&gt;在连续传输数据过程中，可以看到从第 330 号包一直到第 337 包被标志为乱序这几个包，应当是连续的，但是可以发现第 336 号包跟第 337 号包调转了，因此第 336 号包被标志为上一包未捕获，而第 337 号包则被标志为乱序。&lt;/p&gt;
+&lt;p&gt;然后来分析一下，例如第 337 号包的 Seq = 83518，Len = 1380，那么 Seq + Len = 84898，可以发现其实该包列栏中  &lt;code&gt;Sequence Number&lt;/code&gt;  的  &lt;code&gt;83518&lt;/code&gt;  数据对应 Seq， &lt;code&gt;NextSequence Number&lt;/code&gt;  的  &lt;code&gt;84898&lt;/code&gt;  数据对应 Seq + Len。根据上面的结论，在发生错误前的第 335 号包它的  &lt;code&gt;NextSequence Number&lt;/code&gt;  表明下一包第 336 号包的 Seq 值应当是  &lt;code&gt;83518&lt;/code&gt;  ，但是实际上第 336 号包的 Seq 值为  &lt;code&gt;84898&lt;/code&gt;  ，当到了第 337 号包的时候，才出现理应对应的值  &lt;code&gt;83518&lt;/code&gt;  ，这时 Wireshark 通过对比在发生错误前的第 335 号包至理论连续的第 337 号包之间看是否有出现调转包，有则标志 [TCP Out-of-Order]。一般出现 [TCP Out-of-Order] 时都会伴随出现 [TCP Previous segment not captured] 。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;7、TCP Previous segment not captured&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;在 TCP 传输过程中，同一台主机发出的数据段应该是连续的，即后一个包的 Seq 号等于前一个包的 Seq + Len（三次握手和四次挥手是例外）。如果 Wireshark 发现后一个包的 Seq 值大于前一个包的 Seq + Len，就知道中间缺失了一段数据。&lt;/p&gt;
+&lt;p&gt;依然沿用上一张图，在发生错误前的第 335 号包 Seq + Len 值为  &lt;code&gt;83518&lt;/code&gt;  ，但下一包的 Seq 值为  &lt;code&gt;84898&lt;/code&gt;  ，因此出现后一个包的 Seq 值大于前一个包的 Seq + Len，而非等于，所以预示着该数据包的上一个包未捕获到，但后面我们也有发现虽然显示上一个包未捕获到，实际紧随它的后一个包就是它们之间的数据包，只是调转了包而已。&lt;/p&gt;
+&lt;h2 id=&#34;d-端口&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#d-端口&#34;&gt;#&lt;/a&gt; D、端口&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;8、TCP Port numbers reused&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;这个死活没捕捉出来，就简单说一下吧。&lt;/p&gt;
+&lt;p&gt;当发送 SYN 标志时（不是 SYN + ACK），如果已经存在一个使用相同地址和端口的现有会话，那么将会被 Wireshark 标记 [TCP Port numbers reused]。&lt;/p&gt;
+&lt;h2 id=&#34;e-重传&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#e-重传&#34;&gt;#&lt;/a&gt; E、重传&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;9、TCP Spurious Retransmission&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TCP 虚假重传，意味着发送端认为发送的包已经丢失了，然后就重传了，尽管此时接收端已经发送了对这些包的确认（确认还没收到或者已经丢失了）。&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20221013232224434.png&#34; alt=&#34;image-20221013232224434&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;如图，第 459 号包出现虚拟重传现象，实际为第 453 号包的重传，可从显示来看第 453 号包是已经是得到接收端的 ACK 响应了，理论来讲是不会重传的，但前面也有说到了，可能会出现接收端确认了请求（已经发出去了），发送端却还没收到或者已经丢失了，那么发送端将会重传数据，而由于这时这段数据包在初包发送后接收端有回一次请求，这次重传相当于接收端又回了一次请求（即重复了两次响应，可以看到第 460 号包标志为 [TCP Dup ACK] 了），所以对于这种有回 ACK 还重传的数据包将被标志为 [TCP Spurious Retransmission] 。然后至于为什么是重传了第 453 号包，可以看到第 460 号包的信息提示，这是 ACK 响应第 459 号包的，但同时也是跟第 454 号包重复，而第 454 号包对应响应第 453 号包的，那自然而然地得到第 459 号包为第 453 号包的重传。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;10、TCP Retransmission&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TCP 重传，与上面不同的是如果一个包不确定是否丢了，但它又没有像上面 [TCP Spurious Retransmission] 那样得到接收端的 ACK 响应，那它大概率就是丢包了，就不会快速重传；而针对这种情况，发送方也就只好等到超时了再重传，此类重传包就会被 Wireshark 标志 [TCP Retransmission] 。&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20221014221501852.png&#34; alt=&#34;image-20221014221501852&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;如图，第 33 号包被标志为 [TCP Previous segment not captured]，预示着有可能出现丢包，并且在后面一段时间内也没有像前面那样有标志 [TCP Out-Of-Order] 提示的包，排除了乱序情况，最终等待超时，重传数据包，于是第 33 号重传包就有了 [TCP Retransmission] 标志。TCP 重传是 TCP 通讯中常有的事情，有时候看到一大堆黑漆漆一片的 error 事件，可能就是这种情况。&lt;/p&gt;
+&lt;h2 id=&#34;f-tcp-window&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#f-tcp-window&#34;&gt;#&lt;/a&gt; F、TCP Window&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;11、TCP Window Full&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;顾名思义，就是窗口已满，指的发送端发送的数据已经达到的接受窗口的上限；那么发送端暂停发送，等待新的接收窗口的通告。&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20221014235639055.png&#34; alt=&#34;image-20221014235639055&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;如图，在这组数据中，从第 526323 号包开始，出现了 [TCP Window Full] 表明发送数据达到上限了，同时还有另一个 [TCP Spurious Retransmission] 表明了虚假重传，但可惜的是接收端后续都没有响应，最终导致在发送 RST 报文后，关闭 TCP 连接。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;12、TCP Window Update&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;TCP 协议允许随时改变窗口的大小，并且通过发送标识有 WindowUpdate 的报文通知对端；或者当接收端的应用程序消耗完了已经从 RX 缓冲区接收到的数据时，也会发生 WindowUpdate，以指示缓冲区中现在有更多可用空间；以上这些数据包将被标志 [TCP Window Update]。[TCP Window Update] 是 TCP 通信中的一个状态，它可以发生的原因还有有很多，通常在 TCP ZeroWindow 条件发生后看到。&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20221014234941548.png&#34; alt=&#34;image-20221014234941548&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;13、TCP ZeroWindow&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;如图，当接收窗口值大小为零（Win = 0）且非 SYN、FIN 或 RST 数据时设置。&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20221014223515008.png&#34; alt=&#34;image-20221014223515008&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;在每个 TCP 报头中的窗口字段表明着接收端可以接受的数据量大小；如果接收端不能接受任何数据，它将把窗口值设置为零，这告诉发送端暂停其传输。在某些特定情况下，这是正常的，例如，打印机可能会在加载或翻转一张纸时使用零窗口暂停打印作业的传输；然而，在大多数情况下，这表明接收端存在性能或容量问题。恢复暂停的连接可能需要很长时间 (有时需要几分钟)，即使导致零窗口的底层条件很快就会清除。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;14、TCP ZeroWindowProbe&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;当通信的一方接收到 TCP ZeroWindow 报文后，会定时发送 TCP ZeroWindowProbe 报文进行探测；探测报文是需要发送下一字节数据，然后通过接收端的响应，由此来判断接收端窗口值是否仍然为 0，如果接收方回复窗口大小仍然为零，则发送端继续探测。ZeroWindowProbe 它有助于证明发送端已经确认到接收端其 TCP 窗口大小为零，但仍试图让数据继续交互而非关闭通讯。&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;windows-3.png&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;15、TCP ZeroWindowProbeAck&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;作为 [TCP ZeroWindowProbe] 的 ACK 应答，结合 TCP ZeroWindowProbe 理解。ZeroWindowProbeAck 数据包的存在也表明网络正在传递数据包并且设备没有关闭。&lt;/p&gt;
+&lt;h2 id=&#34;g-交互&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#g-交互&#34;&gt;#&lt;/a&gt; G、交互&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;16、TCP Conversation Completeness&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;SYN&lt;/li&gt;
+&lt;li&gt;SYN-ACK&lt;/li&gt;
+&lt;li&gt;ACK&lt;/li&gt;
+&lt;li&gt;DATA&lt;/li&gt;
+&lt;li&gt;FIN&lt;/li&gt;
+&lt;li&gt;RST&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img data-src=&#34;0.jpg&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
+&lt;h1 id=&#34;常见表达式&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#常见表达式&#34;&gt;#&lt;/a&gt; 常见表达式&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;1、运算符&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;英文写法&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;别名&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;C-like&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;描述&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;例子&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;eq&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;any_eq&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;==&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;相等（如果超过一个）&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;ip.src == 10.0.0.5&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;ne&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;all_ne&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;!=&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;不相等（如果多于一个，则全部）&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;ip.src != 10.0.0.5&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;all_eq&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;===&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;相等（如果多于一个，则全部）&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;ip.src === 10.0.0.5&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;any_ne&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;!==&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;不相等（如果多于一个，则任意）&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;ip.src !== 10.0.0.5&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;gt&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&amp;gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;大于&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;frame.len &amp;gt; 10&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;lt&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&amp;lt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;小于&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;frame.len &amp;lt; 128&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;ge&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&amp;gt;=&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;大于或等于&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;frame.len ge 0x100&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;le&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&amp;lt;=&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;小于或等于&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;frame.len &amp;lt;= 0x20&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;2、逻辑符&lt;/strong&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;英文写法&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;C-like&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;描述&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;例子&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;and&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&amp;amp;&amp;amp;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;逻辑与&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;ip.src==10.0.0.5 and tcp.flags.fin&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;or&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34; rowspan=&#34;2&#34;&gt;||&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;逻辑或&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;ip.src==10.0.0.5 or ip.src==192.1.1.1&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;xor&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;异或&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;tr.dst[0:3] == 0.6.29 xor tr.src[0:3] == 0.6.29&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;not&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;!&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;逻辑非&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;not llc&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;3、协议过滤&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;ip.proto == xxx
+
+note: xxx表示为对应的协议，如 TCP：ip.proto == TCP
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;TCP：&lt;/strong&gt; 只显示 TCP 协议的数据流&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;UDP：&lt;/strong&gt; 只显示 UDP 协议的数据流&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;HTTP：&lt;/strong&gt; 只显示 HTTP 协议的数据流&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ICMP：&lt;/strong&gt; 只显示 ICMP 协议的数据流&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ARP：&lt;/strong&gt; 只显示 ARP 协议的数据流&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DNS：&lt;/strong&gt; 只显示 DNS 协议的数据流&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;4、IP 过滤&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;ip.addr == 192.168.116.138&lt;/code&gt;  ，只显示 &lt;strong&gt;IP 地址&lt;/strong&gt;为  &lt;code&gt;192.168.116.138&lt;/code&gt;  有关的数据流&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ip.src == 192.168.116.138&lt;/code&gt;  ，只显示&lt;strong&gt;源 IP 地址&lt;/strong&gt;为  &lt;code&gt;192.168.116.138&lt;/code&gt;  的数据流&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ip.dst == 192.168.116.138&lt;/code&gt;  ，只显示&lt;strong&gt;目标 IP 地址&lt;/strong&gt;为  &lt;code&gt;192.168.116.138&lt;/code&gt;  的数据流&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;5、端口过滤&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;tcp.port == 80&lt;/code&gt;  ，只显示 80 端口 TCP 数据流&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;udp.prot == 67&lt;/code&gt;  ，只显示 67 端口 UDP 数据流&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;tcp.srcport == 80&lt;/code&gt;  , 只显示源地址的 80 端口数据流&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;tcp.dstport == 80&lt;/code&gt;  ，只显示目的地址 80 端口数据流&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;6、过滤 HTTP 协议&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;http.request.method == &amp;quot;GET&amp;quot;&lt;/code&gt;  ，显示 GET 请求&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;http.request.method == &amp;quot;POST&amp;quot;&lt;/code&gt;  ，显示 POST 请求&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;http.request.code == 404&lt;/code&gt;  ，显示状态码为 404&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;参看：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cud2lyZXNoYXJrLm9yZy9kb2NzL3dzdWdfaHRtbF9jaHVua2VkL0NoV29ya0J1aWxkRGlzcGxheUZpbHRlclNlY3Rpb24uaHRtbA==&#34;&gt;https://www.wireshark.org/docs/wsug_html_chunked/ChWorkBuildDisplayFilterSection.html&lt;/span&gt;&lt;/p&gt;
+&lt;h1 id=&#34;列信息增删&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#列信息增删&#34;&gt;#&lt;/a&gt; 列信息增删&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;1、增加列信息&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;在报文的信息栏，选着想要显示的信息，右键点击添加：&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20221006221325561.png&#34; alt=&#34;image-20221006221325561&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2、删除列信息&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;在监控报文栏，选择不需要的列，右键选中：&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20221006221434994.png&#34; alt=&#34;image-20221006221434994&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;3、隐藏列信息&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;同样在监控报文栏操作，随便选择一列，右键选中，然后把想要隐藏的列去掉勾选，这里就不放图了。&lt;/p&gt;
+ ]]></description>
+        </item>
+    </channel>
+</rss>
