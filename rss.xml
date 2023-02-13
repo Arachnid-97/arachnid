@@ -9,8 +9,31 @@
     <atom:link href="https://arachnid.cc/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description>不曾亏欠, 不曾辜负, 如此足矣</description>
-    <pubDate>Fri, 10 Feb 2023 14:07:01 GMT</pubDate>
+    <pubDate>Mon, 13 Feb 2023 14:15:04 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>GCC 编译器套件说明</title>
+      <link>https://arachnid.cc/gcc-compiler-collection/</link>
+      <guid>https://arachnid.cc/gcc-compiler-collection/</guid>
+      <pubDate>Fri, 10 Feb 2023 15:28:36 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description></description>
+          
+        
+      
+      
+      
+      
+      
+      
+      <comments>https://arachnid.cc/gcc-compiler-collection/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>Linux 路由表说明</title>
@@ -518,35 +541,6 @@
       
       
       <comments>https://arachnid.cc/Cortex-M-abnormal/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>常用校验算法</title>
-      <link>https://arachnid.cc/check-algorithm/</link>
-      <guid>https://arachnid.cc/check-algorithm/</guid>
-      <pubDate>Wed, 05 May 2021 13:36:25 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description></description>
-          
-        
-      
-      
-      
-      
-      <category domain="https://arachnid.cc/categories/%E7%AE%97%E6%B3%95/">算法</category>
-      
-      
-      <category domain="https://arachnid.cc/tags/history/">history</category>
-      
-      <category domain="https://arachnid.cc/tags/%E7%AE%97%E6%B3%95/">算法</category>
-      
-      
-      <comments>https://arachnid.cc/check-algorithm/#disqus_thread</comments>
       
     </item>
     
