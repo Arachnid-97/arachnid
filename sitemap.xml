@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://arachnid.cc/using-git-command/</loc>
+    
+    <lastmod>2023-02-14</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://arachnid.cc/markdown-syntax-testing/</loc>
+    
+    <lastmod>2023-02-13</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://arachnid.cc/x-ymodem-protocol/</loc>
     
     <lastmod>2023-02-13</lastmod>
@@ -497,15 +515,6 @@
   </url>
   
   <url>
-    <loc>https://arachnid.cc/markdown-syntax-testing/</loc>
-    
-    <lastmod>2023-02-13</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://arachnid.cc/404.html</loc>
     
     <lastmod>2022-05-23</lastmod>
@@ -535,7 +544,7 @@
 
   <url>
     <loc>https://arachnid.cc/</loc>
-    <lastmod>2023-02-13</lastmod>
+    <lastmod>2023-02-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
