@@ -7,9 +7,9 @@
         <language>zh-CN</language>
         <pubDate>Sat, 14 Nov 2020 19:39:48 +0800</pubDate>
         <lastBuildDate>Sat, 14 Nov 2020 19:39:48 +0800</lastBuildDate>
-        <category>电子</category>
-        <category>history</category>
         <category>EDA</category>
+        <category>history</category>
+        <category>电子</category>
         <category>C</category>
         <category>MCU</category>
         <category>git</category>
@@ -30,8 +30,8 @@
             <guid isPermalink="true">https://arachnid.cc/logic-device/</guid>
             <title>逻辑门、锁存器和触发器</title>
             <link>https://arachnid.cc/logic-device/</link>
-            <category>电子</category>
             <category>history</category>
+            <category>电子</category>
             <pubDate>Sat, 14 Nov 2020 19:39:48 +0800</pubDate>
             <description><![CDATA[ &lt;blockquote&gt;
 &lt;p&gt;好久没写硬件的笔记了，写这篇笔记是因为在网上或者在现有的书上查阅相关知识点的时候，发现大多数东西都是一略带过、不全面，而且内容讲的有点沉闷，容易让人呼呼入睡（ps：这里绝对没有瞧不起作者的意思哈，可能风格有点不适应），所以想着以后可能也会用到，还是自己总结一篇吧。&lt;/p&gt;
@@ -604,8 +604,8 @@
             <guid isPermalink="true">https://arachnid.cc/inductor/</guid>
             <title>三大无源器件之电感</title>
             <link>https://arachnid.cc/inductor/</link>
-            <category>电子</category>
             <category>history</category>
+            <category>电子</category>
             <pubDate>Sat, 28 Mar 2020 12:13:59 +0800</pubDate>
             <description><![CDATA[ &lt;blockquote&gt;
 &lt;p&gt;下面用三个篇章解释&lt;/p&gt;
@@ -699,8 +699,8 @@
             <guid isPermalink="true">https://arachnid.cc/capacitor/</guid>
             <title>三大无源器件之电容</title>
             <link>https://arachnid.cc/capacitor/</link>
-            <category>电子</category>
             <category>history</category>
+            <category>电子</category>
             <pubDate>Thu, 26 Mar 2020 21:01:47 +0800</pubDate>
             <description><![CDATA[ &lt;blockquote&gt;
 &lt;p&gt;下面用三个篇章解释&lt;/p&gt;
@@ -816,8 +816,8 @@
             <guid isPermalink="true">https://arachnid.cc/resistor/</guid>
             <title>三大无源器件之电阻</title>
             <link>https://arachnid.cc/resistor/</link>
-            <category>电子</category>
             <category>history</category>
+            <category>电子</category>
             <pubDate>Wed, 25 Mar 2020 23:17:16 +0800</pubDate>
             <description><![CDATA[ &lt;blockquote&gt;
 &lt;p&gt;下面用三个篇章解释&lt;/p&gt;

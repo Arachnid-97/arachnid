@@ -7,9 +7,9 @@
         <language>zh-CN</language>
         <pubDate>Thu, 03 Nov 2022 21:13:57 +0800</pubDate>
         <lastBuildDate>Thu, 03 Nov 2022 21:13:57 +0800</lastBuildDate>
-        <category>电子</category>
-        <category>history</category>
         <category>EDA</category>
+        <category>history</category>
+        <category>电子</category>
         <category>C</category>
         <category>MCU</category>
         <category>git</category>
@@ -3897,8 +3897,8 @@ umount -r /mnt
             <guid isPermalink="true">https://arachnid.cc/kicad-summary/</guid>
             <title>Kicad 应用总结</title>
             <link>https://arachnid.cc/kicad-summary/</link>
-            <category>history</category>
             <category>EDA</category>
+            <category>history</category>
             <pubDate>Sat, 14 Aug 2021 17:00:24 +0800</pubDate>
             <description><![CDATA[ &lt;blockquote&gt;
 &lt;p&gt;在当前这个时代，对于 PCB 设计，有太多的 EDA 设计软件了，如：Cadence、PADS、Altium 等，但绝大多数是要授权的，而且如今人们版权意识正在提高；这对电子爱好者来说，要想 DIY 一个好东西，免不了依赖于这些设计软件，但如果有开源的、顺手的软件，那么我们更倾于应用这些软件，毕竟从版权意识上看以及投向开源社区来讲都是好的。&lt;/p&gt;
@@ -5997,8 +5997,8 @@ eNotifyAction  eAction );&lt;/p&gt;
             <guid isPermalink="true">https://arachnid.cc/logic-device/</guid>
             <title>逻辑门、锁存器和触发器</title>
             <link>https://arachnid.cc/logic-device/</link>
-            <category>电子</category>
             <category>history</category>
+            <category>电子</category>
             <pubDate>Sat, 14 Nov 2020 19:39:48 +0800</pubDate>
             <description><![CDATA[ &lt;blockquote&gt;
 &lt;p&gt;好久没写硬件的笔记了，写这篇笔记是因为在网上或者在现有的书上查阅相关知识点的时候，发现大多数东西都是一略带过、不全面，而且内容讲的有点沉闷，容易让人呼呼入睡（ps：这里绝对没有瞧不起作者的意思哈，可能风格有点不适应），所以想着以后可能也会用到，还是自己总结一篇吧。&lt;/p&gt;
