@@ -16,12 +16,12 @@
         <category>工具</category>
         <category>FreeRTOS</category>
         <category>hexo</category>
-        <category>IDE</category>
+        <category>RTOS</category>
         <category>SQL</category>
         <category>JSON</category>
         <category>Linux</category>
         <category>Ubuntu</category>
-        <category>RTOS</category>
+        <category>IDE</category>
         <category>算法</category>
         <category>DMX512</category>
         <category>modbus</category>
@@ -176,11 +176,14 @@
 &lt;ul&gt;
 &lt;li&gt;Bootloader
 &lt;ul&gt;
-&lt;li&gt;Device tree blob&lt;/li&gt;
 &lt;li&gt;boot.img&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;Linux Kernel（Linux 内核）&lt;/li&gt;
+&lt;li&gt;Linux Kernel（Linux 内核）
+&lt;ul&gt;
+&lt;li&gt;Device tree blob&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;li&gt;Root Filesystem（根目录文件系統）&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id=&#34;bootloader&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#bootloader&#34;&gt;#&lt;/a&gt; bootloader&lt;/h1&gt;

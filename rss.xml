@@ -9,8 +9,31 @@
     <atom:link href="https://arachnid.cc/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description>不曾亏欠, 不曾辜负, 如此足矣</description>
-    <pubDate>Mon, 13 Feb 2023 14:15:04 GMT</pubDate>
+    <pubDate>Sat, 18 Feb 2023 07:24:32 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Windows 下常用的指令以及操作</title>
+      <link>https://arachnid.cc/common-windows-commands/</link>
+      <guid>https://arachnid.cc/common-windows-commands/</guid>
+      <pubDate>Sat, 18 Feb 2023 07:10:34 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description></description>
+          
+        
+      
+      
+      
+      
+      
+      
+      <comments>https://arachnid.cc/common-windows-commands/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>GCC 编译器套件说明</title>
@@ -514,33 +537,6 @@
       
       
       <comments>https://arachnid.cc/kicad-summary/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Cortex-M3/M4/M7 故障异常分析</title>
-      <link>https://arachnid.cc/Cortex-M-abnormal/</link>
-      <guid>https://arachnid.cc/Cortex-M-abnormal/</guid>
-      <pubDate>Sat, 17 Jul 2021 04:58:01 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description></description>
-          
-        
-      
-      
-      
-      
-      
-      <category domain="https://arachnid.cc/tags/history/">history</category>
-      
-      <category domain="https://arachnid.cc/tags/MCU/">MCU</category>
-      
-      
-      <comments>https://arachnid.cc/Cortex-M-abnormal/#disqus_thread</comments>
       
     </item>
     

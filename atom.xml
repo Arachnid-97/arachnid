@@ -6,7 +6,7 @@
   <link href="https://arachnid.cc/atom.xml" rel="self"/>
   
   <link href="https://arachnid.cc/"/>
-  <updated>2023-02-13T14:15:04.841Z</updated>
+  <updated>2023-02-18T07:24:32.756Z</updated>
   <id>https://arachnid.cc/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Windows 下常用的指令以及操作</title>
+    <link href="https://arachnid.cc/common-windows-commands/"/>
+    <id>https://arachnid.cc/common-windows-commands/</id>
+    <published>2023-02-18T07:10:34.434Z</published>
+    <updated>2023-02-18T07:24:32.756Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>GCC 编译器套件说明</title>
@@ -88,7 +109,7 @@
     <link href="https://arachnid.cc/linux-system-constitute/"/>
     <id>https://arachnid.cc/linux-system-constitute/</id>
     <published>2023-02-02T11:34:26.713Z</published>
-    <updated>2023-02-13T14:17:13.307Z</updated>
+    <updated>2023-02-18T07:04:28.291Z</updated>
     
     
       
@@ -163,7 +184,7 @@
     <link href="https://arachnid.cc/shoka-function-expansion/"/>
     <id>https://arachnid.cc/shoka-function-expansion/</id>
     <published>2022-05-25T15:23:42.722Z</published>
-    <updated>2023-02-13T14:16:22.190Z</updated>
+    <updated>2023-02-20T12:59:13.251Z</updated>
     
     
       
@@ -284,7 +305,7 @@
     <link href="https://arachnid.cc/x-ymodem-protocol/"/>
     <id>https://arachnid.cc/x-ymodem-protocol/</id>
     <published>2022-03-27T15:41:27.000Z</published>
-    <updated>2023-02-13T14:20:11.747Z</updated>
+    <updated>2023-02-22T14:45:33.115Z</updated>
     
     
       
@@ -309,7 +330,7 @@
     <link href="https://arachnid.cc/modbus-ascii-protocol/"/>
     <id>https://arachnid.cc/modbus-ascii-protocol/</id>
     <published>2022-03-20T07:42:45.000Z</published>
-    <updated>2023-02-13T14:19:48.222Z</updated>
+    <updated>2023-02-22T14:44:20.682Z</updated>
     
     
       
@@ -336,7 +357,7 @@
     <link href="https://arachnid.cc/modbus-rtu-protocol/"/>
     <id>https://arachnid.cc/modbus-rtu-protocol/</id>
     <published>2022-03-18T13:01:20.000Z</published>
-    <updated>2023-02-13T14:19:53.946Z</updated>
+    <updated>2023-02-22T14:44:09.777Z</updated>
     
     
       
@@ -363,7 +384,7 @@
     <link href="https://arachnid.cc/rt-thread-summarize/"/>
     <id>https://arachnid.cc/rt-thread-summarize/</id>
     <published>2022-02-25T13:33:59.000Z</published>
-    <updated>2023-02-13T14:18:48.380Z</updated>
+    <updated>2023-02-22T14:59:02.893Z</updated>
     
     
       
@@ -388,7 +409,7 @@
     <link href="https://arachnid.cc/modbus-family/"/>
     <id>https://arachnid.cc/modbus-family/</id>
     <published>2022-02-08T10:37:49.000Z</published>
-    <updated>2023-02-13T14:19:59.617Z</updated>
+    <updated>2023-02-22T14:44:47.224Z</updated>
     
     
       
@@ -438,7 +459,7 @@
     <link href="https://arachnid.cc/FreeRTOS-newlib-coexist/"/>
     <id>https://arachnid.cc/FreeRTOS-newlib-coexist/</id>
     <published>2021-10-23T15:03:20.000Z</published>
-    <updated>2023-02-13T14:15:47.558Z</updated>
+    <updated>2023-02-22T14:37:35.752Z</updated>
     
     
       
@@ -480,31 +501,6 @@
     <category term="EDA" scheme="https://arachnid.cc/tags/EDA/"/>
     
     <category term="history" scheme="https://arachnid.cc/tags/history/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Cortex-M3/M4/M7 故障异常分析</title>
-    <link href="https://arachnid.cc/Cortex-M-abnormal/"/>
-    <id>https://arachnid.cc/Cortex-M-abnormal/</id>
-    <published>2021-07-17T04:58:01.000Z</published>
-    <updated>2023-02-13T14:14:52.696Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html"></summary>
-        
-      
-    
-    
-    
-    
-    <category term="history" scheme="https://arachnid.cc/tags/history/"/>
-    
-    <category term="MCU" scheme="https://arachnid.cc/tags/MCU/"/>
     
   </entry>
   

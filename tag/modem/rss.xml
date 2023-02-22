@@ -16,12 +16,12 @@
         <category>工具</category>
         <category>FreeRTOS</category>
         <category>hexo</category>
-        <category>IDE</category>
+        <category>RTOS</category>
         <category>SQL</category>
         <category>JSON</category>
         <category>Linux</category>
         <category>Ubuntu</category>
-        <category>RTOS</category>
+        <category>IDE</category>
         <category>算法</category>
         <category>DMX512</category>
         <category>modbus</category>
@@ -340,7 +340,7 @@
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h2 id=&#34;扩展&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#扩展&#34;&gt;#&lt;/a&gt; 扩展&lt;/h2&gt;
-&lt;p&gt;关于校验和和 CRC 校验可以看以前的文章《&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyOTkyMDg0L2FydGljbGUvZGV0YWlscy8xMTY0NjYwMjk=&#34;&gt;常用校验算法&lt;/span&gt;》&lt;/p&gt;
+&lt;p&gt;关于校验和和 CRC 校验可以看以前的文章《&lt;a href=&#34;https://arachnid.cc/check-algorithm/&#34;&gt;常用校验算法&lt;/a&gt;》&lt;/p&gt;
 &lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93ZWIubWl0LmVkdS82LjExNS93d3cvYW11bGV0L3htb2RlbS5odG0=&#34;&gt;XModem Protocol with CRC&lt;/span&gt;&lt;/p&gt;
 &lt;h1 id=&#34;ymodem通讯&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#ymodem通讯&#34;&gt;#&lt;/a&gt; YModem 通讯&lt;/h1&gt;
 &lt;p&gt;Ymodem 本质上是允许多个批处理文件传输的 Xmodem-1K，也可表示为 YModem-1K。&lt;/p&gt;
