@@ -9,14 +9,14 @@
     <atom:link href="https://arachnid.cc/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description>不曾亏欠, 不曾辜负, 如此足矣</description>
-    <pubDate>Sat, 18 Feb 2023 07:24:32 GMT</pubDate>
+    <pubDate>Sun, 26 Feb 2023 13:03:22 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
-      <title>Windows 下常用的指令以及操作</title>
-      <link>https://arachnid.cc/common-windows-commands/</link>
-      <guid>https://arachnid.cc/common-windows-commands/</guid>
-      <pubDate>Sat, 18 Feb 2023 07:10:34 GMT</pubDate>
+      <title>vmware 下 ubuntu 双网卡设置</title>
+      <link>https://arachnid.cc/virtual-network-setup/</link>
+      <guid>https://arachnid.cc/virtual-network-setup/</guid>
+      <pubDate>Sat, 25 Feb 2023 09:28:19 GMT</pubDate>
       
         
         
@@ -30,8 +30,35 @@
       
       
       
+      <category domain="https://arachnid.cc/tags/Linux/">Linux</category>
       
-      <comments>https://arachnid.cc/common-windows-commands/#disqus_thread</comments>
+      
+      <comments>https://arachnid.cc/virtual-network-setup/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>uboot 引导启动分析</title>
+      <link>https://arachnid.cc/uboot-starting/</link>
+      <guid>https://arachnid.cc/uboot-starting/</guid>
+      <pubDate>Wed, 22 Feb 2023 13:19:51 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description></description>
+          
+        
+      
+      
+      
+      
+      
+      <category domain="https://arachnid.cc/tags/Linux/">Linux</category>
+      
+      
+      <comments>https://arachnid.cc/uboot-starting/#disqus_thread</comments>
       
     </item>
     
@@ -510,33 +537,6 @@
       
       
       <comments>https://arachnid.cc/FreeRTOS-newlib-coexist/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Kicad 应用总结</title>
-      <link>https://arachnid.cc/kicad-summary/</link>
-      <guid>https://arachnid.cc/kicad-summary/</guid>
-      <pubDate>Sat, 14 Aug 2021 09:00:24 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description></description>
-          
-        
-      
-      
-      
-      
-      
-      <category domain="https://arachnid.cc/tags/EDA/">EDA</category>
-      
-      <category domain="https://arachnid.cc/tags/history/">history</category>
-      
-      
-      <comments>https://arachnid.cc/kicad-summary/#disqus_thread</comments>
       
     </item>
     

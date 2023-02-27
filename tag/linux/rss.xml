@@ -5,8 +5,8 @@
         <link>https://arachnid.cc</link>
         <description>不曾亏欠, 不曾辜负, 如此足矣</description>
         <language>zh-CN</language>
-        <pubDate>Sun, 05 Feb 2023 14:32:47 +0800</pubDate>
-        <lastBuildDate>Sun, 05 Feb 2023 14:32:47 +0800</lastBuildDate>
+        <pubDate>Sat, 25 Feb 2023 17:28:19 +0800</pubDate>
+        <lastBuildDate>Sat, 25 Feb 2023 17:28:19 +0800</lastBuildDate>
         <category>EDA</category>
         <category>history</category>
         <category>电子</category>
@@ -15,17 +15,279 @@
         <category>git</category>
         <category>工具</category>
         <category>FreeRTOS</category>
+        <category>IDE</category>
         <category>hexo</category>
-        <category>RTOS</category>
-        <category>SQL</category>
         <category>JSON</category>
+        <category>SQL</category>
         <category>Linux</category>
         <category>Ubuntu</category>
-        <category>IDE</category>
+        <category>RTOS</category>
         <category>算法</category>
         <category>DMX512</category>
         <category>modbus</category>
         <category>Modem</category>
+        <item>
+            <guid isPermalink="true">https://arachnid.cc/virtual-network-setup/</guid>
+            <title>vmware 下 ubuntu 双网卡设置</title>
+            <link>https://arachnid.cc/virtual-network-setup/</link>
+            <category>Linux</category>
+            <pubDate>Sat, 25 Feb 2023 17:28:19 +0800</pubDate>
+            <description><![CDATA[ &lt;blockquote&gt;
+&lt;p&gt;背景：主机电脑通过 WiFi 上网，网口用于跟开发板等设备有线连接；为此需要实现虚拟机内对系统可以进行外网访问网页或下载工具包等（避免切换主机操作），同时具备通过网线访问内网设备机器进行控制调试等操作。&lt;/p&gt;
+&lt;p&gt;环境：VMware® Workstation 15 Pro&lt;/p&gt;
+&lt;p&gt;平台：Ubuntu 18.04.6&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;step-1添加网卡&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#step-1添加网卡&#34;&gt;#&lt;/a&gt; step 1：添加网卡&lt;/h1&gt;
+&lt;p&gt;在虚拟机窗口栏，依次点击  &lt;code&gt;编辑&lt;/code&gt;  -&amp;gt;  &lt;code&gt;虚拟网络编辑器&lt;/code&gt;  ，可以看到原有默认的 VMnet 接口：&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20230225172822709.png&#34; alt=&#34;image-20230225172822709&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;它们分别对应主机 ip 地址。&lt;/p&gt;
+&lt;p&gt;然后我们建立一个桥接模式的 VMnet 虚拟网络，并指定响应网卡（如出现灰屏无法设置，需要&lt;strong&gt;以管理员身份打开&lt;/strong&gt; VMware，或在当前窗口点击  &lt;code&gt;更改设置&lt;/code&gt;  来赋予权限），然后选择对应需要进行桥接的网卡（即网口网卡）：&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20230225193931835.png&#34; alt=&#34;image-20230225193931835&#34; /&gt;&lt;/p&gt;
+&lt;h1 id=&#34;setp-2配置网络设备器&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#setp-2配置网络设备器&#34;&gt;#&lt;/a&gt; setp 2：配置网络设备器&lt;/h1&gt;
+&lt;p&gt;在 ubuntu 虚拟机右键点击  &lt;code&gt;设置&lt;/code&gt;  -&amp;gt;  &lt;code&gt;添加&lt;/code&gt;  -&amp;gt;  &lt;code&gt;网络适配器&lt;/code&gt;  ，然后指定上面配置为桥接模式的  VMnet 虚拟网络：&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20230225194908857.png&#34; alt=&#34;image-20230225194908857&#34; /&gt;&lt;/p&gt;
+&lt;h2 id=&#34;拓展&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#拓展&#34;&gt;#&lt;/a&gt; 拓展&lt;/h2&gt;
+&lt;p&gt;关于 NAT（网络地址转换模式）、Host-only（主机模式）及 bridged（桥接模式）：&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;Perbedaan-NAT-Bridge-Dan-Host-Only-Di-Vmware-Dan-Virtualbox-1170x731.jpg&#34; alt=&#34;Perbedaan NAT Bridge Dan Host Only&#34; /&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;NAT 模式：使用 NAT 模式，就是让虚拟机借助 NAT （网络地址转换）功能，通过宿主机器所在的网络来访问外部网络，即：使用 NAT 模式可以实现在虚拟系统里访问互联网。&lt;/p&gt;
+&lt;p&gt;优点：是从虚拟机访问外部网络的最简单方法；通常，它会自动设置网络地址转换到虚拟机上，不需要在宿主机器的网络信息上配置或通过访客操作系统上进行配置。&lt;/p&gt;
+&lt;p&gt;缺点：就像路由器后面的专用网络一样，虚拟机是不可见的，无法从外部网络访问。&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;Virtual_network_switch_in_nat_mode.png&#34; alt=&#34;vmware-network-nat&#34; /&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Host-only 模式：构建一个与外界断开连接的内部网络，只允许使用 host-only 方法的虚拟机才能通信，因此无法与外部网络或其他 PC 主机通信，只能相互通信。&lt;/p&gt;
+&lt;p&gt;优点：与内部网络一样，其不需要存在物理网络接口，相当于使用 host-only 方法的虚拟机通过双绞线直连形成网络节点进行通讯；由于无法访问外部网络，因此对于安全性来讲，比其余两种相对要高。&lt;/p&gt;
+&lt;p&gt;缺点：如其名，无法与主机外部的网络通信，同时外部网络设备也无法与其通讯。&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;Virtual_network_switch_in_host-only_mode.png&#34; alt=&#34;vmware-network-hostonly&#34; /&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;bridged 模式：在这种模式下，虚拟系统就像是局域网中的一台独立的主机，具有自己的 MAC 和 IP 地址；由于虚拟机和宿主机器分配了相同网段的 IP，因此宿主机器和虚拟机被识别为同一级别的物理主机。&lt;/p&gt;
+&lt;p&gt;优点：虚拟机就像是一台独立的主机，拥有正常主机的网络功能，可以对外部网络进行访问，而外部网络也可以访问进来。&lt;/p&gt;
+&lt;p&gt;缺点：由于外部网络可以访问，其安全性比其余两种相对要低；因与宿主机器平等的存在于网络中，需要进行分配网络地址、子网掩码、网关等操作。&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;Virtual_network_switch_in_bridged_mode.png&#34; alt=&#34;vmware-network-bridged&#34; /&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;示例：&lt;/p&gt;
+&lt;p&gt;一些 VMnet 虚拟机具有特定功能：VMnet0 专用于 bridged 模式，VMnet1 专用于 host-only 模式，而 VMnet8 专用于 NAT 模式；其他的 VMnet2 等，可供虚拟机使用自定义网络模式。如图分析各模式作用：&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;workstation-networking_thumb1.jpg&#34; alt=&#34;工作站网络&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;VM-1 可以与 host PC 通信，并连接到外部 LAN or internet，但不能与 NAT 和 host-only 网络通信。&lt;/p&gt;
+&lt;p&gt;VM-2 和 VM-3 可以相互通信，也可以与 NAT 网络中的其他 VM 通信，也可以与 host PC 通信。&lt;/p&gt;
+&lt;p&gt;VM-5 和 VM-4 可以相互通信，但不能与主机操作系统和 host-only 网络中的其他 VM 通信。&lt;/p&gt;
+&lt;p&gt;VM-6 和 VM-7 无法相互通信。&lt;/p&gt;
+&lt;p&gt;参考：&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9zdXBlcnVzZXIuY29tL3F1ZXN0aW9ucy8yMjc1MDUvd2hhdC1pcy10aGUtZGlmZmVyZW5jZS1iZXR3ZWVuLW5hdC1icmlkZ2VkLWhvc3Qtb25seS1uZXR3b3JraW5n&#34;&gt;What is the difference between NAT / Bridged / Host-Only networking?&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9waWJ5dGVzLndvcmRwcmVzcy5jb20vMjAxMi8xMS8xNi92bXdhcmUtd29ya3N0YXRpb24tbmV0d29ya2luZy1iYXNpY3Mv&#34;&gt;VMware Workstation Networking Basics&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9hZ3Vzc2FzLndvcmRwcmVzcy5jb20vMjAxNS8xMC8yOC92bXdhcmUtbmV0d29ya2luZy1jb25jZXB0LWJyaWRnZWQtbmF0LWhvc3Qtb25seS1sYW4tc2VnbWVudC8=&#34;&gt;VMWare Networking Concept [Bridged, NAT, Host Only, LAN Segment]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cubW9uaXRvcnRla25vbG9naS5jb20vcGVyYmVkYWFuLW5hdC1icmlkZ2UtZGFuLWhvc3Qtb25seS8=&#34;&gt;Perbedaan NAT Bridge Dan Host Only Di VMware Dan VirtualBox&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmxpYnZpcnQub3JnL1ZpcnR1YWxOZXR3b3JraW5nLmh0bWw=&#34;&gt;Virtual Networking&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cudW5hbWUuaW4vNjA=&#34;&gt;Vmware Host-Only, NAT, Bridge 차이&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9kaWFybXVpZG1jY2FydGh5LndvcmRwcmVzcy5jb20vMjAxMS8wMi8xNS9oZWxsby13b3JsZC8=&#34;&gt;Intro to Virtual Machine Networking&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9yeWFuaXNhZ29vZGd1eS5ibG9nc3BvdC5jb20vMjAxOS8wNi92bXdhcmVuZXR3b3JrLXR5cGVicmlkZ2VkaG9zdC1vbmx5LW5hdC5odG1s&#34;&gt;VMware 虛擬機器上網路連線 (Network type) 的三種模式&lt;/span&gt;&lt;/p&gt;
+&lt;h1 id=&#34;setp-3网络信息配置&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#setp-3网络信息配置&#34;&gt;#&lt;/a&gt; setp 3：网络信息配置&lt;/h1&gt;
+&lt;p&gt;从上一步可以知道我们目前有两个网络适配器，分别是 NAT 和 桥接模式，然后针对这几个模式的作用也在上面作了介绍了；因此在这里，实际只需要在虚拟机系统中配置桥接模式对应的网卡网络信息就好了；至于 NAT 模式对应的网卡网络信息将由虚拟机借助 NAT （网络地址转换）功能实现自动配置即可实现访问外网功能。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;查看所有网卡信息：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;[root@localhost] $&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ifconfig&lt;/span&gt; &lt;span class=&#34;token parameter variable&#34;&gt;-a&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;ens33: &lt;span class=&#34;token assign-left variable&#34;&gt;flags&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;416&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;&lt;span class=&#34;token file-descriptor important&#34;&gt;3&lt;/span&gt;&amp;lt;&lt;/span&gt;UP,BROADCAST,RUNNING,MULTICAST&lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt;  mtu &lt;span class=&#34;token number&#34;&gt;1500&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        inet &lt;span class=&#34;token number&#34;&gt;192.168&lt;/span&gt;.154.133  netmask &lt;span class=&#34;token number&#34;&gt;255.255&lt;/span&gt;.255.0  broadcast &lt;span class=&#34;token number&#34;&gt;192.168&lt;/span&gt;.154.255&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        inet6 fe80::b52c:a0e6:1419:116b  prefixlen &lt;span class=&#34;token number&#34;&gt;64&lt;/span&gt;  scopeid 0x2&lt;span class=&#34;token operator&#34;&gt;&lt;span class=&#34;token file-descriptor important&#34;&gt;0&lt;/span&gt;&amp;lt;&lt;/span&gt;link&lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        ether 00:0c:29:f0:76:35  txqueuelen &lt;span class=&#34;token number&#34;&gt;1000&lt;/span&gt;  &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;以太网&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        RX packets &lt;span class=&#34;token number&#34;&gt;102259&lt;/span&gt;  bytes &lt;span class=&#34;token number&#34;&gt;150687397&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;150.6&lt;/span&gt; MB&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        RX errors &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;  dropped &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;  overruns &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;  frame &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        TX packets &lt;span class=&#34;token number&#34;&gt;13950&lt;/span&gt;  bytes &lt;span class=&#34;token number&#34;&gt;938511&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;938.5&lt;/span&gt; KB&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        TX errors &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;  dropped &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt; overruns &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;  carrier &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;  collisions &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;ens36: &lt;span class=&#34;token assign-left variable&#34;&gt;flags&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;416&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;&lt;span class=&#34;token file-descriptor important&#34;&gt;3&lt;/span&gt;&amp;lt;&lt;/span&gt;UP,BROADCAST,RUNNING,MULTICAST&lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt;  mtu &lt;span class=&#34;token number&#34;&gt;1500&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        inet &lt;span class=&#34;token number&#34;&gt;192.168&lt;/span&gt;.17.218  netmask &lt;span class=&#34;token number&#34;&gt;255.255&lt;/span&gt;.255.0  broadcast &lt;span class=&#34;token number&#34;&gt;192.168&lt;/span&gt;.17.255&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        inet6 240e:47c:680:2899:56c0:dff:d5fe:b1aa  prefixlen &lt;span class=&#34;token number&#34;&gt;64&lt;/span&gt;  scopeid 0x&lt;span class=&#34;token operator&#34;&gt;&lt;span class=&#34;token file-descriptor important&#34;&gt;0&lt;/span&gt;&amp;lt;&lt;/span&gt;global&lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        inet6 240e:47c:680:2899:18e7:3cfa:5fad:bbe  prefixlen &lt;span class=&#34;token number&#34;&gt;64&lt;/span&gt;  scopeid 0x&lt;span class=&#34;token operator&#34;&gt;&lt;span class=&#34;token file-descriptor important&#34;&gt;0&lt;/span&gt;&amp;lt;&lt;/span&gt;global&lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        inet6 fe80::a25b:a66f:67e7:3e67  prefixlen &lt;span class=&#34;token number&#34;&gt;64&lt;/span&gt;  scopeid 0x2&lt;span class=&#34;token operator&#34;&gt;&lt;span class=&#34;token file-descriptor important&#34;&gt;0&lt;/span&gt;&amp;lt;&lt;/span&gt;link&lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;16&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        ether 00:0c:29:f0:76:3f  txqueuelen &lt;span class=&#34;token number&#34;&gt;1000&lt;/span&gt;  &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;以太网&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;17&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        RX packets &lt;span class=&#34;token number&#34;&gt;426&lt;/span&gt;  bytes &lt;span class=&#34;token number&#34;&gt;474569&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;474.5&lt;/span&gt; KB&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;18&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        RX errors &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;  dropped &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;  overruns &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;  frame &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;19&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        TX packets &lt;span class=&#34;token number&#34;&gt;403&lt;/span&gt;  bytes &lt;span class=&#34;token number&#34;&gt;44762&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;44.7&lt;/span&gt; KB&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;20&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        TX errors &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;  dropped &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt; overruns &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;  carrier &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;  collisions &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;21&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;22&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;lo: &lt;span class=&#34;token assign-left variable&#34;&gt;flags&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;7&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;&lt;span class=&#34;token file-descriptor important&#34;&gt;3&lt;/span&gt;&amp;lt;&lt;/span&gt;UP,LOOPBACK,RUNNING&lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt;  mtu &lt;span class=&#34;token number&#34;&gt;65536&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;23&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        inet &lt;span class=&#34;token number&#34;&gt;127.0&lt;/span&gt;.0.1  netmask &lt;span class=&#34;token number&#34;&gt;255.0&lt;/span&gt;.0.0&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;24&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        inet6 ::1  prefixlen &lt;span class=&#34;token number&#34;&gt;128&lt;/span&gt;  scopeid 0x1&lt;span class=&#34;token operator&#34;&gt;&lt;span class=&#34;token file-descriptor important&#34;&gt;0&lt;/span&gt;&amp;lt;&lt;/span&gt;host&lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;25&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        loop  txqueuelen &lt;span class=&#34;token number&#34;&gt;1000&lt;/span&gt;  &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;本地环回&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;26&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        RX packets &lt;span class=&#34;token number&#34;&gt;308&lt;/span&gt;  bytes &lt;span class=&#34;token number&#34;&gt;26853&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;26.8&lt;/span&gt; KB&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;27&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        RX errors &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;  dropped &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;  overruns &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;  frame &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;28&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        TX packets &lt;span class=&#34;token number&#34;&gt;308&lt;/span&gt;  bytes &lt;span class=&#34;token number&#34;&gt;26853&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;26.8&lt;/span&gt; KB&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;29&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        TX errors &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;  dropped &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt; overruns &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;  carrier &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;  collisions &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;启用网卡（如已启用则跳过该步骤），其中  &lt;code&gt;ens36&lt;/code&gt;  是设置 bridged 模式的网卡。&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;[root@localhost] $&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;sudo&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;ifconfig&lt;/span&gt; ens36 up&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;修改网络信息配置&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;[root@localhost] $&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;cp&lt;/span&gt; /etc/netplan/01-network-manager-all.yaml /etc/netplan/01-network-manager-all.yaml.back &lt;span class=&#34;token comment&#34;&gt;# 备份&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;[root@localhost] $&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;vim&lt;/span&gt; /etc/netplan/01-network-manager-all.yaml&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# Let NetworkManager manage all devices on this system&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;network:&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  ethernets:&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    ens33:&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      dhcp4: &lt;span class=&#34;token boolean&#34;&gt;true&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      dhcp4-overrides:&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        route-metric: &lt;span class=&#34;token number&#34;&gt;100&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      &lt;span class=&#34;token comment&#34;&gt;# addresses: [192.168.1.110/24]&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      &lt;span class=&#34;token comment&#34;&gt;# gateway4: 192.168.1.1&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      &lt;span class=&#34;token comment&#34;&gt;# nameservers:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;       &lt;span class=&#34;token comment&#34;&gt;# addresses: [192.168.1.1]&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    ens36:&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      dhcp4: &lt;span class=&#34;token boolean&#34;&gt;true&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;16&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  version: &lt;span class=&#34;token number&#34;&gt;2&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;17&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;18&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  bridges:&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;19&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    br0:&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;20&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;     interfaces: &lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;ens36&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;21&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;     dhcp4: no&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;22&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;     addresses:&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;23&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      - &lt;span class=&#34;token number&#34;&gt;192.168&lt;/span&gt;.1.110/24&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;24&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      - &lt;span class=&#34;token number&#34;&gt;192.168&lt;/span&gt;.10.110/24&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;25&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;     nameservers:&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;26&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;       addresses: &lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;8.8&lt;/span&gt;.8.8&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;27&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;     routes:&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;28&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      - to: &lt;span class=&#34;token number&#34;&gt;0.0&lt;/span&gt;.0.0/0&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;29&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        via: &lt;span class=&#34;token number&#34;&gt;192.168&lt;/span&gt;.1.1&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;30&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        metric: &lt;span class=&#34;token number&#34;&gt;1000&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;31&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      - to: &lt;span class=&#34;token number&#34;&gt;0.0&lt;/span&gt;.0.0/0&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;32&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        via: &lt;span class=&#34;token number&#34;&gt;192.168&lt;/span&gt;.10.1&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;33&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        metric: &lt;span class=&#34;token number&#34;&gt;1000&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;34&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;35&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;#  renderer: NetworkManager&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;36&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;37&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;[root@localhost] $&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;netplan apply&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;38&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;[root@localhost] $&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;reboot&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;重启后查看验证网路&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;[root@localhost] $&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;route &lt;span class=&#34;token parameter variable&#34;&gt;-n&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;[root@localhost] $&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;内核 IP 路由表&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;目标            网关            子网掩码        标志  跃点   引用  使用 接口&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token number&#34;&gt;0.0&lt;/span&gt;.0.0         &lt;span class=&#34;token number&#34;&gt;192.168&lt;/span&gt;.154.2   &lt;span class=&#34;token number&#34;&gt;0.0&lt;/span&gt;.0.0         UG    &lt;span class=&#34;token number&#34;&gt;100&lt;/span&gt;    &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;        &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt; ens33&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token number&#34;&gt;0.0&lt;/span&gt;.0.0         &lt;span class=&#34;token number&#34;&gt;192.168&lt;/span&gt;.1.1     &lt;span class=&#34;token number&#34;&gt;0.0&lt;/span&gt;.0.0         UG    &lt;span class=&#34;token number&#34;&gt;1000&lt;/span&gt;   &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;        &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt; br0&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token number&#34;&gt;192.168&lt;/span&gt;.1.0     &lt;span class=&#34;token number&#34;&gt;0.0&lt;/span&gt;.0.0         &lt;span class=&#34;token number&#34;&gt;255.255&lt;/span&gt;.255.0   U     &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;      &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;        &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt; br0&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token number&#34;&gt;192.168&lt;/span&gt;.154.0   &lt;span class=&#34;token number&#34;&gt;0.0&lt;/span&gt;.0.0         &lt;span class=&#34;token number&#34;&gt;255.255&lt;/span&gt;.255.0   U     &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;      &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;        &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt; ens33&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token number&#34;&gt;192.168&lt;/span&gt;.154.2   &lt;span class=&#34;token number&#34;&gt;0.0&lt;/span&gt;.0.0         &lt;span class=&#34;token number&#34;&gt;255.255&lt;/span&gt;.255.255 UH    &lt;span class=&#34;token number&#34;&gt;100&lt;/span&gt;    &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;        &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt; ens33&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;[root@localhost] $&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;[root@localhost] $&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ping&lt;/span&gt; baidu.com&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;..&lt;/span&gt;.&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;[root@localhost] $&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;[root@localhost] $&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ping&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;host&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;ip&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;..&lt;/span&gt;.&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;关于双网卡无法上网问题&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#关于双网卡无法上网问题&#34;&gt;#&lt;/a&gt; 关于双网卡无法上网问题&lt;/h1&gt;
+&lt;p&gt;当在虚拟机网络中设置完 VMnet0 桥接的 IP 地址等信息，打开网络后，发现网络不通。&lt;/p&gt;
+&lt;p&gt;但如果关闭 VMnet0，只保留 VMnet8，网络又是可行的，由此考虑到可能是网卡优先级的配置问题。&lt;/p&gt;
+&lt;p&gt;通过上面可以发现  &lt;code&gt;br0&lt;/code&gt;  的跃点比  &lt;code&gt;ens33&lt;/code&gt;  的 metric 要高，而 metric 越低，其优先级越高，因此按上面操作来一般没问题的；如果这两个网卡的 metric 值反过来，那么会造成无法上网的问题，因为本身我们的有线网口是没有联网的，但优先级又比联网的网卡优先级高，所以会出现 ping 不通外网的情况。&lt;/p&gt;
+&lt;p&gt;假设需要临时调整 ip /gateway/metric 等，可以使用  &lt;code&gt;route&lt;/code&gt;  命令，而避免更改网络配置表文件，关于  &lt;code&gt;route&lt;/code&gt;  命令使用可看 &lt;a href=&#34;http://arachnid.cc/linux-routing-table&#34;&gt;Linux 路由表说明&lt;/a&gt; 。&lt;/p&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">https://arachnid.cc/uboot-starting/</guid>
+            <title>uboot 引导启动分析</title>
+            <link>https://arachnid.cc/uboot-starting/</link>
+            <category>Linux</category>
+            <pubDate>Wed, 22 Feb 2023 21:19:51 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;uboot-命令&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#uboot-命令&#34;&gt;#&lt;/a&gt; uboot 命令&lt;/h1&gt;
+&lt;h2 id=&#34;命令支持&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#命令支持&#34;&gt;#&lt;/a&gt; 命令支持&lt;/h2&gt;
+&lt;p&gt;当不清楚 uboot 支持什么命令时， 可输入  &lt;code&gt;help&lt;/code&gt;  或  &lt;code&gt;?&lt;/code&gt;  可查看 uboot 支持的命令列表；当需要具体使用哪个命令时，可使用  &lt;code&gt;help [命令]&lt;/code&gt;  或  &lt;code&gt;? [命令]&lt;/code&gt;  的方式查看具体命令的使用说明，eg： &lt;code&gt;help printenv&lt;/code&gt;  。&lt;/p&gt;
+&lt;h2 id=&#34;常用命令行命令&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#常用命令行命令&#34;&gt;#&lt;/a&gt; 常用命令行命令&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;A、环境变量操作&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;printenv&lt;/p&gt;
+&lt;p&gt;功能：打印环境变量&lt;/p&gt;
+&lt;p&gt;用法： &lt;code&gt;printenv &amp;lt;name&amp;gt;&lt;/code&gt;  ，其中 name 为相应的环境变量名，不填则打印所有环境变量配置。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;setenv&lt;/p&gt;
+&lt;p&gt;功能：设置环境变量&lt;/p&gt;
+&lt;p&gt;用法： &lt;code&gt;setenv &amp;lt;key&amp;gt; &amp;lt;value&amp;gt;&lt;/code&gt;  ，其中 key 是变量名，value 是变量值。如果 value 为空，则表示删除对应的环境变量。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;saveenv&lt;/p&gt;
+&lt;p&gt;功能：保存环境变量修改，使用 setenv 设置环境变量后不会掉电保存，需要保存后才不会丢失。&lt;/p&gt;
+&lt;p&gt;用法： &lt;code&gt;saveenv&lt;/code&gt;  。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;run&lt;/p&gt;
+&lt;p&gt;功能：执行指定的环境变量里的语句。&lt;/p&gt;
+&lt;p&gt;用法： &lt;code&gt;run &amp;lt;var&amp;gt;&lt;/code&gt;  ，其中 key 是指定的环境变量。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;B、mmc 存储介质操作&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;mmc&lt;/p&gt;
+&lt;p&gt;功能：对 mmc 存储介质进行操作，包括 EMMC 和 SD 卡&lt;/p&gt;
+&lt;p&gt;用法：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;mmc list&lt;/code&gt;  ，用于查看板子上 mmc 设备。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;mmc dev &amp;lt;dev&amp;gt; &amp;lt;part&amp;gt;&lt;/code&gt;  ，用于切换当前 mmc 设备，其中 dev 用来设置要切换的 mmc 设备号，part 是分区号（可以不写，默认为分区 0）。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;mmc info&lt;/code&gt;  ，查看当前 mmc 设备信息。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;mmc part&lt;/code&gt;  ，查看当前 mmc 设备分区。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;mmc read / write &amp;lt;addr&amp;gt; &amp;lt;blk#&amp;gt; &amp;lt;cnt&amp;gt;&lt;/code&gt;  ，读取 or 写入当前 mmc 设备数据，其中 addr 是数据读取 / 写入到 DRAM 中的地址， blk# 是要读取 / 写入的块起始地址 (十六进制)，一个块是 512 字节，这里的块和扇区是一个意思，在 mmc 设备中我们通常说扇区， cnt 是要读取 / 写入的块数量 (十六进制)。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;mmc erase &amp;lt;blk#&amp;gt; &amp;lt;cnt&amp;gt;&lt;/code&gt;  ，擦除当前 mmc 设备数据，其中 blk# 为要擦除的起始块， cnt 是要擦除的数量。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;C、网络操作&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;ping&lt;/p&gt;
+&lt;p&gt;功能：发送 ICMP_ECHO 请求到网络主机&lt;/p&gt;
+&lt;p&gt;用法： &lt;code&gt;ping &amp;lt;hostaddr&amp;gt;&lt;/code&gt;  ，其中 hostaddr 是目标发送请求主机 IP。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;dhcp&lt;/p&gt;
+&lt;p&gt;功能：获取 ip 地址及通过 tftp 下载到内存。&lt;/p&gt;
+&lt;p&gt;用法：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;dhcp&lt;/code&gt;  ，单纯用于自动获取 ip 地址。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;dhcp &amp;lt;loadaddr&amp;gt; &amp;lt;[hostIPaddr:]filename&amp;gt;&lt;/code&gt;  ，其中 loadaddr 是加载内存地址，hostIPaddr 是获取链接的主机 IP，filename 是要下载的文件名。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;nfs&lt;/p&gt;
+&lt;p&gt;功能：通过 nfs (Network File System) 下载到内存。&lt;/p&gt;
+&lt;p&gt;用法： &lt;code&gt;nfs &amp;lt;loadaddr&amp;gt; &amp;lt;[hostIPaddr:]filename&amp;gt;&lt;/code&gt;  ，其中 loadaddr 是加载内存地址，hostIPaddr 是获取链接的主机 ip，filename 是要下载的文件名。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;tftpboot&lt;/p&gt;
+&lt;p&gt;功能：通过 tftp 下载到内存&lt;/p&gt;
+&lt;p&gt;用法： &lt;code&gt;tftpboot &amp;lt;loadaddr&amp;gt; &amp;lt;[hostIPaddr:]filename&amp;gt;&lt;/code&gt;  ，其中 loadaddr 是加载内存地址，hostIPaddr 是获取链接的主机 ip，filename 是要下载的文件名。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;D、文件系统操作&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;fatinfo&lt;/p&gt;
+&lt;p&gt;功能：查询指定 mmc 设置指定分区的文件系统信息。&lt;/p&gt;
+&lt;p&gt;用法： &lt;code&gt;fatinfo &amp;lt;interface&amp;gt; &amp;lt;dev&amp;gt;:&amp;lt;part&amp;gt;&lt;/code&gt;  ，其中 interface 表示接口（mmc 等），dev 是查询的设备号， part 是要查询的分区。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;fatls / ext4ls&lt;/p&gt;
+&lt;p&gt;功能：查询 FAT /ext4 格式设备的目录和文件信息。&lt;/p&gt;
+&lt;p&gt;用法： &lt;code&gt;fatls / ext4ls &amp;lt;interface&amp;gt; &amp;lt;dev&amp;gt;:&amp;lt;part&amp;gt; &amp;lt;directory&amp;gt;&lt;/code&gt;  ，其中 interface 表示接口（mmc 等），dev 是查询的设备号， part 是要查询的分区，directory 是要查询的目录（默认为根目录  &lt;code&gt;/&lt;/code&gt;  ）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;fatload / ext4load&lt;/p&gt;
+&lt;p&gt;功能：查询 FAT /ext4 格式设备的目录和文件信息。&lt;/p&gt;
+&lt;p&gt;用法： &lt;code&gt;fatload / ext4load &amp;lt;interface&amp;gt; &amp;lt;dev&amp;gt;:&amp;lt;part&amp;gt; &amp;lt;addr&amp;gt; &amp;lt;filename&amp;gt; &amp;lt;bytes&amp;gt; &amp;lt;pos&amp;gt;&lt;/code&gt;  ，其中 interface 表示接口（mmc 等），dev 是查询的设备号， part 是要查询的分区，addr 是保存在 DRAM 中的起始地址， filename 是要读取的文件名字，bytes 表示读取多少字节的数据（0 或者省略表示读取整个文件），pos 是要读的文件相对于文件首地址的偏移（0 或者省略表示从文件首地址开始读取）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;E、启动内核&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;bootz&lt;/p&gt;
+&lt;p&gt;功能：从指定内存位置加载启动 &lt;strong&gt;zImage 镜像文件&lt;/strong&gt; 。&lt;/p&gt;
+&lt;p&gt;用法： &lt;code&gt;bootm &amp;lt;zImageaddr&amp;gt; - &amp;lt;fdtaddr&amp;gt;&lt;/code&gt;  ，其中，kerneladdr 是 zImage 镜像地址，fdtaddr 是设备树文件地址。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;bootm&lt;/p&gt;
+&lt;p&gt;功能：从指定内存位置加载启动 &lt;strong&gt;uImage 镜像文件&lt;/strong&gt; 。&lt;/p&gt;
+&lt;p&gt;用法： &lt;code&gt;bootm &amp;lt;uImageaddr&amp;gt; &amp;lt;- arg...&amp;gt;&lt;/code&gt;  ，其中，kerneladdr 是 uImage 镜像地址，arg 是为可选子命令，具体可看  &lt;code&gt;? bootm&lt;/code&gt;  。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;boot&lt;/p&gt;
+&lt;p&gt;功能：通过读取环境变量  &lt;code&gt;bootcmd&lt;/code&gt;  来启动 linux 系统。&lt;/p&gt;
+&lt;p&gt;用法： &lt;code&gt;boot&lt;/code&gt;  。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;环境变量&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#环境变量&#34;&gt;#&lt;/a&gt; 环境变量&lt;/h1&gt;
+&lt;p&gt;需要注意的是，环境变量的名字并不是统一的，除部分重要变量名外，主要是由芯片厂商或开发者自行协定的。&lt;/p&gt;
+&lt;h2 id=&#34;默认环境变量&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#默认环境变量&#34;&gt;#&lt;/a&gt; 默认环境变量&lt;/h2&gt;
+&lt;p&gt;默认环境变量可以在  &lt;code&gt;include/configs/&lt;/code&gt;  文件夹中找到对应的芯片配置头文件及在  &lt;code&gt;include/env_default.h&lt;/code&gt;  文件中查看定义。一般其默认环境变量参数整体被定义在  &lt;code&gt;CONFIG_EXTRA_ENV_SETTINGS&lt;/code&gt;  宏参数中，在 README 文件中可找到说明：&lt;/p&gt;
+&lt;figure class=&#34;highlight markdown&#34;&gt;&lt;figcaption data-lang=&#34;markdown&#34;&gt;&lt;span&gt;README&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token list punctuation&#34;&gt;-&lt;/span&gt; Default Environment:&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;		CONFIG_EXTRA_ENV_SETTINGS&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token code keyword&#34;&gt;		Define this to contain any number of null terminated&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;		strings (variable = value pairs) that will be part of&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;		the default environment compiled into the boot image.&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token code keyword&#34;&gt;		For example, place something like this in your&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;		board&#39;s config file:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token code keyword&#34;&gt;		#define CONFIG_EXTRA_ENV_SETTINGS \&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;			&#34;myvar1=value1\0&#34; \&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;			&#34;myvar2=value2\0&#34;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token code keyword&#34;&gt;		Warning: This method is based on knowledge about the&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;16&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;		internal format how the environment is stored by the&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;17&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;		U-Boot code. This is NOT an official, exported&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;18&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;		interface! Although it is unlikely that this format&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;19&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;		will change soon, there is no guarantee either.&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;20&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;		You better know what you are doing here.&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;21&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;22&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token code keyword&#34;&gt;		Note: overly (ab)use of the default environment is&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;23&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;		discouraged. Make sure to check other ways to preset&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;24&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;		the environment like the &#34;source&#34; command or the&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;25&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;		boot command first.&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;26&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;27&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token code keyword&#34;&gt;		CONFIG_DELAY_ENVIRONMENT&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;28&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;29&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token code keyword&#34;&gt;		Normally the environment is loaded when the board is&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;30&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;		initialised so that it is available to U-Boot. This inhibits&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;31&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;		that so that the environment is not available until&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;32&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;		explicitly loaded later by U-Boot code. With CONFIG_OF_CONTROL&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;33&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;		this is instead controlled by the value of&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;34&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;		/config/load-environment.&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h2 id=&#34;常用环境变量&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#常用环境变量&#34;&gt;#&lt;/a&gt; 常用环境变量&lt;/h2&gt;
+&lt;p&gt;在  &lt;code&gt;include/env_default.h&lt;/code&gt;  文件定义的环境变量，可通过读取宏来配置相应值，也可从  &lt;code&gt;CONFIG_EXTRA_ENV_SETTINGS&lt;/code&gt;  宏参数重新定义，其中有几个变量是比较重要，这里结合 NXP 厂商的定义进行如下参考分析：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1、console 变量（固有）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;功能：表示控制台输出设备。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2、baudrate 变量（固有）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;功能：指定 linux 系统启动过程中串口控制台打印的波特率。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;3、bootdelay 变量（固有）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;功能：设置 uboot 启动时等待用户输入的延时，单位是秒。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;4、fdt_addr 变量（私人）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;功能：设备树加载启动的地址。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;5、fdt_file 变量（私人）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;功能：设备树加载显示的名称，如果 uboot 中配置的名称对应不上获取的设备树文件，将显示 undefined。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;6、image 变量（siren）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;功能：内核加载启动读取的文件名。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;7、loadaddr 变量（固有）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;功能：内核加载启动的地址。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;8、ipaddr/serverip/gatewayip/netmask 变量（固有）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;功能：用于设置网络信息，分别对应开发板 ip、服务器 ip、网关、子网掩码；设置完成后可用 ping 命令测试网络连通性。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;9、bootcmd 变量（固有）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;功能： &lt;code&gt;bootcmd&lt;/code&gt;  变量是用来存储启动命令的环境变量，它定义了 uboot 启动 linux 系统的具体步骤。当 uboot 倒计时结束以后就会执行  &lt;code&gt;bootcmd&lt;/code&gt;  中的命令。这些命令一般都是用来启动 linux 内核的，比如读取 EMMC 或者 NAND Flash 中的 linux 内核镜像文件和设备树文件到 DRAM 中，然后启动 linux 内核。&lt;/p&gt;
+&lt;p&gt;也可以在 uboot 启动以后进入命令行设置  &lt;code&gt;bootcmd&lt;/code&gt;  环境变量的值。如果 EMMC 或者 NAND 中没有保存  &lt;code&gt;bootcmd&lt;/code&gt;  的值，那么 uboot 就会使用默认的值。&lt;/p&gt;
+&lt;p&gt;应用： &lt;code&gt;bootcmd&lt;/code&gt;  变量的内容通常是一系列 uboot 命令和参数的组合，例如：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token assign-left variable&#34;&gt;bootcmd&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;run load_kernel&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; run load_dtb&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; bootz &lt;span class=&#34;token variable&#34;&gt;$&amp;#123;kernel_addr_r&amp;#125;&lt;/span&gt; - &lt;span class=&#34;token variable&#34;&gt;$&amp;#123;fdt_addr_r&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;上述  &lt;code&gt;bootcmd&lt;/code&gt;  变量定义了两个命令： &lt;code&gt;load_kernel&lt;/code&gt;  和  &lt;code&gt;load_dtb&lt;/code&gt; ，并最后执行了  &lt;code&gt;bootz&lt;/code&gt;  命令来启动 linux 内核。这里的  &lt;code&gt;run&lt;/code&gt;  命令表示执行一个之前定义好的环境变量，例如：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token assign-left variable&#34;&gt;load_kernel&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;mmc dev &lt;span class=&#34;token variable&#34;&gt;$&amp;#123;mmc_dev&amp;#125;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt; fatload mmc &lt;span class=&#34;token variable&#34;&gt;$&amp;#123;mmc_dev&amp;#125;&lt;/span&gt;&lt;span class=&#34;token builtin class-name&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token variable&#34;&gt;$&amp;#123;mmc_part&amp;#125;&lt;/span&gt; &lt;span class=&#34;token variable&#34;&gt;$&amp;#123;kernel_addr&amp;#125;&lt;/span&gt; zImage&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token assign-left variable&#34;&gt;load_dtb&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;fatload mmc &lt;span class=&#34;token variable&#34;&gt;$&amp;#123;mmc_dev&amp;#125;&lt;/span&gt;&lt;span class=&#34;token builtin class-name&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token variable&#34;&gt;$&amp;#123;mmc_part&amp;#125;&lt;/span&gt; &lt;span class=&#34;token variable&#34;&gt;$&amp;#123;fdt_addr&amp;#125;&lt;/span&gt; devicetree.dtb&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;在上述命令中， &lt;code&gt;load_kernel&lt;/code&gt;  和  &lt;code&gt;load_dtb&lt;/code&gt;  分别使用  &lt;code&gt;fatload&lt;/code&gt;  命令从 mmc 设备  &lt;code&gt;$&amp;#123;mmc_dev&amp;#125;&lt;/code&gt;  的  &lt;code&gt;$&amp;#123;mmc_part&amp;#125;&lt;/code&gt;  分区（ &lt;code&gt;mmc $&amp;#123;mmc_dev&amp;#125;:$&amp;#123;mmc_part&amp;#125;&lt;/code&gt; ）中加载内核和设备树； &lt;code&gt;$&amp;#123;kernel_addr&amp;#125;&lt;/code&gt;  和  &lt;code&gt;$&amp;#123;fdt_addr&amp;#125;&lt;/code&gt;  是在 uboot 中预定义的环境变量，分别表示内核和设备树在内存中的地址。&lt;/p&gt;
+&lt;p&gt;在实际应用中， &lt;code&gt;bootcmd&lt;/code&gt;  变量的内容需要根据硬件平台和具体应用场景来设置，以确保系统能够正确启动。可以使用  &lt;code&gt;printenv bootcmd&lt;/code&gt;  命令来查看当前的  &lt;code&gt;bootcmd&lt;/code&gt;  命令，使用  &lt;code&gt;setenv bootcmd &amp;lt;cmd&amp;gt;&lt;/code&gt;  命令来手动设置  &lt;code&gt;bootcmd&lt;/code&gt;  变量，例如，把上述命令定义并保存到  &lt;code&gt;bootcmd&lt;/code&gt;  变量中：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;setenv bootcmd &lt;span class=&#34;token string&#34;&gt;&#39;run load_kernel; run load_dtb; run load_rootfs; bootm&#39;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;saveenv&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;strong&gt;10、bootargs 变量（固有）&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;功能： &lt;code&gt;bootargs&lt;/code&gt;  变量是用来存储内核启动参数的环境变量，它在启动 linux 内核时会被传递给内核。bootargs 变量可以在 uboot 命令行中手动设置，也可以通过脚本自动设置。下面是一些常见的  &lt;code&gt;bootargs&lt;/code&gt;  参数：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;console：指定内核输出信息的终端设备，可以是串口、LCD 显示屏等。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;root：指定根文件系统所在的设备和分区。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;rootfstype：指定根文件系统的文件系统类型，例如  &lt;code&gt;ext4&lt;/code&gt; 、 &lt;code&gt;jffs2&lt;/code&gt; 、 &lt;code&gt;nfs&lt;/code&gt;  等。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;ip：指定 IP 地址和网络参数，用于网络启动。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;mem：指定系统可用内存的大小，用于系统启动时内存的自适应分配。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;quiet：设置内核启动时不显示冗长的信息。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;debug：开启内核调试模式，用于调试内核代码。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;应用：在设置  &lt;code&gt;bootargs&lt;/code&gt;  变量时，需要根据硬件平台和具体应用场景来选择合适的参数，并确保参数的正确性。例如， &lt;code&gt;console&lt;/code&gt;  参数需要根据硬件平台的串口地址和波特率来设置， &lt;code&gt;root&lt;/code&gt;  参数需要根据具体的文件系统类型和分区来设置。例如：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;setenv bootargs &lt;span class=&#34;token assign-left variable&#34;&gt;console&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token variable&#34;&gt;$&amp;#123;console&amp;#125;&lt;/span&gt;,&lt;span class=&#34;token variable&#34;&gt;$&amp;#123;baudrate&amp;#125;&lt;/span&gt; &lt;span class=&#34;token assign-left variable&#34;&gt;root&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token variable&#34;&gt;$&amp;#123;mmc_root&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;saveenv&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h2 id=&#34;环境变量设置&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#环境变量设置&#34;&gt;#&lt;/a&gt; 环境变量设置&lt;/h2&gt;
+&lt;p&gt;环境变量的设置有两种方法，一种方法是通过修改静态配置，即通过修改 uboot 的文件中相关环境变量的配置。不过此类方法在实际中显然非常不实际，每次需要修改一次环境变量都需要重新编译整个 uboot。&lt;/p&gt;
+&lt;p&gt;另一种方法是利用 uboot 提供的  &lt;code&gt;setenv&lt;/code&gt;  动态修改环境变量的设置，当设置完成后再通过  &lt;code&gt;saveenv&lt;/code&gt;  把相应的环境变量设置保存到 Flash 等非易失性存储设备上。&lt;/p&gt;
+&lt;h1 id=&#34;启动方式&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#启动方式&#34;&gt;#&lt;/a&gt; 启动方式&lt;/h1&gt;
+&lt;p&gt;uboot 有两种启动 linux 内核和 rootfs 的方法，一种是直接从 flash (nand 或 emmc) 启动，一种是从网络启动。这里面用到了两个非常重要的环境变量  &lt;code&gt;bootcmd&lt;/code&gt;  和  &lt;code&gt;bootargs&lt;/code&gt;  。&lt;/p&gt;
+&lt;h2 id=&#34;从-emmc-启动&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#从-emmc-启动&#34;&gt;#&lt;/a&gt; 从 EMMC 启动&lt;/h2&gt;
+&lt;p&gt;从 EMMC 启动也就是将编译出来的 linux 镜像文件 zImage 和设备树文件保存在 EMMC 中， uboot 从 EMMC 中读取这两个文件并启动。&lt;/p&gt;
+&lt;p&gt;以 NXP 的 imx-6ull 为例：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;setenv bootargs &lt;span class=&#34;token string&#34;&gt;&#39;console=ttymxc0,115200 root=/dev/mmcblk1p2 rootwait rw&#39;&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;# 设置控制台输出设备为 ttymxc0、波特率为 115200；指明根文件系统存放在 mmcblk1 设备的分区 2 中，EMMC 版本的核心板启动 linux 以后会存在 /dev/mmcblk0、/dev/mmcblk1、 /dev/mmcblk0p1、/dev/mmcblk0p2、 /dev/mmcblk1p1 和 /dev/mmcblk1p2 这样的文件，其中 /dev/mmcblkx (x=0~ n) 表示 mmc 设备，而 /dev/mmcblkxpy (x=0~ n,y=1~ n) 表示 mmc 设备 x 的分区 y；rootwait 表示等待 mmc 设备初始化完成以后再挂载，否则的话 mmc 设备还没初始化完成就挂载根文件系统会出错的，rw 表示根文件系统是可以读写的，不加 rw 的话可能无法在根文件系统中进行写操作，只能进行读操作。&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;mmc dev &lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;# 切换到 EMMC&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;fatload mmc &lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;:1 0x80800000 zImage &lt;span class=&#34;token comment&#34;&gt;# 读取 zImage 到 0x80800000 处&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;fatload mmc &lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;:1 0x83000000 imx6ull-14x14-evk.dtb &lt;span class=&#34;token comment&#34;&gt;# 读取设备树到 0x83000000 处&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;bootz 0x80800000 - 0x83000000 &lt;span class=&#34;token comment&#34;&gt;# 启动内核&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h2 id=&#34;从网络启动&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#从网络启动&#34;&gt;#&lt;/a&gt; 从网络启动&lt;/h2&gt;
+&lt;p&gt;从网络启动最主要的是用来调试，试想，假设你更改了部分 linux 驱动，如果是使用 EMMC 进行烧录下载，那么就得每次都对其镜像烧写到 EMMC 中，这样就太麻烦，因此我们可以使用网络对其进行烧录替换镜像。其前提条件是必须配置好网络设备及设备树，能正常连通，否者一切都是扯淡。&lt;/p&gt;
+&lt;p&gt;以 NXP 的 imx-6ull 为例：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;setenv ipaddr &lt;span class=&#34;token number&#34;&gt;192.168&lt;/span&gt;.1.xxx&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;setenv gatewayip &lt;span class=&#34;token number&#34;&gt;192.168&lt;/span&gt;.1.1&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;setenv netmask &lt;span class=&#34;token number&#34;&gt;255.255&lt;/span&gt;.255.0&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;setenv serverip &lt;span class=&#34;token number&#34;&gt;192.168&lt;/span&gt;.1.xxx&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;setenv bootargs &lt;span class=&#34;token string&#34;&gt;&#39;console=ttymxc0,115200 root=/dev/mmcblk1p2 rootwait rw&#39;&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;# 解释同上&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;tftpboot &lt;span class=&#34;token number&#34;&gt;80800000&lt;/span&gt; zImage&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;tftp &lt;span class=&#34;token number&#34;&gt;83000000&lt;/span&gt; imx6ull-14x14-evk.dtb&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;bootz &lt;span class=&#34;token number&#34;&gt;80800000&lt;/span&gt; - &lt;span class=&#34;token number&#34;&gt;83000000&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt; ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">https://arachnid.cc/linux-routing-table/</guid>
             <title>Linux 路由表说明</title>
@@ -369,7 +631,7 @@
 &lt;pre&gt;&lt;code&gt;ls /sys/firmware/efi/efivars
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;如果命令结果显示了目录且没有报告错误，则系统以 UEFI 模式引导。&lt;/p&gt;
-&lt;p&gt;如果目录不存在，则系统可能 **（注意是可能，并不一定确是 BIOS 模式）** 以 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9lbi53aWtpcGVkaWEub3JnL3dpa2kvemg6QklPUw==&#34;&gt;BIOS&lt;/span&gt; 模式 (或 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9lbi53aWtpcGVkaWEub3JnL3dpa2kvQ29tcGF0aWJpbGl0eV9TdXBwb3J0X01vZHVsZQ==&#34;&gt;CSM&lt;/span&gt; 模式) 引导，如显示：&lt;/p&gt;
+&lt;p&gt;如果目录不存在，则系统可能 &lt;strong&gt;（注意是可能，并不一定确是 BIOS 模式）&lt;/strong&gt; 以 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9lbi53aWtpcGVkaWEub3JnL3dpa2kvemg6QklPUw==&#34;&gt;BIOS&lt;/span&gt; 模式 (或 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9lbi53aWtpcGVkaWEub3JnL3dpa2kvQ29tcGF0aWJpbGl0eV9TdXBwb3J0X01vZHVsZQ==&#34;&gt;CSM&lt;/span&gt; 模式) 引导，如显示：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;ls: cannot access &#39;/sys/firmware/efi/efivars&#39;: No such file or directory
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;对于一些不是新的 / 格式过的磁盘，可能就不太适用了，当然，最好方法就是查看安装的主分区磁盘的属性。&lt;/p&gt;
@@ -397,7 +659,7 @@
 &lt;p&gt;在确认无误完成上面的操作后，通过 PING IP 来检查：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;ping archlinux.org
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;**note：** 关于网络部分的，详情请看 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmFyY2hsaW51eC5vcmcvdGl0bGUvTmV0d29ya19jb25maWd1cmF0aW9u&#34;&gt;https://wiki.archlinux.org/title/Network_configuration&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;note：&lt;/strong&gt; 关于网络部分的，详情请看 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmFyY2hsaW51eC5vcmcvdGl0bGUvTmV0d29ya19jb25maWd1cmF0aW9u&#34;&gt;https://wiki.archlinux.org/title/Network_configuration&lt;/span&gt;&lt;/p&gt;
 &lt;h2 id=&#34;更新系统时间&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#更新系统时间&#34;&gt;#&lt;/a&gt; 更新系统时间&lt;/h2&gt;
 &lt;p&gt;执行：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;timedatectl set-ntp true
@@ -559,7 +821,7 @@
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;在  &lt;code&gt;fdisk&lt;/code&gt;  操作环境下：&lt;/p&gt;
 &lt;p&gt;1、对于一个全新的磁盘（格式化了），这里则输入  &lt;code&gt;g&lt;/code&gt;  来创建一个全新的  &lt;code&gt;GPT&lt;/code&gt;  分区表（因为到这里是 UEFI 引导）；同样的如果是旧磁盘那跟上面的 BIOS 引导操作差不多，只不过这里是  &lt;code&gt;GPT&lt;/code&gt;  属性了。&lt;/p&gt;
-&lt;p&gt;2、输入  &lt;code&gt;n&lt;/code&gt;  创建一个新的分区，让你选择分区号 **（UEFI 比 BIOS 少了类型分区选择）**，这里一般直接回车使用默认数值，这样可以避免自己定义出现冲突；紧接着选择开始起扇区地址，如果不知道原有区域划分情况，那一般直接回车使用默认数值即可；随后，输入结束扇区地址或者容量大小，这里决定了你为该分区创建的容量大小；我们按照表格顺序创建分区，那这第一个就是  &lt;code&gt;/mnt/boot&lt;/code&gt;  引导分区，例如我取的是 512MiB 容量，那可以直接输入容量大小： &lt;code&gt;+512M&lt;/code&gt;  。&lt;/p&gt;
+&lt;p&gt;2、输入  &lt;code&gt;n&lt;/code&gt;  创建一个新的分区，让你选择分区号 &lt;strong&gt;（UEFI 比 BIOS 少了类型分区选择）&lt;/strong&gt; ，这里一般直接回车使用默认数值，这样可以避免自己定义出现冲突；紧接着选择开始起扇区地址，如果不知道原有区域划分情况，那一般直接回车使用默认数值即可；随后，输入结束扇区地址或者容量大小，这里决定了你为该分区创建的容量大小；我们按照表格顺序创建分区，那这第一个就是  &lt;code&gt;/mnt/boot&lt;/code&gt;  引导分区，例如我取的是 512MiB 容量，那可以直接输入容量大小： &lt;code&gt;+512M&lt;/code&gt;  。&lt;/p&gt;
 &lt;p&gt;3、创建完毕后，可以输入  &lt;code&gt;p&lt;/code&gt;  来查看创建的分区。&lt;/p&gt;
 &lt;p&gt;4、重复第 2 项和第 3 项两次，分别创建  &lt;code&gt;[SWAP]&lt;/code&gt;  和  &lt;code&gt;/mnt&lt;/code&gt; ，至此就有三个分区（对应表格）。&lt;/p&gt;
 &lt;p&gt;5、最后输入  &lt;code&gt;w&lt;/code&gt;  将之前所有的操作写入磁盘并生效。&lt;/p&gt;

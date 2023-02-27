@@ -15,13 +15,13 @@
         <category>git</category>
         <category>工具</category>
         <category>FreeRTOS</category>
+        <category>IDE</category>
         <category>hexo</category>
-        <category>RTOS</category>
-        <category>SQL</category>
         <category>JSON</category>
+        <category>SQL</category>
         <category>Linux</category>
         <category>Ubuntu</category>
-        <category>IDE</category>
+        <category>RTOS</category>
         <category>算法</category>
         <category>DMX512</category>
         <category>modbus</category>
@@ -481,7 +481,7 @@ note: xxx表示为对应的协议，如 TCP：ip.proto == TCP
 &lt;pre&gt;&lt;code&gt;ls /sys/firmware/efi/efivars
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;如果命令结果显示了目录且没有报告错误，则系统以 UEFI 模式引导。&lt;/p&gt;
-&lt;p&gt;如果目录不存在，则系统可能 **（注意是可能，并不一定确是 BIOS 模式）** 以 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9lbi53aWtpcGVkaWEub3JnL3dpa2kvemg6QklPUw==&#34;&gt;BIOS&lt;/span&gt; 模式 (或 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9lbi53aWtpcGVkaWEub3JnL3dpa2kvQ29tcGF0aWJpbGl0eV9TdXBwb3J0X01vZHVsZQ==&#34;&gt;CSM&lt;/span&gt; 模式) 引导，如显示：&lt;/p&gt;
+&lt;p&gt;如果目录不存在，则系统可能 &lt;strong&gt;（注意是可能，并不一定确是 BIOS 模式）&lt;/strong&gt; 以 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9lbi53aWtpcGVkaWEub3JnL3dpa2kvemg6QklPUw==&#34;&gt;BIOS&lt;/span&gt; 模式 (或 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9lbi53aWtpcGVkaWEub3JnL3dpa2kvQ29tcGF0aWJpbGl0eV9TdXBwb3J0X01vZHVsZQ==&#34;&gt;CSM&lt;/span&gt; 模式) 引导，如显示：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;ls: cannot access &#39;/sys/firmware/efi/efivars&#39;: No such file or directory
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;对于一些不是新的 / 格式过的磁盘，可能就不太适用了，当然，最好方法就是查看安装的主分区磁盘的属性。&lt;/p&gt;
@@ -509,7 +509,7 @@ note: xxx表示为对应的协议，如 TCP：ip.proto == TCP
 &lt;p&gt;在确认无误完成上面的操作后，通过 PING IP 来检查：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;ping archlinux.org
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;**note：** 关于网络部分的，详情请看 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmFyY2hsaW51eC5vcmcvdGl0bGUvTmV0d29ya19jb25maWd1cmF0aW9u&#34;&gt;https://wiki.archlinux.org/title/Network_configuration&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;note：&lt;/strong&gt; 关于网络部分的，详情请看 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmFyY2hsaW51eC5vcmcvdGl0bGUvTmV0d29ya19jb25maWd1cmF0aW9u&#34;&gt;https://wiki.archlinux.org/title/Network_configuration&lt;/span&gt;&lt;/p&gt;
 &lt;h2 id=&#34;更新系统时间&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#更新系统时间&#34;&gt;#&lt;/a&gt; 更新系统时间&lt;/h2&gt;
 &lt;p&gt;执行：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;timedatectl set-ntp true
@@ -671,7 +671,7 @@ note: xxx表示为对应的协议，如 TCP：ip.proto == TCP
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;在  &lt;code&gt;fdisk&lt;/code&gt;  操作环境下：&lt;/p&gt;
 &lt;p&gt;1、对于一个全新的磁盘（格式化了），这里则输入  &lt;code&gt;g&lt;/code&gt;  来创建一个全新的  &lt;code&gt;GPT&lt;/code&gt;  分区表（因为到这里是 UEFI 引导）；同样的如果是旧磁盘那跟上面的 BIOS 引导操作差不多，只不过这里是  &lt;code&gt;GPT&lt;/code&gt;  属性了。&lt;/p&gt;
-&lt;p&gt;2、输入  &lt;code&gt;n&lt;/code&gt;  创建一个新的分区，让你选择分区号 **（UEFI 比 BIOS 少了类型分区选择）**，这里一般直接回车使用默认数值，这样可以避免自己定义出现冲突；紧接着选择开始起扇区地址，如果不知道原有区域划分情况，那一般直接回车使用默认数值即可；随后，输入结束扇区地址或者容量大小，这里决定了你为该分区创建的容量大小；我们按照表格顺序创建分区，那这第一个就是  &lt;code&gt;/mnt/boot&lt;/code&gt;  引导分区，例如我取的是 512MiB 容量，那可以直接输入容量大小： &lt;code&gt;+512M&lt;/code&gt;  。&lt;/p&gt;
+&lt;p&gt;2、输入  &lt;code&gt;n&lt;/code&gt;  创建一个新的分区，让你选择分区号 &lt;strong&gt;（UEFI 比 BIOS 少了类型分区选择）&lt;/strong&gt; ，这里一般直接回车使用默认数值，这样可以避免自己定义出现冲突；紧接着选择开始起扇区地址，如果不知道原有区域划分情况，那一般直接回车使用默认数值即可；随后，输入结束扇区地址或者容量大小，这里决定了你为该分区创建的容量大小；我们按照表格顺序创建分区，那这第一个就是  &lt;code&gt;/mnt/boot&lt;/code&gt;  引导分区，例如我取的是 512MiB 容量，那可以直接输入容量大小： &lt;code&gt;+512M&lt;/code&gt;  。&lt;/p&gt;
 &lt;p&gt;3、创建完毕后，可以输入  &lt;code&gt;p&lt;/code&gt;  来查看创建的分区。&lt;/p&gt;
 &lt;p&gt;4、重复第 2 项和第 3 项两次，分别创建  &lt;code&gt;[SWAP]&lt;/code&gt;  和  &lt;code&gt;/mnt&lt;/code&gt; ，至此就有三个分区（对应表格）。&lt;/p&gt;
 &lt;p&gt;5、最后输入  &lt;code&gt;w&lt;/code&gt;  将之前所有的操作写入磁盘并生效。&lt;/p&gt;

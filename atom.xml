@@ -6,7 +6,7 @@
   <link href="https://arachnid.cc/atom.xml" rel="self"/>
   
   <link href="https://arachnid.cc/"/>
-  <updated>2023-02-18T07:24:32.756Z</updated>
+  <updated>2023-02-26T13:03:22.804Z</updated>
   <id>https://arachnid.cc/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Windows 下常用的指令以及操作</title>
-    <link href="https://arachnid.cc/common-windows-commands/"/>
-    <id>https://arachnid.cc/common-windows-commands/</id>
-    <published>2023-02-18T07:10:34.434Z</published>
-    <updated>2023-02-18T07:24:32.756Z</updated>
+    <title>vmware 下 ubuntu 双网卡设置</title>
+    <link href="https://arachnid.cc/virtual-network-setup/"/>
+    <id>https://arachnid.cc/virtual-network-setup/</id>
+    <published>2023-02-25T09:28:19.345Z</published>
+    <updated>2023-02-26T13:03:22.804Z</updated>
     
     
       
@@ -35,6 +35,31 @@
     
     
     
+    <category term="Linux" scheme="https://arachnid.cc/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>uboot 引导启动分析</title>
+    <link href="https://arachnid.cc/uboot-starting/"/>
+    <id>https://arachnid.cc/uboot-starting/</id>
+    <published>2023-02-22T13:19:51.653Z</published>
+    <updated>2023-02-26T13:00:54.976Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    
+    <category term="Linux" scheme="https://arachnid.cc/tags/Linux/"/>
+    
   </entry>
   
   <entry>
@@ -42,7 +67,7 @@
     <link href="https://arachnid.cc/gcc-compiler-collection/"/>
     <id>https://arachnid.cc/gcc-compiler-collection/</id>
     <published>2023-02-10T15:28:36.577Z</published>
-    <updated>2023-02-13T14:15:04.841Z</updated>
+    <updated>2023-02-27T12:17:28.041Z</updated>
     
     
       
@@ -280,7 +305,7 @@
     <link href="https://arachnid.cc/arch-linux-install/"/>
     <id>https://arachnid.cc/arch-linux-install/</id>
     <published>2022-04-12T03:02:19.000Z</published>
-    <updated>2023-02-13T14:17:28.607Z</updated>
+    <updated>2023-02-25T06:03:12.002Z</updated>
     
     
       
@@ -476,31 +501,6 @@
     <category term="history" scheme="https://arachnid.cc/tags/history/"/>
     
     <category term="FreeRTOS" scheme="https://arachnid.cc/tags/FreeRTOS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Kicad 应用总结</title>
-    <link href="https://arachnid.cc/kicad-summary/"/>
-    <id>https://arachnid.cc/kicad-summary/</id>
-    <published>2021-08-14T09:00:24.000Z</published>
-    <updated>2023-02-13T14:13:55.142Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html"></summary>
-        
-      
-    
-    
-    
-    
-    <category term="EDA" scheme="https://arachnid.cc/tags/EDA/"/>
-    
-    <category term="history" scheme="https://arachnid.cc/tags/history/"/>
     
   </entry>
   
