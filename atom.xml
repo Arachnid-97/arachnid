@@ -6,7 +6,7 @@
   <link href="https://arachnid.cc/atom.xml" rel="self"/>
   
   <link href="https://arachnid.cc/"/>
-  <updated>2023-02-26T13:03:22.804Z</updated>
+  <updated>2023-07-09T10:23:42.748Z</updated>
   <id>https://arachnid.cc/</id>
   
   <author>
@@ -17,11 +17,80 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>JTAG 和 SWD 接口定义</title>
+    <link href="https://arachnid.cc/jtag-and-swd/"/>
+    <id>https://arachnid.cc/jtag-and-swd/</id>
+    <published>2023-07-09T06:50:41.515Z</published>
+    <updated>2023-07-09T10:23:42.748Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>二极管常见参数</title>
+    <link href="https://arachnid.cc/diode-parameter-design/"/>
+    <id>https://arachnid.cc/diode-parameter-design/</id>
+    <published>2023-06-30T14:14:04.289Z</published>
+    <updated>2023-07-08T07:34:15.703Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    
+    <category term="电子" scheme="https://arachnid.cc/tags/%E7%94%B5%E5%AD%90/"/>
+    
+    <category term="硬件设计" scheme="https://arachnid.cc/tags/%E7%A1%AC%E4%BB%B6%E8%AE%BE%E8%AE%A1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>(转)光电隔离、磁隔离和电容式隔离三种常见隔离技术的特性</title>
+    <link href="https://arachnid.cc/isolation-techniques/"/>
+    <id>https://arachnid.cc/isolation-techniques/</id>
+    <published>2023-06-29T15:53:51.634Z</published>
+    <updated>2023-07-08T07:38:20.784Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    
+    <category term="电子" scheme="https://arachnid.cc/tags/%E7%94%B5%E5%AD%90/"/>
+    
+  </entry>
+  
+  <entry>
     <title>vmware 下 ubuntu 双网卡设置</title>
     <link href="https://arachnid.cc/virtual-network-setup/"/>
     <id>https://arachnid.cc/virtual-network-setup/</id>
     <published>2023-02-25T09:28:19.345Z</published>
-    <updated>2023-02-26T13:03:22.804Z</updated>
+    <updated>2023-03-14T14:52:37.656Z</updated>
     
     
       
@@ -44,7 +113,7 @@
     <link href="https://arachnid.cc/uboot-starting/"/>
     <id>https://arachnid.cc/uboot-starting/</id>
     <published>2023-02-22T13:19:51.653Z</published>
-    <updated>2023-02-26T13:00:54.976Z</updated>
+    <updated>2023-02-27T12:28:03.030Z</updated>
     
     
       
@@ -111,7 +180,7 @@
     <link href="https://arachnid.cc/aqlite-summarize/"/>
     <id>https://arachnid.cc/aqlite-summarize/</id>
     <published>2023-02-03T12:44:39.504Z</published>
-    <updated>2023-02-13T14:16:59.017Z</updated>
+    <updated>2023-03-02T13:58:49.026Z</updated>
     
     
       
@@ -426,81 +495,6 @@
     <category term="history" scheme="https://arachnid.cc/tags/history/"/>
     
     <category term="RTOS" scheme="https://arachnid.cc/tags/RTOS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Modbus家族之开篇</title>
-    <link href="https://arachnid.cc/modbus-family/"/>
-    <id>https://arachnid.cc/modbus-family/</id>
-    <published>2022-02-08T10:37:49.000Z</published>
-    <updated>2023-02-22T14:44:47.224Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html"></summary>
-        
-      
-    
-    
-    
-    <category term="modbus" scheme="https://arachnid.cc/categories/modbus/"/>
-    
-    
-    <category term="history" scheme="https://arachnid.cc/tags/history/"/>
-    
-    <category term="modbus" scheme="https://arachnid.cc/tags/modbus/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>步进电机及丝杆</title>
-    <link href="https://arachnid.cc/stepper-motor/"/>
-    <id>https://arachnid.cc/stepper-motor/</id>
-    <published>2021-10-30T14:51:43.000Z</published>
-    <updated>2023-02-13T14:15:16.885Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html"></summary>
-        
-      
-    
-    
-    
-    
-    <category term="history" scheme="https://arachnid.cc/tags/history/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>关于 FreeRTOS和 newlib库共存问题</title>
-    <link href="https://arachnid.cc/FreeRTOS-newlib-coexist/"/>
-    <id>https://arachnid.cc/FreeRTOS-newlib-coexist/</id>
-    <published>2021-10-23T15:03:20.000Z</published>
-    <updated>2023-02-22T14:37:35.752Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html"></summary>
-        
-      
-    
-    
-    
-    
-    <category term="history" scheme="https://arachnid.cc/tags/history/"/>
-    
-    <category term="FreeRTOS" scheme="https://arachnid.cc/tags/FreeRTOS/"/>
     
   </entry>
   

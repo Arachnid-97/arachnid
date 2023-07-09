@@ -9,8 +9,83 @@
     <atom:link href="https://arachnid.cc/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description>不曾亏欠, 不曾辜负, 如此足矣</description>
-    <pubDate>Sun, 26 Feb 2023 13:03:22 GMT</pubDate>
+    <pubDate>Sun, 09 Jul 2023 10:23:42 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>JTAG 和 SWD 接口定义</title>
+      <link>https://arachnid.cc/jtag-and-swd/</link>
+      <guid>https://arachnid.cc/jtag-and-swd/</guid>
+      <pubDate>Sun, 09 Jul 2023 06:50:41 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description></description>
+          
+        
+      
+      
+      
+      
+      
+      
+      <comments>https://arachnid.cc/jtag-and-swd/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>二极管常见参数</title>
+      <link>https://arachnid.cc/diode-parameter-design/</link>
+      <guid>https://arachnid.cc/diode-parameter-design/</guid>
+      <pubDate>Fri, 30 Jun 2023 14:14:04 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description></description>
+          
+        
+      
+      
+      
+      
+      
+      <category domain="https://arachnid.cc/tags/%E7%94%B5%E5%AD%90/">电子</category>
+      
+      <category domain="https://arachnid.cc/tags/%E7%A1%AC%E4%BB%B6%E8%AE%BE%E8%AE%A1/">硬件设计</category>
+      
+      
+      <comments>https://arachnid.cc/diode-parameter-design/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>(转)光电隔离、磁隔离和电容式隔离三种常见隔离技术的特性</title>
+      <link>https://arachnid.cc/isolation-techniques/</link>
+      <guid>https://arachnid.cc/isolation-techniques/</guid>
+      <pubDate>Thu, 29 Jun 2023 15:53:51 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description></description>
+          
+        
+      
+      
+      
+      
+      
+      <category domain="https://arachnid.cc/tags/%E7%94%B5%E5%AD%90/">电子</category>
+      
+      
+      <comments>https://arachnid.cc/isolation-techniques/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>vmware 下 ubuntu 双网卡设置</title>
@@ -456,87 +531,6 @@
       
       
       <comments>https://arachnid.cc/rt-thread-summarize/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Modbus家族之开篇</title>
-      <link>https://arachnid.cc/modbus-family/</link>
-      <guid>https://arachnid.cc/modbus-family/</guid>
-      <pubDate>Tue, 08 Feb 2022 10:37:49 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description></description>
-          
-        
-      
-      
-      
-      
-      <category domain="https://arachnid.cc/categories/modbus/">modbus</category>
-      
-      
-      <category domain="https://arachnid.cc/tags/history/">history</category>
-      
-      <category domain="https://arachnid.cc/tags/modbus/">modbus</category>
-      
-      
-      <comments>https://arachnid.cc/modbus-family/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>步进电机及丝杆</title>
-      <link>https://arachnid.cc/stepper-motor/</link>
-      <guid>https://arachnid.cc/stepper-motor/</guid>
-      <pubDate>Sat, 30 Oct 2021 14:51:43 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description></description>
-          
-        
-      
-      
-      
-      
-      
-      <category domain="https://arachnid.cc/tags/history/">history</category>
-      
-      
-      <comments>https://arachnid.cc/stepper-motor/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>关于 FreeRTOS和 newlib库共存问题</title>
-      <link>https://arachnid.cc/FreeRTOS-newlib-coexist/</link>
-      <guid>https://arachnid.cc/FreeRTOS-newlib-coexist/</guid>
-      <pubDate>Sat, 23 Oct 2021 15:03:20 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description></description>
-          
-        
-      
-      
-      
-      
-      
-      <category domain="https://arachnid.cc/tags/history/">history</category>
-      
-      <category domain="https://arachnid.cc/tags/FreeRTOS/">FreeRTOS</category>
-      
-      
-      <comments>https://arachnid.cc/FreeRTOS-newlib-coexist/#disqus_thread</comments>
       
     </item>
     

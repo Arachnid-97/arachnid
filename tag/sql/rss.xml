@@ -10,19 +10,20 @@
         <category>EDA</category>
         <category>history</category>
         <category>电子</category>
+        <category>硬件设计</category>
+        <category>hexo</category>
+        <category>IDE</category>
         <category>C</category>
         <category>MCU</category>
         <category>git</category>
         <category>工具</category>
         <category>FreeRTOS</category>
-        <category>IDE</category>
-        <category>hexo</category>
-        <category>JSON</category>
         <category>SQL</category>
+        <category>JSON</category>
         <category>Linux</category>
         <category>Ubuntu</category>
-        <category>RTOS</category>
         <category>算法</category>
+        <category>RTOS</category>
         <category>DMX512</category>
         <category>modbus</category>
         <category>Modem</category>
@@ -330,6 +331,16 @@ SQLite 并没有提供专门的布尔存储类型，取而代之的是存储整�
 &lt;p&gt;sqlite3_open -&amp;gt; sqlite3_prepare_v2 -&amp;gt; sqlite3_step -&amp;gt; sqlite3_column_xxx -&amp;gt; sqlite3_finalize -&amp;gt; sqlite3_close&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;3、例子&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;略略略&lt;/p&gt;
+&lt;h1 id=&#34;常用命令&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#常用命令&#34;&gt;#&lt;/a&gt; 常用命令&lt;/h1&gt;
+&lt;p&gt;If you use an auto-increment field, you can easily write this to delete the oldest 100 records:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;DELETE FROM mytable WHERE id IN (SELECT id FROM mytable ORDER BY id ASC LIMIT 100)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Or, if no such field is present, use  &lt;code&gt;ROWID&lt;/code&gt;  :&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;DELETE FROM mytable WHERE ROWID IN (SELECT ROWID FROM mytable ORDER BY ROWID ASC LIMIT 100)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Or, to leave only the latest 1000 records:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;DELETE FROM mytable WHERE ROWID IN (SELECT ROWID FROM mytable ORDER BY ROWID DESC LIMIT -1 OFFSET 1000)
+&lt;/code&gt;&lt;/pre&gt;
 &lt;h1 id=&#34;参考&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#参考&#34;&gt;#&lt;/a&gt; 参考&lt;/h1&gt;
 &lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9zcWxpdGUub3JnL2NpbnRyby5odG1s&#34;&gt;An Introduction To The SQLite C/C++ Interface&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9zcWxpdGUub3JnL2NhcGkzcmVmLmh0bWw=&#34;&gt;C-language Interface Specification for SQLite&lt;/span&gt;&lt;/p&gt;
@@ -338,6 +349,7 @@ SQLite 并没有提供专门的布尔存储类型，取而代之的是存储整�
 &lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cub3JlaWxseS5jb20vbGlicmFyeS92aWV3L3VzaW5nLXNxbGl0ZS85NzgxNDQ5Mzk0NTkyL3JlMjQ0Lmh0bWw=&#34;&gt;Using sqlite3_column_xxx()&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9zcWxpdGUub3JnL3F1aWNrc3RhcnQuaHRtbA==&#34;&gt;Write Programs That Use SQLite&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9qdWVqaW4uY24vcG9zdC82OTEyNjk5NjEzODEyMDk3MDMxI2hlYWRpbmctMjE=&#34;&gt;SQLite 常用 API (C)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9zdGFja292ZXJmbG93LmNvbS9xdWVzdGlvbnMvMzY2NzA4NS9kZWxldGUtb2xkZXN0LXJlY29yZHMtZnJvbS1kYXRhYmFzZQ==&#34;&gt;Delete oldest records from database&lt;/span&gt;&lt;/p&gt;
  ]]></description>
         </item>
     </channel>
