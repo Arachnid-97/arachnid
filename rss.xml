@@ -9,7 +9,7 @@
     <atom:link href="https://arachnid.cc/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description>不曾亏欠, 不曾辜负, 如此足矣</description>
-    <pubDate>Sun, 09 Jul 2023 10:23:42 GMT</pubDate>
+    <pubDate>Sun, 17 Sep 2023 15:29:00 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -187,8 +187,8 @@
     
     <item>
       <title>SQLite 知识整理</title>
-      <link>https://arachnid.cc/aqlite-summarize/</link>
-      <guid>https://arachnid.cc/aqlite-summarize/</guid>
+      <link>https://arachnid.cc/sqlite-summarize/</link>
+      <guid>https://arachnid.cc/sqlite-summarize/</guid>
       <pubDate>Fri, 03 Feb 2023 12:44:39 GMT</pubDate>
       
         
@@ -206,7 +206,7 @@
       <category domain="https://arachnid.cc/tags/SQL/">SQL</category>
       
       
-      <comments>https://arachnid.cc/aqlite-summarize/#disqus_thread</comments>
+      <comments>https://arachnid.cc/sqlite-summarize/#disqus_thread</comments>
       
     </item>
     

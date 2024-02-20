@@ -12,18 +12,18 @@
         <category>电子</category>
         <category>硬件设计</category>
         <category>hexo</category>
-        <category>IDE</category>
         <category>C</category>
         <category>MCU</category>
         <category>git</category>
-        <category>工具</category>
         <category>FreeRTOS</category>
+        <category>工具</category>
+        <category>IDE</category>
+        <category>Linux</category>
         <category>SQL</category>
         <category>JSON</category>
-        <category>Linux</category>
         <category>Ubuntu</category>
-        <category>算法</category>
         <category>RTOS</category>
+        <category>算法</category>
         <category>DMX512</category>
         <category>modbus</category>
         <category>Modem</category>
@@ -51,9 +51,9 @@
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;X / Ymodem 协议：&lt;br /&gt;
-&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3BhdWlsbGFjLmlucmlhLmZyL35kb2xpZ2V6L3ptb2RlbS95bW9kZW0udHh0&#34;&gt;http://pauillac.inria.fr/~doligez/zmodem/ymodem.txt&lt;/span&gt;&lt;/p&gt;
+&lt;a href=&#34;http://pauillac.inria.fr/~doligez/zmodem/ymodem.txt&#34;&gt;http://pauillac.inria.fr/~doligez/zmodem/ymodem.txt&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Zmodem 协议：&lt;br /&gt;
-&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL2dhbGxpdW0uaW5yaWEuZnIvfmRvbGlnZXovem1vZGVtL3ptb2RlbS50eHQ=&#34;&gt;http://gallium.inria.fr/~doligez/zmodem/zmodem.txt&lt;/span&gt;&lt;/p&gt;
+&lt;a href=&#34;http://gallium.inria.fr/~doligez/zmodem/zmodem.txt&#34;&gt;http://gallium.inria.fr/~doligez/zmodem/zmodem.txt&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&#34;控制字符定义&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#控制字符定义&#34;&gt;#&lt;/a&gt; 控制字符定义&lt;/h1&gt;
 &lt;pre&gt;&lt;code&gt;&amp;lt;SOH&amp;gt; 01H       // 传输 128Byte 启动标志
 &amp;lt;STX&amp;gt; 02H 		// 传输 1024Byte 启动标志
@@ -342,7 +342,7 @@
 &lt;/table&gt;
 &lt;h2 id=&#34;扩展&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#扩展&#34;&gt;#&lt;/a&gt; 扩展&lt;/h2&gt;
 &lt;p&gt;关于校验和和 CRC 校验可以看以前的文章《&lt;a href=&#34;https://arachnid.cc/check-algorithm/&#34;&gt;常用校验算法&lt;/a&gt;》&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93ZWIubWl0LmVkdS82LjExNS93d3cvYW11bGV0L3htb2RlbS5odG0=&#34;&gt;XModem Protocol with CRC&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://web.mit.edu/6.115/www/amulet/xmodem.htm&#34;&gt;XModem Protocol with CRC&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&#34;ymodem通讯&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#ymodem通讯&#34;&gt;#&lt;/a&gt; YModem 通讯&lt;/h1&gt;
 &lt;p&gt;Ymodem 本质上是允许多个批处理文件传输的 Xmodem-1K，也可表示为 YModem-1K。&lt;/p&gt;
 &lt;p&gt;Ymodem 在 Xmodem-1K 基础上发展，沿用了  &lt;code&gt;TeLink&lt;/code&gt;  协议的添加空头块的做法，也就是增加  &lt;code&gt;block 0&lt;/code&gt; 。该 block 标识即将发送文件的  &lt;code&gt;文件名&lt;/code&gt; ， &lt;code&gt;文件大小&lt;/code&gt;  和   &lt;code&gt;文件创建时间戳(一般不填写)&lt;/code&gt;&lt;/p&gt;
@@ -557,12 +557,12 @@
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h1 id=&#34;参考&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#参考&#34;&gt;#&lt;/a&gt; 参考&lt;/h1&gt;
-&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9lbi53aWtpcGVkaWEub3JnL3dpa2kvWE1PREVN&#34;&gt;https://en.wikipedia.org/wiki/XMODEM&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9lbi53aWtpcGVkaWEub3JnL3dpa2kvWU1PREVN&#34;&gt;https://en.wikipedia.org/wiki/YMODEM&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9lbi53aWtpcGVkaWEub3JnL3dpa2kvWk1PREVN&#34;&gt;https://en.wikipedia.org/wiki/ZMODEM&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3dlYi5jZWNzLnBkeC5lZHUvfnJvb3RkL2NhdGRvYy9ndWlkZS9UaGVHdWlkZV90b2MuaHRtbCNTRUMyMzc=&#34;&gt;XMODEM, YMODEM, and ZMODEM&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9zbGlkZXBsYXllci5wbC9zbGlkZS80MzQ1NzIv&#34;&gt;Transmisja modemowa - Xmodem, Ymodem, Zmodem&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cub2hzZS5kZS91d2Uvc29mdHdhcmUvbHJ6c3ouaHRtbA==&#34;&gt;lrzsz: free x/y/zmodem implementation&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/XMODEM&#34;&gt;https://en.wikipedia.org/wiki/XMODEM&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/YMODEM&#34;&gt;https://en.wikipedia.org/wiki/YMODEM&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/ZMODEM&#34;&gt;https://en.wikipedia.org/wiki/ZMODEM&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://web.cecs.pdx.edu/~rootd/catdoc/guide/TheGuide_toc.html#SEC237&#34;&gt;XMODEM, YMODEM, and ZMODEM&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://slideplayer.pl/slide/434572/&#34;&gt;Transmisja modemowa - Xmodem, Ymodem, Zmodem&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.ohse.de/uwe/software/lrzsz.html&#34;&gt;lrzsz: free x/y/zmodem implementation&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&#34;附录&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#附录&#34;&gt;#&lt;/a&gt; 附录&lt;/h1&gt;
 &lt;p&gt;CRC 校验计算：&lt;/p&gt;
 &lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;calcrc&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;char&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;ptr&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; count&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt;  crc&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;char&lt;/span&gt; i&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    crc &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;--&lt;/span&gt;count &lt;span class=&#34;token operator&#34;&gt;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        crc &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; crc &lt;span class=&#34;token operator&#34;&gt;^&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;ptr&lt;span class=&#34;token operator&#34;&gt;++&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        i &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;8&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token keyword&#34;&gt;do&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            &lt;span class=&#34;token keyword&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;crc &lt;span class=&#34;token operator&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0x8000&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;                crc &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; crc &lt;span class=&#34;token operator&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;^&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0x1021&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            &lt;span class=&#34;token keyword&#34;&gt;else&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;                crc &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; crc &lt;span class=&#34;token operator&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;16&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;while&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;--&lt;/span&gt;i&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;17&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;18&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;crc&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;19&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt; ]]></description>

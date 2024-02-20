@@ -12,25 +12,25 @@
         <category>电子</category>
         <category>硬件设计</category>
         <category>hexo</category>
-        <category>IDE</category>
         <category>C</category>
         <category>MCU</category>
         <category>git</category>
-        <category>工具</category>
         <category>FreeRTOS</category>
+        <category>工具</category>
+        <category>IDE</category>
+        <category>Linux</category>
         <category>SQL</category>
         <category>JSON</category>
-        <category>Linux</category>
         <category>Ubuntu</category>
-        <category>算法</category>
         <category>RTOS</category>
+        <category>算法</category>
         <category>DMX512</category>
         <category>modbus</category>
         <category>Modem</category>
         <item>
-            <guid isPermalink="true">https://arachnid.cc/aqlite-summarize/</guid>
+            <guid isPermalink="true">https://arachnid.cc/sqlite-summarize/</guid>
             <title>SQLite 知识整理</title>
-            <link>https://arachnid.cc/aqlite-summarize/</link>
+            <link>https://arachnid.cc/sqlite-summarize/</link>
             <category>SQL</category>
             <pubDate>Fri, 03 Feb 2023 20:44:39 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;sqlite-类型&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#sqlite-类型&#34;&gt;#&lt;/a&gt; SQLite 类型&lt;/h1&gt;

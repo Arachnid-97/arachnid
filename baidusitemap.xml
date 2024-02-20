@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://arachnid.cc/jtag-and-swd/</loc>
-    <lastmod>2023-07-09</lastmod>
-  </url>
-  <url>
-    <loc>https://arachnid.cc/isolation-techniques/</loc>
-    <lastmod>2023-07-08</lastmod>
+    <loc>https://arachnid.cc/sqlite-summarize/</loc>
+    <lastmod>2024-02-20</lastmod>
   </url>
   <url>
     <loc>https://arachnid.cc/diode-parameter-design/</loc>
+    <lastmod>2023-11-15</lastmod>
+  </url>
+  <url>
+    <loc>https://arachnid.cc/jtag-and-swd/</loc>
+    <lastmod>2023-09-17</lastmod>
+  </url>
+  <url>
+    <loc>https://arachnid.cc/isolation-techniques/</loc>
     <lastmod>2023-07-08</lastmod>
   </url>
   <url>
@@ -19,10 +23,6 @@
   <url>
     <loc>https://arachnid.cc/virtual-network-setup/</loc>
     <lastmod>2023-03-14</lastmod>
-  </url>
-  <url>
-    <loc>https://arachnid.cc/aqlite-summarize/</loc>
-    <lastmod>2023-03-02</lastmod>
   </url>
   <url>
     <loc>https://arachnid.cc/using-git-command/</loc>

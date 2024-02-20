@@ -6,7 +6,7 @@
   <link href="https://arachnid.cc/atom.xml" rel="self"/>
   
   <link href="https://arachnid.cc/"/>
-  <updated>2023-07-09T10:23:42.748Z</updated>
+  <updated>2023-09-17T15:29:00.207Z</updated>
   <id>https://arachnid.cc/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://arachnid.cc/jtag-and-swd/"/>
     <id>https://arachnid.cc/jtag-and-swd/</id>
     <published>2023-07-09T06:50:41.515Z</published>
-    <updated>2023-07-09T10:23:42.748Z</updated>
+    <updated>2023-09-17T15:29:00.207Z</updated>
     
     
       
@@ -42,7 +42,7 @@
     <link href="https://arachnid.cc/diode-parameter-design/"/>
     <id>https://arachnid.cc/diode-parameter-design/</id>
     <published>2023-06-30T14:14:04.289Z</published>
-    <updated>2023-07-08T07:34:15.703Z</updated>
+    <updated>2023-11-15T16:12:39.687Z</updated>
     
     
       
@@ -177,10 +177,10 @@
   
   <entry>
     <title>SQLite 知识整理</title>
-    <link href="https://arachnid.cc/aqlite-summarize/"/>
-    <id>https://arachnid.cc/aqlite-summarize/</id>
+    <link href="https://arachnid.cc/sqlite-summarize/"/>
+    <id>https://arachnid.cc/sqlite-summarize/</id>
     <published>2023-02-03T12:44:39.504Z</published>
-    <updated>2023-03-02T13:58:49.026Z</updated>
+    <updated>2024-02-20T14:16:21.365Z</updated>
     
     
       

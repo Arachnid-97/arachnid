@@ -12,18 +12,18 @@
         <category>电子</category>
         <category>硬件设计</category>
         <category>hexo</category>
-        <category>IDE</category>
         <category>C</category>
         <category>MCU</category>
         <category>git</category>
-        <category>工具</category>
         <category>FreeRTOS</category>
+        <category>工具</category>
+        <category>IDE</category>
+        <category>Linux</category>
         <category>SQL</category>
         <category>JSON</category>
-        <category>Linux</category>
         <category>Ubuntu</category>
-        <category>算法</category>
         <category>RTOS</category>
+        <category>算法</category>
         <category>DMX512</category>
         <category>modbus</category>
         <category>Modem</category>
@@ -40,39 +40,39 @@
 &lt;/blockquote&gt;
 &lt;h1 id=&#34;step-1添加网卡&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#step-1添加网卡&#34;&gt;#&lt;/a&gt; step 1：添加网卡&lt;/h1&gt;
 &lt;p&gt;在虚拟机窗口栏，依次点击  &lt;code&gt;编辑&lt;/code&gt;  -&amp;gt;  &lt;code&gt;虚拟网络编辑器&lt;/code&gt;  ，可以看到原有默认的 VMnet 接口：&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;image-20230225172822709.png&#34; alt=&#34;image-20230225172822709&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;image-20230225172822709.png&#34; alt=&#34;image-20230225172822709&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;它们分别对应主机 ip 地址。&lt;/p&gt;
 &lt;p&gt;然后我们建立一个桥接模式的 VMnet 虚拟网络，并指定响应网卡（如出现灰屏无法设置，需要&lt;strong&gt;以管理员身份打开&lt;/strong&gt; VMware，或在当前窗口点击  &lt;code&gt;更改设置&lt;/code&gt;  来赋予权限），然后选择对应需要进行桥接的网卡（即网口网卡）：&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;image-20230225193931835.png&#34; alt=&#34;image-20230225193931835&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;image-20230225193931835.png&#34; alt=&#34;image-20230225193931835&#34; /&gt;&lt;/p&gt;
 &lt;h1 id=&#34;setp-2配置网络设备器&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#setp-2配置网络设备器&#34;&gt;#&lt;/a&gt; setp 2：配置网络设备器&lt;/h1&gt;
 &lt;p&gt;在 ubuntu 虚拟机右键点击  &lt;code&gt;设置&lt;/code&gt;  -&amp;gt;  &lt;code&gt;添加&lt;/code&gt;  -&amp;gt;  &lt;code&gt;网络适配器&lt;/code&gt;  ，然后指定上面配置为桥接模式的  VMnet 虚拟网络：&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;image-20230225194908857.png&#34; alt=&#34;image-20230225194908857&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;image-20230225194908857.png&#34; alt=&#34;image-20230225194908857&#34; /&gt;&lt;/p&gt;
 &lt;h2 id=&#34;拓展&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#拓展&#34;&gt;#&lt;/a&gt; 拓展&lt;/h2&gt;
 &lt;p&gt;关于 NAT（网络地址转换模式）、Host-only（主机模式）及 bridged（桥接模式）：&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;Perbedaan-NAT-Bridge-Dan-Host-Only-Di-Vmware-Dan-Virtualbox-1170x731.jpg&#34; alt=&#34;Perbedaan NAT Bridge Dan Host Only&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;Perbedaan-NAT-Bridge-Dan-Host-Only-Di-Vmware-Dan-Virtualbox-1170x731.jpg&#34; alt=&#34;Perbedaan NAT Bridge Dan Host Only&#34; /&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;NAT 模式：使用 NAT 模式，就是让虚拟机借助 NAT （网络地址转换）功能，通过宿主机器所在的网络来访问外部网络，即：使用 NAT 模式可以实现在虚拟系统里访问互联网。&lt;/p&gt;
 &lt;p&gt;优点：是从虚拟机访问外部网络的最简单方法；通常，它会自动设置网络地址转换到虚拟机上，不需要在宿主机器的网络信息上配置或通过访客操作系统上进行配置。&lt;/p&gt;
 &lt;p&gt;缺点：就像路由器后面的专用网络一样，虚拟机是不可见的，无法从外部网络访问。&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;Virtual_network_switch_in_nat_mode.png&#34; alt=&#34;vmware-network-nat&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;Virtual_network_switch_in_nat_mode.png&#34; alt=&#34;vmware-network-nat&#34; /&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Host-only 模式：构建一个与外界断开连接的内部网络，只允许使用 host-only 方法的虚拟机才能通信，因此无法与外部网络或其他 PC 主机通信，只能相互通信。&lt;/p&gt;
 &lt;p&gt;优点：与内部网络一样，其不需要存在物理网络接口，相当于使用 host-only 方法的虚拟机通过双绞线直连形成网络节点进行通讯；由于无法访问外部网络，因此对于安全性来讲，比其余两种相对要高。&lt;/p&gt;
 &lt;p&gt;缺点：如其名，无法与主机外部的网络通信，同时外部网络设备也无法与其通讯。&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;Virtual_network_switch_in_host-only_mode.png&#34; alt=&#34;vmware-network-hostonly&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;Virtual_network_switch_in_host-only_mode.png&#34; alt=&#34;vmware-network-hostonly&#34; /&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;bridged 模式：在这种模式下，虚拟系统就像是局域网中的一台独立的主机，具有自己的 MAC 和 IP 地址；由于虚拟机和宿主机器分配了相同网段的 IP，因此宿主机器和虚拟机被识别为同一级别的物理主机。&lt;/p&gt;
 &lt;p&gt;优点：虚拟机就像是一台独立的主机，拥有正常主机的网络功能，可以对外部网络进行访问，而外部网络也可以访问进来。&lt;/p&gt;
 &lt;p&gt;缺点：由于外部网络可以访问，其安全性比其余两种相对要低；因与宿主机器平等的存在于网络中，需要进行分配网络地址、子网掩码、网关等操作。&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;Virtual_network_switch_in_bridged_mode.png&#34; alt=&#34;vmware-network-bridged&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;Virtual_network_switch_in_bridged_mode.png&#34; alt=&#34;vmware-network-bridged&#34; /&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;示例：&lt;/p&gt;
 &lt;p&gt;一些 VMnet 虚拟机具有特定功能：VMnet0 专用于 bridged 模式，VMnet1 专用于 host-only 模式，而 VMnet8 专用于 NAT 模式；其他的 VMnet2 等，可供虚拟机使用自定义网络模式。如图分析各模式作用：&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;workstation-networking_thumb1.jpg&#34; alt=&#34;工作站网络&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;workstation-networking_thumb1.jpg&#34; alt=&#34;工作站网络&#34; /&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;VM-1 可以与 host PC 通信，并连接到外部 LAN or internet，但不能与 NAT 和 host-only 网络通信。&lt;/p&gt;
@@ -88,14 +88,14 @@
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;参考：&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9zdXBlcnVzZXIuY29tL3F1ZXN0aW9ucy8yMjc1MDUvd2hhdC1pcy10aGUtZGlmZmVyZW5jZS1iZXR3ZWVuLW5hdC1icmlkZ2VkLWhvc3Qtb25seS1uZXR3b3JraW5n&#34;&gt;What is the difference between NAT / Bridged / Host-Only networking?&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9waWJ5dGVzLndvcmRwcmVzcy5jb20vMjAxMi8xMS8xNi92bXdhcmUtd29ya3N0YXRpb24tbmV0d29ya2luZy1iYXNpY3Mv&#34;&gt;VMware Workstation Networking Basics&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9hZ3Vzc2FzLndvcmRwcmVzcy5jb20vMjAxNS8xMC8yOC92bXdhcmUtbmV0d29ya2luZy1jb25jZXB0LWJyaWRnZWQtbmF0LWhvc3Qtb25seS1sYW4tc2VnbWVudC8=&#34;&gt;VMWare Networking Concept [Bridged, NAT, Host Only, LAN Segment]&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cubW9uaXRvcnRla25vbG9naS5jb20vcGVyYmVkYWFuLW5hdC1icmlkZ2UtZGFuLWhvc3Qtb25seS8=&#34;&gt;Perbedaan NAT Bridge Dan Host Only Di VMware Dan VirtualBox&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmxpYnZpcnQub3JnL1ZpcnR1YWxOZXR3b3JraW5nLmh0bWw=&#34;&gt;Virtual Networking&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cudW5hbWUuaW4vNjA=&#34;&gt;Vmware Host-Only, NAT, Bridge 차이&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9kaWFybXVpZG1jY2FydGh5LndvcmRwcmVzcy5jb20vMjAxMS8wMi8xNS9oZWxsby13b3JsZC8=&#34;&gt;Intro to Virtual Machine Networking&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9yeWFuaXNhZ29vZGd1eS5ibG9nc3BvdC5jb20vMjAxOS8wNi92bXdhcmVuZXR3b3JrLXR5cGVicmlkZ2VkaG9zdC1vbmx5LW5hdC5odG1s&#34;&gt;VMware 虛擬機器上網路連線 (Network type) 的三種模式&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://superuser.com/questions/227505/what-is-the-difference-between-nat-bridged-host-only-networking&#34;&gt;What is the difference between NAT / Bridged / Host-Only networking?&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://pibytes.wordpress.com/2012/11/16/vmware-workstation-networking-basics/&#34;&gt;VMware Workstation Networking Basics&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://agussas.wordpress.com/2015/10/28/vmware-networking-concept-bridged-nat-host-only-lan-segment/&#34;&gt;VMWare Networking Concept [Bridged, NAT, Host Only, LAN Segment]&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.monitorteknologi.com/perbedaan-nat-bridge-dan-host-only/&#34;&gt;Perbedaan NAT Bridge Dan Host Only Di VMware Dan VirtualBox&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://wiki.libvirt.org/VirtualNetworking.html&#34;&gt;Virtual Networking&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.uname.in/60&#34;&gt;Vmware Host-Only, NAT, Bridge 차이&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://diarmuidmccarthy.wordpress.com/2011/02/15/hello-world/&#34;&gt;Intro to Virtual Machine Networking&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://ryanisagoodguy.blogspot.com/2019/06/vmwarenetwork-typebridgedhost-only-nat.html&#34;&gt;VMware 虛擬機器上網路連線 (Network type) 的三種模式&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&#34;setp-3网络信息配置&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#setp-3网络信息配置&#34;&gt;#&lt;/a&gt; setp 3：网络信息配置&lt;/h1&gt;
 &lt;p&gt;从上一步可以知道我们目前有两个网络适配器，分别是 NAT 和 桥接模式，然后针对这几个模式的作用也在上面作了介绍了；因此在这里，实际只需要在虚拟机系统中配置桥接模式对应的网卡网络信息就好了；至于 NAT 模式对应的网卡网络信息将由虚拟机借助 NAT （网络地址转换）功能实现自动配置即可实现访问外网功能。&lt;/p&gt;
 &lt;ol&gt;
@@ -501,7 +501,7 @@
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;目前使用的主流&lt;strong&gt;嵌入式平台&lt;/strong&gt;，几乎都是用 u-boot 作为启动引导，u-boot 有哪些突出的优点呢？&lt;/p&gt;
-&lt;p&gt;① 开放源码：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL3UtYm9vdC91LWJvb3QlRUYlQkMlOUI=&#34;&gt;https://github.com/u-boot/u-boot；&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;① 开放源码：&lt;a href=&#34;https://github.com/u-boot/u-boot%EF%BC%9B&#34;&gt;https://github.com/u-boot/u-boot；&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;② 支持多种嵌入式操作系统内核，如 Linux、NetBSD, VxWorks, QNX, RTEMS, ARTOS, LynxOS, android；&lt;/p&gt;
 &lt;p&gt;③ 支持多个处理器系列，如 PowerPC、ARM、x86、MIPS；&lt;/p&gt;
 &lt;p&gt;④ 较高的可靠性和稳定性；&lt;/p&gt;
@@ -509,7 +509,7 @@
 &lt;p&gt;⑥ 丰富的设备驱动源码，如串口、以太网、SDRAM、FLASH、LCD、NVRAM、EEPROM、RTC、键盘等；&lt;/p&gt;
 &lt;p&gt;⑦ 较为丰富的开发调试文档与强大的网络技术支持。&lt;/p&gt;
 &lt;h1 id=&#34;kernel&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#kernel&#34;&gt;#&lt;/a&gt; kernel&lt;/h1&gt;
-&lt;p&gt;kernel 即 linux 内核。内核源代码可以免费从&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cua2VybmVsLm9yZy8=&#34;&gt;官网&lt;/span&gt;获取，这是一个通用的内核，里面包含着内核支持的所有的硬件平台及驱动的所有代码，是一个大而全的内核源代码。&lt;/p&gt;
+&lt;p&gt;kernel 即 linux 内核。内核源代码可以免费从&lt;a href=&#34;https://www.kernel.org/&#34;&gt;官网&lt;/a&gt;获取，这是一个通用的内核，里面包含着内核支持的所有的硬件平台及驱动的所有代码，是一个大而全的内核源代码。&lt;/p&gt;
 &lt;p&gt;在使用层面上，当嵌入式平台使用 linux 系统，那么最重要的就是 kernel 中驱动的移植；一般都不会从一个纯净的 kernel 中去进行移植操作，而是根据芯片厂商提供的 kernel 对特定的硬件平台及设备进行各种外设驱动相关的适配工作。&lt;/p&gt;
 &lt;h2 id=&#34;device-tree&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#device-tree&#34;&gt;#&lt;/a&gt; Device Tree&lt;/h2&gt;
 &lt;p&gt;设备树（Device Tree）是描述计算机的特定硬件设备信息的数据结构，以便于操作系统的内核可以管理和使用这些硬件，包括 CPU 或 CPU，内存，总线和其他一些外设。&lt;/p&gt;
@@ -524,10 +524,10 @@
 &lt;p&gt;rootfs（Root Filesystem）即根目录文件系统，是 kernel 启动后挂载的第一个文件系统。rootfs 和 kernel 是分开的，但单独的 kernel 没有 rootfs 是没法正常工作的。在系统终端执行  &lt;code&gt;cd /&lt;/code&gt;  即可看到当前的文件系统内容了。&lt;/p&gt;
 &lt;p&gt;现在有许多制作 rootfs 的工具，如 busybox，buildroot，Yocto 等。其中 buildroot 中包含了 busybox 的功能，只需要简单的操作就可以生成一个 rootfs 了。&lt;/p&gt;
 &lt;h1 id=&#34;参考&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#参考&#34;&gt;#&lt;/a&gt; 参考&lt;/h1&gt;
-&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9xMjQ4MjY5NjczLnBpeG5ldC5uZXQvYmxvZy9wb3N0LzY5NTcwMjc5&#34;&gt;完整的 linux 系統：bootloader、linux kernel（linux 內核）、rootfile（根文件系統）&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3d3dy5lbWJlZGRlZGxpbnV4Lm9yZy5jbi9lbWJsaW51eGFwcGRldi8=&#34;&gt;嵌入式 linux 应用开发&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oYWNrbWQuaW8vQGEyOTY1NDA2OC9ISjF1VVlFOHI=&#34;&gt;Linux 筆記 2&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9zdGFja292ZXJmbG93LmNvbS9xdWVzdGlvbnMvNDg0MjAxMjYvd2hhdC1pcy10aGUtZGlmZmVyZW5jZS1iZXR3ZWVuLWR0cy1maWxlLWFuZC1kdHNpLWZpbGU=&#34;&gt;What is the difference between .dts file and .dtsi file?&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://q248269673.pixnet.net/blog/post/69570279&#34;&gt;完整的 linux 系統：bootloader、linux kernel（linux 內核）、rootfile（根文件系統）&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.embeddedlinux.org.cn/emblinuxappdev/&#34;&gt;嵌入式 linux 应用开发&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://hackmd.io/@a29654068/HJ1uUYE8r&#34;&gt;Linux 筆記 2&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://stackoverflow.com/questions/48420126/what-is-the-difference-between-dts-file-and-dtsi-file&#34;&gt;What is the difference between .dts file and .dtsi file?&lt;/a&gt;&lt;/p&gt;
  ]]></description>
         </item>
         <item>
@@ -540,7 +540,7 @@
             <pubDate>Thu, 03 Nov 2022 21:13:57 +0800</pubDate>
             <description><![CDATA[ &lt;blockquote&gt;
 &lt;p&gt;平台：Ubuntu 18.04.6&lt;/p&gt;
-&lt;p&gt;vsftpd 官网：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9zZWN1cml0eS5hcHBzcG90LmNvbS92c2Z0cGQuaHRtbA==&#34;&gt;https://security.appspot.com/vsftpd.html&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;vsftpd 官网：&lt;a href=&#34;https://security.appspot.com/vsftpd.html&#34;&gt;https://security.appspot.com/vsftpd.html&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h1 id=&#34;安装&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#安装&#34;&gt;#&lt;/a&gt; 安装&lt;/h1&gt;
 &lt;p&gt;安装 FTP 服务，命令行输入：&lt;/p&gt;
@@ -553,7 +553,7 @@
 &lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;sudo&lt;/span&gt; /etc/init.d/vsftpd restart&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h1 id=&#34;启动服务&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#启动服务&#34;&gt;#&lt;/a&gt; 启动服务&lt;/h1&gt;
 &lt;p&gt;在加载完后，重启服务器：&lt;/p&gt;
 &lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;sudo&lt;/span&gt; systemctl restart vsftpd&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;查看服务启动状态：&lt;/p&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;sudo&lt;/span&gt; systemctl status vsftpd&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;img data-src=&#34;image-20221106152005206.png&#34; alt=&#34;image-20221106152005206&#34; /&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;sudo&lt;/span&gt; systemctl status vsftpd&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;img src=&#34;image-20221106152005206.png&#34; alt=&#34;image-20221106152005206&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;设置开机启动：&lt;/p&gt;
 &lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;sudo&lt;/span&gt; systemctl &lt;span class=&#34;token builtin class-name&#34;&gt;enable&lt;/span&gt; vsftpd&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;如果想关闭开机启动：&lt;/p&gt;
 &lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;sudo&lt;/span&gt; systemctl disable vsftpd&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h1 id=&#34;ftp连接&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#ftp连接&#34;&gt;#&lt;/a&gt; FTP 连接&lt;/h1&gt;
@@ -564,14 +564,14 @@
 &lt;p&gt;3、如果需要密码则进行相应输入，这里上面配置设了匿名登录不需要密码，所以以匿名登录时没有提示输入密码。&lt;/p&gt;
 &lt;p&gt;4、进入到相应的用户访问根目录里（ps：即进入到配置文件中设置的登录访问的文件路径，可以用  &lt;code&gt;ls&lt;/code&gt;  查看是否对应上访问的文件目录），这样就可以愉快的玩耍了；输入：  &lt;code&gt;quit&lt;/code&gt;  退出。&lt;/p&gt;
 &lt;p&gt;eg：本地连接并退出，如下图：&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;image-20221106164252568.png&#34; alt=&#34;image-20221106164252568&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;image-20221106164252568.png&#34; alt=&#34;image-20221106164252568&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;windows 下可视化文件访问：按  &lt;code&gt;Win&lt;/code&gt;  +  &lt;code&gt;E&lt;/code&gt;  快捷键，调用文件资源管理器，输入访问地址，回车：&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;image-20221106160826118.png&#34; alt=&#34;image-20221106160826118&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;image-20221106160826118.png&#34; alt=&#34;image-20221106160826118&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;windows 下命令行文件访问：同样按  &lt;code&gt;Win&lt;/code&gt;  +  &lt;code&gt;E&lt;/code&gt;  快捷键，调用文件资源管理器，然后在输写框跟上面 linux 访问连接一样输入  &lt;code&gt;ftp ip&lt;/code&gt;  ，即可跳到 ftp 操作控制台中：&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;image-20221106161411644.png&#34; alt=&#34;image-20221106161411644&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;image-20221106161411644.png&#34; alt=&#34;image-20221106161411644&#34; /&gt;&lt;/p&gt;
 &lt;h1 id=&#34;ftp客户端常用命令&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#ftp客户端常用命令&#34;&gt;#&lt;/a&gt; FTP 客户端常用命令&lt;/h1&gt;
 &lt;p&gt;在登录进入 ftp 后，可以使用  &lt;code&gt;help&lt;/code&gt;  查看可以使用哪些指令操作：&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;image-20221106163512272.png&#34; alt=&#34;image-20221106163512272&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;image-20221106163512272.png&#34; alt=&#34;image-20221106163512272&#34; /&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;ls：和 linux 上的 ls 命令类似&lt;/p&gt;
@@ -608,41 +608,41 @@
             <category>Linux</category>
             <pubDate>Tue, 12 Apr 2022 11:02:19 +0800</pubDate>
             <description><![CDATA[ &lt;blockquote&gt;
-&lt;p&gt;官方 wiki 安装中文指导：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmFyY2hsaW51eC5vcmcvdGl0bGUvSW5zdGFsbGF0aW9uX2d1aWRlXyglRTclQUUlODAlRTQlQkQlOTMlRTQlQjglQUQlRTYlOTYlODcp&#34;&gt;https://wiki.archlinux.org/title/Installation_guide_(简体中文)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;官方 wiki 安装中文指导：&lt;a href=&#34;https://wiki.archlinux.org/title/Installation_guide_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)&#34;&gt;https://wiki.archlinux.org/title/Installation_guide_(简体中文)&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;最好还是以&lt;strong&gt;英文版&lt;/strong&gt;的为基准，因为 ArchLinux 是一个激进的系统，更新比较快，可能刚写完这篇笔记，转头已经有些对应不上了，哈哈哈。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;系统镜像&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#系统镜像&#34;&gt;#&lt;/a&gt; 系统镜像&lt;/h2&gt;
-&lt;p&gt;官方镜像下载地址：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9hcmNobGludXgub3JnL2Rvd25sb2FkLw==&#34;&gt;https://archlinux.org/download/&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;官方镜像下载地址：&lt;a href=&#34;https://archlinux.org/download/&#34;&gt;https://archlinux.org/download/&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;当然，也可以去各大高校提供的镜像源网站下载。&lt;/p&gt;
 &lt;h2 id=&#34;启动盘制作&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#启动盘制作&#34;&gt;#&lt;/a&gt; 启动盘制作&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;1、windows 平台&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;可以使用 Rufus：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ydWZ1cy5pZS96aC8=&#34;&gt;https://rufus.ie/zh/&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;可以使用 Rufus：&lt;a href=&#34;https://rufus.ie/zh/&#34;&gt;https://rufus.ie/zh/&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;这是一款开源、免费、小巧（1.1mb）纯粹的系统启动盘制作工具。&lt;br /&gt;
 目前所支持的 ISO 镜像如下：&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;image-20220412112425056.png&#34; alt=&#34;image-20220412112425056&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;image-20220412112425056.png&#34; alt=&#34;image-20220412112425056&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;2、Uinx 平台&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;类 Unix 系统可以直接使用  &lt;code&gt;dd&lt;/code&gt;  命令来制作启动盘。&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;dd&lt;/code&gt;  命令使用可参考：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cucnVub29iLmNvbS9saW51eC9saW51eC1jb21tLWRkLmh0bWw=&#34;&gt;https://www.runoob.com/linux/linux-comm-dd.html&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;dd&lt;/code&gt;  命令使用可参考：&lt;a href=&#34;https://www.runoob.com/linux/linux-comm-dd.html&#34;&gt;https://www.runoob.com/linux/linux-comm-dd.html&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;3、多平台&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;可以使用开源的 etcher：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuYmFsZW5hLmlvL2V0Y2hlci8=&#34;&gt;https://www.balena.io/etcher/&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;可以使用开源的 etcher：&lt;a href=&#34;https://www.balena.io/etcher/&#34;&gt;https://www.balena.io/etcher/&lt;/a&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;然后本篇文章是基于官方指导的总结分析安装的笔记，如下开始正式安装配置，因为是以官方 wiki 安装为指导，所以下面用到的操作的标题将一一对应官方 wiki 的标题，没用到的将忽略不写，以及需要增加的将给出说明。目前使用的镜像版本： &lt;code&gt;archlinux-2022.04.01-x86_64.iso&lt;/code&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;引导安装&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#引导安装&#34;&gt;#&lt;/a&gt; 引导安装&lt;/h2&gt;
-&lt;p&gt;Arch 的启动引导过程有两种：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9lbi53aWtpcGVkaWEub3JnL3dpa2kvQklPUw==&#34;&gt;BIOS&lt;/span&gt; 和 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmFyY2hsaW51eC5vcmcvdGl0bGUvVUVGSQ==&#34;&gt;UEFI&lt;/span&gt; 系统，这两者的引导过程是完全不同的。在 Arch 中它们的引导加载及区别可看：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmFyY2hsaW51eC5vcmcvdGl0bGUvQXJjaF9ib290X3Byb2Nlc3M=&#34;&gt;https://wiki.archlinux.org/title/Arch_boot_process&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Arch 的启动引导过程有两种：&lt;a href=&#34;https://en.wikipedia.org/wiki/BIOS&#34;&gt;BIOS&lt;/a&gt; 和 &lt;a href=&#34;https://wiki.archlinux.org/title/UEFI&#34;&gt;UEFI&lt;/a&gt; 系统，这两者的引导过程是完全不同的。在 Arch 中它们的引导加载及区别可看：&lt;a href=&#34;https://wiki.archlinux.org/title/Arch_boot_process&#34;&gt;https://wiki.archlinux.org/title/Arch_boot_process&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;目前大部分设备的引导方式主要分为  &lt;code&gt;UEFI 引导 + GPT 分区表&lt;/code&gt;  和  &lt;code&gt;BIOS(LEGACY) 引导 + MBR 分区表&lt;/code&gt;  这两种，而在新的机器里大部分都采用了  &lt;code&gt;UEFI/GPT&lt;/code&gt;  引导的方式，当然，同时也兼容  &lt;code&gt;BIOS/MBR&lt;/code&gt;  。&lt;/p&gt;
 &lt;p&gt;UEFI 进入：&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;image-20220412115757611.png&#34; alt=&#34;image-20220412115757611&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;image-20220412115757611.png&#34; alt=&#34;image-20220412115757611&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;BIOS 进入：&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;image-20220412120426116.png&#34; alt=&#34;image-20220412120426116&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;image-20220412120426116.png&#34; alt=&#34;image-20220412120426116&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;启动安装后，最终界面出现的效果是一样的：&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;image-20220412153955531.png&#34; alt=&#34;image-20220412153955531&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;image-20220412153955531.png&#34; alt=&#34;image-20220412153955531&#34; /&gt;&lt;/p&gt;
 &lt;h2 id=&#34;验证引导模式&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#验证引导模式&#34;&gt;#&lt;/a&gt; 验证引导模式&lt;/h2&gt;
 &lt;p&gt;键入如下命令：（ &lt;code&gt;ls&lt;/code&gt; ：表示列出目录内容；后面的路径可以利用 Tab 键 自动补全，即键入命令或文件名的前几个字符，然后按 [Tab] 键）&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;ls /sys/firmware/efi/efivars
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;如果命令结果显示了目录且没有报告错误，则系统以 UEFI 模式引导。&lt;/p&gt;
-&lt;p&gt;如果目录不存在，则系统可能 &lt;strong&gt;（注意是可能，并不一定确是 BIOS 模式）&lt;/strong&gt; 以 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9lbi53aWtpcGVkaWEub3JnL3dpa2kvemg6QklPUw==&#34;&gt;BIOS&lt;/span&gt; 模式 (或 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9lbi53aWtpcGVkaWEub3JnL3dpa2kvQ29tcGF0aWJpbGl0eV9TdXBwb3J0X01vZHVsZQ==&#34;&gt;CSM&lt;/span&gt; 模式) 引导，如显示：&lt;/p&gt;
+&lt;p&gt;如果目录不存在，则系统可能 &lt;strong&gt;（注意是可能，并不一定确是 BIOS 模式）&lt;/strong&gt; 以 &lt;a href=&#34;https://en.wikipedia.org/wiki/zh:BIOS&#34;&gt;BIOS&lt;/a&gt; 模式 (或 &lt;a href=&#34;https://en.wikipedia.org/wiki/Compatibility_Support_Module&#34;&gt;CSM&lt;/a&gt; 模式) 引导，如显示：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;ls: cannot access &#39;/sys/firmware/efi/efivars&#39;: No such file or directory
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;对于一些不是新的 / 格式过的磁盘，可能就不太适用了，当然，最好方法就是查看安装的主分区磁盘的属性。&lt;/p&gt;
@@ -653,7 +653,7 @@
 &lt;p&gt;2、连接到网络&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;有线：连接网线，并保证上级路由有网。&lt;/li&gt;
-&lt;li&gt;无线：使用 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmFyY2hsaW51eC5vcmcvdGl0bGUvSXdkXyglRTclQUUlODAlRTQlQkQlOTMlRTQlQjglQUQlRTYlOTYlODcpI2l3Y3Rs&#34;&gt;iwctl&lt;/span&gt; 验证无线网络，具体操作点击链接查看。&lt;/li&gt;
+&lt;li&gt;无线：使用 &lt;a href=&#34;https://wiki.archlinux.org/title/Iwd_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)#iwctl&#34;&gt;iwctl&lt;/a&gt; 验证无线网络，具体操作点击链接查看。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;3、配置网络连接&lt;/p&gt;
 &lt;ul&gt;
@@ -663,14 +663,14 @@
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;静态：直接按照 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmFyY2hsaW51eC5vcmcvdGl0bGUvTmV0d29ya19jb25maWd1cmF0aW9uXyglRTclQUUlODAlRTQlQkQlOTMlRTQlQjglQUQlRTYlOTYlODcpIyVFOSU5RCU5OSVFNiU4MCU4MV9JUF8lRTUlOUMlQjAlRTUlOUQlODA=&#34;&gt;静态 IP 地址&lt;/span&gt; 这个链接进行操作。&lt;/p&gt;
+&lt;p&gt;静态：直接按照 &lt;a href=&#34;https://wiki.archlinux.org/title/Network_configuration_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)#%E9%9D%99%E6%80%81_IP_%E5%9C%B0%E5%9D%80&#34;&gt;静态 IP 地址&lt;/a&gt; 这个链接进行操作。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;4、检查网络连接&lt;/p&gt;
 &lt;p&gt;在确认无误完成上面的操作后，通过 PING IP 来检查：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;ping archlinux.org
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;strong&gt;note：&lt;/strong&gt; 关于网络部分的，详情请看 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmFyY2hsaW51eC5vcmcvdGl0bGUvTmV0d29ya19jb25maWd1cmF0aW9u&#34;&gt;https://wiki.archlinux.org/title/Network_configuration&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;note：&lt;/strong&gt; 关于网络部分的，详情请看 &lt;a href=&#34;https://wiki.archlinux.org/title/Network_configuration&#34;&gt;https://wiki.archlinux.org/title/Network_configuration&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;更新系统时间&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#更新系统时间&#34;&gt;#&lt;/a&gt; 更新系统时间&lt;/h2&gt;
 &lt;p&gt;执行：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;timedatectl set-ntp true
@@ -686,7 +686,7 @@
 &lt;p&gt;然后，针对不同的引导方式，其分区布局是不一样的，以官方给出的分区为例：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;UEFI 与&lt;/strong&gt; &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmFyY2hsaW51eC5vcmcvdGl0bGUvUGFydGl0aW9uaW5nXyglRTclQUUlODAlRTQlQkQlOTMlRTQlQjglQUQlRTYlOTYlODcpI0dVSURfJUU1JTg4JTg2JUU1JThDJUJBJUU4JUExJUE4&#34;&gt;GPT&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;UEFI 与&lt;/strong&gt; &lt;a href=&#34;https://wiki.archlinux.org/title/Partitioning_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)#GUID_%E5%88%86%E5%8C%BA%E8%A1%A8&#34;&gt;GPT&lt;/a&gt;&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -719,7 +719,7 @@
 &lt;/table&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;BIOS 与&lt;/strong&gt; &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmFyY2hsaW51eC5vcmcvdGl0bGUvUGFydGl0aW9uaW5nXyglRTclQUUlODAlRTQlQkQlOTMlRTQlQjglQUQlRTYlOTYlODcpI01hc3Rlcl9Cb290X1JlY29yZA==&#34;&gt;MBR&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;BIOS 与&lt;/strong&gt; &lt;a href=&#34;https://wiki.archlinux.org/title/Partitioning_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)#Master_Boot_Record&#34;&gt;MBR&lt;/a&gt;&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -744,10 +744,10 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;然后在这里拓展一下  &lt;code&gt;MiB&lt;/code&gt;  跟  &lt;code&gt;MB&lt;/code&gt;  这两个单位， &lt;code&gt;MB&lt;/code&gt;  是国际单位制 SI 制定的十进制标准单位制，这个 M 是 1000K，而  &lt;code&gt;MiB&lt;/code&gt;  是国际电工委员会 IEC 制定的二进制标准，这个 M 是 1024K 。参看：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9waHlzaWNzLm5pc3QuZ292L2N1dS9Vbml0cy9iaW5hcnkuaHRtbA==&#34;&gt;https://physics.nist.gov/cuu/Units/binary.html&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;然后在这里拓展一下  &lt;code&gt;MiB&lt;/code&gt;  跟  &lt;code&gt;MB&lt;/code&gt;  这两个单位， &lt;code&gt;MB&lt;/code&gt;  是国际单位制 SI 制定的十进制标准单位制，这个 M 是 1000K，而  &lt;code&gt;MiB&lt;/code&gt;  是国际电工委员会 IEC 制定的二进制标准，这个 M 是 1024K 。参看：&lt;a href=&#34;https://physics.nist.gov/cuu/Units/binary.html&#34;&gt;https://physics.nist.gov/cuu/Units/binary.html&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;其它的布局实例可看：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmFyY2hsaW51eC5vcmcvdGl0bGUvUGFydGl0aW9uaW5nXyglRTclQUUlODAlRTQlQkQlOTMlRTQlQjglQUQlRTYlOTYlODcpIyVFNSVCOCU4MyVFNSVCMSU4MCVFNyVBNCVCQSVFNCVCRSU4Qg==&#34;&gt;https://wiki.archlinux.org/title/Partitioning_(简体中文)# 布局示例&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;其它的布局实例可看：&lt;a href=&#34;https://wiki.archlinux.org/title/Partitioning_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)#%E5%B8%83%E5%B1%80%E7%A4%BA%E4%BE%8B&#34;&gt;https://wiki.archlinux.org/title/Partitioning_(简体中文)# 布局示例&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;在了解上面的布局后，然后我们常用的引导方式有  &lt;code&gt;UEFI 引导 + GPT 分区表&lt;/code&gt;  和  &lt;code&gt;BIOS(LEGACY) 引导 + MBR 分区表&lt;/code&gt;  这两种，所以下面分开说明：&lt;/p&gt;
@@ -760,7 +760,7 @@
 &lt;li&gt;
 &lt;p&gt;&lt;code&gt;[SWAP]&lt;/code&gt; ：swap 分区通常被称为交换分区，这是一块特殊的硬盘空间，即当实际内存（物理内存，可以理解为内存条容量）不够用的时候，操作系统会从内存中取出一部分暂时不用的数据，放在交换分区中，从而为当前运行的程序腾出足够的内存空间（有点类似于 windows 系统下的虚拟内存）。也就是说，当内存不够用时，我们使用 swap 分区来临时顶替，等到那些程序要运行时，再从 swap 中恢复保存的数据到内存中。这种 “拆东墙，补西墙” 的方式应用于几乎所有的操作系统中。&lt;/p&gt;
 &lt;p&gt;使用 swap 交换分区，显著的优点是，通过操作系统的调度，应用程序实际可以使用的内存空间将远远超过系统的物理内存。&lt;/p&gt;
-&lt;p&gt;那么 swap 分区到底设置成多大才最优？少了又觉得不够，多了又感觉浪费，那么我们可以参考 Redhat 官方文档中 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9hY2Nlc3MucmVkaGF0LmNvbS9kb2N1bWVudGF0aW9uL2VuLXVzL3JlZF9oYXRfZW50ZXJwcmlzZV9saW51eC82L2h0bWwvaW5zdGFsbGF0aW9uX2d1aWRlL3MyLWRpc2twYXJ0cmVjb21tZW5kLXBwYyNpZDQzOTQwMDc=&#34;&gt;关于 swap 分区大小设置的建议&lt;/span&gt;：&lt;/p&gt;
+&lt;p&gt;那么 swap 分区到底设置成多大才最优？少了又觉得不够，多了又感觉浪费，那么我们可以参考 Redhat 官方文档中 &lt;a href=&#34;https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/installation_guide/s2-diskpartrecommend-ppc#id4394007&#34;&gt;关于 swap 分区大小设置的建议&lt;/a&gt;：&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -803,7 +803,7 @@
 &lt;li&gt;
 &lt;p&gt;&lt;code&gt;/mnt&lt;/code&gt; ：全称  &lt;code&gt;mount&lt;/code&gt;  可直接理解为 “挂载”，用于存放手动挂载的硬件。这部分是根目录 &lt;code&gt;/&lt;/code&gt;  下的目录，用来挂载文件系统。&lt;/p&gt;
 &lt;p&gt;一般的 Linux 根目录展开如下图：&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;994198-20160908160724832-375737054.png&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;994198-20160908160724832-375737054.png&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;然后按照官方的说明，是想把将根磁盘卷挂载到  &lt;code&gt;/mnt&lt;/code&gt;  目录下，即  &lt;code&gt;/mnt&lt;/code&gt;  变成  &lt;code&gt;/&lt;/code&gt;  根目录。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -812,7 +812,7 @@
 &lt;pre&gt;&lt;code&gt;fdisk /dev/sdx （sdx可以为sda、sdb等，具体以你实际需要挂载的磁盘名称为准）
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;接着你就进入了  &lt;code&gt;fdisk&lt;/code&gt;  操作环境，为了获取该命令下的操作功能，根据提示输入  &lt;code&gt;m&lt;/code&gt;  并回车查看各命令的作用：&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;image-20220414144302934.png&#34; alt=&#34;image-20220414144302934&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;image-20220414144302934.png&#34; alt=&#34;image-20220414144302934&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;在  &lt;code&gt;fdisk&lt;/code&gt;  操作环境下：&lt;/p&gt;
 &lt;p&gt;1、对于一个全新的磁盘（格式化了），输入  &lt;code&gt;o&lt;/code&gt;  来创建一个全新的  &lt;code&gt;MBR&lt;/code&gt;  分区表（因为这里是 BIOS 引导）；如果是旧磁盘（要么原本有  &lt;code&gt;MBR&lt;/code&gt;  分区表，要么不是  &lt;code&gt;MBR&lt;/code&gt;  属性  &lt;code&gt;DOS&lt;/code&gt;  的），那对于非  &lt;code&gt;MBR&lt;/code&gt;  分区表可能得更改分区表或者格式化，而已有  &lt;code&gt;MBR&lt;/code&gt;  分区表的直接执行第 2 步。&lt;/p&gt;
 &lt;p&gt;2、输入  &lt;code&gt;n&lt;/code&gt;  创建一个新的分区，首先会让你选择类型分区，输入  &lt;code&gt;p&lt;/code&gt;  选择主分区，回车接着选择分区号，这里一般直接回车使用默认数值，这样可以避免自己定义出现冲突；紧接着选择开始起扇区地址，如果不知道原有区域划分情况，那一般直接回车使用默认数值即可；随后，输入结束扇区地址或者容量大小，这里决定了你为该分区创建的容量大小；我们按照表格顺序创建分区，那这第一个就是  &lt;code&gt;swap&lt;/code&gt;  交换分区，例如我分配的是 8G 容量，那可以直接输入容量大小： &lt;code&gt;+8G&lt;/code&gt;  。&lt;/p&gt;
@@ -872,21 +872,21 @@ mount /dev/sdxY /mnt/boot （把 sdxY替换为上面创建的 EFI 系统分区�
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;选择镜像&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#选择镜像&#34;&gt;#&lt;/a&gt; 选择镜像&lt;/h2&gt;
 &lt;p&gt;文件  &lt;code&gt;/etc/pacman.d/mirrorlist&lt;/code&gt;  定义了软件包会从哪个镜像源下载。在列表中越前的镜像在下载软件包时有越高的优先权。&lt;/p&gt;
-&lt;p&gt;各地区镜像源获取：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9hcmNobGludXgub3JnL21pcnJvcmxpc3Qv&#34;&gt;https://archlinux.org/mirrorlist/&lt;/span&gt; ，然后点击生成：&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;image-20220415095310180.png&#34; alt=&#34;image-20220415095310180&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;各地区镜像源获取：&lt;a href=&#34;https://archlinux.org/mirrorlist/&#34;&gt;https://archlinux.org/mirrorlist/&lt;/a&gt; ，然后点击生成：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;image-20220415095310180.png&#34; alt=&#34;image-20220415095310180&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;编辑  &lt;code&gt;/etc/pacman.d/mirrorlist&lt;/code&gt;  文件，执行：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;vim /etc/pacman.d/mirrorlist
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;然后进入 VIM 环境，输入  &lt;code&gt;i&lt;/code&gt;  进入编辑状态，然后根据上面生成提供的镜像表，选择几个放到文件最顶端，在这里笔者选择阿里云镜像：&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;image-20220415103048537.png&#34; alt=&#34;image-20220415103048537&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;image-20220415103048537.png&#34; alt=&#34;image-20220415103048537&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;如果其速度不佳，可以手动指定其他镜像源，像中科大或者清华的放在最上面即可：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;Server = https://mirrors.ustc.edu.cn/archlinux/$repo/os/$arch
 Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;然后，按  &lt;code&gt;Esc&lt;/code&gt;  键退出编程，最后输入  &lt;code&gt;:wq&lt;/code&gt;  保存退出。&lt;/p&gt;
-&lt;p&gt;关于 vim 命令的使用，可看：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cucnVub29iLmNvbS9saW51eC9saW51eC12aW0uaHRtbA==&#34;&gt;https://www.runoob.com/linux/linux-vim.html&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;关于 vim 命令的使用，可看：&lt;a href=&#34;https://www.runoob.com/linux/linux-vim.html&#34;&gt;https://www.runoob.com/linux/linux-vim.html&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;安装必需的软件包&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#安装必需的软件包&#34;&gt;#&lt;/a&gt; 安装必需的软件包&lt;/h2&gt;
-&lt;p&gt;使用  &lt;code&gt;pacstrap&lt;/code&gt;  脚本，安装 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9hcmNobGludXgub3JnL3BhY2thZ2VzLz9uYW1lPWJhc2U=&#34;&gt;base&lt;/span&gt; 软件包和 Linux &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmFyY2hsaW51eC5vcmcvdGl0bGUvS2VybmVsXyglRTclQUUlODAlRTQlQkQlOTMlRTQlQjglQUQlRTYlOTYlODcp&#34;&gt;内核&lt;/span&gt;以及常规硬件的固件：&lt;/p&gt;
+&lt;p&gt;使用  &lt;code&gt;pacstrap&lt;/code&gt;  脚本，安装 &lt;a href=&#34;https://archlinux.org/packages/?name=base&#34;&gt;base&lt;/a&gt; 软件包和 Linux &lt;a href=&#34;https://wiki.archlinux.org/title/Kernel_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)&#34;&gt;内核&lt;/a&gt;以及常规硬件的固件：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;pacstrap /mnt base base-devel linux linux-headers linux-firmware （base-devel在 AUR包的安装是必须的）
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;fstab配置&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#fstab配置&#34;&gt;#&lt;/a&gt; Fstab 配置&lt;/h2&gt;
@@ -898,7 +898,7 @@ Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;执行后将显示各分区挂载情况及属性信息。&lt;/p&gt;
 &lt;h2 id=&#34;chroot配置&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#chroot配置&#34;&gt;#&lt;/a&gt; Chroot 配置&lt;/h2&gt;
-&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmFyY2hsaW51eC5vcmcvdGl0bGUvQ2hhbmdlX3Jvb3RfKCVFNyVBRSU4MCVFNCVCRCU5MyVFNCVCOCVBRCVFNiU5NiU4Nyk=&#34;&gt;Change root&lt;/span&gt; 到新安装的系统：&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://wiki.archlinux.org/title/Change_root_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)&#34;&gt;Change root&lt;/a&gt; 到新安装的系统：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;arch-chroot /mnt
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;执行了这步以后，我们的操作都相当于在磁盘上新装的系统中进行。&lt;/p&gt;
@@ -924,7 +924,7 @@ Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch
 &lt;p&gt;紧接着执行  &lt;code&gt;locale-gen&lt;/code&gt;  以生成 locale 信息：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;locale-gen
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;2、然后创建 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9tYW4uYXJjaGxpbnV4Lm9yZy9tYW4vbG9jYWxlLmNvbmYuNQ==&#34;&gt;locale.conf&lt;/span&gt; 文件，并 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmFyY2hsaW51eC5vcmcvdGl0bGUvTG9jYWxlXyglRTclQUUlODAlRTQlQkQlOTMlRTQlQjglQUQlRTYlOTYlODcpIyVFNyVCMyVCQiVFNyVCQiU5RiVFNSU4QyVCQSVFNSU5RiU5RiVFOCVBRSVCRSVFNyVCRCVBRQ==&#34;&gt;编辑设定 LANG 变量&lt;/span&gt;，&lt;/p&gt;
+&lt;p&gt;2、然后创建 &lt;a href=&#34;https://man.archlinux.org/man/locale.conf.5&#34;&gt;locale.conf&lt;/a&gt; 文件，并 &lt;a href=&#34;https://wiki.archlinux.org/title/Locale_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)#%E7%B3%BB%E7%BB%9F%E5%8C%BA%E5%9F%9F%E8%AE%BE%E7%BD%AE&#34;&gt;编辑设定 LANG 变量&lt;/a&gt;，&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;echo LANG=en_US.UTF-8 &amp;gt; /etc/locale.conf
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;网络配置&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#网络配置&#34;&gt;#&lt;/a&gt; 网络配置&lt;/h2&gt;
@@ -934,9 +934,9 @@ Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch
 &lt;p&gt;这步在我目前使用的功能里好像没用到。。。&lt;/p&gt;
 &lt;p&gt;然后，在官方文档中有一条说明：&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;请注意，目前的 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9hcmNobGludXgub3JnL3BhY2thZ2VzLz9uYW1lPWJhc2U=&#34;&gt;base&lt;/span&gt; 不含有任何网络管理工具。对于新安装的系统环境，请接着完成&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmFyY2hsaW51eC5vcmcvdGl0bGUvJUU3JUJEJTkxJUU3JUJCJTlDJUU5JTg1JThEJUU3JUJEJUFF&#34;&gt;网络配置&lt;/span&gt;，配置过程中可能包括要安装合适的&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmFyY2hsaW51eC5vcmcvdGl0bGUvJUU3JUJEJTkxJUU3JUJCJTlDJUU3JUFFJUExJUU3JTkwJTg2&#34;&gt;网络管理&lt;/span&gt;软件。&lt;/p&gt;
+&lt;p&gt;请注意，目前的 &lt;a href=&#34;https://archlinux.org/packages/?name=base&#34;&gt;base&lt;/a&gt; 不含有任何网络管理工具。对于新安装的系统环境，请接着完成&lt;a href=&#34;https://wiki.archlinux.org/title/%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE&#34;&gt;网络配置&lt;/a&gt;，配置过程中可能包括要安装合适的&lt;a href=&#34;https://wiki.archlinux.org/title/%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86&#34;&gt;网络管理&lt;/a&gt;软件。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;因此，我们需要安装网络配置管理包（&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmFyY2hsaW51eC5vcmcvdGl0bGUvRGhjcGNkXyglRTclQUUlODAlRTQlQkQlOTMlRTQlQjglQUQlRTYlOTYlODcp&#34;&gt;DHCP&lt;/span&gt; 客户端和 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmFyY2hsaW51eC5vcmcvdGl0bGUvTmV0Y3RsXyglRTclQUUlODAlRTQlQkQlOTMlRTQlQjglQUQlRTYlOTYlODcp&#34;&gt;netctl&lt;/span&gt; 网络管理器）：&lt;/p&gt;
+&lt;p&gt;因此，我们需要安装网络配置管理包（&lt;a href=&#34;https://wiki.archlinux.org/title/Dhcpcd_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)&#34;&gt;DHCP&lt;/a&gt; 客户端和 &lt;a href=&#34;https://wiki.archlinux.org/title/Netctl_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)&#34;&gt;netctl&lt;/a&gt; 网络管理器）：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;pacman -S dhcpcd netctl
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;root-密码&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#root-密码&#34;&gt;#&lt;/a&gt; Root 密码&lt;/h2&gt;
@@ -945,7 +945,7 @@ Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch
 &lt;pre&gt;&lt;code&gt;passwd root
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;安装引导程序&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#安装引导程序&#34;&gt;#&lt;/a&gt; 安装引导程序&lt;/h2&gt;
-&lt;p&gt;如果是 Intel 或 AMD 的 CPU，启用 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmFyY2hsaW51eC5vcmcvdGl0bGUvTWljcm9jb2RlXyglRTclQUUlODAlRTQlQkQlOTMlRTQlQjglQUQlRTYlOTYlODcp&#34;&gt;微码&lt;/span&gt; 更新：&lt;/p&gt;
+&lt;p&gt;如果是 Intel 或 AMD 的 CPU，启用 &lt;a href=&#34;https://wiki.archlinux.org/title/Microcode_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)&#34;&gt;微码&lt;/a&gt; 更新：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;Intel&lt;/p&gt;
@@ -958,7 +958,7 @@ Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;接着，官方推荐的引导加载是 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmFyY2hsaW51eC5vcmcvdGl0bGUvR1JVQl8oJUU3JUFFJTgwJUU0JUJEJTkzJUU0JUI4JUFEJUU2JTk2JTg3KQ==&#34;&gt;GRUB&lt;/span&gt; （其他的引导加载可看：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmFyY2hsaW51eC5vcmcvdGl0bGUvQXJjaF9ib290X3Byb2Nlc3NfKCVFNyVBRSU4MCVFNCVCRCU5MyVFNCVCOCVBRCVFNiU5NiU4NykjJUU1JThBJTlGJUU4JTgzJUJEJUU2JUFGJTk0JUU4JUJFJTgz&#34;&gt;引导功能比较&lt;/span&gt;），因此我们对其安装并配置，不同的引导系统，其操作不一样：&lt;/p&gt;
+&lt;p&gt;接着，官方推荐的引导加载是 &lt;a href=&#34;https://wiki.archlinux.org/title/GRUB_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)&#34;&gt;GRUB&lt;/a&gt; （其他的引导加载可看：&lt;a href=&#34;https://wiki.archlinux.org/title/Arch_boot_process_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)#%E5%8A%9F%E8%83%BD%E6%AF%94%E8%BE%83&#34;&gt;引导功能比较&lt;/a&gt;），因此我们对其安装并配置，不同的引导系统，其操作不一样：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;BIOS/MBR&lt;/strong&gt;&lt;/p&gt;
@@ -1003,8 +1003,8 @@ umount -r /mnt
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;other&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#other&#34;&gt;#&lt;/a&gt; Other&lt;/h2&gt;
 &lt;p&gt;另外一些比较详细的安装教程：&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9hcmNobGludXhzdHVkaW8uZ2l0aHViLmlvL0FyY2hMaW51eFR1dG9yaWFsLyMvP2lkPWFyY2gtbGludXgtJUU1JUFFJTg5JUU4JUEzJTg1JUU0JUJEJUJGJUU3JTk0JUE4JUU2JTk1JTk5JUU3JUE4JThCLWFyY2h0dXRvcmlhbC1hcmNoLWxpbnV4LXN0dWRpbw==&#34;&gt;Arch Linux 安装使用教程&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cudmlzZWF0b3IuY29tLzIwMTcvMDUvMTcvYXJjaF9pbnN0YWxsLw==&#34;&gt;以官方 Wiki 的方式安装 ArchLinux&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://archlinuxstudio.github.io/ArchLinuxTutorial/#/?id=arch-linux-%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B-archtutorial-arch-linux-studio&#34;&gt;Arch Linux 安装使用教程&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.viseator.com/2017/05/17/arch_install/&#34;&gt;以官方 Wiki 的方式安装 ArchLinux&lt;/a&gt;&lt;/p&gt;
  ]]></description>
         </item>
     </channel>
