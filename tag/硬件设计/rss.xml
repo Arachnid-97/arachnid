@@ -11,22 +11,22 @@
         <category>history</category>
         <category>电子</category>
         <category>硬件设计</category>
-        <category>hexo</category>
         <category>C</category>
         <category>MCU</category>
         <category>git</category>
-        <category>FreeRTOS</category>
         <category>工具</category>
+        <category>FreeRTOS</category>
+        <category>hexo</category>
         <category>IDE</category>
         <category>Linux</category>
+        <category>Ubuntu</category>
         <category>SQL</category>
         <category>JSON</category>
-        <category>Ubuntu</category>
-        <category>RTOS</category>
         <category>算法</category>
         <category>DMX512</category>
         <category>modbus</category>
         <category>Modem</category>
+        <category>RTOS</category>
         <item>
             <guid isPermalink="true">https://arachnid.cc/diode-parameter-design/</guid>
             <title>二极管常见参数</title>
@@ -123,8 +123,8 @@
 &lt;p&gt;&lt;strong&gt;1、主要参数&lt;/strong&gt;&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;反向峰值工作电压 VRWM（Reverse stand-off voltage）：也称为反向关断电压。指设备可以连续承受的电压，没有雪崩破裂的危险。&lt;/li&gt;
-&lt;li&gt;击穿电压 VBR（Breakdown voltage）&lt;/li&gt;
-&lt;li&gt;箝位电压 VC（Clamping Voltage）&lt;/li&gt;
+&lt;li&gt;击穿电压 VBR（Breakdown voltage）：完全导通的电压阈值。&lt;/li&gt;
+&lt;li&gt;箝位电压 VC（Clamping Voltage）：在脉冲峰值电流 Ipp 作用下器件两端的最大电压。&lt;/li&gt;
 &lt;li&gt;峰值脉冲电流 IPP（Peak pulse current）&lt;/li&gt;
 &lt;li&gt;反向漏电流 IR（DC reverse current）&lt;/li&gt;
 &lt;li&gt;典型结电容 Cj （Typical Junction Capacitance）：一般在图中可找到线性参数。&lt;/li&gt;
@@ -135,6 +135,7 @@
 &lt;li&gt;峰值脉冲功耗 PPPM（Peak pulse power dissipation）：定义为设备在给定脉冲条件下消耗的瞬时功率，并且是在给定瞬态事件期间 TVS 结中消耗的功率的度量。它通过以下关系式计算： &lt;code&gt;PPPM = VC x IPP&lt;/code&gt; ，其中 PPPM = 峰值脉冲功耗（W），VC = 箝位电压（V），IPP = 峰值脉冲电流（A）。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;&lt;img data-src=&#34;image-20230702211343539.png&#34; alt=&#34;image-20230702211343539&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;note：挑选 TVS 管先看 &lt;strong&gt;VRWM&lt;/strong&gt;，尽可能与&lt;strong&gt;最大工作电压&lt;/strong&gt;接近，直流大概是 1.1~1.2 倍的最大工作电压，交流是 1.4~1.5 倍的最大工作电压；一般 &lt;strong&gt;VBR&lt;/strong&gt; = VRWM / (0.8~0.9)；然后 &lt;strong&gt;VC&lt;/strong&gt; 不高于被保护器件的最大允许安全电压；&lt;strong&gt;Cj&lt;/strong&gt; 要尽量小，此值会影响 TVS 的响应时间；&lt;strong&gt;IR&lt;/strong&gt; 也要尽量小，避免影响到静态电流及电流倒灌；&lt;strong&gt;交流电压&lt;/strong&gt;只能用双向 TVS。&lt;/p&gt;
 &lt;h1 id=&#34;pin-型二极管&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#pin-型二极管&#34;&gt;#&lt;/a&gt; PIN 型二极管&lt;/h1&gt;
 &lt;p&gt;即在 P 型材料与 N 型材料中间插入一层低掺杂纯度的接近于本征半导体材料所组成的 I （Intrinsic）层。由于 I 层的存在，PIN 型二极管通常比普通的二极管拥有更宽的耗尽层，更大的接面电阻和更小的接面电容。常见应用于 &lt;strong&gt;RF 领域&lt;/strong&gt;、&lt;strong&gt;光电探测器&lt;/strong&gt;及&lt;strong&gt;高压整流器（如 FRD/SRD）&lt;/strong&gt;。&lt;/p&gt;
 &lt;p&gt;&lt;img data-src=&#34;Construction-PIN-Diode-300x121.png&#34; alt=&#34;What is PIN Diode? - Structure, Working, Characteristics &amp;amp; Its Applications&#34; /&gt;&lt;/p&gt;

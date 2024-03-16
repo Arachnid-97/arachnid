@@ -6,7 +6,7 @@
   <link href="https://arachnid.cc/atom.xml" rel="self"/>
   
   <link href="https://arachnid.cc/"/>
-  <updated>2023-09-17T15:29:00.207Z</updated>
+  <updated>2024-03-16T10:51:48.496Z</updated>
   <id>https://arachnid.cc/</id>
   
   <author>
@@ -15,6 +15,75 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux 网络一探究竟</title>
+    <link href="https://arachnid.cc/linux-network-config-tool/"/>
+    <id>https://arachnid.cc/linux-network-config-tool/</id>
+    <published>2024-03-06T12:46:05.793Z</published>
+    <updated>2024-03-16T10:51:48.496Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    
+    <category term="Linux" scheme="https://arachnid.cc/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux 环境变量的增删改</title>
+    <link href="https://arachnid.cc/Linux-environment-variables/"/>
+    <id>https://arachnid.cc/Linux-environment-variables/</id>
+    <published>2024-03-01T12:54:01.801Z</published>
+    <updated>2024-03-16T10:48:34.881Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    
+    <category term="Linux" scheme="https://arachnid.cc/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>关于 Keil 的一些总结性使用</title>
+    <link href="https://arachnid.cc/summary-of-keil-tool-use/"/>
+    <id>https://arachnid.cc/summary-of-keil-tool-use/</id>
+    <published>2024-01-04T01:28:47.296Z</published>
+    <updated>2024-03-16T10:43:02.233Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    
+    <category term="IDE" scheme="https://arachnid.cc/tags/IDE/"/>
+    
+  </entry>
   
   <entry>
     <title>JTAG 和 SWD 接口定义</title>
@@ -42,7 +111,7 @@
     <link href="https://arachnid.cc/diode-parameter-design/"/>
     <id>https://arachnid.cc/diode-parameter-design/</id>
     <published>2023-06-30T14:14:04.289Z</published>
-    <updated>2023-11-15T16:12:39.687Z</updated>
+    <updated>2024-02-22T15:58:58.868Z</updated>
     
     
       
@@ -82,6 +151,29 @@
     
     
     <category term="电子" scheme="https://arachnid.cc/tags/%E7%94%B5%E5%AD%90/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux c 时间时区配置</title>
+    <link href="https://arachnid.cc/linux_c-time-configuration/"/>
+    <id>https://arachnid.cc/linux_c-time-configuration/</id>
+    <published>2023-06-21T15:54:38.000Z</published>
+    <updated>2024-03-16T10:47:11.052Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    
+    <category term="Linux" scheme="https://arachnid.cc/tags/Linux/"/>
     
   </entry>
   
@@ -391,110 +483,6 @@
     <category term="history" scheme="https://arachnid.cc/tags/history/"/>
     
     <category term="Linux" scheme="https://arachnid.cc/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>X/YModem 传输协议</title>
-    <link href="https://arachnid.cc/x-ymodem-protocol/"/>
-    <id>https://arachnid.cc/x-ymodem-protocol/</id>
-    <published>2022-03-27T15:41:27.000Z</published>
-    <updated>2023-02-22T14:45:33.115Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html"></summary>
-        
-      
-    
-    
-    
-    
-    <category term="history" scheme="https://arachnid.cc/tags/history/"/>
-    
-    <category term="Modem" scheme="https://arachnid.cc/tags/Modem/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Modbus家族之 ASCII</title>
-    <link href="https://arachnid.cc/modbus-ascii-protocol/"/>
-    <id>https://arachnid.cc/modbus-ascii-protocol/</id>
-    <published>2022-03-20T07:42:45.000Z</published>
-    <updated>2023-02-22T14:44:20.682Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html"></summary>
-        
-      
-    
-    
-    
-    <category term="modbus" scheme="https://arachnid.cc/categories/modbus/"/>
-    
-    
-    <category term="history" scheme="https://arachnid.cc/tags/history/"/>
-    
-    <category term="modbus" scheme="https://arachnid.cc/tags/modbus/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Modbus家族之 RTU</title>
-    <link href="https://arachnid.cc/modbus-rtu-protocol/"/>
-    <id>https://arachnid.cc/modbus-rtu-protocol/</id>
-    <published>2022-03-18T13:01:20.000Z</published>
-    <updated>2023-02-22T14:44:09.777Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html"></summary>
-        
-      
-    
-    
-    
-    <category term="modbus" scheme="https://arachnid.cc/categories/modbus/"/>
-    
-    
-    <category term="history" scheme="https://arachnid.cc/tags/history/"/>
-    
-    <category term="modbus" scheme="https://arachnid.cc/tags/modbus/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>RT-Thread 应用总结</title>
-    <link href="https://arachnid.cc/rt-thread-summarize/"/>
-    <id>https://arachnid.cc/rt-thread-summarize/</id>
-    <published>2022-02-25T13:33:59.000Z</published>
-    <updated>2023-02-22T14:59:02.893Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html"></summary>
-        
-      
-    
-    
-    
-    
-    <category term="history" scheme="https://arachnid.cc/tags/history/"/>
-    
-    <category term="RTOS" scheme="https://arachnid.cc/tags/RTOS/"/>
     
   </entry>
   

@@ -11,22 +11,22 @@
         <category>history</category>
         <category>电子</category>
         <category>硬件设计</category>
-        <category>hexo</category>
         <category>C</category>
         <category>MCU</category>
         <category>git</category>
-        <category>FreeRTOS</category>
         <category>工具</category>
+        <category>FreeRTOS</category>
+        <category>hexo</category>
         <category>IDE</category>
         <category>Linux</category>
+        <category>Ubuntu</category>
         <category>SQL</category>
         <category>JSON</category>
-        <category>Ubuntu</category>
-        <category>RTOS</category>
         <category>算法</category>
         <category>DMX512</category>
         <category>modbus</category>
         <category>Modem</category>
+        <category>RTOS</category>
         <item>
             <guid isPermalink="true">https://arachnid.cc/kicad-summary/</guid>
             <title>Kicad 应用总结</title>
@@ -39,17 +39,17 @@
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;简介&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#简介&#34;&gt;#&lt;/a&gt; 简介&lt;/h2&gt;
 &lt;p&gt;KiCad 是一个开源软件工具，用于设计电子原理图和 PCB 图形。&lt;/p&gt;
-&lt;p&gt;其官网地址：&lt;a href=&#34;https://www.kicad.org/&#34;&gt;https://www.kicad.org/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;各操作文档说明：&lt;a href=&#34;https://docs.kicad.org/&#34;&gt;https://docs.kicad.org/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;由于 KiCad 是一个开源软件，所以我们可以获取到它的源码：&lt;a href=&#34;https://github.com/KiCad/kicad-source-mirror&#34;&gt;https://github.com/KiCad/kicad-source-mirror&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;其官网地址：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cua2ljYWQub3JnLw==&#34;&gt;https://www.kicad.org/&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;各操作文档说明：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9kb2NzLmtpY2FkLm9yZy8=&#34;&gt;https://docs.kicad.org/&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;由于 KiCad 是一个开源软件，所以我们可以获取到它的源码：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL0tpQ2FkL2tpY2FkLXNvdXJjZS1taXJyb3I=&#34;&gt;https://github.com/KiCad/kicad-source-mirror&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;当然，基于开源，它实现了跨平台：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;image-20210814170409099.png&#34; alt=&#34;image-20210814170409099&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;然后在正式开篇之前，以下这些说明都是基于 V5.1.9 版本（最新版为 V5.1.10，修正了部分 Bug）；该死 V6.0 版本居然还没发布，对于想要了解 V6.0 版本的一些升级功能的，可以移到 &lt;a href=&#34;https://techexplorations.com/blog/kicad/kicad-6-review-new-and-improved-features/#t-1611031599240&#34;&gt;KiCad 6 is coming!&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20210814170409099.png&#34; alt=&#34;image-20210814170409099&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;然后在正式开篇之前，以下这些说明都是基于 V5.1.9 版本（最新版为 V5.1.10，修正了部分 Bug）；该死 V6.0 版本居然还没发布，对于想要了解 V6.0 版本的一些升级功能的，可以移到 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly90ZWNoZXhwbG9yYXRpb25zLmNvbS9ibG9nL2tpY2FkL2tpY2FkLTYtcmV2aWV3LW5ldy1hbmQtaW1wcm92ZWQtZmVhdHVyZXMvI3QtMTYxMTAzMTU5OTI0MA==&#34;&gt;KiCad 6 is coming!&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;&amp;lt;br/&amp;gt;&lt;/p&gt;
 &lt;h2 id=&#34;入门&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#入门&#34;&gt;#&lt;/a&gt; 入门&lt;/h2&gt;
 &lt;h3 id=&#34;工作流程&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#工作流程&#34;&gt;#&lt;/a&gt; 工作流程&lt;/h3&gt;
 &lt;p&gt;Kicad 有着其独特的工作流程：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;kicad_flowchart.png&#34; alt=&#34;kicad_flowchart&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;kicad_flowchart.png&#34; alt=&#34;kicad_flowchart&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;设计一个 PCB 板，主要由两个任务来完成：绘制原理图和布置电路板。&lt;/p&gt;
 &lt;h3 id=&#34;文件说明&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#文件说明&#34;&gt;#&lt;/a&gt; 文件说明&lt;/h3&gt;
 &lt;p&gt;KiCad 在创建并使用时具有以下特定扩展名文件和文件夹，其主要用于原理图和电路板编辑。&lt;/p&gt;
@@ -480,21 +480,21 @@
 &lt;p&gt;&amp;lt;br/&amp;gt;&lt;/p&gt;
 &lt;h2 id=&#34;常用插件&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#常用插件&#34;&gt;#&lt;/a&gt; 常用插件&lt;/h2&gt;
 &lt;h3 id=&#34;主题配色&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#主题配色&#34;&gt;#&lt;/a&gt; 主题配色&lt;/h3&gt;
-&lt;p&gt;地址链接：&lt;a href=&#34;https://github.com/pointhi/kicad-color-schemes&#34;&gt;https://github.com/pointhi/kicad-color-schemes&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;地址链接：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL3BvaW50aGkva2ljYWQtY29sb3Itc2NoZW1lcw==&#34;&gt;https://github.com/pointhi/kicad-color-schemes&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;例如笔者当前的主题配色为（&lt;strong&gt;behave-dark&lt;/strong&gt;）：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;eeschema.png&#34; alt=&#34;eeschema&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;pcbnew.png&#34; alt=&#34;pcbnew&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;eeschema.png&#34; alt=&#34;eeschema&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;pcbnew.png&#34; alt=&#34;pcbnew&#34; /&gt;&lt;/p&gt;
 &lt;h3 id=&#34;动态-bom&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#动态-bom&#34;&gt;#&lt;/a&gt; 动态 BOM&lt;/h3&gt;
 &lt;p&gt;吾称之为最硬合交互式 BOM 操作：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;capture.gif&#34; alt=&#34;Interactive HTML BOM&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;地址链接：&lt;a href=&#34;https://github.com/openscopeproject/InteractiveHtmlBom&#34;&gt;https://github.com/openscopeproject/InteractiveHtmlBom&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;capture.gif&#34; alt=&#34;Interactive HTML BOM&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;地址链接：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL29wZW5zY29wZXByb2plY3QvSW50ZXJhY3RpdmVIdG1sQm9t&#34;&gt;https://github.com/openscopeproject/InteractiveHtmlBom&lt;/span&gt;&lt;/p&gt;
 &lt;h3 id=&#34;泪滴生成&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#泪滴生成&#34;&gt;#&lt;/a&gt; 泪滴生成&lt;/h3&gt;
-&lt;p&gt;地址链接：&lt;a href=&#34;https://github.com/NilujePerchut/kicad_scripts&#34;&gt;https://github.com/NilujePerchut/kicad_scripts&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;地址链接：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL05pbHVqZVBlcmNodXQva2ljYWRfc2NyaXB0cw==&#34;&gt;https://github.com/NilujePerchut/kicad_scripts&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;泪滴的作用，这里就不说啦，以前有讲过，然后演示：&lt;/p&gt;
 &lt;p&gt;焊盘：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;image-20210814210020179.png&#34; alt=&#34;image-20210814210020179&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20210814210020179.png&#34; alt=&#34;image-20210814210020179&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;通孔：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;image-20210814211109805.png&#34; alt=&#34;image-20210814211109805&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20210814211109805.png&#34; alt=&#34;image-20210814211109805&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;&amp;lt;br/&amp;gt;&lt;/p&gt;
 &lt;h2 id=&#34;pcbnew中各层用途说明&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#pcbnew中各层用途说明&#34;&gt;#&lt;/a&gt; Pcbnew 中各层用途说明&lt;/h2&gt;
 &lt;h3 id=&#34;所支持的板层&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#所支持的板层&#34;&gt;#&lt;/a&gt; 所支持的板层&lt;/h3&gt;
@@ -514,7 +514,7 @@
 &lt;p&gt;4 个辅助层：Comments、E.C.O. 1、E.C.O. 2、Drawings；&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;image-20210814212055614.png&#34; alt=&#34;image-20210814212055614&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20210814212055614.png&#34; alt=&#34;image-20210814212055614&#34; /&gt;&lt;/p&gt;
 &lt;h3 id=&#34;层的使用说明&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#层的使用说明&#34;&gt;#&lt;/a&gt; 层的使用说明&lt;/h3&gt;
 &lt;h4 id=&#34;固定技术层&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#固定技术层&#34;&gt;#&lt;/a&gt; 固定技术层&lt;/h4&gt;
 &lt;p&gt;KiCad 中 12 个技术层分为 6 对：上层一个，下层一个。可以通过 F. 或者 B. 来区分它们的位置。&lt;/p&gt;
@@ -597,7 +597,7 @@
 &lt;p&gt;这些层可以任意使用，它们可以是组装或布线等的说明文本，也可以是组装或加工的构造图，嘛，一般没啥用。&lt;/p&gt;
 &lt;h4 id=&#34;铜层&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#铜层&#34;&gt;#&lt;/a&gt; 铜层&lt;/h4&gt;
 &lt;p&gt;该层在 Kicad 中最多可拓展 32 层。&lt;/p&gt;
-&lt;p&gt;在 Pcbnew 中任何铜层的名字都是可以编辑的，我们一般使用默认的名称。当电路板是 2 层板时，只有 F.Cu 层和 B.Cu 层。当增加相应的层级数时，在 F.Cu 层和 B.Cu 层之间，将插入从上层到下层的顺序依次为 &lt;a href=&#34;http://In1.Cu&#34;&gt;In1.Cu&lt;/a&gt;，&lt;a href=&#34;http://In2.Cu&#34;&gt;In2.Cu&lt;/a&gt;，In3.Cu 和 In4.Cu 等的名称板层。&lt;/p&gt;
+&lt;p&gt;在 Pcbnew 中任何铜层的名字都是可以编辑的，我们一般使用默认的名称。当电路板是 2 层板时，只有 F.Cu 层和 B.Cu 层。当增加相应的层级数时，在 F.Cu 层和 B.Cu 层之间，将插入从上层到下层的顺序依次为 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL0luMS5DdQ==&#34;&gt;In1.Cu&lt;/span&gt;，&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL0luMi5DdQ==&#34;&gt;In2.Cu&lt;/span&gt;，In3.Cu 和 In4.Cu 等的名称板层。&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;通常，电路板是 2 层时，采用如下结构：&lt;/p&gt;
@@ -612,12 +612,12 @@
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;http://F.Cu&#34;&gt;F.Cu&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL0YuQ3U=&#34;&gt;F.Cu&lt;/span&gt;&lt;/td&gt;
 &lt;td&gt;Signal&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;2&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;http://B.Cu&#34;&gt;B.Cu&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL0IuQ3U=&#34;&gt;B.Cu&lt;/span&gt;&lt;/td&gt;
 &lt;td&gt;GND Plane&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
@@ -636,22 +636,22 @@
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;http://F.Cu&#34;&gt;F.Cu&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL0YuQ3U=&#34;&gt;F.Cu&lt;/span&gt;&lt;/td&gt;
 &lt;td&gt;Signal&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;2&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;http://In1.Cu&#34;&gt;In1.Cu&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL0luMS5DdQ==&#34;&gt;In1.Cu&lt;/span&gt;&lt;/td&gt;
 &lt;td&gt;GND Plane&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;3&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;http://In2.Cu&#34;&gt;In2.Cu&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL0luMi5DdQ==&#34;&gt;In2.Cu&lt;/span&gt;&lt;/td&gt;
 &lt;td&gt;VCC Plane&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;4&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;http://B.Cu&#34;&gt;B.Cu&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL0IuQ3U=&#34;&gt;B.Cu&lt;/span&gt;&lt;/td&gt;
 &lt;td&gt;Signal&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
@@ -670,32 +670,32 @@
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;http://F.Cu&#34;&gt;F.Cu&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL0YuQ3U=&#34;&gt;F.Cu&lt;/span&gt;&lt;/td&gt;
 &lt;td&gt;Signal&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;2&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;http://In1.Cu&#34;&gt;In1.Cu&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL0luMS5DdQ==&#34;&gt;In1.Cu&lt;/span&gt;&lt;/td&gt;
 &lt;td&gt;GND Plane&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;3&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;http://In2.Cu&#34;&gt;In2.Cu&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL0luMi5DdQ==&#34;&gt;In2.Cu&lt;/span&gt;&lt;/td&gt;
 &lt;td&gt;Signal&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;4&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;http://In3.Cu&#34;&gt;In3.Cu&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL0luMy5DdQ==&#34;&gt;In3.Cu&lt;/span&gt;&lt;/td&gt;
 &lt;td&gt;Signal&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;5&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;http://In4.Cu&#34;&gt;In4.Cu&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL0luNC5DdQ==&#34;&gt;In4.Cu&lt;/span&gt;&lt;/td&gt;
 &lt;td&gt;VCC Plane&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;6&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;http://B.Cu&#34;&gt;B.Cu&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL0IuQ3U=&#34;&gt;B.Cu&lt;/span&gt;&lt;/td&gt;
 &lt;td&gt;Signal&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
@@ -714,42 +714,42 @@
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;http://F.Cu&#34;&gt;F.Cu&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL0YuQ3U=&#34;&gt;F.Cu&lt;/span&gt;&lt;/td&gt;
 &lt;td&gt;Signal&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;2&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;http://In1.Cu&#34;&gt;In1.Cu&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL0luMS5DdQ==&#34;&gt;In1.Cu&lt;/span&gt;&lt;/td&gt;
 &lt;td&gt;GND Plane&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;3&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;http://In2.Cu&#34;&gt;In2.Cu&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL0luMi5DdQ==&#34;&gt;In2.Cu&lt;/span&gt;&lt;/td&gt;
 &lt;td&gt;Signal&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;4&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;http://In3.Cu&#34;&gt;In3.Cu&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL0luMy5DdQ==&#34;&gt;In3.Cu&lt;/span&gt;&lt;/td&gt;
 &lt;td&gt;VCC Plane&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;5&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;http://In4.Cu&#34;&gt;In4.Cu&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL0luNC5DdQ==&#34;&gt;In4.Cu&lt;/span&gt;&lt;/td&gt;
 &lt;td&gt;GND Plane&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;6&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;http://In5.Cu&#34;&gt;In5.Cu&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL0luNS5DdQ==&#34;&gt;In5.Cu&lt;/span&gt;&lt;/td&gt;
 &lt;td&gt;Signal&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;7&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;http://In6.Cu&#34;&gt;In6.Cu&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL0luNi5DdQ==&#34;&gt;In6.Cu&lt;/span&gt;&lt;/td&gt;
 &lt;td&gt;VCC Plane&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;8&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;http://B.Cu&#34;&gt;B.Cu&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL0IuQ3U=&#34;&gt;B.Cu&lt;/span&gt;&lt;/td&gt;
 &lt;td&gt;Signal&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
@@ -768,52 +768,52 @@
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;1&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;http://F.Cu&#34;&gt;F.Cu&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL0YuQ3U=&#34;&gt;F.Cu&lt;/span&gt;&lt;/td&gt;
 &lt;td&gt;Signal&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;2&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;http://In1.Cu&#34;&gt;In1.Cu&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL0luMS5DdQ==&#34;&gt;In1.Cu&lt;/span&gt;&lt;/td&gt;
 &lt;td&gt;GND Plane&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;3&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;http://In2.Cu&#34;&gt;In2.Cu&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL0luMi5DdQ==&#34;&gt;In2.Cu&lt;/span&gt;&lt;/td&gt;
 &lt;td&gt;Signal&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;4&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;http://In3.Cu&#34;&gt;In3.Cu&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL0luMy5DdQ==&#34;&gt;In3.Cu&lt;/span&gt;&lt;/td&gt;
 &lt;td&gt;Signal&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;5&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;http://In4.Cu&#34;&gt;In4.Cu&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL0luNC5DdQ==&#34;&gt;In4.Cu&lt;/span&gt;&lt;/td&gt;
 &lt;td&gt;VCC Plane&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;6&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;http://In5.Cu&#34;&gt;In5.Cu&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL0luNS5DdQ==&#34;&gt;In5.Cu&lt;/span&gt;&lt;/td&gt;
 &lt;td&gt;GND Plane&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;7&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;http://In6.Cu&#34;&gt;In6.Cu&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL0luNi5DdQ==&#34;&gt;In6.Cu&lt;/span&gt;&lt;/td&gt;
 &lt;td&gt;Signal&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;8&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;http://In7.Cu&#34;&gt;In7.Cu&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL0luNy5DdQ==&#34;&gt;In7.Cu&lt;/span&gt;&lt;/td&gt;
 &lt;td&gt;Signal&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;9&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;http://In8.Cu&#34;&gt;In8.Cu&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL0luOC5DdQ==&#34;&gt;In8.Cu&lt;/span&gt;&lt;/td&gt;
 &lt;td&gt;VCC Plane&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;10&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;http://B.Cu&#34;&gt;B.Cu&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL0IuQ3U=&#34;&gt;B.Cu&lt;/span&gt;&lt;/td&gt;
 &lt;td&gt;Signal&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
@@ -825,28 +825,28 @@
 &lt;p&gt;在使用本操作时，假定您已经在 KiCad 中完成了 PCB 的设计。&lt;/p&gt;
 &lt;h3 id=&#34;设置-pcb原点坐标&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#设置-pcb原点坐标&#34;&gt;#&lt;/a&gt; 设置 PCB 原点坐标&lt;/h3&gt;
 &lt;p&gt;选择 “菜单栏”，放置 -&amp;gt; 钻孔和位置偏移（或者在右边菜单栏直接选择），将原点放置到 PCB 板框左下角位置，再放置【层对齐标记】到刚刚放置的原点位置。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;image-20210814222049491.png&#34; alt=&#34;image-20210814222049491&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20210814222049491.png&#34; alt=&#34;image-20210814222049491&#34; /&gt;&lt;/p&gt;
 &lt;h3 id=&#34;gerber导出&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#gerber导出&#34;&gt;#&lt;/a&gt; Gerber 导出&lt;/h3&gt;
 &lt;p&gt;从菜单栏中点击绘制按键：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;image-20210814220901206.png&#34; alt=&#34;image-20210814220901206&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20210814220901206.png&#34; alt=&#34;image-20210814220901206&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;绘制 Gerber，并输出到相应文件夹：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;image-20210814221059310.png&#34; alt=&#34;image-20210814221059310&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20210814221059310.png&#34; alt=&#34;image-20210814221059310&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;绘制完后，点击旁边的 “生成钻孔文件” 进入设置生成：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;image-20210814222350241.png&#34; alt=&#34;image-20210814222350241&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20210814222350241.png&#34; alt=&#34;image-20210814222350241&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;生成文件放置到同样的文件夹，同时需要注意一下钻孔单位一般要对应 Pcbnew 中所使用的单位。&lt;/p&gt;
 &lt;h3 id=&#34;bom输出&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#bom输出&#34;&gt;#&lt;/a&gt; BOM 输出&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;从原理图输出&lt;/p&gt;
 &lt;p&gt;点击生成 BOM：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;image-20210814230416366.png&#34; alt=&#34;image-20210814230416366&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20210814230416366.png&#34; alt=&#34;image-20210814230416366&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;选择生成插件：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;image-20210814230521885.png&#34; alt=&#34;image-20210814230521885&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20210814230521885.png&#34; alt=&#34;image-20210814230521885&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;值得注意的是，在箭头处需要添加后缀 “&lt;strong&gt;.csv&lt;/strong&gt;&amp;quot;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;从 PCB 中输出&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;image-20210814231010230.png&#34; alt=&#34;image-20210814231010230&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20210814231010230.png&#34; alt=&#34;image-20210814231010230&#34; /&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
  ]]></description>
@@ -863,8 +863,8 @@
 &lt;/blockquote&gt;
 &lt;p&gt;（以下快捷键只列出一些个人常用的，至于 Ctrl + C/ V 这些熟悉的快捷键以及不怎么用的就不一一罗列出来了，需要的可以到下面链接自个查询）&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;这个是在百度文库里面列出来的 &lt;a href=&#34;https://wenku.baidu.com/view/09b94f16770bf78a6429548f.html?from=search&#34;&gt;最全 Altium Designer 快捷键&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;当然你也可以直接在 AD 软件里面查看，教程：&lt;a href=&#34;https://jingyan.baidu.com/article/359911f57d771057fe030683.html&#34;&gt;Altium Designer 查看所有快捷键，图文教程&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;这个是在百度文库里面列出来的 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93ZW5rdS5iYWlkdS5jb20vdmlldy8wOWI5NGYxNjc3MGJmNzhhNjQyOTU0OGYuaHRtbD9mcm9tPXNlYXJjaA==&#34;&gt;最全 Altium Designer 快捷键&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;当然你也可以直接在 AD 软件里面查看，教程：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9qaW5neWFuLmJhaWR1LmNvbS9hcnRpY2xlLzM1OTkxMWY1N2Q3NzEwNTdmZTAzMDY4My5odG1s&#34;&gt;Altium Designer 查看所有快捷键，图文教程&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id=&#34;原理图快捷键&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#原理图快捷键&#34;&gt;#&lt;/a&gt; 原理图快捷键&lt;/h1&gt;
 &lt;p&gt;1：按住 Shift 拖动某个元件，可快速复制&lt;/p&gt;
@@ -962,7 +962,7 @@
             <category>EDA</category>
             <category>history</category>
             <pubDate>Sun, 03 Mar 2019 21:00:20 +0800</pubDate>
-            <description><![CDATA[ &lt;p&gt;&lt;a href=&#34;https://wenku.baidu.com/view/7fd4e60d77c66137ee06eff9aef8941ea76e4b78.html?re=view&#34;&gt;原文出处&lt;/a&gt; ☜戳我啊&lt;/p&gt;
+            <description><![CDATA[ &lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93ZW5rdS5iYWlkdS5jb20vdmlldy83ZmQ0ZTYwZDc3YzY2MTM3ZWUwNmVmZjlhZWY4OTQxZWE3NmU0Yjc4Lmh0bWw/cmU9dmlldw==&#34;&gt;原文出处&lt;/span&gt; ☜戳我啊&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;规则的适应范围越小，则把优先级设得越高。以下只是一些非常基本规则的设置，仅仅是规则设置中的一点皮毛，还需要以后继续学习。&lt;/p&gt;
 &lt;/blockquote&gt;

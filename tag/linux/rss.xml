@@ -5,28 +5,630 @@
         <link>https://arachnid.cc</link>
         <description>不曾亏欠, 不曾辜负, 如此足矣</description>
         <language>zh-CN</language>
-        <pubDate>Sat, 25 Feb 2023 17:28:19 +0800</pubDate>
-        <lastBuildDate>Sat, 25 Feb 2023 17:28:19 +0800</lastBuildDate>
+        <pubDate>Wed, 06 Mar 2024 20:46:05 +0800</pubDate>
+        <lastBuildDate>Wed, 06 Mar 2024 20:46:05 +0800</lastBuildDate>
         <category>EDA</category>
         <category>history</category>
         <category>电子</category>
         <category>硬件设计</category>
-        <category>hexo</category>
         <category>C</category>
         <category>MCU</category>
         <category>git</category>
-        <category>FreeRTOS</category>
         <category>工具</category>
+        <category>FreeRTOS</category>
+        <category>hexo</category>
         <category>IDE</category>
         <category>Linux</category>
+        <category>Ubuntu</category>
         <category>SQL</category>
         <category>JSON</category>
-        <category>Ubuntu</category>
-        <category>RTOS</category>
         <category>算法</category>
         <category>DMX512</category>
         <category>modbus</category>
         <category>Modem</category>
+        <category>RTOS</category>
+        <item>
+            <guid isPermalink="true">https://arachnid.cc/linux-network-config-tool/</guid>
+            <title>Linux 网络一探究竟</title>
+            <link>https://arachnid.cc/linux-network-config-tool/</link>
+            <category>Linux</category>
+            <pubDate>Wed, 06 Mar 2024 20:46:05 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;常见网络配置工具包&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#常见网络配置工具包&#34;&gt;#&lt;/a&gt; 常见网络配置工具包&lt;/h1&gt;
+&lt;p&gt;配置「Linux 操作系统」的网络有以下几款主流的配置工具可供选择：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;配置工具&lt;/th&gt;
+&lt;th&gt;说明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9tYW5wYWdlcy5kZWJpYW4ub3JnL2J1c3Rlci9pZnVwZG93bi9pbnRlcmZhY2VzLjUuZW4uaHRtbA==&#34;&gt;ifupdown&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;用来启动 / 关闭网络的标准工具（Debian 及部分衍生版本特有），配置文件在  &lt;code&gt;/etc/network/interfaces&lt;/code&gt; 。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmFyY2hsaW51eC5vcmcvdGl0bGUvU3lzdGVtZC1uZXR3b3JrZA==&#34;&gt;systemd-networkd&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;systemd 是许多发行版默认的 kernel 程序，其中 systemd-networkd 组件可用于网络配置管理，配置文件在  &lt;code&gt;/etc/systemd/network/&lt;/code&gt; 。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmFyY2hsaW51eC5vcmcvdGl0bGUvTmV0d29ya01hbmFnZXI=&#34;&gt;NetworkManager&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;一个为桌面版提供的图形化前端工具，也可以使用内嵌的  &lt;code&gt;nmcli&lt;/code&gt;  和  &lt;code&gt;nmtui&lt;/code&gt;  进行配置。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9uZXRwbGFuLmlvLw==&#34;&gt;netplan&lt;/span&gt;&lt;/td&gt;
+&lt;td&gt;通过 YAML 文件管理网络配置，支持 systemd-networkd 和 NetworkManager 作为后端程序，配置文件在  &lt;code&gt;/etc/netplan/*.yaml&lt;/code&gt; 。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h1 id=&#34;ifupdown&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#ifupdown&#34;&gt;#&lt;/a&gt; ifupdown&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;ifupdown&lt;/code&gt;  网络管理器一直以来都是 Debian 默认使用的网络管理器。大多数教程描述的配置  &lt;code&gt;/etc/network/interfaces&lt;/code&gt;  文件就是来自于对  &lt;code&gt;ifupdown&lt;/code&gt;  网络的管理。&lt;/p&gt;
+&lt;p&gt;与早期版本的 Red Hat 发行版类似，Debian 把网络配置写在一个文件内，并从文件内加载配置。&lt;/p&gt;
+&lt;p&gt;但与 Red Hat 系发行版不同的是，Red Hat 发行版将不同的网卡配置文件保存在  &lt;code&gt;/etc/sysconfig/network-scripts/&lt;/code&gt;  文件夹中，而 Debian 则将网卡配置统一写在  &lt;code&gt;/etc/network/interfaces&lt;/code&gt;  文件中。&lt;/p&gt;
+&lt;p&gt;同样的，像 Debian 的衍生版本也会延续将网络配置文件统一写在  &lt;code&gt;/etc/network/interfaces&lt;/code&gt;  文件中，例如早期的 Ubuntu 系统，而在 Ubuntu 18.04 LTS 后将使用  &lt;code&gt;netplan&lt;/code&gt;  命令和基于  &lt;code&gt;/etc/netplan/*.yaml&lt;/code&gt;  文件的配置方法；如果在 Ubuntu 18 上打开  &lt;code&gt;/etc/network/interfaces&lt;/code&gt;  文件将会看到提示，而 Ubuntu 20 上则已经完全移除了  &lt;code&gt;/etc/network/interfaces&lt;/code&gt;  文件。&lt;/p&gt;
+&lt;p&gt;对于  &lt;code&gt;ifupdown&lt;/code&gt;  的文件配置，虽然系统默认的网络配置文件是在  &lt;code&gt;/etc/network/interfaces&lt;/code&gt;  文件中，但 Debian 给出的最佳实现是将网络配置保存到  &lt;code&gt;/etc/network/interface.d/&lt;/code&gt;  下；一些常规的配置如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;使用 DHCP 自动配置接口&lt;/p&gt;
+&lt;figure class=&#34;highlight txt&#34;&gt;&lt;figcaption data-lang=&#34;txt&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;auto eth0&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;allow-hotplug eth0&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;iface eth0 inet dhcp	# ipv4 DHCP 模式&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;# iface eth0 inet6 dhcp/auto	# ipv6 DHCP 或 Auto 模式&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;使用静态 IP 配置接口&lt;/p&gt;
+&lt;p&gt;ipv4：&lt;/p&gt;
+&lt;figure class=&#34;highlight txt&#34;&gt;&lt;figcaption data-lang=&#34;txt&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;auto eth0&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;iface eth0 inet static&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	address 192.0.2.7/24&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	netmask 255.255.255.0&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	gateway 192.0.2.254&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;ipv6：&lt;/p&gt;
+&lt;figure class=&#34;highlight txt&#34;&gt;&lt;figcaption data-lang=&#34;txt&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;auto eth0&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;iface eth0 inet6 static&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	address 2001:db8::c0ca:1eaf/64&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	netmask 64&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	gateway 2001:db8::1ead:ed:beef&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;设置 DNS&lt;/p&gt;
+&lt;p&gt;如果你要直接 ping 域名就需要开启 DNS 服务，在这里有两种方法：&lt;/p&gt;
+&lt;p&gt;一种是修改  &lt;code&gt;/etc/resolv.conf&lt;/code&gt;  文件，添加需要配置的 DNS，例如添加两个 DNS 服务：&lt;/p&gt;
+&lt;figure class=&#34;highlight txt&#34;&gt;&lt;figcaption data-lang=&#34;txt&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;nameserver 8.8.8.8&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;nameserver 114.114.114.114&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;另一种是直接编辑  &lt;code&gt;/etc/network/interfaces&lt;/code&gt;  文件，但这种需要  &lt;code&gt;resolvconf&lt;/code&gt;  程序的支持：&lt;/p&gt;
+&lt;figure class=&#34;highlight txt&#34;&gt;&lt;figcaption data-lang=&#34;txt&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;auto eth0&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;iface eth0 inet static&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	address 192.0.2.7/24&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	netmask 255.255.255.0&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	gateway 192.0.2.254&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	dns-nameservers 8.8.8.8 114.114.114.114	# 此行便是用作 DNS 解析，对于多个解析地址，应共用一行并用空格区分&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;note：这两种方法各有缺点， &lt;code&gt;/etc/resolv.conf&lt;/code&gt;  中的 DNS 配置将会被 C 库或其它解析器库所查找并解析 DNS 服务，同时该文件还会被 resolvconf、network-manager 及 DHCP 客户端修改所覆盖；而在  &lt;code&gt;/etc/network/interfaces&lt;/code&gt;  上编辑，则需要提供  &lt;code&gt;resolvconf&lt;/code&gt;  程序，可以使用  &lt;code&gt;which resolvconf&lt;/code&gt;  命令查看是否存在，否者将要进行下载才可使用。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;网络接口生效&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;[root@localhost] $&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;systemctl restart networking&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;[root@localhost] $&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ifdown&lt;/span&gt; eth0 &lt;span class=&#34;token operator&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;ifup&lt;/span&gt; eth0&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;tips：&lt;/p&gt;
+&lt;p&gt;在  &lt;code&gt;/etc/network/interfaces&lt;/code&gt;  文件中一般用  &lt;code&gt;auto&lt;/code&gt;  或者  &lt;code&gt;allow-hotplug&lt;/code&gt;  来定义接口的启动行为。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;auto：在系统启动的时候启动网络接口，无论网络接口有无连接（插入网线）；如果该接口配置了 DHCP，则无论有无网线，系统都会去执行 DHCP，如果没有插入网线，则等该接口超时后才会继续。&lt;/li&gt;
+&lt;li&gt;allow-hotplug：只有当内核从该接口检测到热插拔事件后才启动该接口。如果系统开机时该接口没有插入网线，则系统不会启动该接口，系统启动后，如果插入网线，系统会自动启动该接口（也就是将网络接口设置为热插拔模式），但是值得注意的是，重启  &lt;code&gt;networking&lt;/code&gt;  之后网卡不能自动重启。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;systemd-networkd&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#systemd-networkd&#34;&gt;#&lt;/a&gt; systemd-networkd&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;systemd-networkd&lt;/code&gt;  网络管理器是  &lt;code&gt;systemd&lt;/code&gt;  软件包其中的一个组件，目前一些主流的 Linux 系统都内置着  &lt;code&gt;systemd&lt;/code&gt;  包，像 Arch、Debian、Ubuntu 等。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;静态 IP 配置&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 启动 &#34;ens37&#34; 接口并配置一个静态地址。 此处设置的网关将被用作默认路由。&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;[root@localhost] $&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;cat&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt; /etc/systemd/network/10-static-ens37.network &lt;span class=&#34;token operator&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;EOF&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;[Match]&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;Name=ens37&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;[Network]&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;Address=192.168.0.2/24&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;Gateway=192.168.0.1&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;DNS=192.168.0.1&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;EOF&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;DHCP 配置&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 在所有名字以 &#34;en&#34; 开头的接口 (也就是以太网接口) 上开启 DHCPv4 与 DHCPv6&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;[root@localhost] $&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;cat&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt; /etc/systemd/network/10-dhcp-en.network &lt;span class=&#34;token operator&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;EOF&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;[Match]&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;Name=en*&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;[Network]&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;DHCP=yes&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;EOF&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;服务启动&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;[root@localhost] $&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;systemctl start systemd-networkd&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;[root@localhost] $&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;systemctl &lt;span class=&#34;token builtin class-name&#34;&gt;enable&lt;/span&gt; systemd-networkd&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;剩下的这里就不详细阐述了，说一下值得注意的点吧：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;如果 &lt;em&gt;.network&lt;/em&gt; 文件中指定了 DNS 条目，则 &lt;em&gt;systemd-resolved&lt;/em&gt; 服务是必需的， &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmFyY2hsaW51eC5vcmcvdGl0bGUvc3lzdGVtZC1yZXNvbHZlZA==&#34;&gt;systemd-resolved&lt;/span&gt; 是可选的，它是一个为本地应用程序提供网络名称（DNS）解析服务。&lt;/li&gt;
+&lt;li&gt;配置文件位于  &lt;code&gt;/usr/lib/systemd/network&lt;/code&gt; ，非持久化的运行时网络配置目录位于  &lt;code&gt;/run/systemd/network&lt;/code&gt;  ，本地管理网络配置位于  &lt;code&gt;/etc/systemd/network&lt;/code&gt; 。 &lt;code&gt;/etc/systemd/network&lt;/code&gt;  中的配置文件具有最高优先级。&lt;/li&gt;
+&lt;li&gt;如果某个网络接口既没有配置静态 IPv6 地址、也没有启用 DHCPv6 或 IPv6LL 的话， 将会被视为禁用 IPv6 支持。同时，systemd 将会自动向  &lt;code&gt;/proc/sys/net/ipv6/conf/if_name/disable_ipv6&lt;/code&gt;  中写入 &amp;quot;1&amp;quot;，以彻底禁用此接口上的 IPv6 支持。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;ref：&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmFyY2hsaW51eGNuLm9yZy93aWtpL1N5c3RlbWQtbmV0d29ya2Q=&#34;&gt;https://wiki.archlinuxcn.org/wiki/Systemd-networkd&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmRlYmlhbi5vcmcvU3lzdGVtZE5ldHdvcmtk&#34;&gt;https://wiki.debian.org/SystemdNetworkd&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuamluYnVndW8uY29tL3N5c3RlbWQvc3lzdGVtZC5uZXR3b3JrLmh0bWw=&#34;&gt;https://www.jinbuguo.com/systemd/systemd.network.html&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9saXNvbmdtaW4uZ2l0aHViLmlvL29zLXN5c3RlbWQtbmV0d29ya2Qv&#34;&gt;https://lisongmin.github.io/os-systemd-networkd/&lt;/span&gt;&lt;/p&gt;
+&lt;h1 id=&#34;networkmanager&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#networkmanager&#34;&gt;#&lt;/a&gt; NetworkManager&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;NetworkManager&lt;/code&gt;  是一个为系统提供检测和配置功能以便自动连接到网络的程序。 &lt;code&gt;NetworkManager&lt;/code&gt;  的功能对无线和有线网络都很有用。其有两个组件：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;一个以超级用户运行的守护进程（network-manager）；&lt;/li&gt;
+&lt;li&gt;一个前端管理程序（network-manager-gnome、network-manager-kde 或者 cnetworkmanager）。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;默认情况下， &lt;code&gt;NetworkManager&lt;/code&gt;  不接管任何  &lt;code&gt;/etc/network/interfaces&lt;/code&gt;  里配置的网络接口，而对于已经在  &lt;code&gt;/etc/network/interfaces&lt;/code&gt;  中声明过的网络接口，在 Desktop 环境上你会看到  &lt;code&gt;NetworkManager&lt;/code&gt;  菜单中相应的网络接口显示 “device not managed”，但如果使用  &lt;code&gt;NetworkManager&lt;/code&gt;  的  &lt;code&gt;nmcli&lt;/code&gt;  或  &lt;code&gt;nmtui&lt;/code&gt;  工具去配置  &lt;code&gt;/etc/network/interfaces&lt;/code&gt;  中声明过的网络接口，可能会对该网卡造成冲突（包括其它的网络配置服务共存也将导致冲突）。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;如果希望  &lt;code&gt;NetworkManager&lt;/code&gt;  接管在  &lt;code&gt;/etc/network/interfaces&lt;/code&gt;  配置了的网络接口，则进行以下操作：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;在  &lt;code&gt;/etc/NetworkManager/NetworkManager.conf&lt;/code&gt;  里把  &lt;code&gt;[ifupdown]&lt;/code&gt;  中的  &lt;code&gt;managed&lt;/code&gt;  属性修改为此设置  &lt;code&gt;managed=true&lt;/code&gt; ；如果有手动改过  &lt;code&gt;/etc/network/interfaces&lt;/code&gt; ，那么  &lt;code&gt;NetworkManager&lt;/code&gt;  会自行把这行改成： &lt;code&gt;managed=false&lt;/code&gt; ；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;以 root 形式重新启动  &lt;code&gt;NetworkManager&lt;/code&gt;  服务： &lt;code&gt;sudo systemctl restart NetworkManager&lt;/code&gt; 。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;code&gt;NetworkManager&lt;/code&gt;  除了给 Desktop 环境带来图形操作，还内置提供了一个命令行界面（nmcli）和一个基于 curses 的界面（nmtui）这两个工具：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;nmcli&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 查看 nmcli 使用说明&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;[root@localhost] $&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;nmcli &lt;span class=&#34;token parameter variable&#34;&gt;--help&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;Usage: nmcli &lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;OPTIONS&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt; OBJECT &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt; COMMAND &lt;span class=&#34;token operator&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;token builtin class-name&#34;&gt;help&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;OPTIONS&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  -a, &lt;span class=&#34;token parameter variable&#34;&gt;--ask&lt;/span&gt;                                ask &lt;span class=&#34;token keyword&#34;&gt;for&lt;/span&gt; missing parameters&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  -c, &lt;span class=&#34;token parameter variable&#34;&gt;--colors&lt;/span&gt; auto&lt;span class=&#34;token operator&#34;&gt;|&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;yes&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;|&lt;/span&gt;no                 whether to use colors &lt;span class=&#34;token keyword&#34;&gt;in&lt;/span&gt; output&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  -e, &lt;span class=&#34;token parameter variable&#34;&gt;--escape&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;yes&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;|&lt;/span&gt;no                      escape columns separators &lt;span class=&#34;token keyword&#34;&gt;in&lt;/span&gt; values&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  -f, &lt;span class=&#34;token parameter variable&#34;&gt;--fields&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;&amp;lt;&lt;/span&gt;field,&lt;span class=&#34;token punctuation&#34;&gt;..&lt;/span&gt;.&lt;span class=&#34;token operator&#34;&gt;&gt;|&lt;/span&gt;all&lt;span class=&#34;token operator&#34;&gt;|&lt;/span&gt;common      specify fields to output&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  -g, --get-values &lt;span class=&#34;token operator&#34;&gt;&amp;lt;&lt;/span&gt;field,&lt;span class=&#34;token punctuation&#34;&gt;..&lt;/span&gt;.&lt;span class=&#34;token operator&#34;&gt;&gt;|&lt;/span&gt;all&lt;span class=&#34;token operator&#34;&gt;|&lt;/span&gt;common  shortcut &lt;span class=&#34;token keyword&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;token parameter variable&#34;&gt;-m&lt;/span&gt; tabular &lt;span class=&#34;token parameter variable&#34;&gt;-t&lt;/span&gt; &lt;span class=&#34;token parameter variable&#34;&gt;-f&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  -h, &lt;span class=&#34;token parameter variable&#34;&gt;--help&lt;/span&gt;                               print this &lt;span class=&#34;token builtin class-name&#34;&gt;help&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  -m, &lt;span class=&#34;token parameter variable&#34;&gt;--mode&lt;/span&gt; tabular&lt;span class=&#34;token operator&#34;&gt;|&lt;/span&gt;multiline             output mode&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  -o, &lt;span class=&#34;token parameter variable&#34;&gt;--overview&lt;/span&gt;                           overview mode&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  -p, &lt;span class=&#34;token parameter variable&#34;&gt;--pretty&lt;/span&gt;                             pretty output&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  -s, --show-secrets                       allow displaying passwords&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;16&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  -t, &lt;span class=&#34;token parameter variable&#34;&gt;--terse&lt;/span&gt;                              terse output&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;17&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  -v, &lt;span class=&#34;token parameter variable&#34;&gt;--version&lt;/span&gt;                            show program version&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;18&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  -w, &lt;span class=&#34;token parameter variable&#34;&gt;--wait&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;&amp;lt;&lt;/span&gt;seconds&lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt;                     &lt;span class=&#34;token builtin class-name&#34;&gt;set&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;timeout&lt;/span&gt; waiting &lt;span class=&#34;token keyword&#34;&gt;for&lt;/span&gt; finishing operations&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;19&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;20&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;OBJECT&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;21&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  g&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;eneral&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;       NetworkManager&lt;span class=&#34;token string&#34;&gt;&#39;s general status and operations&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;22&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  n[etworking]    overall networking control&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;23&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  r[adio]         NetworkManager radio switches&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;24&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  c[onnection]    NetworkManager&#39;&lt;/span&gt;s connections&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;25&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  d&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;evice&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;        devices managed by NetworkManager&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;26&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  a&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;gent&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;         NetworkManager secret agent or polkit agent&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;27&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  m&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;onitor&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;       monitor NetworkManager changes&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ul&gt;
+&lt;li&gt;nmtui&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 查看 NetworkManager 是否启动&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;[root@localhost] $&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;nmcli networking&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;enabled&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 调出伪图形界面，然后根据选项编辑网络配置，最后启用网络连接。&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;[root@localhost] $&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;nmtui&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;img data-src=&#34;FQ0$U9UCJOL_LF_H%7B5%7D3Z41-1709729923652.jpg&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;note：&lt;/p&gt;
+&lt;p&gt;一些  &lt;code&gt;NetworkManager&lt;/code&gt;  网络命令处理：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 重启服务&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;[root@localhost] $&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;systemctl restart NetworkManager&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 查看开机自启是否启用&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;[root@localhost] $&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;systemctl list-unit-files &lt;span class=&#34;token parameter variable&#34;&gt;--type&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;service&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;grep&lt;/span&gt; NetworkManager&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;附：&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmRlYmlhbi5vcmcvemhfQ04vTmV0d29ya01hbmFnZXI=&#34;&gt;https://wiki.debian.org/zh_CN/NetworkManager&lt;/span&gt;&lt;/p&gt;
+&lt;h1 id=&#34;netplan&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#netplan&#34;&gt;#&lt;/a&gt; netplan&lt;/h1&gt;
+&lt;p&gt;netplan 是 Canonical (Ubuntu) 开发的，作为某些 Linux 发行版（主力为 ubuntu Linux 发行版）上默认的网络配置命令行工具。netplan 使用 YAML 描述文件来配置网络，然后，通过这些描述为任何给定的底层呈现工具（主要就是  &lt;code&gt;systemd-networkd&lt;/code&gt;  和  &lt;code&gt;networkmanager&lt;/code&gt;  二种工具）生成必要的配置选项。在 Ubuntu 17.10 引入 netplan 作为 network 的替代品，Ubuntu 20.04 正式使用 netplan 作为网络配置工具。&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;a1a80854-netplan_design_overview.svg&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;A、指定 NetworkManager 接管网络&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;[root@localhost] $&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;cat&lt;/span&gt; /etc/systemd/network/xxx.yaml&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# Let NetworkManager manage all devices on this system&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;network:&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  version: &lt;span class=&#34;token number&#34;&gt;2&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  renderer: NetworkManager&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;最后就可以使用可视化界面配置网络了，一般像在桌面上使用无线连接就会很方便，而不用使用  &lt;code&gt;iw&lt;/code&gt;  等命令搜索 WiFi 然后指定 SSID 这么麻烦。&lt;/p&gt;
+&lt;p&gt;B、指定 systemd-networkd 接管网络&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;ipv4 DHCP&lt;/p&gt;
+&lt;figure class=&#34;highlight yaml&#34;&gt;&lt;figcaption data-lang=&#34;YAML&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token key atrule&#34;&gt;network&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token key atrule&#34;&gt;version&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;2&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token key atrule&#34;&gt;renderer&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; networkd&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token key atrule&#34;&gt;ethernets&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token key atrule&#34;&gt;ens33&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      &lt;span class=&#34;token key atrule&#34;&gt;dhcp4&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; yes&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      &lt;span class=&#34;token key atrule&#34;&gt;dhcp4-overrides&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token key atrule&#34;&gt;route-metric&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;100&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;单网卡多网段&lt;/p&gt;
+&lt;figure class=&#34;highlight yaml&#34;&gt;&lt;figcaption data-lang=&#34;YAML&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token key atrule&#34;&gt;network&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token key atrule&#34;&gt;version&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;2&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token key atrule&#34;&gt;renderer&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; networkd&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token key atrule&#34;&gt;ethernets&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token key atrule&#34;&gt;ens33&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      &lt;span class=&#34;token key atrule&#34;&gt;addresses&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      &lt;span class=&#34;token punctuation&#34;&gt;-&lt;/span&gt; 192.168.1.20/24&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      &lt;span class=&#34;token punctuation&#34;&gt;-&lt;/span&gt; 192.168.50.20/24&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;     &lt;span class=&#34;token key atrule&#34;&gt;nameservers&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;       &lt;span class=&#34;token key atrule&#34;&gt;addresses&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;8.8.8.8&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;     &lt;span class=&#34;token key atrule&#34;&gt;routes&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      &lt;span class=&#34;token punctuation&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;token key atrule&#34;&gt;to&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; 0.0.0.0/0&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token key atrule&#34;&gt;via&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; 192.168.1.1&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token key atrule&#34;&gt;metric&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;1000&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      &lt;span class=&#34;token punctuation&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;token key atrule&#34;&gt;to&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; 0.0.0.0/0&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;16&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token key atrule&#34;&gt;via&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; 192.168.50.1&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;17&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token key atrule&#34;&gt;metric&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;1000&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;桥接&lt;/p&gt;
+&lt;figure class=&#34;highlight yaml&#34;&gt;&lt;figcaption data-lang=&#34;YAML&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token key atrule&#34;&gt;network&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token key atrule&#34;&gt;version&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;2&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token key atrule&#34;&gt;renderer&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; networkd&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token key atrule&#34;&gt;ethernets&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token key atrule&#34;&gt;enp3s0&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      &lt;span class=&#34;token key atrule&#34;&gt;dhcp4&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; yes&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token key atrule&#34;&gt;bridges&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token key atrule&#34;&gt;br0&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      &lt;span class=&#34;token key atrule&#34;&gt;interfaces&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;enp3s0&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      &lt;span class=&#34;token key atrule&#34;&gt;dhcp4&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; no&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      &lt;span class=&#34;token key atrule&#34;&gt;addresses&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token punctuation&#34;&gt;-&lt;/span&gt; 192.168.1.20/24&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      &lt;span class=&#34;token key atrule&#34;&gt;routes&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;       &lt;span class=&#34;token punctuation&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;token key atrule&#34;&gt;to&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; 0.0.0.0/0&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;         &lt;span class=&#34;token key atrule&#34;&gt;via&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; 192.168.1.1&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;16&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;         &lt;span class=&#34;token key atrule&#34;&gt;metric&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;1000&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;17&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      &lt;span class=&#34;token key atrule&#34;&gt;nameservers&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;18&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;        &lt;span class=&#34;token key atrule&#34;&gt;addresses&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;8.8.8.8&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;命令：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;netplan generate&lt;/p&gt;
+&lt;p&gt;将  &lt;code&gt;yaml&lt;/code&gt;  文件中的设置转换为适合正在使用的渲染器的配置，但不应用它们。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;netplan apply&lt;br /&gt;
+ 应用配置，使配置生效；会自动调用  &lt;code&gt;netplan generate&lt;/code&gt; 。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;netplan try&lt;br /&gt;
+ 测试配置，然后等待用户的确认；如果取消确认或超时退出则自动恢复配置，注意不是恢复配置文件。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;note：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;注意在  &lt;code&gt;/etc/netplan&lt;/code&gt;  目录下，有多个  &lt;code&gt;yaml&lt;/code&gt;  文件存在时，netplan 是根据字母表排序，挨个生效的，后面的  &lt;code&gt;yaml&lt;/code&gt;  指定的配置会覆盖前面的  &lt;code&gt;yaml&lt;/code&gt;  指定的配置。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt; &lt;code&gt;netplan&lt;/code&gt;  会一次从以下 3 个位置读取配置文件，并且按照优先级，仅有一个位置的配置文件生效：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt; &lt;code&gt;/run/netplan&lt;/code&gt;  优先级最高&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt; &lt;code&gt;/etc/netplan&lt;/code&gt;  次优先级&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt; &lt;code&gt;/lib/netplan&lt;/code&gt;  最低优先级&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;ref：&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9jbG91ZC1hdGxhcy5yZWFkdGhlZG9jcy5pby96aC1jbi9sYXRlc3QvbGludXgvdWJ1bnR1X2xpbnV4L25ldHdvcmsvbmV0cGxhbi5odG1s&#34;&gt;https://cloud-atlas.readthedocs.io/zh-cn/latest/linux/ubuntu_linux/network/netplan.html&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cudmljc3lzLmNvbS50dy96aC1oYW5zL3RlY2gvdWIvdWItbmV0d29yay5odG1s&#34;&gt;https://www.vicsys.com.tw/zh-hans/tech/ub/ub-network.html&lt;/span&gt;&lt;/p&gt;
+&lt;h1 id=&#34;other&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#other&#34;&gt;#&lt;/a&gt; other&lt;/h1&gt;
+&lt;p&gt;其他包含网络配置的重要文件，但我们在这里不会碰到他们：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;/etc/hosts&lt;/code&gt;  - 操作系统中使用的计算机文件，用于将主机名映射到 IP 地址。 &lt;code&gt;hosts&lt;/code&gt;  文件是一个纯文本文件，通常按照惯例命名为  &lt;code&gt;hosts&lt;/code&gt; 。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/etc/hostname&lt;/code&gt;  - 分配给连接到计算机网络的设备的标签，并用于识别各种形式的电子通信设备。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/etc/resolv.conf&lt;/code&gt;  - 各种操作系统中的计算机文件，用于配置域名系统（DNS）解析器库。该文件是纯文本文件，通常由网络管理员或管理系统配置任务的应用创建。因此  &lt;code&gt;/etc/resolv.conf&lt;/code&gt;  是依据网络管理产生，修改  &lt;code&gt;resolv.conf&lt;/code&gt;  只在本次有作用，重启服务将会重置。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;总结&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#总结&#34;&gt;#&lt;/a&gt; 总结&lt;/h1&gt;
+&lt;p&gt;桌面环境建议使用 NetworkManager；在服务器上建议使用默认的配置工具 network，或者切换到 systemd-networkd；但是只能选取其一。除了 network 不支持无线配置，其余三个都支持。&lt;/p&gt;
+&lt;h2 id=&#34;关于-networkmanager-与-systemd-networkd-之间的切换&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#关于-networkmanager-与-systemd-networkd-之间的切换&#34;&gt;#&lt;/a&gt; 关于 NetworkManager 与 systemd-networkd 之间的切换&lt;/h2&gt;
+&lt;p&gt;A、停用 Network Manager 并激活 systemd-networkd&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;停止并禁用 NetworkManager：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;sudo&lt;/span&gt; systemctl stop NetworkManager&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;sudo&lt;/span&gt; systemctl disable NetworkManager&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;sudo&lt;/span&gt; systemctl mask NetworkManager&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;启动和激活 systemd-networkd：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;sudo&lt;/span&gt; systemctl unmask systemd-networkd&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;sudo&lt;/span&gt; systemctl &lt;span class=&#34;token builtin class-name&#34;&gt;enable&lt;/span&gt; systemd-networkd&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;sudo&lt;/span&gt; systemctl start systemd-networkd&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;B、激活 NetworkManager 关闭 systemd-networkd&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;停止并禁用 systemd-networkd：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;sudo&lt;/span&gt; systemctl disable systemd-networkd&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;sudo&lt;/span&gt; systemctl mask systemd-networkd&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;sudo&lt;/span&gt; systemctl stop systemd-networkd&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;启动和激活 NetworkManager：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;sudo&lt;/span&gt; systemctl unmask NetworkManager&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;sudo&lt;/span&gt; systemctl &lt;span class=&#34;token builtin class-name&#34;&gt;enable&lt;/span&gt; NetworkManager&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;sudo&lt;/span&gt; systemctl start NetworkManager&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;关于-netplan-指定-renderer&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#关于-netplan-指定-renderer&#34;&gt;#&lt;/a&gt; 关于 netplan 指定 renderer&lt;/h2&gt;
+&lt;p&gt;在  &lt;code&gt;/etc/netplan&lt;/code&gt;  目录下将配置文件  &lt;code&gt;.yaml&lt;/code&gt;  中的  &lt;code&gt;renderer&lt;/code&gt;  字段更改为需要的后端工具：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;NetworkManager&lt;/p&gt;
+&lt;figure class=&#34;highlight yaml&#34;&gt;&lt;figcaption data-lang=&#34;YAML&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token key atrule&#34;&gt;network&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token key atrule&#34;&gt;version&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;2&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token key atrule&#34;&gt;renderer&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; NetworkManager&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;systemd-networkd&lt;/p&gt;
+&lt;figure class=&#34;highlight yaml&#34;&gt;&lt;figcaption data-lang=&#34;YAML&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token key atrule&#34;&gt;network&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token key atrule&#34;&gt;version&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;2&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token key atrule&#34;&gt;renderer&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; networkd&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;  &lt;span class=&#34;token key atrule&#34;&gt;ethernets&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    enxx：&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;      &lt;span class=&#34;token punctuation&#34;&gt;...&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;最后执行： &lt;code&gt;netplan apply&lt;/code&gt; ；如果使用  &lt;code&gt;NetworkManager&lt;/code&gt;  则不需要编写后面的  &lt;code&gt;ethernets&lt;/code&gt;  字段了，完全交由 GUI 界面操作；而如果  &lt;code&gt;renderer&lt;/code&gt;  指定  &lt;code&gt;networkd&lt;/code&gt;  ，则为  &lt;code&gt;ethernets&lt;/code&gt;  编写对应的网卡配置信息，以使  &lt;code&gt;netplan&lt;/code&gt;  配置到  &lt;code&gt;systemd-networkd&lt;/code&gt;  工具上。&lt;/p&gt;
+&lt;h1 id=&#34;参考&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#参考&#34;&gt;#&lt;/a&gt; 参考&lt;/h1&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmFyY2hsaW51eC5vcmcvdGl0bGUvTmV0d29ya19jb25maWd1cmF0aW9u&#34;&gt;https://wiki.archlinux.org/title/Network_configuration&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmRlYmlhbi5vcmcvTmV0d29ya0NvbmZpZ3VyYXRpb24=&#34;&gt;https://wiki.debian.org/NetworkConfiguration&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9wYW4teGlhby5naXRib29rLmlvL2RlYmlhbi9jb25maWcvbmV0d29yaw==&#34;&gt;https://pan-xiao.gitbook.io/debian/config/network&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9pdGJvb24uZ2l0aHViLmlvL2xpbnV4LTIwL25ldHdvcmsvY29uZmlndXJhdGlvbi8=&#34;&gt;https://itboon.github.io/linux-20/network/configuration/&lt;/span&gt;&lt;/p&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">https://arachnid.cc/Linux-environment-variables/</guid>
+            <title>Linux 环境变量的增删改</title>
+            <link>https://arachnid.cc/Linux-environment-variables/</link>
+            <category>Linux</category>
+            <pubDate>Fri, 01 Mar 2024 20:54:01 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;shell-和-bash&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#shell-和-bash&#34;&gt;#&lt;/a&gt; shell 和 bash&lt;/h1&gt;
+&lt;p&gt;在计算机科学中，shell 俗称壳（用来区别于核，核是指 “内核”），shell 是指 “提供使用者使用界面” 的软件（命令解析器）。它类似于  &lt;code&gt;DOS&lt;/code&gt;  下的  &lt;code&gt;command.com&lt;/code&gt;  和后来的  &lt;code&gt;cmd.exe&lt;/code&gt; 。它接收用户命令，然后调用相应的应用程序。&lt;/p&gt;
+&lt;p&gt;在很多并不正式的场合，这两个名词表达的意思相同，即命令解释器。但从严格的意义上讲，命令行是指供用户输入命令的界面，其本身只是接受输入，然后把命令传递给命令解释器，后者就是 shell，从本质上讲，shell 是一个程序，它在用户和操作系统之间提供了一个面向行的可交互接口，用户在命令行中输入命令，运行在后台的 shell 把命令转换成指令代码发送给操作系统。shell 并非只有命令行这一种形式，例如 GNOME、KDE 等图形界面也是 shell，不过它们是 GUI shell，都是为了解决人机交互的问题。&lt;/p&gt;
+&lt;p&gt;目前在 Linux 环境下有几种不同类型的 shell，常用的有 Bourne Shell（sh）、Bourne Again Shell（bash）、Z Shell（zsh）、C Shell（csh）、tcsh（csh 的扩展）、Korn Shell（ksh）、pdksh（ksh 的扩展）。不同的 Shell 提供不同的语法和特性。&lt;/p&gt;
+&lt;p&gt;bash 相当于 shell 中的某个，shell 的范围更广。bash 的全称是 Bourne Again Shell。&lt;/p&gt;
+&lt;h1 id=&#34;获取当前环境变量&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#获取当前环境变量&#34;&gt;#&lt;/a&gt; 获取当前环境变量&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;echo $varname&lt;/code&gt;  命令输出当前指定的环境变量的值&lt;/p&gt;
+&lt;p&gt;使用  &lt;code&gt;echo&lt;/code&gt;  命令可以输出指定的环境变量的值，例如： &lt;code&gt;echo $PATH&lt;/code&gt; ，该命令会输出当前用户的  &lt;code&gt;PATH&lt;/code&gt;  环境变量值。如果你想查看其他环境变量，只需要将上述命令中的  &lt;code&gt;PATH&lt;/code&gt;  替换为其他环境变量即可。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;export&lt;/code&gt;  命令显示当前系统定义的所有环境变量&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;printenv&lt;/code&gt;  /  &lt;code&gt;env&lt;/code&gt;  命令查看所有已定义环境变量或指定的环境变量&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;printenv&lt;/code&gt;  或  &lt;code&gt;env&lt;/code&gt;  都可以输出所有已定义的环境变量及其对应的值。 &lt;code&gt;printenv&lt;/code&gt;  命令也可以单独输出当前指定的环境变量的值，例如： &lt;code&gt;printenv SHELL&lt;/code&gt; ，该命令会输出已定义的  &lt;code&gt;SHELL&lt;/code&gt;  环境变量值。而  &lt;code&gt;env&lt;/code&gt;  命令，可以使用  &lt;code&gt;env | grep VARIABLE_NAME&lt;/code&gt; ，查看对应的  &lt;code&gt;VARIABLE_NAME&lt;/code&gt;  环境变量值。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;note： &lt;code&gt;PATH&lt;/code&gt;  变量定义了运行命令的查找路径，以冒号  &lt;code&gt;:&lt;/code&gt;  分割不同的路径，使用  &lt;code&gt;export&lt;/code&gt;  定义的时候可加双引号也可不加。&lt;/p&gt;
+&lt;h1 id=&#34;设置环境变量&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#设置环境变量&#34;&gt;#&lt;/a&gt; 设置环境变量&lt;/h1&gt;
+&lt;h2 id=&#34;临时环境变量&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#临时环境变量&#34;&gt;#&lt;/a&gt; 临时环境变量&lt;/h2&gt;
+&lt;h3 id=&#34;export-命令&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#export-命令&#34;&gt;#&lt;/a&gt; export 命令&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;export&lt;/code&gt;  命令也可用于设置环境变量。&lt;/p&gt;
+&lt;p&gt;在 shell 中执行程序时，shell 会提供一组环境变量。 &lt;code&gt;export&lt;/code&gt;  可新增，修改或删除环境变量，供后续执行的程序使用。 &lt;code&gt;export&lt;/code&gt;  的效力仅限于该次登陆操作。&lt;/p&gt;
+&lt;h3 id=&#34;set-命令&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#set-命令&#34;&gt;#&lt;/a&gt; set 命令&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;set&lt;/code&gt;  命令作用主要是显示系统中已经存在的 shell 变量，以及设置 shell 变量的新变量值。使用  &lt;code&gt;set&lt;/code&gt;  更改 shell 特性时，符号 &amp;quot;+&amp;quot; 和 &amp;quot;-&amp;quot; 的作用分别是打开和关闭指定的模式。 &lt;code&gt;set&lt;/code&gt;  命令不能够定义新的 shell 变量。&lt;/p&gt;
+&lt;p&gt;具体可看：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuZ251Lm9yZy9zb2Z0d2FyZS9iYXNoL21hbnVhbC9odG1sX25vZGUvVGhlLVNldC1CdWlsdGluLmh0bWw=&#34;&gt;https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html&lt;/span&gt;&lt;/p&gt;
+&lt;h2 id=&#34;永久环境变量&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#永久环境变量&#34;&gt;#&lt;/a&gt; 永久环境变量&lt;/h2&gt;
+&lt;h3 id=&#34;系统级&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#系统级&#34;&gt;#&lt;/a&gt; 系统级&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;/etc/environment&lt;/code&gt;  ：系统在登录时读取的第一个文件，用于为所有进程设置环境变量。系统使用此文件时并不是执行此文件中的命令，而是根据  &lt;code&gt;KEY=VALUE&lt;/code&gt;  模式的代码，对  &lt;code&gt;KEY&lt;/code&gt;  赋值以  &lt;code&gt;VALUE&lt;/code&gt; ，因此文件中如果要定义  &lt;code&gt;PATH&lt;/code&gt;  环境变量，只需加入类似如  &lt;code&gt;PATH=$PATH:/xxx/bin&lt;/code&gt;  的代码即可。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;/etc/profile&lt;/code&gt;  ：是系统登录时执行的第二个文件，可以用于设定针对全系统所有用户的环境变量，并从  &lt;code&gt;/etc/profile.d&lt;/code&gt;  目录的配置文件中搜集 shell 的设置；这个文件，是任何用户登陆操作系统以后都会读取的文件（如果用户的 shell 是 csh 、tcsh 、zsh ，则不会读取此文件）。该文件一般是调用  &lt;code&gt;/etc/bash.bashrc&lt;/code&gt;  文件。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;/etc/bash.bashrc&lt;/code&gt;  ：系统级的  &lt;code&gt;bashrc&lt;/code&gt;  文件，为每一个运行 bash shell 的用户执行此文件。此文件会在用户每次打开 bash shell 时执行一次；因此，如果你想让每个使用 bash 的用户每新开一个 bash 和每次登陆都执行某些操作，或者给他们定义一些新的环境变量，就可以在这个里面设置。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;note：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;生效时间：使用相同的用户打开新的终端时生效，或者手动更新环境变量生效（见更新环境变量）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;生效期限：永久有效&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;生效范围：&lt;mark&gt;所有用户&lt;/mark&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;用户级&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#用户级&#34;&gt;#&lt;/a&gt; 用户级&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;~/.profile: 是对应当前登录用户的  &lt;code&gt;profile&lt;/code&gt;  文件，用于定制当前用户的个人工作环境。每个用户都可使用该文件输入专用于自己使用的 shell 信息，当用户登录时，该文件仅仅执行一次。默认情况下，会设置一些环境变量，执行用户的  &lt;code&gt;.bashrc&lt;/code&gt;  文件。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;~/.bashrc: 是对应当前登录用户的 bash 初始化文件，当用户每次打开 bash shell 时，系统都会执行此文件一次。通常设置环境变量修改这个文件。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;note：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;生效时间：使用相同的用户打开新的终端时生效，或者手动更新环境变量生效（见更新环境变量）&lt;/li&gt;
+&lt;li&gt;生效期限：永久有效&lt;/li&gt;
+&lt;li&gt;生效范围：&lt;mark&gt;仅对当前用户有效&lt;/mark&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;总结：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;环境变量的分类可以简单的分成用户级别的环境变量以及系统级别的环境变量。&lt;/p&gt;
+&lt;p&gt;系统级别环境变量定义文件： &lt;code&gt;/etc/bash.bashrc&lt;/code&gt; （部分系统为： &lt;code&gt;/etc/bashrc&lt;/code&gt; ）、 &lt;code&gt;/etc/profile&lt;/code&gt; （部分系统为： &lt;code&gt;/etc/bash_profile&lt;/code&gt; ）、 &lt;code&gt;/etc/environment&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;用户级别环境变量定义文件： &lt;code&gt;~/.bashrc&lt;/code&gt; 、 &lt;code&gt;~/.profile&lt;/code&gt; （部分系统为： &lt;code&gt;~/.bash_profile&lt;/code&gt; ）&lt;/p&gt;
+&lt;p&gt;另外在用户环境变量中，系统会首先读取  &lt;code&gt;~/.profile&lt;/code&gt; （或者  &lt;code&gt;~/.bash_profile&lt;/code&gt; ）文件，如果没有该文件则读取  &lt;code&gt;~/.bash_login&lt;/code&gt; ，根据这些文件中内容再去读取  &lt;code&gt;~/.bashrc&lt;/code&gt; 。&lt;/p&gt;
+&lt;p&gt;环境变量加载顺序：&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;/etc/enviroment&lt;/code&gt;  –&amp;gt;  &lt;code&gt;/etc/profile&lt;/code&gt;  –&amp;gt;  &lt;code&gt;/etc/bash.bashrc&lt;/code&gt;  –&amp;gt;  &lt;code&gt;~/.profile&lt;/code&gt;  –&amp;gt;  &lt;code&gt;~/.bashrc&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;tips：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;一般在  &lt;code&gt;/etc/profile.d/&lt;/code&gt;  目录下创建一个自定义脚本会是修改环境变量的更好方法，这样无论你在一个终端中如何切换用户，环境变量依然存在。eg：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;[root@localhost] $&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;cat&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt; /etc/profile.d/test.sh &lt;span class=&#34;token operator&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;EOF&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;export PATH=&lt;span class=&#34;token environment constant&#34;&gt;$PATH&lt;/span&gt;:/home/arachnid/mysql/bin&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;EOF&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h1 id=&#34;删除环境变量&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#删除环境变量&#34;&gt;#&lt;/a&gt; 删除环境变量&lt;/h1&gt;
+&lt;p&gt;如果是临时环境变量，或者是要临时删除一下环境变量，可以使用  &lt;code&gt;unset&lt;/code&gt;  命令： &lt;code&gt;unset VARIABLE_NAME&lt;/code&gt; ；如果是要永久删除配置文件中的环境变量，需要去相应的配置文件中移除相关的配置项。&lt;/p&gt;
+&lt;h1 id=&#34;更新环境变量&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#更新环境变量&#34;&gt;#&lt;/a&gt; 更新环境变量&lt;/h1&gt;
+&lt;p&gt;eg：更新  &lt;code&gt;/etc/profile&lt;/code&gt;  文件的环境变量&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;[root@localhost] $&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token builtin class-name&#34;&gt;source&lt;/span&gt; /etc/profile&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# or&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;[root@localhost] $&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token builtin class-name&#34;&gt;.&lt;/span&gt; /etc/profile&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h1 id=&#34;常用环境变量&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#常用环境变量&#34;&gt;#&lt;/a&gt; 常用环境变量&lt;/h1&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;变量&lt;/th&gt;
+&lt;th&gt;内容&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;DISPLAY&lt;/td&gt;
+&lt;td&gt;如果你正在运行图形界面环境，那么这个变量就是你显示器的名字。通常，它是 “:0”， 意思是由 X 产生的第一个显示器。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;EDITOR&lt;/td&gt;
+&lt;td&gt;文本编辑器的名字。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;SHELL&lt;/td&gt;
+&lt;td&gt;shell 程序的名字。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;HOME&lt;/td&gt;
+&lt;td&gt;用户家目录。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;LANG&lt;/td&gt;
+&lt;td&gt;定义了字符集以及语言编码方式。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;OLD_PWD&lt;/td&gt;
+&lt;td&gt;先前的工作目录。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;PAGER&lt;/td&gt;
+&lt;td&gt;页输出程序的名字。这经常设置为 /usr/bin/less。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;PATH&lt;/td&gt;
+&lt;td&gt;由冒号分开的目录列表，当你输入可执行程序名后，会搜索这个目录列表。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;PS1&lt;/td&gt;
+&lt;td&gt;Prompt String 1. 这个定义了你的 shell 提示符的内容。随后我们可以看到，这个变量内容可以全面地定制。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;PWD&lt;/td&gt;
+&lt;td&gt;当前工作目录。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;TERM&lt;/td&gt;
+&lt;td&gt;终端类型名。类 Unix 的系统支持许多终端协议；这个变量设置你的终端仿真器所用的协议。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;TZ&lt;/td&gt;
+&lt;td&gt;指定你所在的时区。大多数类 Unix 的系统按照协调时间时 (UTC) 来维护计算机内部的时钟 ，然后应用一个由这个变量指定的偏差来显示本地时间。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;USER&lt;/td&gt;
+&lt;td&gt;你的用户名&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h1 id=&#34;参考&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#参考&#34;&gt;#&lt;/a&gt; 参考&lt;/h1&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmFyY2hsaW51eC5vcmcvdGl0bGUvRW52aXJvbm1lbnRfdmFyaWFibGVz&#34;&gt;https://wiki.archlinux.org/title/Environment_variables&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuY25ibG9ncy5jb20veW91eW91aS9wLzEwNjgwMzI5Lmh0bWw=&#34;&gt;https://www.cnblogs.com/youyoui/p/10680329.html&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3J2ZHNkLnRvcC8yMDE4LzA0LzI4L0xpbnV4L0xpbnV4JUU3JThFJUFGJUU1JUEyJTgzJUU1JThGJTk4JUU5JTg3JThGLw==&#34;&gt;http://rvdsd.top/2018/04/28/Linux/Linux 环境变量 /&lt;/span&gt;&lt;/p&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">https://arachnid.cc/linux_c-time-configuration/</guid>
+            <title>Linux c 时间时区配置</title>
+            <link>https://arachnid.cc/linux_c-time-configuration/</link>
+            <category>Linux</category>
+            <pubDate>Wed, 21 Jun 2023 23:54:38 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;时间与日期&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#时间与日期&#34;&gt;#&lt;/a&gt; 时间与日期&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;GMT 和 UTC&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;GMT，即格林尼治标准时间，也就是世界时。GMT 的正午是指当太阳横穿格林尼治子午线（本初子午线）时的时间。但由于地球自转不均匀不规则，导致 GMT 不精确，现在已经不再作为世界标准时间使用。&lt;/p&gt;
+&lt;p&gt;UTC，即协调世界时。UTC 是以原子时秒长为基础，在时刻上尽量接近于 GMT 的一种时间计量系统。为确保 UTC 与 GMT 相差不会超过 0.9 秒，在有需要的情况下会在 UTC 内加上正或负闰秒。UTC 现在作为世界标准时间使用。&lt;/p&gt;
+&lt;p&gt;所以，UTC 与 GMT 基本上等同，误差不超过 0.9 秒。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;时区&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;地球自西向东旋转，东边比西边先看到太阳，东边的时间也比西边的早。为了统一世界的时间，1884 年的国际经度会议规规定将全球划分为 24 个时区（东、西各 12 个时区）。规定英国（格林尼治天文台旧址）为零时区（GMT+00），东 1-12 区，西 1-12 区，中国北京处于东 8 区（GMT+08）。&lt;/p&gt;
+&lt;p&gt;若中国当前时间为 8 点整，则英国时间为 0 点整。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;UTC 时间与本地时间&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;UTC + 时区差 = 本地时间&lt;/p&gt;
+&lt;p&gt;时区差东为正，西为负。在此，把东八区时区差记为  &lt;code&gt;+08&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;UTC + (+08) = 本地（北京）时间&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;UNIX 时间戳&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;由 Unix 内核提供的基本时间服务是自国际标准时间公元 1970 年 1 月 1 日 00:00:00 以来的秒数。&lt;/p&gt;
+&lt;h1 id=&#34;时间及时区查看命令&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#时间及时区查看命令&#34;&gt;#&lt;/a&gt; 时间及时区查看命令&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;获取 UTC 世界时间&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;date -u&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;获取当地时间&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;date&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;获取当地时间及时差&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;date -R&lt;/code&gt;&lt;/p&gt;
+&lt;h1 id=&#34;时区设置命令&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#时区设置命令&#34;&gt;#&lt;/a&gt; 时区设置命令&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;1、对于完整的 Linux 系统&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;命令跟描述对不上号的  &lt;code&gt;tzselect&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;看起来很像一个时区选择的工具，但并非如此。事实上 tzselect 仅仅是一个查看时区表示方式的『向导』程序而已。通过依次询问大洲→国家→城市，最后告诉你如何 TZ 变量的写法，比如北京时间是： &lt;code&gt;Asia/Shanghai&lt;/code&gt;&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;TZ 变量&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;根据上面的指导，可以获知通过修改 TZ 变量，直接修改时区信息，例如：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;[root@localhost] $&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;date&lt;/span&gt; &lt;span class=&#34;token parameter variable&#34;&gt;-R&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt; Tue, &lt;span class=&#34;token number&#34;&gt;17&lt;/span&gt; Jan &lt;span class=&#34;token number&#34;&gt;2017&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;13&lt;/span&gt;:57:06 +0000&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;[root@localhost] $&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token builtin class-name&#34;&gt;export&lt;/span&gt;  &lt;span class=&#34;token assign-left variable&#34;&gt;TZ&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#39;Asia/Shanghai&#39;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;[root@localhost] $&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;date&lt;/span&gt; &lt;span class=&#34;token parameter variable&#34;&gt;-R&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt; Tue, &lt;span class=&#34;token number&#34;&gt;17&lt;/span&gt; Jan &lt;span class=&#34;token number&#34;&gt;2017&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;19&lt;/span&gt;:57:18 +0600&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;但如果不写在环境变量文件配置里的话，一般是会话级的操作，取消重新打开便会失效；因此对于在 shell 中实现更改 TZ 变量，只能做到临时变更时区信息。&lt;/p&gt;
+&lt;p&gt;正确做法是到  &lt;code&gt;/etc/profile&lt;/code&gt;  里（或用户的  &lt;code&gt;~/.profile&lt;/code&gt;  或  &lt;code&gt;~/.bashrc&lt;/code&gt;  文件等），直接  &lt;code&gt;export TZ=&#39;xxx&#39;&lt;/code&gt;  更改时区（时区的名字可以用  &lt;code&gt;tzselect&lt;/code&gt;  向导来确定）&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;&lt;code&gt;/etc/localtime&lt;/code&gt;  文件&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;默认情况下情况下，TZ 属性是空，这时候是靠  &lt;code&gt;/etc/localtime&lt;/code&gt;  文件来确定的时区。而此文件通常又是一个到  &lt;code&gt;/usr/share/zoneinfo/&lt;/code&gt;  下各种时区文件的软连接。通过修改  &lt;code&gt;/etc/localtime&lt;/code&gt;  指向的软连接，进而修改系统的时区。比如下面的方法，将 localtime 文件设置为了北京时间：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;[root@localhost] $&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ln&lt;/span&gt; &lt;span class=&#34;token parameter variable&#34;&gt;-sf&lt;/span&gt; /usr/share/zoneinfo/Asia/Shanghai /etc/localtime&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;strong&gt;2、对于裁剪的 Linux 系统，如：arm linux&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;tzselect&lt;/code&gt;  命令&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;正常情况下，裁剪过的是不支持该命令的，因此相对于上面的 2、3 两点并不适用于此。&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;TZ 变量&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;与上面一样可通过修改 TZ 变量，直接修改时区信息，但与此不同的是，并不能通过  &lt;code&gt;TZ=&#39;Asia/Shanghai&#39;&lt;/code&gt;  去修改，只能通过时区偏移量来修改，例如我们中国的北京时间相对于  &lt;code&gt;UTC-0&lt;/code&gt;  的偏移量是  &lt;code&gt;UTC+8&lt;/code&gt;  ；那么则修改为：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;[root@localhost] $&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;date&lt;/span&gt; &lt;span class=&#34;token parameter variable&#34;&gt;-R&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt; Tue, &lt;span class=&#34;token number&#34;&gt;17&lt;/span&gt; Jan &lt;span class=&#34;token number&#34;&gt;2017&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;13&lt;/span&gt;:57:06 +0000&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;[root@localhost] $&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token builtin class-name&#34;&gt;export&lt;/span&gt;  &lt;span class=&#34;token assign-left variable&#34;&gt;TZ&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#39;CST-8&#39;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;[root@localhost] $&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;date&lt;/span&gt; &lt;span class=&#34;token parameter variable&#34;&gt;-R&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt; Tue, &lt;span class=&#34;token number&#34;&gt;17&lt;/span&gt; Jan &lt;span class=&#34;token number&#34;&gt;2017&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;19&lt;/span&gt;:57:18 +0600&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;注意，在这里，UTC+、- 是相反的，UTC-8 代表的是相对于 UTC 加八个小时，反之减八个小时......；而 CST 则是对应为北京时区缩写。&lt;/p&gt;
+&lt;p&gt;时区表信息可看：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cudGltZWFuZGRhdGUuY29tL3RpbWUvem9uZXMv&#34;&gt;https://www.timeanddate.com/time/zones/&lt;/span&gt;&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;&lt;code&gt;/etc/localtime&lt;/code&gt;  文件&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;由于裁剪问题，系统中是没有  &lt;code&gt;/usr/share/zoneinfo/&lt;/code&gt;  文件夹的，如有需要，将 PC 端的  &lt;code&gt;/usr/share/zoneinfo&lt;/code&gt;  整个  &lt;code&gt;zoneinfo&lt;/code&gt;  文件夹复制到 rootfs 的  &lt;code&gt;/usr/share&lt;/code&gt;  下，这样嵌入式系统中就有了  &lt;code&gt;timezone&lt;/code&gt;  。&lt;/p&gt;
+&lt;p&gt;最后同样执行：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;[root@localhost] $&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ln&lt;/span&gt; &lt;span class=&#34;token parameter variable&#34;&gt;-sf&lt;/span&gt; /usr/share/zoneinfo/Asia/Shanghai /etc/localtime&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;note：时区信息保存在  &lt;code&gt;/etc/localtime&lt;/code&gt;  文件里，如果没有该文件则系统是零时区，有该文件时系统会去读取该文件。具体该文件的内容可以不同关心，在  &lt;code&gt;/usr/share/zoneinfo/&lt;/code&gt;  目录下有各个时区对应的文件，只需要拷贝过去就可以。比如我们常用的东八区时间就是对应  &lt;code&gt;/usr/share/zoneinfo/Asia/Shanghai&lt;/code&gt;  文件，只需要将该文件指向或拷贝到  &lt;code&gt;/etc/localtime&lt;/code&gt;  就将系统时间改为东八区。&lt;/p&gt;
+&lt;h1 id=&#34;常用-api&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#常用-api&#34;&gt;#&lt;/a&gt; 常用 API&lt;/h1&gt;
+&lt;h2 id=&#34;时间结构体&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#时间结构体&#34;&gt;#&lt;/a&gt; 时间结构体&lt;/h2&gt;
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;tm&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; tm_sec&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;    &lt;span class=&#34;token comment&#34;&gt;/* Seconds (0-60) */&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; tm_min&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;    &lt;span class=&#34;token comment&#34;&gt;/* Minutes (0-59) */&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; tm_hour&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;   &lt;span class=&#34;token comment&#34;&gt;/* Hours (0-23) */&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; tm_mday&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;   &lt;span class=&#34;token comment&#34;&gt;/* Day of the month (1-31) */&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; tm_mon&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;    &lt;span class=&#34;token comment&#34;&gt;/* Month (0-11) */&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; tm_year&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;   &lt;span class=&#34;token comment&#34;&gt;/* Year - 1900 */&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; tm_wday&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;   &lt;span class=&#34;token comment&#34;&gt;/* Day of the week (0-6, Sunday = 0) */&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; tm_yday&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;   &lt;span class=&#34;token comment&#34;&gt;/* Day in the year (0-365, 1 Jan = 0) */&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; tm_isdst&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;  &lt;span class=&#34;token comment&#34;&gt;/* Daylight saving time */&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;timeval&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token class-name&#34;&gt;time_t&lt;/span&gt;      tv_sec&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;     &lt;span class=&#34;token comment&#34;&gt;/* seconds (秒) */&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token class-name&#34;&gt;suseconds_t&lt;/span&gt; tv_usec&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;    &lt;span class=&#34;token comment&#34;&gt;/* microseconds (微秒) */&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;timezone&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; tz_minuteswest&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;     &lt;span class=&#34;token comment&#34;&gt;/* minutes west of Greenwich */&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; tz_dsttime&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;         &lt;span class=&#34;token comment&#34;&gt;/* type of DST correction */&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h2 id=&#34;时间函数归类&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#时间函数归类&#34;&gt;#&lt;/a&gt; 时间函数归类&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;1、C99 标准库函数&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;需  &lt;code&gt;#include &amp;lt;time.h&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;获取时间戳：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;/* time () 函数，返回一个从 1970 年 1 月 1 日 00:00:00 到现在的 time_t 类型 UTC 时间，当参数为 NULL 时直接返回秒数，当然也会将该值写入 t 指针指向的地址。 */&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;time_t&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;time&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token class-name&#34;&gt;time_t&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;t&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;/* mktime () 会把本地时间转换为 UTC 时间 */&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;time_t&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;mktime&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;tm&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;tm&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;//note：两者区别在于传入的参数结构体不同，mktime 存在时区转换；time (t) 等价于 mktime (localtime (time (t)))。&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ul&gt;
+&lt;li&gt;获取  &lt;code&gt;struct tm&lt;/code&gt;  类型的时间：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;/* gmtime () 是零时区，把 UTC 时间转换成北京时间的话，需要在年数上加 1900，月份上加 1，小时数加上 8。 */&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;tm&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;gmtime&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;time_t&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;timep&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;tm&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;gmtime_r&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;time_t&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;timep&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;tm&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;result&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;/* localtime () 将得到本地时间，该函数与 gmtime () 唯一区别是，在转换成北京时间的小时数不需要加上 8。 */&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;tm&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;localtime&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;time_t&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;timep&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;tm&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;localtime_r&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;time_t&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;timep&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;tm&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;result&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;//note：localtime 是将时区考虑在内了，转出的是当前时区的时间。但是注意，有些嵌入式设备上被裁减过的系统，时区没有被设置好，导致二者转出来的时间都是零时区的。在多线程应用里面，应该用后缀不带 `_r` 的函数，如： localtime_r 函数替代 localtime 函数，因为 localtime_r 是线程安全的，例子看第五大点。&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ul&gt;
+&lt;li&gt;时间日期格式化：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;/* 将 tm 结构中的时间信息转换为相应时间的字符串 */&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;char&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;asctime&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;tm&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;tm&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;char&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;asctime_r&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;tm&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;tm&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;char&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;buf&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;/* 将日历时间参数 timep 转换为一个表示本地当前时间的字符串，函数已经由时区转换成当地时间 */&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;char&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;ctime&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;time_t&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;timep&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;char&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;token function&#34;&gt;ctime_r&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;time_t&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;timep&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;char&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;buf&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;//note：两者区别在于传入的参数结构体不同，但转换出来的信息格式显示是一样的；asctime 是直接把时间格式化，而 ctime 是经过时区转换后再格式化输出；ctime (t) 等价于 asctime (localtime (t))。&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;/* 常用时间格式化参数看下方描述 */&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;size_t&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;strftime&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;char&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;s&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;size_t&lt;/span&gt; max&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;char&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;format&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;tm&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;tm&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;在使用  &lt;code&gt;strftime&lt;/code&gt;  时间格式化函数所涉及的相关参数的含义如下：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;参数&lt;/th&gt;
+&lt;th&gt;含义&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;%F&lt;/td&gt;
+&lt;td&gt;将时间格式化为年 - 月 - 日&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;%T&lt;/td&gt;
+&lt;td&gt;将时间格式化为显示时分秒: hh:mm:ss&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;%Y&lt;/td&gt;
+&lt;td&gt;将时间格式化为带世纪部分的十制年份&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;%m&lt;/td&gt;
+&lt;td&gt;将时间格式化为十进制表示的月份&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;%d&lt;/td&gt;
+&lt;td&gt;将时间格式化为十进制的每月中的第几天&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;%H&lt;/td&gt;
+&lt;td&gt;将时间格式化为 24 小时制的小时&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;%M&lt;/td&gt;
+&lt;td&gt;将时间格式化为十进制表示的分钟数&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;%S&lt;/td&gt;
+&lt;td&gt;将时间格式化为十进制表示的秒数&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;更多参数请阅：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cucnVub29iLmNvbS9jcHJvZ3JhbW1pbmcvYy1mdW5jdGlvbi1zdHJmdGltZS5odG1s&#34;&gt;https://www.runoob.com/cprogramming/c-function-strftime.html&lt;/span&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;获取时间差：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;double&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;difftime&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token class-name&#34;&gt;time_t&lt;/span&gt; time1&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;time_t&lt;/span&gt; time0&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;strong&gt;2、Uinx 系统函数&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;需  &lt;code&gt;#include &amp;lt;sys/time.h&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token macro property&#34;&gt;&lt;span class=&#34;token directive-hash&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;token directive keyword&#34;&gt;include&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&amp;lt;sys/time.h&gt;&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;获取 &lt;span class=&#34;token keyword&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;timeval&lt;/span&gt; 类型的时间：&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;/* 相对于 time () 和 mktime () ，gettimeofday () 能获取更精准的微秒级别，及相应的时区信息，需要注意的是 tz 是依赖于系统，不同的系统可能存在获取不到的可能，因此通常设置为 NULL */&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;gettimeofday&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;timeval&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;tv&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;timezone&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;tz&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;// 成功则返回 0，失败返回 －1，错误代码存于 errno&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;// EFAULT：指针 tv 或 tz 所指的内存空间无效。&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;设置 &lt;span class=&#34;token keyword&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;timeval&lt;/span&gt; 类型的时间：&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;settimeofday&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;timeval&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;tv&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;timezone&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;tz&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;// 成功则返回 0，失败返回 －1，错误代码存于 errno&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;// EPERM：调用进程没有足够权限调用 settimeofday ()，即权限不够。&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;// EINVAL：时区或其它内容无效，无法正确设置时间。&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;//note：settimeofday 的修改时间需要在 root 权限下才能配置成功。&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;strong&gt;3、总结&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;time&lt;/code&gt; 、 &lt;code&gt;gmtime&lt;/code&gt; 、 &lt;code&gt;asctime&lt;/code&gt;  所表示的时间都是 UTC 时间，只是数据类型不一样，&lt;br /&gt;
+而  &lt;code&gt;mktime&lt;/code&gt; 、 &lt;code&gt;localtime&lt;/code&gt; 、 &lt;code&gt;ctime&lt;/code&gt;  的时间都存在时区之间变换。&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;函数&lt;/th&gt;
+&lt;th&gt;传参类型&lt;/th&gt;
+&lt;th&gt;返回类型&lt;/th&gt;
+&lt;th&gt;时区转换&lt;/th&gt;
+&lt;th&gt;描述&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;time()&lt;/td&gt;
+&lt;td&gt;time_t&lt;/td&gt;
+&lt;td&gt;time_t&lt;/td&gt;
+&lt;td&gt;UTC+0&lt;/td&gt;
+&lt;td&gt;用于获取 UTC 零时区的时间戳格式&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;mktime()&lt;/td&gt;
+&lt;td&gt;struct tm&lt;/td&gt;
+&lt;td&gt;time_t&lt;/td&gt;
+&lt;td&gt;UTC-t&lt;/td&gt;
+&lt;td&gt;用于获取 UTC 零时区的时间戳格式，但会经过时区转换，把本地时间内部换成 UTC+0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;gmtime()&lt;/td&gt;
+&lt;td&gt;time_t&lt;/td&gt;
+&lt;td&gt;struct tm&lt;/td&gt;
+&lt;td&gt;UTC+0&lt;/td&gt;
+&lt;td&gt;用于获取 UTC 零时区的&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;localtime()&lt;/td&gt;
+&lt;td&gt;time_t&lt;/td&gt;
+&lt;td&gt;struct tm&lt;/td&gt;
+&lt;td&gt;UTC+t&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;asctime()&lt;/td&gt;
+&lt;td&gt;struct tm&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;UTC+0&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ctime()&lt;/td&gt;
+&lt;td&gt;time_t&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;UTC+t&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;函数应用&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#函数应用&#34;&gt;#&lt;/a&gt; 函数应用&lt;/h2&gt;
+&lt;p&gt;1、获取当前时区的时间戳偏移量&lt;/p&gt;
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;time_t&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;get_localtime_interval&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;void&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token class-name&#34;&gt;time_t&lt;/span&gt; timep_utc&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; timep_local&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;tm&lt;/span&gt; tm_utc&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function&#34;&gt;time&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;&amp;amp;&lt;/span&gt;timep_utc&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function&#34;&gt;gmtime_r&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;&amp;amp;&lt;/span&gt;timep_utc&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;&amp;amp;&lt;/span&gt;tm_utc&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	timep_local &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;mktime&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;&amp;amp;&lt;/span&gt;tm_utc&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	&lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;timep_utc &lt;span class=&#34;token operator&#34;&gt;-&lt;/span&gt; timep_local&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;2、获取当前时区的时间戳（带时区的本地时间）&lt;/p&gt;
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;time_t&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;get_time_stamp&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;void&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	&lt;span class=&#34;token class-name&#34;&gt;time_t&lt;/span&gt; timep&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	&lt;span class=&#34;token function&#34;&gt;time&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;&amp;amp;&lt;/span&gt;timep&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	timep &lt;span class=&#34;token operator&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;get_localtime_interval&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;timep&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	&lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; timep&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;3、获取时区偏移量&lt;/p&gt;
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token class-name&#34;&gt;time_t&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;get_time_stamp&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;void&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	&lt;span class=&#34;token class-name&#34;&gt;time_t&lt;/span&gt; timep_zone&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    timep_zone &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;get_localtime_interval&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;timep&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;/&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;3600&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;	&lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; timep_zone&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;4、时区设置函数&lt;/p&gt;
+&lt;p&gt;时间函数除了 gmttime ()、asctime () 不受环境变量 TZ 的影响外，大部分函数都受到环境变量 TZ 的影响，这几个函数是： localtime、mktime、ctime 和 strftime。如果定义了 TZ，则这些函数将使用其值以代替系统默认时区。&lt;/p&gt;
+&lt;p&gt;在 Unix 环境下可以通过改变系统文件修改环境变量，也可以通过函数 setenv () 修改。&lt;/p&gt;
+&lt;p&gt;TZ 指定了当前的系统时区。这个时区会影响我们所做的时间转换。例如假设当前的系统时间是 8:00AM，如果我们把当前的时区设置成东八区，则标准时间就是（即 UTC+0）的时间就是 8-8=0:00AM，如果是看成是东六区的话，则标准时间就变成了 8-6=2:00AM。&lt;/p&gt;
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token macro property&#34;&gt;&lt;span class=&#34;token directive-hash&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;token directive keyword&#34;&gt;include&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&amp;lt;stdio.h&gt;&lt;/span&gt;  &lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token macro property&#34;&gt;&lt;span class=&#34;token directive-hash&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;token directive keyword&#34;&gt;include&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&amp;lt;time.h&gt;&lt;/span&gt;  &lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token macro property&#34;&gt;&lt;span class=&#34;token directive-hash&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;token directive keyword&#34;&gt;include&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&amp;lt;stdlib.h&gt;&lt;/span&gt;    &lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; argc&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;char&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt; argv&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;  &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;  &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function&#34;&gt;setenv&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;TZ&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;CST-8&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;   &lt;span class=&#34;token comment&#34;&gt;// 北京东八区&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token comment&#34;&gt;//setenv (&#34;TZ&#34;, &#34;UTC+0&#34;, 1);   // 将当前时区设置成标准区&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;char&lt;/span&gt; buf&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;64&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;timeval&lt;/span&gt; tv&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;tm&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt; tm_time&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function&#34;&gt;gettimeofday&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;&amp;amp;&lt;/span&gt;tv&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token constant&#34;&gt;NULL&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    tm_time &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;gmtime&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;&amp;amp;&lt;/span&gt;tv&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;tv_sec&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function&#34;&gt;strftime&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;buf&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;sizeof&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;buf&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;%a %b %m %H:%M:%S %Z %Y&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; tm_time&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;GMT time: %s\n&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; buf&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;16&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    tm_time &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;localtime&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;&amp;amp;&lt;/span&gt;tv&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;tv_sec&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;17&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function&#34;&gt;strftime&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;buf&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token keyword&#34;&gt;sizeof&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;buf&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;%a %b %m %H:%M:%S %Z %Y&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; tm_time&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;18&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;local time: %s\n&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; buf&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;19&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;20&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;21&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h1 id=&#34;localtime-和-localtime_r-区别&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#localtime-和-localtime_r-区别&#34;&gt;#&lt;/a&gt; localtime 和 localtime_r 区别&lt;/h1&gt;
+&lt;p&gt;示例来源（下方为原文备份记录）：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3Rlc3QxMjgwL2FydGljbGUvZGV0YWlscy84MDkxNzk2Mg==&#34;&gt;https://blog.csdn.net/test1280/article/details/80917962&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;localtime&lt;/code&gt;  和  &lt;code&gt;localtime_r&lt;/code&gt;  的函数功能： converts the calendar time timep to broken-time representation&lt;/p&gt;
+&lt;p&gt;在调用  &lt;code&gt;localtime&lt;/code&gt;  和  &lt;code&gt;localtime_t&lt;/code&gt;  函数时，需特别注意：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;localtime&lt;/code&gt;  是不可重入函数，非线程安全&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;localtime_r&lt;/code&gt;  是可重入函数，线程安全&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;1、使用  &lt;code&gt;localtime&lt;/code&gt;  时不可重入示范：&lt;/p&gt;
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token macro property&#34;&gt;&lt;span class=&#34;token directive-hash&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;token directive keyword&#34;&gt;include&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&amp;lt;stdio.h&gt;&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token macro property&#34;&gt;&lt;span class=&#34;token directive-hash&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;token directive keyword&#34;&gt;include&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&amp;lt;stdlib.h&gt;&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token macro property&#34;&gt;&lt;span class=&#34;token directive-hash&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;token directive keyword&#34;&gt;include&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&amp;lt;unistd.h&gt;&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token macro property&#34;&gt;&lt;span class=&#34;token directive-hash&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;token directive keyword&#34;&gt;include&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&amp;lt;time.h&gt;&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token class-name&#34;&gt;time_t&lt;/span&gt; curTime &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;time&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token constant&#34;&gt;NULL&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token class-name&#34;&gt;time_t&lt;/span&gt; aftTime &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; curTime &lt;span class=&#34;token operator&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;3600&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;tm&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;pTm1 &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;localtime&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;&amp;amp;&lt;/span&gt;curTime&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;tm&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;pTm2 &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;localtime&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;&amp;amp;&lt;/span&gt;aftTime&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function&#34;&gt;fprintf&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token constant&#34;&gt;stdout&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;%04d%02d%02d%02d%02d%02d\n&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            pTm1&lt;span class=&#34;token operator&#34;&gt;-&gt;&lt;/span&gt;tm_year &lt;span class=&#34;token operator&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;1900&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;16&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            pTm1&lt;span class=&#34;token operator&#34;&gt;-&gt;&lt;/span&gt;tm_mon &lt;span class=&#34;token operator&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;17&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            pTm1&lt;span class=&#34;token operator&#34;&gt;-&gt;&lt;/span&gt;tm_mday&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;18&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            pTm1&lt;span class=&#34;token operator&#34;&gt;-&gt;&lt;/span&gt;tm_hour&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;19&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            pTm1&lt;span class=&#34;token operator&#34;&gt;-&gt;&lt;/span&gt;tm_min&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;20&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            pTm1&lt;span class=&#34;token operator&#34;&gt;-&gt;&lt;/span&gt;tm_sec&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;21&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;22&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function&#34;&gt;fprintf&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token constant&#34;&gt;stdout&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;%04d%02d%02d%02d%02d%02d\n&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;23&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            pTm2&lt;span class=&#34;token operator&#34;&gt;-&gt;&lt;/span&gt;tm_year &lt;span class=&#34;token operator&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;1900&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;24&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            pTm2&lt;span class=&#34;token operator&#34;&gt;-&gt;&lt;/span&gt;tm_mon &lt;span class=&#34;token operator&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;25&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            pTm2&lt;span class=&#34;token operator&#34;&gt;-&gt;&lt;/span&gt;tm_mday&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;26&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            pTm2&lt;span class=&#34;token operator&#34;&gt;-&gt;&lt;/span&gt;tm_hour&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;27&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            pTm2&lt;span class=&#34;token operator&#34;&gt;-&gt;&lt;/span&gt;tm_min&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;28&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            pTm2&lt;span class=&#34;token operator&#34;&gt;-&gt;&lt;/span&gt;tm_sec&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;29&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;30&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;31&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;编译 &amp;amp; 运行：&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;$ gcc &lt;span class=&#34;token parameter variable&#34;&gt;-o&lt;/span&gt; main main.c&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;$ ./main&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token number&#34;&gt;20180704225205&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token number&#34;&gt;20180704225205&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;调用  &lt;code&gt;localtime&lt;/code&gt;  函数并获取其返回值（一个指向  &lt;code&gt;struct tm&lt;/code&gt;  结构类型数据的指针）后，我们并未对返回值进行&lt;strong&gt;显式地释放&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;这并没有什么问题（不会导致内存泄漏）&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;因为  &lt;code&gt;localtime&lt;/code&gt;  函数返回值是一个指针，指向一个静态变量，这个静态变量是库中的一个  &lt;code&gt;static struct tm&lt;/code&gt;  类型数据。&lt;/p&gt;
+&lt;p&gt;man localtime：&lt;/p&gt;
+&lt;p&gt;The return value points to a &lt;strong&gt;statically allocated struct&lt;/strong&gt; which might &lt;strong&gt;be overwritten&lt;/strong&gt; by &lt;strong&gt;subsequent calls&lt;/strong&gt; to any of the date and time functions.&lt;/p&gt;
+&lt;p&gt;这将引出新的问题，&lt;strong&gt;同一进程&lt;/strong&gt;多个线程中同时调用（极短时间内连续调用）  &lt;code&gt;localtime&lt;/code&gt;  函数，返回值  &lt;code&gt;tm&lt;/code&gt;  可能被覆盖。&lt;/p&gt;
+&lt;p&gt;举个栗子：&lt;/p&gt;
+&lt;p&gt;两个线程 A 和 B 同时调用  &lt;code&gt;localtime&lt;/code&gt;  函数：&lt;/p&gt;
+&lt;p&gt;时刻 1：线程 A 调用  &lt;code&gt;localtime&lt;/code&gt;  函数，得到一个指针，指向  &lt;code&gt;static struct tm&lt;/code&gt;  类型变量；（tm 中存储的值更新为 value-a）&lt;/p&gt;
+&lt;p&gt;时刻 2：线程 B 调用  &lt;code&gt;localtime&lt;/code&gt;  函数，得到一个指针，指向  &lt;code&gt;static struct tm&lt;/code&gt;  类型变量；（tm 中存储的值更新为 value-b）&lt;/p&gt;
+&lt;p&gt;时刻 3：线程 A 对  &lt;code&gt;localtime&lt;/code&gt;  返回的指针进行相关引用操作（例如 printf 输出某字段），此时  &lt;code&gt;static struct tm&lt;/code&gt;  中的值实际是 value-b，并非预期的 value-a。&lt;/p&gt;
+&lt;p&gt;时刻 4：线程 B 对  &lt;code&gt;localtime&lt;/code&gt;  返回的指针进行相关引用操作，此时  &lt;code&gt;static struct tm&lt;/code&gt;  中的值实际是 value-b。&lt;/p&gt;
+&lt;p&gt;上面的示范代码虽然是在同一线程中，但是已经可以简单模拟这样的多线程执行调用流程。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;如何解决？&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;localtime_r&lt;/code&gt;  是  &lt;code&gt;localtime&lt;/code&gt;  的可重入版本（线程安全版本）。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;localtime&lt;/code&gt;  不可重入是由于  &lt;code&gt;static struct tm&lt;/code&gt;  是库中的一个静态变量，如果我们在调用  &lt;code&gt;localtime&lt;/code&gt;  时传入一个  &lt;code&gt;struct tm&lt;/code&gt;  类型变量（指针）用于存放结果，岂不是实现&lt;strong&gt;可重入&lt;/strong&gt;？&lt;/p&gt;
+&lt;p&gt;Bingo！&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;struct tm *localtime(const time_t *timep);&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;struct tm *localtime_r(const time_t *timep, struct tm *result);&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;调用  &lt;code&gt;localtime&lt;/code&gt;  只需要传入指向  &lt;code&gt;time_t&lt;/code&gt;  的一个常量指针；&lt;/p&gt;
+&lt;p&gt;调用  &lt;code&gt;localtime_t&lt;/code&gt;  不仅需要传入指向  &lt;code&gt;time_t&lt;/code&gt;  的一个常量指针，还需要传入指向  &lt;code&gt;struct tm&lt;/code&gt;  的一个指针，结果将存储在  &lt;code&gt;result&lt;/code&gt;  指向的  &lt;code&gt;struct tm&lt;/code&gt;  对象中；&lt;/p&gt;
+&lt;p&gt;The return value points to a statically allocated struct which might be overwritten by subsequent calls to any of the date and time functions.&lt;/p&gt;
+&lt;p&gt;The localtime_r() function does the same, &lt;strong&gt;but stores the data in a user-supplied struct&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;2、使用  &lt;code&gt;localtime_r&lt;/code&gt;  时可重入示范：&lt;/p&gt;
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token macro property&#34;&gt;&lt;span class=&#34;token directive-hash&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;token directive keyword&#34;&gt;include&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&amp;lt;stdio.h&gt;&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token macro property&#34;&gt;&lt;span class=&#34;token directive-hash&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;token directive keyword&#34;&gt;include&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&amp;lt;stdlib.h&gt;&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token macro property&#34;&gt;&lt;span class=&#34;token directive-hash&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;token directive keyword&#34;&gt;include&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&amp;lt;unistd.h&gt;&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token macro property&#34;&gt;&lt;span class=&#34;token directive-hash&#34;&gt;#&lt;/span&gt;&lt;span class=&#34;token directive keyword&#34;&gt;include&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&amp;lt;time.h&gt;&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token keyword&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#123;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token class-name&#34;&gt;time_t&lt;/span&gt; curTime &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;time&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token constant&#34;&gt;NULL&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token class-name&#34;&gt;time_t&lt;/span&gt; aftTime &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; curTime &lt;span class=&#34;token operator&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;3600&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;tm&lt;/span&gt; tm1&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;struct&lt;/span&gt; &lt;span class=&#34;token class-name&#34;&gt;tm&lt;/span&gt; tm2&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function&#34;&gt;localtime_r&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;&amp;amp;&lt;/span&gt;curTime&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;&amp;amp;&lt;/span&gt;tm1&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function&#34;&gt;localtime_r&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;&amp;amp;&lt;/span&gt;aftTime&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;&amp;amp;&lt;/span&gt;tm2&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;16&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function&#34;&gt;fprintf&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token constant&#34;&gt;stdout&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;%04d%02d%02d%02d%02d%02d\n&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;17&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            tm1&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;tm_year &lt;span class=&#34;token operator&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;1900&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;18&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            tm1&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;tm_mon &lt;span class=&#34;token operator&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;19&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            tm1&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;tm_mday&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;20&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            tm1&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;tm_hour&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;21&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            tm1&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;tm_min&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;22&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            tm1&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;tm_sec&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;23&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;24&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token function&#34;&gt;fprintf&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token constant&#34;&gt;stdout&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;%04d%02d%02d%02d%02d%02d\n&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;25&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            tm2&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;tm_year &lt;span class=&#34;token operator&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;1900&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;26&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            tm2&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;tm_mon &lt;span class=&#34;token operator&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;27&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            tm2&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;tm_mday&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;28&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            tm2&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;tm_hour&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;29&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            tm2&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;tm_min&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;30&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;            tm2&lt;span class=&#34;token punctuation&#34;&gt;.&lt;/span&gt;tm_sec&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;31&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;32&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    &lt;span class=&#34;token keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;33&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;&amp;#125;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;编译 &amp;amp; 运行：&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;$ gcc &lt;span class=&#34;token parameter variable&#34;&gt;-o&lt;/span&gt; main main.c&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;$ ./main&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token number&#34;&gt;20180704200531&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token number&#34;&gt;20180704230531&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h1 id=&#34;参考&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#参考&#34;&gt;#&lt;/a&gt; 参考&lt;/h1&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vc3VuLWZyZWRlcmljay9wLzQ3NzI1MzUuaHRtbA==&#34;&gt;https://www.cnblogs.com/sun-frederick/p/4772535.html&lt;/span&gt;&lt;br /&gt;
+&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3Rlc3QxMjgwL2FydGljbGUvZGV0YWlscy84MDkxNzk2Mg==&#34;&gt;https://blog.csdn.net/test1280/article/details/80917962&lt;/span&gt;&lt;/p&gt;
+ ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">https://arachnid.cc/virtual-network-setup/</guid>
             <title>vmware 下 ubuntu 双网卡设置</title>
@@ -40,39 +642,39 @@
 &lt;/blockquote&gt;
 &lt;h1 id=&#34;step-1添加网卡&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#step-1添加网卡&#34;&gt;#&lt;/a&gt; step 1：添加网卡&lt;/h1&gt;
 &lt;p&gt;在虚拟机窗口栏，依次点击  &lt;code&gt;编辑&lt;/code&gt;  -&amp;gt;  &lt;code&gt;虚拟网络编辑器&lt;/code&gt;  ，可以看到原有默认的 VMnet 接口：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;image-20230225172822709.png&#34; alt=&#34;image-20230225172822709&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20230225172822709.png&#34; alt=&#34;image-20230225172822709&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;它们分别对应主机 ip 地址。&lt;/p&gt;
 &lt;p&gt;然后我们建立一个桥接模式的 VMnet 虚拟网络，并指定响应网卡（如出现灰屏无法设置，需要&lt;strong&gt;以管理员身份打开&lt;/strong&gt; VMware，或在当前窗口点击  &lt;code&gt;更改设置&lt;/code&gt;  来赋予权限），然后选择对应需要进行桥接的网卡（即网口网卡）：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;image-20230225193931835.png&#34; alt=&#34;image-20230225193931835&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20230225193931835.png&#34; alt=&#34;image-20230225193931835&#34; /&gt;&lt;/p&gt;
 &lt;h1 id=&#34;setp-2配置网络设备器&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#setp-2配置网络设备器&#34;&gt;#&lt;/a&gt; setp 2：配置网络设备器&lt;/h1&gt;
 &lt;p&gt;在 ubuntu 虚拟机右键点击  &lt;code&gt;设置&lt;/code&gt;  -&amp;gt;  &lt;code&gt;添加&lt;/code&gt;  -&amp;gt;  &lt;code&gt;网络适配器&lt;/code&gt;  ，然后指定上面配置为桥接模式的  VMnet 虚拟网络：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;image-20230225194908857.png&#34; alt=&#34;image-20230225194908857&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20230225194908857.png&#34; alt=&#34;image-20230225194908857&#34; /&gt;&lt;/p&gt;
 &lt;h2 id=&#34;拓展&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#拓展&#34;&gt;#&lt;/a&gt; 拓展&lt;/h2&gt;
 &lt;p&gt;关于 NAT（网络地址转换模式）、Host-only（主机模式）及 bridged（桥接模式）：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;Perbedaan-NAT-Bridge-Dan-Host-Only-Di-Vmware-Dan-Virtualbox-1170x731.jpg&#34; alt=&#34;Perbedaan NAT Bridge Dan Host Only&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;Perbedaan-NAT-Bridge-Dan-Host-Only-Di-Vmware-Dan-Virtualbox-1170x731.jpg&#34; alt=&#34;Perbedaan NAT Bridge Dan Host Only&#34; /&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;NAT 模式：使用 NAT 模式，就是让虚拟机借助 NAT （网络地址转换）功能，通过宿主机器所在的网络来访问外部网络，即：使用 NAT 模式可以实现在虚拟系统里访问互联网。&lt;/p&gt;
 &lt;p&gt;优点：是从虚拟机访问外部网络的最简单方法；通常，它会自动设置网络地址转换到虚拟机上，不需要在宿主机器的网络信息上配置或通过访客操作系统上进行配置。&lt;/p&gt;
 &lt;p&gt;缺点：就像路由器后面的专用网络一样，虚拟机是不可见的，无法从外部网络访问。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;Virtual_network_switch_in_nat_mode.png&#34; alt=&#34;vmware-network-nat&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;Virtual_network_switch_in_nat_mode.png&#34; alt=&#34;vmware-network-nat&#34; /&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Host-only 模式：构建一个与外界断开连接的内部网络，只允许使用 host-only 方法的虚拟机才能通信，因此无法与外部网络或其他 PC 主机通信，只能相互通信。&lt;/p&gt;
 &lt;p&gt;优点：与内部网络一样，其不需要存在物理网络接口，相当于使用 host-only 方法的虚拟机通过双绞线直连形成网络节点进行通讯；由于无法访问外部网络，因此对于安全性来讲，比其余两种相对要高。&lt;/p&gt;
 &lt;p&gt;缺点：如其名，无法与主机外部的网络通信，同时外部网络设备也无法与其通讯。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;Virtual_network_switch_in_host-only_mode.png&#34; alt=&#34;vmware-network-hostonly&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;Virtual_network_switch_in_host-only_mode.png&#34; alt=&#34;vmware-network-hostonly&#34; /&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;bridged 模式：在这种模式下，虚拟系统就像是局域网中的一台独立的主机，具有自己的 MAC 和 IP 地址；由于虚拟机和宿主机器分配了相同网段的 IP，因此宿主机器和虚拟机被识别为同一级别的物理主机。&lt;/p&gt;
 &lt;p&gt;优点：虚拟机就像是一台独立的主机，拥有正常主机的网络功能，可以对外部网络进行访问，而外部网络也可以访问进来。&lt;/p&gt;
 &lt;p&gt;缺点：由于外部网络可以访问，其安全性比其余两种相对要低；因与宿主机器平等的存在于网络中，需要进行分配网络地址、子网掩码、网关等操作。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;Virtual_network_switch_in_bridged_mode.png&#34; alt=&#34;vmware-network-bridged&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;Virtual_network_switch_in_bridged_mode.png&#34; alt=&#34;vmware-network-bridged&#34; /&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;示例：&lt;/p&gt;
 &lt;p&gt;一些 VMnet 虚拟机具有特定功能：VMnet0 专用于 bridged 模式，VMnet1 专用于 host-only 模式，而 VMnet8 专用于 NAT 模式；其他的 VMnet2 等，可供虚拟机使用自定义网络模式。如图分析各模式作用：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;workstation-networking_thumb1.jpg&#34; alt=&#34;工作站网络&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;workstation-networking_thumb1.jpg&#34; alt=&#34;工作站网络&#34; /&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;VM-1 可以与 host PC 通信，并连接到外部 LAN or internet，但不能与 NAT 和 host-only 网络通信。&lt;/p&gt;
@@ -88,14 +690,14 @@
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;参考：&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://superuser.com/questions/227505/what-is-the-difference-between-nat-bridged-host-only-networking&#34;&gt;What is the difference between NAT / Bridged / Host-Only networking?&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://pibytes.wordpress.com/2012/11/16/vmware-workstation-networking-basics/&#34;&gt;VMware Workstation Networking Basics&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://agussas.wordpress.com/2015/10/28/vmware-networking-concept-bridged-nat-host-only-lan-segment/&#34;&gt;VMWare Networking Concept [Bridged, NAT, Host Only, LAN Segment]&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.monitorteknologi.com/perbedaan-nat-bridge-dan-host-only/&#34;&gt;Perbedaan NAT Bridge Dan Host Only Di VMware Dan VirtualBox&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://wiki.libvirt.org/VirtualNetworking.html&#34;&gt;Virtual Networking&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.uname.in/60&#34;&gt;Vmware Host-Only, NAT, Bridge 차이&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://diarmuidmccarthy.wordpress.com/2011/02/15/hello-world/&#34;&gt;Intro to Virtual Machine Networking&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://ryanisagoodguy.blogspot.com/2019/06/vmwarenetwork-typebridgedhost-only-nat.html&#34;&gt;VMware 虛擬機器上網路連線 (Network type) 的三種模式&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9zdXBlcnVzZXIuY29tL3F1ZXN0aW9ucy8yMjc1MDUvd2hhdC1pcy10aGUtZGlmZmVyZW5jZS1iZXR3ZWVuLW5hdC1icmlkZ2VkLWhvc3Qtb25seS1uZXR3b3JraW5n&#34;&gt;What is the difference between NAT / Bridged / Host-Only networking?&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9waWJ5dGVzLndvcmRwcmVzcy5jb20vMjAxMi8xMS8xNi92bXdhcmUtd29ya3N0YXRpb24tbmV0d29ya2luZy1iYXNpY3Mv&#34;&gt;VMware Workstation Networking Basics&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9hZ3Vzc2FzLndvcmRwcmVzcy5jb20vMjAxNS8xMC8yOC92bXdhcmUtbmV0d29ya2luZy1jb25jZXB0LWJyaWRnZWQtbmF0LWhvc3Qtb25seS1sYW4tc2VnbWVudC8=&#34;&gt;VMWare Networking Concept [Bridged, NAT, Host Only, LAN Segment]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cubW9uaXRvcnRla25vbG9naS5jb20vcGVyYmVkYWFuLW5hdC1icmlkZ2UtZGFuLWhvc3Qtb25seS8=&#34;&gt;Perbedaan NAT Bridge Dan Host Only Di VMware Dan VirtualBox&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmxpYnZpcnQub3JnL1ZpcnR1YWxOZXR3b3JraW5nLmh0bWw=&#34;&gt;Virtual Networking&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cudW5hbWUuaW4vNjA=&#34;&gt;Vmware Host-Only, NAT, Bridge 차이&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9kaWFybXVpZG1jY2FydGh5LndvcmRwcmVzcy5jb20vMjAxMS8wMi8xNS9oZWxsby13b3JsZC8=&#34;&gt;Intro to Virtual Machine Networking&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9yeWFuaXNhZ29vZGd1eS5ibG9nc3BvdC5jb20vMjAxOS8wNi92bXdhcmVuZXR3b3JrLXR5cGVicmlkZ2VkaG9zdC1vbmx5LW5hdC5odG1s&#34;&gt;VMware 虛擬機器上網路連線 (Network type) 的三種模式&lt;/span&gt;&lt;/p&gt;
 &lt;h1 id=&#34;setp-3网络信息配置&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#setp-3网络信息配置&#34;&gt;#&lt;/a&gt; setp 3：网络信息配置&lt;/h1&gt;
 &lt;p&gt;从上一步可以知道我们目前有两个网络适配器，分别是 NAT 和 桥接模式，然后针对这几个模式的作用也在上面作了介绍了；因此在这里，实际只需要在虚拟机系统中配置桥接模式对应的网卡网络信息就好了；至于 NAT 模式对应的网卡网络信息将由虚拟机借助 NAT （网络地址转换）功能实现自动配置即可实现访问外网功能。&lt;/p&gt;
 &lt;ol&gt;
@@ -501,7 +1103,7 @@
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;目前使用的主流&lt;strong&gt;嵌入式平台&lt;/strong&gt;，几乎都是用 u-boot 作为启动引导，u-boot 有哪些突出的优点呢？&lt;/p&gt;
-&lt;p&gt;① 开放源码：&lt;a href=&#34;https://github.com/u-boot/u-boot%EF%BC%9B&#34;&gt;https://github.com/u-boot/u-boot；&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;① 开放源码：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL3UtYm9vdC91LWJvb3QlRUYlQkMlOUI=&#34;&gt;https://github.com/u-boot/u-boot；&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;② 支持多种嵌入式操作系统内核，如 Linux、NetBSD, VxWorks, QNX, RTEMS, ARTOS, LynxOS, android；&lt;/p&gt;
 &lt;p&gt;③ 支持多个处理器系列，如 PowerPC、ARM、x86、MIPS；&lt;/p&gt;
 &lt;p&gt;④ 较高的可靠性和稳定性；&lt;/p&gt;
@@ -509,7 +1111,7 @@
 &lt;p&gt;⑥ 丰富的设备驱动源码，如串口、以太网、SDRAM、FLASH、LCD、NVRAM、EEPROM、RTC、键盘等；&lt;/p&gt;
 &lt;p&gt;⑦ 较为丰富的开发调试文档与强大的网络技术支持。&lt;/p&gt;
 &lt;h1 id=&#34;kernel&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#kernel&#34;&gt;#&lt;/a&gt; kernel&lt;/h1&gt;
-&lt;p&gt;kernel 即 linux 内核。内核源代码可以免费从&lt;a href=&#34;https://www.kernel.org/&#34;&gt;官网&lt;/a&gt;获取，这是一个通用的内核，里面包含着内核支持的所有的硬件平台及驱动的所有代码，是一个大而全的内核源代码。&lt;/p&gt;
+&lt;p&gt;kernel 即 linux 内核。内核源代码可以免费从&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cua2VybmVsLm9yZy8=&#34;&gt;官网&lt;/span&gt;获取，这是一个通用的内核，里面包含着内核支持的所有的硬件平台及驱动的所有代码，是一个大而全的内核源代码。&lt;/p&gt;
 &lt;p&gt;在使用层面上，当嵌入式平台使用 linux 系统，那么最重要的就是 kernel 中驱动的移植；一般都不会从一个纯净的 kernel 中去进行移植操作，而是根据芯片厂商提供的 kernel 对特定的硬件平台及设备进行各种外设驱动相关的适配工作。&lt;/p&gt;
 &lt;h2 id=&#34;device-tree&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#device-tree&#34;&gt;#&lt;/a&gt; Device Tree&lt;/h2&gt;
 &lt;p&gt;设备树（Device Tree）是描述计算机的特定硬件设备信息的数据结构，以便于操作系统的内核可以管理和使用这些硬件，包括 CPU 或 CPU，内存，总线和其他一些外设。&lt;/p&gt;
@@ -524,10 +1126,10 @@
 &lt;p&gt;rootfs（Root Filesystem）即根目录文件系统，是 kernel 启动后挂载的第一个文件系统。rootfs 和 kernel 是分开的，但单独的 kernel 没有 rootfs 是没法正常工作的。在系统终端执行  &lt;code&gt;cd /&lt;/code&gt;  即可看到当前的文件系统内容了。&lt;/p&gt;
 &lt;p&gt;现在有许多制作 rootfs 的工具，如 busybox，buildroot，Yocto 等。其中 buildroot 中包含了 busybox 的功能，只需要简单的操作就可以生成一个 rootfs 了。&lt;/p&gt;
 &lt;h1 id=&#34;参考&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#参考&#34;&gt;#&lt;/a&gt; 参考&lt;/h1&gt;
-&lt;p&gt;&lt;a href=&#34;https://q248269673.pixnet.net/blog/post/69570279&#34;&gt;完整的 linux 系統：bootloader、linux kernel（linux 內核）、rootfile（根文件系統）&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;http://www.embeddedlinux.org.cn/emblinuxappdev/&#34;&gt;嵌入式 linux 应用开发&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://hackmd.io/@a29654068/HJ1uUYE8r&#34;&gt;Linux 筆記 2&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://stackoverflow.com/questions/48420126/what-is-the-difference-between-dts-file-and-dtsi-file&#34;&gt;What is the difference between .dts file and .dtsi file?&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9xMjQ4MjY5NjczLnBpeG5ldC5uZXQvYmxvZy9wb3N0LzY5NTcwMjc5&#34;&gt;完整的 linux 系統：bootloader、linux kernel（linux 內核）、rootfile（根文件系統）&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3d3dy5lbWJlZGRlZGxpbnV4Lm9yZy5jbi9lbWJsaW51eGFwcGRldi8=&#34;&gt;嵌入式 linux 应用开发&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oYWNrbWQuaW8vQGEyOTY1NDA2OC9ISjF1VVlFOHI=&#34;&gt;Linux 筆記 2&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9zdGFja292ZXJmbG93LmNvbS9xdWVzdGlvbnMvNDg0MjAxMjYvd2hhdC1pcy10aGUtZGlmZmVyZW5jZS1iZXR3ZWVuLWR0cy1maWxlLWFuZC1kdHNpLWZpbGU=&#34;&gt;What is the difference between .dts file and .dtsi file?&lt;/span&gt;&lt;/p&gt;
  ]]></description>
         </item>
         <item>
@@ -540,7 +1142,7 @@
             <pubDate>Thu, 03 Nov 2022 21:13:57 +0800</pubDate>
             <description><![CDATA[ &lt;blockquote&gt;
 &lt;p&gt;平台：Ubuntu 18.04.6&lt;/p&gt;
-&lt;p&gt;vsftpd 官网：&lt;a href=&#34;https://security.appspot.com/vsftpd.html&#34;&gt;https://security.appspot.com/vsftpd.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;vsftpd 官网：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9zZWN1cml0eS5hcHBzcG90LmNvbS92c2Z0cGQuaHRtbA==&#34;&gt;https://security.appspot.com/vsftpd.html&lt;/span&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h1 id=&#34;安装&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#安装&#34;&gt;#&lt;/a&gt; 安装&lt;/h1&gt;
 &lt;p&gt;安装 FTP 服务，命令行输入：&lt;/p&gt;
@@ -553,7 +1155,7 @@
 &lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;sudo&lt;/span&gt; /etc/init.d/vsftpd restart&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h1 id=&#34;启动服务&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#启动服务&#34;&gt;#&lt;/a&gt; 启动服务&lt;/h1&gt;
 &lt;p&gt;在加载完后，重启服务器：&lt;/p&gt;
 &lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;sudo&lt;/span&gt; systemctl restart vsftpd&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;查看服务启动状态：&lt;/p&gt;
-&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;sudo&lt;/span&gt; systemctl status vsftpd&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;img src=&#34;image-20221106152005206.png&#34; alt=&#34;image-20221106152005206&#34; /&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;sudo&lt;/span&gt; systemctl status vsftpd&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;&lt;img data-src=&#34;image-20221106152005206.png&#34; alt=&#34;image-20221106152005206&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;设置开机启动：&lt;/p&gt;
 &lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;sudo&lt;/span&gt; systemctl &lt;span class=&#34;token builtin class-name&#34;&gt;enable&lt;/span&gt; vsftpd&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;如果想关闭开机启动：&lt;/p&gt;
 &lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;sudo&lt;/span&gt; systemctl disable vsftpd&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h1 id=&#34;ftp连接&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#ftp连接&#34;&gt;#&lt;/a&gt; FTP 连接&lt;/h1&gt;
@@ -564,14 +1166,14 @@
 &lt;p&gt;3、如果需要密码则进行相应输入，这里上面配置设了匿名登录不需要密码，所以以匿名登录时没有提示输入密码。&lt;/p&gt;
 &lt;p&gt;4、进入到相应的用户访问根目录里（ps：即进入到配置文件中设置的登录访问的文件路径，可以用  &lt;code&gt;ls&lt;/code&gt;  查看是否对应上访问的文件目录），这样就可以愉快的玩耍了；输入：  &lt;code&gt;quit&lt;/code&gt;  退出。&lt;/p&gt;
 &lt;p&gt;eg：本地连接并退出，如下图：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;image-20221106164252568.png&#34; alt=&#34;image-20221106164252568&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20221106164252568.png&#34; alt=&#34;image-20221106164252568&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;windows 下可视化文件访问：按  &lt;code&gt;Win&lt;/code&gt;  +  &lt;code&gt;E&lt;/code&gt;  快捷键，调用文件资源管理器，输入访问地址，回车：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;image-20221106160826118.png&#34; alt=&#34;image-20221106160826118&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20221106160826118.png&#34; alt=&#34;image-20221106160826118&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;windows 下命令行文件访问：同样按  &lt;code&gt;Win&lt;/code&gt;  +  &lt;code&gt;E&lt;/code&gt;  快捷键，调用文件资源管理器，然后在输写框跟上面 linux 访问连接一样输入  &lt;code&gt;ftp ip&lt;/code&gt;  ，即可跳到 ftp 操作控制台中：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;image-20221106161411644.png&#34; alt=&#34;image-20221106161411644&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20221106161411644.png&#34; alt=&#34;image-20221106161411644&#34; /&gt;&lt;/p&gt;
 &lt;h1 id=&#34;ftp客户端常用命令&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#ftp客户端常用命令&#34;&gt;#&lt;/a&gt; FTP 客户端常用命令&lt;/h1&gt;
 &lt;p&gt;在登录进入 ftp 后，可以使用  &lt;code&gt;help&lt;/code&gt;  查看可以使用哪些指令操作：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;image-20221106163512272.png&#34; alt=&#34;image-20221106163512272&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20221106163512272.png&#34; alt=&#34;image-20221106163512272&#34; /&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;ls：和 linux 上的 ls 命令类似&lt;/p&gt;
@@ -608,41 +1210,41 @@
             <category>Linux</category>
             <pubDate>Tue, 12 Apr 2022 11:02:19 +0800</pubDate>
             <description><![CDATA[ &lt;blockquote&gt;
-&lt;p&gt;官方 wiki 安装中文指导：&lt;a href=&#34;https://wiki.archlinux.org/title/Installation_guide_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)&#34;&gt;https://wiki.archlinux.org/title/Installation_guide_(简体中文)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;官方 wiki 安装中文指导：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmFyY2hsaW51eC5vcmcvdGl0bGUvSW5zdGFsbGF0aW9uX2d1aWRlXyglRTclQUUlODAlRTQlQkQlOTMlRTQlQjglQUQlRTYlOTYlODcp&#34;&gt;https://wiki.archlinux.org/title/Installation_guide_(简体中文)&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;最好还是以&lt;strong&gt;英文版&lt;/strong&gt;的为基准，因为 ArchLinux 是一个激进的系统，更新比较快，可能刚写完这篇笔记，转头已经有些对应不上了，哈哈哈。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;系统镜像&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#系统镜像&#34;&gt;#&lt;/a&gt; 系统镜像&lt;/h2&gt;
-&lt;p&gt;官方镜像下载地址：&lt;a href=&#34;https://archlinux.org/download/&#34;&gt;https://archlinux.org/download/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;官方镜像下载地址：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9hcmNobGludXgub3JnL2Rvd25sb2FkLw==&#34;&gt;https://archlinux.org/download/&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;当然，也可以去各大高校提供的镜像源网站下载。&lt;/p&gt;
 &lt;h2 id=&#34;启动盘制作&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#启动盘制作&#34;&gt;#&lt;/a&gt; 启动盘制作&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;1、windows 平台&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;可以使用 Rufus：&lt;a href=&#34;https://rufus.ie/zh/&#34;&gt;https://rufus.ie/zh/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;可以使用 Rufus：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ydWZ1cy5pZS96aC8=&#34;&gt;https://rufus.ie/zh/&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;这是一款开源、免费、小巧（1.1mb）纯粹的系统启动盘制作工具。&lt;br /&gt;
 目前所支持的 ISO 镜像如下：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;image-20220412112425056.png&#34; alt=&#34;image-20220412112425056&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20220412112425056.png&#34; alt=&#34;image-20220412112425056&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;2、Uinx 平台&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;类 Unix 系统可以直接使用  &lt;code&gt;dd&lt;/code&gt;  命令来制作启动盘。&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;dd&lt;/code&gt;  命令使用可参考：&lt;a href=&#34;https://www.runoob.com/linux/linux-comm-dd.html&#34;&gt;https://www.runoob.com/linux/linux-comm-dd.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;dd&lt;/code&gt;  命令使用可参考：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cucnVub29iLmNvbS9saW51eC9saW51eC1jb21tLWRkLmh0bWw=&#34;&gt;https://www.runoob.com/linux/linux-comm-dd.html&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;3、多平台&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;可以使用开源的 etcher：&lt;a href=&#34;https://www.balena.io/etcher/&#34;&gt;https://www.balena.io/etcher/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;可以使用开源的 etcher：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuYmFsZW5hLmlvL2V0Y2hlci8=&#34;&gt;https://www.balena.io/etcher/&lt;/span&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;然后本篇文章是基于官方指导的总结分析安装的笔记，如下开始正式安装配置，因为是以官方 wiki 安装为指导，所以下面用到的操作的标题将一一对应官方 wiki 的标题，没用到的将忽略不写，以及需要增加的将给出说明。目前使用的镜像版本： &lt;code&gt;archlinux-2022.04.01-x86_64.iso&lt;/code&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;引导安装&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#引导安装&#34;&gt;#&lt;/a&gt; 引导安装&lt;/h2&gt;
-&lt;p&gt;Arch 的启动引导过程有两种：&lt;a href=&#34;https://en.wikipedia.org/wiki/BIOS&#34;&gt;BIOS&lt;/a&gt; 和 &lt;a href=&#34;https://wiki.archlinux.org/title/UEFI&#34;&gt;UEFI&lt;/a&gt; 系统，这两者的引导过程是完全不同的。在 Arch 中它们的引导加载及区别可看：&lt;a href=&#34;https://wiki.archlinux.org/title/Arch_boot_process&#34;&gt;https://wiki.archlinux.org/title/Arch_boot_process&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Arch 的启动引导过程有两种：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9lbi53aWtpcGVkaWEub3JnL3dpa2kvQklPUw==&#34;&gt;BIOS&lt;/span&gt; 和 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmFyY2hsaW51eC5vcmcvdGl0bGUvVUVGSQ==&#34;&gt;UEFI&lt;/span&gt; 系统，这两者的引导过程是完全不同的。在 Arch 中它们的引导加载及区别可看：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmFyY2hsaW51eC5vcmcvdGl0bGUvQXJjaF9ib290X3Byb2Nlc3M=&#34;&gt;https://wiki.archlinux.org/title/Arch_boot_process&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;目前大部分设备的引导方式主要分为  &lt;code&gt;UEFI 引导 + GPT 分区表&lt;/code&gt;  和  &lt;code&gt;BIOS(LEGACY) 引导 + MBR 分区表&lt;/code&gt;  这两种，而在新的机器里大部分都采用了  &lt;code&gt;UEFI/GPT&lt;/code&gt;  引导的方式，当然，同时也兼容  &lt;code&gt;BIOS/MBR&lt;/code&gt;  。&lt;/p&gt;
 &lt;p&gt;UEFI 进入：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;image-20220412115757611.png&#34; alt=&#34;image-20220412115757611&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20220412115757611.png&#34; alt=&#34;image-20220412115757611&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;BIOS 进入：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;image-20220412120426116.png&#34; alt=&#34;image-20220412120426116&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20220412120426116.png&#34; alt=&#34;image-20220412120426116&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;启动安装后，最终界面出现的效果是一样的：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;image-20220412153955531.png&#34; alt=&#34;image-20220412153955531&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20220412153955531.png&#34; alt=&#34;image-20220412153955531&#34; /&gt;&lt;/p&gt;
 &lt;h2 id=&#34;验证引导模式&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#验证引导模式&#34;&gt;#&lt;/a&gt; 验证引导模式&lt;/h2&gt;
 &lt;p&gt;键入如下命令：（ &lt;code&gt;ls&lt;/code&gt; ：表示列出目录内容；后面的路径可以利用 Tab 键 自动补全，即键入命令或文件名的前几个字符，然后按 [Tab] 键）&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;ls /sys/firmware/efi/efivars
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;如果命令结果显示了目录且没有报告错误，则系统以 UEFI 模式引导。&lt;/p&gt;
-&lt;p&gt;如果目录不存在，则系统可能 &lt;strong&gt;（注意是可能，并不一定确是 BIOS 模式）&lt;/strong&gt; 以 &lt;a href=&#34;https://en.wikipedia.org/wiki/zh:BIOS&#34;&gt;BIOS&lt;/a&gt; 模式 (或 &lt;a href=&#34;https://en.wikipedia.org/wiki/Compatibility_Support_Module&#34;&gt;CSM&lt;/a&gt; 模式) 引导，如显示：&lt;/p&gt;
+&lt;p&gt;如果目录不存在，则系统可能 &lt;strong&gt;（注意是可能，并不一定确是 BIOS 模式）&lt;/strong&gt; 以 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9lbi53aWtpcGVkaWEub3JnL3dpa2kvemg6QklPUw==&#34;&gt;BIOS&lt;/span&gt; 模式 (或 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9lbi53aWtpcGVkaWEub3JnL3dpa2kvQ29tcGF0aWJpbGl0eV9TdXBwb3J0X01vZHVsZQ==&#34;&gt;CSM&lt;/span&gt; 模式) 引导，如显示：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;ls: cannot access &#39;/sys/firmware/efi/efivars&#39;: No such file or directory
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;对于一些不是新的 / 格式过的磁盘，可能就不太适用了，当然，最好方法就是查看安装的主分区磁盘的属性。&lt;/p&gt;
@@ -653,7 +1255,7 @@
 &lt;p&gt;2、连接到网络&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;有线：连接网线，并保证上级路由有网。&lt;/li&gt;
-&lt;li&gt;无线：使用 &lt;a href=&#34;https://wiki.archlinux.org/title/Iwd_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)#iwctl&#34;&gt;iwctl&lt;/a&gt; 验证无线网络，具体操作点击链接查看。&lt;/li&gt;
+&lt;li&gt;无线：使用 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmFyY2hsaW51eC5vcmcvdGl0bGUvSXdkXyglRTclQUUlODAlRTQlQkQlOTMlRTQlQjglQUQlRTYlOTYlODcpI2l3Y3Rs&#34;&gt;iwctl&lt;/span&gt; 验证无线网络，具体操作点击链接查看。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;3、配置网络连接&lt;/p&gt;
 &lt;ul&gt;
@@ -663,14 +1265,14 @@
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;静态：直接按照 &lt;a href=&#34;https://wiki.archlinux.org/title/Network_configuration_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)#%E9%9D%99%E6%80%81_IP_%E5%9C%B0%E5%9D%80&#34;&gt;静态 IP 地址&lt;/a&gt; 这个链接进行操作。&lt;/p&gt;
+&lt;p&gt;静态：直接按照 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmFyY2hsaW51eC5vcmcvdGl0bGUvTmV0d29ya19jb25maWd1cmF0aW9uXyglRTclQUUlODAlRTQlQkQlOTMlRTQlQjglQUQlRTYlOTYlODcpIyVFOSU5RCU5OSVFNiU4MCU4MV9JUF8lRTUlOUMlQjAlRTUlOUQlODA=&#34;&gt;静态 IP 地址&lt;/span&gt; 这个链接进行操作。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;4、检查网络连接&lt;/p&gt;
 &lt;p&gt;在确认无误完成上面的操作后，通过 PING IP 来检查：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;ping archlinux.org
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;strong&gt;note：&lt;/strong&gt; 关于网络部分的，详情请看 &lt;a href=&#34;https://wiki.archlinux.org/title/Network_configuration&#34;&gt;https://wiki.archlinux.org/title/Network_configuration&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;note：&lt;/strong&gt; 关于网络部分的，详情请看 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmFyY2hsaW51eC5vcmcvdGl0bGUvTmV0d29ya19jb25maWd1cmF0aW9u&#34;&gt;https://wiki.archlinux.org/title/Network_configuration&lt;/span&gt;&lt;/p&gt;
 &lt;h2 id=&#34;更新系统时间&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#更新系统时间&#34;&gt;#&lt;/a&gt; 更新系统时间&lt;/h2&gt;
 &lt;p&gt;执行：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;timedatectl set-ntp true
@@ -686,7 +1288,7 @@
 &lt;p&gt;然后，针对不同的引导方式，其分区布局是不一样的，以官方给出的分区为例：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;UEFI 与&lt;/strong&gt; &lt;a href=&#34;https://wiki.archlinux.org/title/Partitioning_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)#GUID_%E5%88%86%E5%8C%BA%E8%A1%A8&#34;&gt;GPT&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;UEFI 与&lt;/strong&gt; &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmFyY2hsaW51eC5vcmcvdGl0bGUvUGFydGl0aW9uaW5nXyglRTclQUUlODAlRTQlQkQlOTMlRTQlQjglQUQlRTYlOTYlODcpI0dVSURfJUU1JTg4JTg2JUU1JThDJUJBJUU4JUExJUE4&#34;&gt;GPT&lt;/span&gt;&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -719,7 +1321,7 @@
 &lt;/table&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;BIOS 与&lt;/strong&gt; &lt;a href=&#34;https://wiki.archlinux.org/title/Partitioning_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)#Master_Boot_Record&#34;&gt;MBR&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;BIOS 与&lt;/strong&gt; &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmFyY2hsaW51eC5vcmcvdGl0bGUvUGFydGl0aW9uaW5nXyglRTclQUUlODAlRTQlQkQlOTMlRTQlQjglQUQlRTYlOTYlODcpI01hc3Rlcl9Cb290X1JlY29yZA==&#34;&gt;MBR&lt;/span&gt;&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -744,10 +1346,10 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;然后在这里拓展一下  &lt;code&gt;MiB&lt;/code&gt;  跟  &lt;code&gt;MB&lt;/code&gt;  这两个单位， &lt;code&gt;MB&lt;/code&gt;  是国际单位制 SI 制定的十进制标准单位制，这个 M 是 1000K，而  &lt;code&gt;MiB&lt;/code&gt;  是国际电工委员会 IEC 制定的二进制标准，这个 M 是 1024K 。参看：&lt;a href=&#34;https://physics.nist.gov/cuu/Units/binary.html&#34;&gt;https://physics.nist.gov/cuu/Units/binary.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;然后在这里拓展一下  &lt;code&gt;MiB&lt;/code&gt;  跟  &lt;code&gt;MB&lt;/code&gt;  这两个单位， &lt;code&gt;MB&lt;/code&gt;  是国际单位制 SI 制定的十进制标准单位制，这个 M 是 1000K，而  &lt;code&gt;MiB&lt;/code&gt;  是国际电工委员会 IEC 制定的二进制标准，这个 M 是 1024K 。参看：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9waHlzaWNzLm5pc3QuZ292L2N1dS9Vbml0cy9iaW5hcnkuaHRtbA==&#34;&gt;https://physics.nist.gov/cuu/Units/binary.html&lt;/span&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;其它的布局实例可看：&lt;a href=&#34;https://wiki.archlinux.org/title/Partitioning_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)#%E5%B8%83%E5%B1%80%E7%A4%BA%E4%BE%8B&#34;&gt;https://wiki.archlinux.org/title/Partitioning_(简体中文)# 布局示例&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;其它的布局实例可看：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmFyY2hsaW51eC5vcmcvdGl0bGUvUGFydGl0aW9uaW5nXyglRTclQUUlODAlRTQlQkQlOTMlRTQlQjglQUQlRTYlOTYlODcpIyVFNSVCOCU4MyVFNSVCMSU4MCVFNyVBNCVCQSVFNCVCRSU4Qg==&#34;&gt;https://wiki.archlinux.org/title/Partitioning_(简体中文)# 布局示例&lt;/span&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;在了解上面的布局后，然后我们常用的引导方式有  &lt;code&gt;UEFI 引导 + GPT 分区表&lt;/code&gt;  和  &lt;code&gt;BIOS(LEGACY) 引导 + MBR 分区表&lt;/code&gt;  这两种，所以下面分开说明：&lt;/p&gt;
@@ -760,7 +1362,7 @@
 &lt;li&gt;
 &lt;p&gt;&lt;code&gt;[SWAP]&lt;/code&gt; ：swap 分区通常被称为交换分区，这是一块特殊的硬盘空间，即当实际内存（物理内存，可以理解为内存条容量）不够用的时候，操作系统会从内存中取出一部分暂时不用的数据，放在交换分区中，从而为当前运行的程序腾出足够的内存空间（有点类似于 windows 系统下的虚拟内存）。也就是说，当内存不够用时，我们使用 swap 分区来临时顶替，等到那些程序要运行时，再从 swap 中恢复保存的数据到内存中。这种 “拆东墙，补西墙” 的方式应用于几乎所有的操作系统中。&lt;/p&gt;
 &lt;p&gt;使用 swap 交换分区，显著的优点是，通过操作系统的调度，应用程序实际可以使用的内存空间将远远超过系统的物理内存。&lt;/p&gt;
-&lt;p&gt;那么 swap 分区到底设置成多大才最优？少了又觉得不够，多了又感觉浪费，那么我们可以参考 Redhat 官方文档中 &lt;a href=&#34;https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/installation_guide/s2-diskpartrecommend-ppc#id4394007&#34;&gt;关于 swap 分区大小设置的建议&lt;/a&gt;：&lt;/p&gt;
+&lt;p&gt;那么 swap 分区到底设置成多大才最优？少了又觉得不够，多了又感觉浪费，那么我们可以参考 Redhat 官方文档中 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9hY2Nlc3MucmVkaGF0LmNvbS9kb2N1bWVudGF0aW9uL2VuLXVzL3JlZF9oYXRfZW50ZXJwcmlzZV9saW51eC82L2h0bWwvaW5zdGFsbGF0aW9uX2d1aWRlL3MyLWRpc2twYXJ0cmVjb21tZW5kLXBwYyNpZDQzOTQwMDc=&#34;&gt;关于 swap 分区大小设置的建议&lt;/span&gt;：&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -803,7 +1405,7 @@
 &lt;li&gt;
 &lt;p&gt;&lt;code&gt;/mnt&lt;/code&gt; ：全称  &lt;code&gt;mount&lt;/code&gt;  可直接理解为 “挂载”，用于存放手动挂载的硬件。这部分是根目录 &lt;code&gt;/&lt;/code&gt;  下的目录，用来挂载文件系统。&lt;/p&gt;
 &lt;p&gt;一般的 Linux 根目录展开如下图：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;994198-20160908160724832-375737054.png&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;994198-20160908160724832-375737054.png&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;然后按照官方的说明，是想把将根磁盘卷挂载到  &lt;code&gt;/mnt&lt;/code&gt;  目录下，即  &lt;code&gt;/mnt&lt;/code&gt;  变成  &lt;code&gt;/&lt;/code&gt;  根目录。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -812,7 +1414,7 @@
 &lt;pre&gt;&lt;code&gt;fdisk /dev/sdx （sdx可以为sda、sdb等，具体以你实际需要挂载的磁盘名称为准）
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;接着你就进入了  &lt;code&gt;fdisk&lt;/code&gt;  操作环境，为了获取该命令下的操作功能，根据提示输入  &lt;code&gt;m&lt;/code&gt;  并回车查看各命令的作用：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;image-20220414144302934.png&#34; alt=&#34;image-20220414144302934&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20220414144302934.png&#34; alt=&#34;image-20220414144302934&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;在  &lt;code&gt;fdisk&lt;/code&gt;  操作环境下：&lt;/p&gt;
 &lt;p&gt;1、对于一个全新的磁盘（格式化了），输入  &lt;code&gt;o&lt;/code&gt;  来创建一个全新的  &lt;code&gt;MBR&lt;/code&gt;  分区表（因为这里是 BIOS 引导）；如果是旧磁盘（要么原本有  &lt;code&gt;MBR&lt;/code&gt;  分区表，要么不是  &lt;code&gt;MBR&lt;/code&gt;  属性  &lt;code&gt;DOS&lt;/code&gt;  的），那对于非  &lt;code&gt;MBR&lt;/code&gt;  分区表可能得更改分区表或者格式化，而已有  &lt;code&gt;MBR&lt;/code&gt;  分区表的直接执行第 2 步。&lt;/p&gt;
 &lt;p&gt;2、输入  &lt;code&gt;n&lt;/code&gt;  创建一个新的分区，首先会让你选择类型分区，输入  &lt;code&gt;p&lt;/code&gt;  选择主分区，回车接着选择分区号，这里一般直接回车使用默认数值，这样可以避免自己定义出现冲突；紧接着选择开始起扇区地址，如果不知道原有区域划分情况，那一般直接回车使用默认数值即可；随后，输入结束扇区地址或者容量大小，这里决定了你为该分区创建的容量大小；我们按照表格顺序创建分区，那这第一个就是  &lt;code&gt;swap&lt;/code&gt;  交换分区，例如我分配的是 8G 容量，那可以直接输入容量大小： &lt;code&gt;+8G&lt;/code&gt;  。&lt;/p&gt;
@@ -872,21 +1474,21 @@ mount /dev/sdxY /mnt/boot （把 sdxY替换为上面创建的 EFI 系统分区�
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;选择镜像&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#选择镜像&#34;&gt;#&lt;/a&gt; 选择镜像&lt;/h2&gt;
 &lt;p&gt;文件  &lt;code&gt;/etc/pacman.d/mirrorlist&lt;/code&gt;  定义了软件包会从哪个镜像源下载。在列表中越前的镜像在下载软件包时有越高的优先权。&lt;/p&gt;
-&lt;p&gt;各地区镜像源获取：&lt;a href=&#34;https://archlinux.org/mirrorlist/&#34;&gt;https://archlinux.org/mirrorlist/&lt;/a&gt; ，然后点击生成：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;image-20220415095310180.png&#34; alt=&#34;image-20220415095310180&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;各地区镜像源获取：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9hcmNobGludXgub3JnL21pcnJvcmxpc3Qv&#34;&gt;https://archlinux.org/mirrorlist/&lt;/span&gt; ，然后点击生成：&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20220415095310180.png&#34; alt=&#34;image-20220415095310180&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;编辑  &lt;code&gt;/etc/pacman.d/mirrorlist&lt;/code&gt;  文件，执行：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;vim /etc/pacman.d/mirrorlist
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;然后进入 VIM 环境，输入  &lt;code&gt;i&lt;/code&gt;  进入编辑状态，然后根据上面生成提供的镜像表，选择几个放到文件最顶端，在这里笔者选择阿里云镜像：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;image-20220415103048537.png&#34; alt=&#34;image-20220415103048537&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20220415103048537.png&#34; alt=&#34;image-20220415103048537&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;如果其速度不佳，可以手动指定其他镜像源，像中科大或者清华的放在最上面即可：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;Server = https://mirrors.ustc.edu.cn/archlinux/$repo/os/$arch
 Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;然后，按  &lt;code&gt;Esc&lt;/code&gt;  键退出编程，最后输入  &lt;code&gt;:wq&lt;/code&gt;  保存退出。&lt;/p&gt;
-&lt;p&gt;关于 vim 命令的使用，可看：&lt;a href=&#34;https://www.runoob.com/linux/linux-vim.html&#34;&gt;https://www.runoob.com/linux/linux-vim.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;关于 vim 命令的使用，可看：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cucnVub29iLmNvbS9saW51eC9saW51eC12aW0uaHRtbA==&#34;&gt;https://www.runoob.com/linux/linux-vim.html&lt;/span&gt;&lt;/p&gt;
 &lt;h2 id=&#34;安装必需的软件包&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#安装必需的软件包&#34;&gt;#&lt;/a&gt; 安装必需的软件包&lt;/h2&gt;
-&lt;p&gt;使用  &lt;code&gt;pacstrap&lt;/code&gt;  脚本，安装 &lt;a href=&#34;https://archlinux.org/packages/?name=base&#34;&gt;base&lt;/a&gt; 软件包和 Linux &lt;a href=&#34;https://wiki.archlinux.org/title/Kernel_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)&#34;&gt;内核&lt;/a&gt;以及常规硬件的固件：&lt;/p&gt;
+&lt;p&gt;使用  &lt;code&gt;pacstrap&lt;/code&gt;  脚本，安装 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9hcmNobGludXgub3JnL3BhY2thZ2VzLz9uYW1lPWJhc2U=&#34;&gt;base&lt;/span&gt; 软件包和 Linux &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmFyY2hsaW51eC5vcmcvdGl0bGUvS2VybmVsXyglRTclQUUlODAlRTQlQkQlOTMlRTQlQjglQUQlRTYlOTYlODcp&#34;&gt;内核&lt;/span&gt;以及常规硬件的固件：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;pacstrap /mnt base base-devel linux linux-headers linux-firmware （base-devel在 AUR包的安装是必须的）
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;fstab配置&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#fstab配置&#34;&gt;#&lt;/a&gt; Fstab 配置&lt;/h2&gt;
@@ -898,7 +1500,7 @@ Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;执行后将显示各分区挂载情况及属性信息。&lt;/p&gt;
 &lt;h2 id=&#34;chroot配置&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#chroot配置&#34;&gt;#&lt;/a&gt; Chroot 配置&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://wiki.archlinux.org/title/Change_root_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)&#34;&gt;Change root&lt;/a&gt; 到新安装的系统：&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmFyY2hsaW51eC5vcmcvdGl0bGUvQ2hhbmdlX3Jvb3RfKCVFNyVBRSU4MCVFNCVCRCU5MyVFNCVCOCVBRCVFNiU5NiU4Nyk=&#34;&gt;Change root&lt;/span&gt; 到新安装的系统：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;arch-chroot /mnt
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;执行了这步以后，我们的操作都相当于在磁盘上新装的系统中进行。&lt;/p&gt;
@@ -924,7 +1526,7 @@ Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch
 &lt;p&gt;紧接着执行  &lt;code&gt;locale-gen&lt;/code&gt;  以生成 locale 信息：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;locale-gen
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;2、然后创建 &lt;a href=&#34;https://man.archlinux.org/man/locale.conf.5&#34;&gt;locale.conf&lt;/a&gt; 文件，并 &lt;a href=&#34;https://wiki.archlinux.org/title/Locale_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)#%E7%B3%BB%E7%BB%9F%E5%8C%BA%E5%9F%9F%E8%AE%BE%E7%BD%AE&#34;&gt;编辑设定 LANG 变量&lt;/a&gt;，&lt;/p&gt;
+&lt;p&gt;2、然后创建 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9tYW4uYXJjaGxpbnV4Lm9yZy9tYW4vbG9jYWxlLmNvbmYuNQ==&#34;&gt;locale.conf&lt;/span&gt; 文件，并 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmFyY2hsaW51eC5vcmcvdGl0bGUvTG9jYWxlXyglRTclQUUlODAlRTQlQkQlOTMlRTQlQjglQUQlRTYlOTYlODcpIyVFNyVCMyVCQiVFNyVCQiU5RiVFNSU4QyVCQSVFNSU5RiU5RiVFOCVBRSVCRSVFNyVCRCVBRQ==&#34;&gt;编辑设定 LANG 变量&lt;/span&gt;，&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;echo LANG=en_US.UTF-8 &amp;gt; /etc/locale.conf
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;网络配置&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#网络配置&#34;&gt;#&lt;/a&gt; 网络配置&lt;/h2&gt;
@@ -934,9 +1536,9 @@ Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch
 &lt;p&gt;这步在我目前使用的功能里好像没用到。。。&lt;/p&gt;
 &lt;p&gt;然后，在官方文档中有一条说明：&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;请注意，目前的 &lt;a href=&#34;https://archlinux.org/packages/?name=base&#34;&gt;base&lt;/a&gt; 不含有任何网络管理工具。对于新安装的系统环境，请接着完成&lt;a href=&#34;https://wiki.archlinux.org/title/%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE&#34;&gt;网络配置&lt;/a&gt;，配置过程中可能包括要安装合适的&lt;a href=&#34;https://wiki.archlinux.org/title/%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86&#34;&gt;网络管理&lt;/a&gt;软件。&lt;/p&gt;
+&lt;p&gt;请注意，目前的 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9hcmNobGludXgub3JnL3BhY2thZ2VzLz9uYW1lPWJhc2U=&#34;&gt;base&lt;/span&gt; 不含有任何网络管理工具。对于新安装的系统环境，请接着完成&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmFyY2hsaW51eC5vcmcvdGl0bGUvJUU3JUJEJTkxJUU3JUJCJTlDJUU5JTg1JThEJUU3JUJEJUFF&#34;&gt;网络配置&lt;/span&gt;，配置过程中可能包括要安装合适的&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmFyY2hsaW51eC5vcmcvdGl0bGUvJUU3JUJEJTkxJUU3JUJCJTlDJUU3JUFFJUExJUU3JTkwJTg2&#34;&gt;网络管理&lt;/span&gt;软件。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;因此，我们需要安装网络配置管理包（&lt;a href=&#34;https://wiki.archlinux.org/title/Dhcpcd_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)&#34;&gt;DHCP&lt;/a&gt; 客户端和 &lt;a href=&#34;https://wiki.archlinux.org/title/Netctl_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)&#34;&gt;netctl&lt;/a&gt; 网络管理器）：&lt;/p&gt;
+&lt;p&gt;因此，我们需要安装网络配置管理包（&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmFyY2hsaW51eC5vcmcvdGl0bGUvRGhjcGNkXyglRTclQUUlODAlRTQlQkQlOTMlRTQlQjglQUQlRTYlOTYlODcp&#34;&gt;DHCP&lt;/span&gt; 客户端和 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmFyY2hsaW51eC5vcmcvdGl0bGUvTmV0Y3RsXyglRTclQUUlODAlRTQlQkQlOTMlRTQlQjglQUQlRTYlOTYlODcp&#34;&gt;netctl&lt;/span&gt; 网络管理器）：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;pacman -S dhcpcd netctl
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;root-密码&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#root-密码&#34;&gt;#&lt;/a&gt; Root 密码&lt;/h2&gt;
@@ -945,7 +1547,7 @@ Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch
 &lt;pre&gt;&lt;code&gt;passwd root
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;安装引导程序&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#安装引导程序&#34;&gt;#&lt;/a&gt; 安装引导程序&lt;/h2&gt;
-&lt;p&gt;如果是 Intel 或 AMD 的 CPU，启用 &lt;a href=&#34;https://wiki.archlinux.org/title/Microcode_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)&#34;&gt;微码&lt;/a&gt; 更新：&lt;/p&gt;
+&lt;p&gt;如果是 Intel 或 AMD 的 CPU，启用 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmFyY2hsaW51eC5vcmcvdGl0bGUvTWljcm9jb2RlXyglRTclQUUlODAlRTQlQkQlOTMlRTQlQjglQUQlRTYlOTYlODcp&#34;&gt;微码&lt;/span&gt; 更新：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;Intel&lt;/p&gt;
@@ -958,7 +1560,7 @@ Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;接着，官方推荐的引导加载是 &lt;a href=&#34;https://wiki.archlinux.org/title/GRUB_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)&#34;&gt;GRUB&lt;/a&gt; （其他的引导加载可看：&lt;a href=&#34;https://wiki.archlinux.org/title/Arch_boot_process_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)#%E5%8A%9F%E8%83%BD%E6%AF%94%E8%BE%83&#34;&gt;引导功能比较&lt;/a&gt;），因此我们对其安装并配置，不同的引导系统，其操作不一样：&lt;/p&gt;
+&lt;p&gt;接着，官方推荐的引导加载是 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmFyY2hsaW51eC5vcmcvdGl0bGUvR1JVQl8oJUU3JUFFJTgwJUU0JUJEJTkzJUU0JUI4JUFEJUU2JTk2JTg3KQ==&#34;&gt;GRUB&lt;/span&gt; （其他的引导加载可看：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93aWtpLmFyY2hsaW51eC5vcmcvdGl0bGUvQXJjaF9ib290X3Byb2Nlc3NfKCVFNyVBRSU4MCVFNCVCRCU5MyVFNCVCOCVBRCVFNiU5NiU4NykjJUU1JThBJTlGJUU4JTgzJUJEJUU2JUFGJTk0JUU4JUJFJTgz&#34;&gt;引导功能比较&lt;/span&gt;），因此我们对其安装并配置，不同的引导系统，其操作不一样：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;BIOS/MBR&lt;/strong&gt;&lt;/p&gt;
@@ -1003,8 +1605,8 @@ umount -r /mnt
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;other&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#other&#34;&gt;#&lt;/a&gt; Other&lt;/h2&gt;
 &lt;p&gt;另外一些比较详细的安装教程：&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://archlinuxstudio.github.io/ArchLinuxTutorial/#/?id=arch-linux-%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B-archtutorial-arch-linux-studio&#34;&gt;Arch Linux 安装使用教程&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.viseator.com/2017/05/17/arch_install/&#34;&gt;以官方 Wiki 的方式安装 ArchLinux&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9hcmNobGludXhzdHVkaW8uZ2l0aHViLmlvL0FyY2hMaW51eFR1dG9yaWFsLyMvP2lkPWFyY2gtbGludXgtJUU1JUFFJTg5JUU4JUEzJTg1JUU0JUJEJUJGJUU3JTk0JUE4JUU2JTk1JTk5JUU3JUE4JThCLWFyY2h0dXRvcmlhbC1hcmNoLWxpbnV4LXN0dWRpbw==&#34;&gt;Arch Linux 安装使用教程&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cudmlzZWF0b3IuY29tLzIwMTcvMDUvMTcvYXJjaF9pbnN0YWxsLw==&#34;&gt;以官方 Wiki 的方式安装 ArchLinux&lt;/span&gt;&lt;/p&gt;
  ]]></description>
         </item>
     </channel>

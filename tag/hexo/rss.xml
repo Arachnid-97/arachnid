@@ -11,22 +11,22 @@
         <category>history</category>
         <category>电子</category>
         <category>硬件设计</category>
-        <category>hexo</category>
         <category>C</category>
         <category>MCU</category>
         <category>git</category>
-        <category>FreeRTOS</category>
         <category>工具</category>
+        <category>FreeRTOS</category>
+        <category>hexo</category>
         <category>IDE</category>
         <category>Linux</category>
+        <category>Ubuntu</category>
         <category>SQL</category>
         <category>JSON</category>
-        <category>Ubuntu</category>
-        <category>RTOS</category>
         <category>算法</category>
         <category>DMX512</category>
         <category>modbus</category>
         <category>Modem</category>
+        <category>RTOS</category>
         <item>
             <guid isPermalink="true">https://arachnid.cc/shoka-function-expansion/</guid>
             <title>博客搭建笔记之功能扩展</title>
@@ -320,7 +320,7 @@
             <category>hexo</category>
             <pubDate>Wed, 25 May 2022 20:38:40 +0800</pubDate>
             <description><![CDATA[ &lt;blockquote&gt;
-&lt;p&gt;以下配置皆在文件   &lt;code&gt;&amp;lt;root&amp;gt;/_config.shoka.yml&lt;/code&gt;  修改。大部分摘录自：&lt;a href=&#34;https://shoka.lostyu.me/computer-science/note/theme-shoka-doc/config/&#34;&gt;https://shoka.lostyu.me/computer-science/note/theme-shoka-doc/config/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;以下配置皆在文件   &lt;code&gt;&amp;lt;root&amp;gt;/_config.shoka.yml&lt;/code&gt;  修改。大部分摘录自：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9zaG9rYS5sb3N0eXUubWUvY29tcHV0ZXItc2NpZW5jZS9ub3RlL3RoZW1lLXNob2thLWRvYy9jb25maWcv&#34;&gt;https://shoka.lostyu.me/computer-science/note/theme-shoka-doc/config/&lt;/span&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h1 id=&#34;站点名称&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#站点名称&#34;&gt;#&lt;/a&gt; 站点名称&lt;/h1&gt;
 &lt;figure class=&#34;highlight yaml&#34;&gt;&lt;figcaption data-lang=&#34;YAML&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token key atrule&#34;&gt;alternate&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;:&lt;/span&gt; Yume Shoka&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;这里设置的名称代替 Logo，显示在页面顶部，以及页尾 ©️ 处。&lt;/p&gt;
@@ -366,7 +366,7 @@ loader:
 &lt;p&gt;对应文件位置：  &lt;code&gt;&amp;lt;root&amp;gt;/themes/shoka/source/css&lt;/code&gt;  中的  &lt;code&gt;_iconfont.styl&lt;/code&gt;  文件。&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;font-family&lt;/code&gt;  设为  &lt;code&gt;ic&lt;/code&gt;  ，所有字体样式前缀为  &lt;code&gt;i-&lt;/code&gt;  ；具体参见  &lt;code&gt;&amp;lt;root&amp;gt;/themes/shoka/source/css/_iconfont.styl&lt;/code&gt;  。&lt;/p&gt;
 &lt;h2 id=&#34;自定义图标&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#自定义图标&#34;&gt;#&lt;/a&gt; 自定义图标&lt;/h2&gt;
-&lt;p&gt;如果需要添加或修改，需要找 shoka 主题的博主姐姐添加您的&lt;a href=&#34;https://www.iconfont.cn/&#34;&gt; Iconfont&lt;/a&gt; 用户名到项目中，此后您可以任意全选项目文件，批量保存到购物车中，添加至您自己的项目里，并将主题配置文件中的  &lt;code&gt;iconfont&lt;/code&gt;  值改为您的项目。&lt;/p&gt;
+&lt;p&gt;如果需要添加或修改，需要找 shoka 主题的博主姐姐添加您的&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuaWNvbmZvbnQuY24v&#34;&gt; Iconfont&lt;/span&gt; 用户名到项目中，此后您可以任意全选项目文件，批量保存到购物车中，添加至您自己的项目里，并将主题配置文件中的  &lt;code&gt;iconfont&lt;/code&gt;  值改为您的项目。&lt;/p&gt;
 &lt;p&gt;注意，您的项目应设置  &lt;code&gt;FontClass/Symbol&lt;/code&gt;  前缀 为  &lt;code&gt;i-&lt;/code&gt;  。&lt;/p&gt;
 &lt;p&gt;在  &lt;code&gt;&amp;lt;root&amp;gt;/source/_data/&lt;/code&gt;  目录新建文件  &lt;code&gt;iconfont.styl&lt;/code&gt;  ，把新增或修改的图标样式复制到这个文件中。&lt;/p&gt;
 &lt;blockquote&gt;
@@ -398,7 +398,7 @@ loader:
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;默认的图片列表位于  &lt;code&gt;&amp;lt;root&amp;gt;/themes/shoka/_images.yml&lt;/code&gt;  中。&lt;br /&gt;
-使用了渣浪图库，使用一些上传工具，比如&lt;a href=&#34;https://pic.gimhoy.com/&#34;&gt;这里&lt;/a&gt;&lt;br /&gt;
+使用了渣浪图库，使用一些上传工具，比如&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9waWMuZ2ltaG95LmNvbS8=&#34;&gt;这里&lt;/span&gt;&lt;br /&gt;
 上传后图片的链接是  &lt;code&gt;http://wx4.sinaimg.cn/large/6833939bly1gicmnywqgpj20zk0m8dwx.jpg&lt;/code&gt;  。&lt;br /&gt;
 只需要新一行写上  &lt;code&gt;- 6833939bly1gicmnywqgpj20zk0m8dwx.jpg&lt;/code&gt;  。&lt;/p&gt;
 &lt;p&gt;如果想要自定义，则在  &lt;code&gt;&amp;lt;root&amp;gt;/source/_data/&lt;/code&gt;  目录新建一个  &lt;code&gt;images.yml&lt;/code&gt;  文件，这个文件中的图片至少 6 枚，将完全覆盖默认的图片列表。&lt;/p&gt;
@@ -509,9 +509,9 @@ loader:
 &lt;h1 id=&#34;准备工作&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#准备工作&#34;&gt;#&lt;/a&gt; 准备工作&lt;/h1&gt;
 &lt;p&gt;此处开始之前，默认你已经实现了以下操作：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;拥有一个 &lt;a href=&#34;https://github.com/&#34;&gt;Github&lt;/a&gt; 账号，没有的话去注册一个；&lt;/li&gt;
-&lt;li&gt;安装了 &lt;a href=&#34;https://nodejs.org/en/&#34;&gt;Node.js&lt;/a&gt; （注意 &lt;a href=&#34;https://hexo.io/zh-cn/docs/#Node-js-%E7%89%88%E6%9C%AC%E9%99%90%E5%88%B6&#34;&gt;Hexo 版本限制&lt;/a&gt;），并了解相关 npm 的基础知识；&lt;/li&gt;
-&lt;li&gt;安装了 &lt;a href=&#34;https://git-scm.com/&#34;&gt;git&lt;/a&gt;（或者其它终端），以下默认你的终端服务为 git 。&lt;/li&gt;
+&lt;li&gt;拥有一个 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tLw==&#34;&gt;Github&lt;/span&gt; 账号，没有的话去注册一个；&lt;/li&gt;
+&lt;li&gt;安装了 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ub2RlanMub3JnL2VuLw==&#34;&gt;Node.js&lt;/span&gt; （注意 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL3poLWNuL2RvY3MvI05vZGUtanMtJUU3JTg5JTg4JUU2JTlDJUFDJUU5JTk5JTkwJUU1JTg4JUI2&#34;&gt;Hexo 版本限制&lt;/span&gt;），并了解相关 npm 的基础知识；&lt;/li&gt;
+&lt;li&gt;安装了 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXQtc2NtLmNvbS8=&#34;&gt;git&lt;/span&gt;（或者其它终端），以下默认你的终端服务为 git 。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;然后其他的 git 绑定 Github、生成 ssh 这些操作也默认你准备完成了，实在不懂就网上搜一下吧。&lt;/p&gt;
 &lt;h1 id=&#34;网站建立&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#网站建立&#34;&gt;#&lt;/a&gt; 网站建立&lt;/h1&gt;
@@ -526,41 +526,41 @@ cd &amp;quot;blog_dir&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;初始化 Hexo，输入命令并回车：&lt;/p&gt;
 &lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;hexo init&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;然后启动本地服务查看，此处为动态访问，非静态网页：&lt;/p&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;hexo s&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;最后根据输出提示，浏览器打开链接 &lt;a href=&#34;http://localhost:4000/&#34;&gt;http://localhost:4000/&lt;/a&gt;，你将会访问到 Hello World；至此，你已经完成本地博客搭建了，请为自己欢呼 &amp;quot;tada&amp;quot;&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;hexo s&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;最后根据输出提示，浏览器打开链接 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL2xvY2FsaG9zdDo0MDAwLw==&#34;&gt;http://localhost:4000/&lt;/span&gt;，你将会访问到 Hello World；至此，你已经完成本地博客搭建了，请为自己欢呼 &amp;quot;tada&amp;quot;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;note：&lt;/strong&gt; 可能有些在启动本地服务查看时会出现端口被占用的情况，那么可以通过更改端口来实现访问，具体命令看下一点。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;3、hexo 常用命令&lt;/strong&gt;&lt;/p&gt;
-&lt;figure class=&#34;highlight raw&#34;&gt;&lt;figcaption data-lang=&#34;&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;hexo new &amp;quot;postName&amp;quot; #新建文章&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;hexo new page &amp;quot;pageName&amp;quot; #新建页面&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;hexo new draft &amp;quot;draftName&amp;quot; #新建草稿&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;hexo generate #生成静态页面至 public 目录&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;hexo server #本地动态访问页面（默认端口 4000，&amp;#39;ctrl + c&amp;#39; 关闭 server）&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;hexo deploy #部署到服务器&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;hexo clean #删除缓存文件及静态文件&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;hexo help  #查看帮助&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;hexo version  #查看 Hexo 的版本&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;更多操作可查看：&lt;a href=&#34;https://hexo.io/zh-cn/docs/commands.html&#34;&gt;Hexo 指令&lt;/a&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight raw&#34;&gt;&lt;figcaption data-lang=&#34;&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;hexo new &amp;quot;postName&amp;quot; #新建文章&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;hexo new page &amp;quot;pageName&amp;quot; #新建页面&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;hexo new draft &amp;quot;draftName&amp;quot; #新建草稿&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;hexo generate #生成静态页面至 public 目录&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;hexo server #本地动态访问页面（默认端口 4000，&amp;#39;ctrl + c&amp;#39; 关闭 server）&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;hexo deploy #部署到服务器&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;hexo clean #删除缓存文件及静态文件&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;hexo help  #查看帮助&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;hexo version  #查看 Hexo 的版本&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;更多操作可查看：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL3poLWNuL2RvY3MvY29tbWFuZHMuaHRtbA==&#34;&gt;Hexo 指令&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;关于有用的指令缩写：&lt;/p&gt;
 &lt;figure class=&#34;highlight raw&#34;&gt;&lt;figcaption data-lang=&#34;&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;hexo cl &amp;#x3D;&amp;#x3D; hexo clean&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;hexo n &amp;#x3D;&amp;#x3D; hexo new&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;hexo g &amp;#x3D;&amp;#x3D; hexo generate&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;hexo s &amp;#x3D;&amp;#x3D; hexo server&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;hexo d &amp;#x3D;&amp;#x3D; hexo deploy&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;hexo s -p &amp;quot;new_port&amp;quot; #更改访问端口并启动访问服务&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;hexo s -s #调用静态页面进行本地访问，确保调用过 &amp;#96;hexo g&amp;#96; 命令&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;hexo d -g #预先生成静态文件并部署到服务器&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;hexo cl &amp;amp;&amp;amp; hexo d -g #清缓存、重构静态页面、部署 --- 俗称 &amp;quot;一键三连&amp;quot;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h2 id=&#34;云端部署-基于-github-pages&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#云端部署-基于-github-pages&#34;&gt;#&lt;/a&gt; 云端部署 --- 基于 Github pages&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;1、创建仓库&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;前往 &lt;a href=&#34;https://github.com/&#34;&gt;GitHub&lt;/a&gt; 并&lt;a href=&#34;https://github.com/new&#34;&gt;创建&lt;/a&gt;一个名为 &lt;strong&gt;&lt;em&gt;username&lt;/em&gt; .github.io&lt;/strong&gt; 的公共存储库，其中&lt;em&gt; username&lt;/em&gt; 是您在 GitHub 上的用户名（注意必须要对应上，否则无法使用）&lt;/p&gt;
+&lt;p&gt;前往 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tLw==&#34;&gt;GitHub&lt;/span&gt; 并&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL25ldw==&#34;&gt;创建&lt;/span&gt;一个名为 &lt;strong&gt;&lt;em&gt;username&lt;/em&gt; .github.io&lt;/strong&gt; 的公共存储库，其中&lt;em&gt; username&lt;/em&gt; 是您在 GitHub 上的用户名（注意必须要对应上，否则无法使用）&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;2、关联服务器地址&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;打开你的 “&lt;em&gt;blog_dir&lt;/em&gt;” 文件夹，在根目录下找到  &lt;code&gt;_config.yml&lt;/code&gt;  文件对其进行以下修改：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;image-20220503173246533.png&#34; alt=&#34;image-20220503173246533&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20220503173246533.png&#34; alt=&#34;image-20220503173246533&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;repo&lt;/code&gt;  为上面创建的仓库地址， &lt;code&gt;branch&lt;/code&gt;  填写主分支（新的是  &lt;code&gt;main&lt;/code&gt;  ，以前旧的是  &lt;code&gt;master&lt;/code&gt; ）&lt;/p&gt;
 &lt;p&gt;安装关联插件：&lt;/p&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;npm&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;install&lt;/span&gt; hexo-deployer-git &lt;span class=&#34;token parameter variable&#34;&gt;--save&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;其他的就不多作解释了，详细可看：&lt;a href=&#34;https://hexo.io/docs/one-command-deployment&#34;&gt;Hexo 一站式部署&lt;/a&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;npm&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;install&lt;/span&gt; hexo-deployer-git &lt;span class=&#34;token parameter variable&#34;&gt;--save&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;其他的就不多作解释了，详细可看：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3Mvb25lLWNvbW1hbmQtZGVwbG95bWVudA==&#34;&gt;Hexo 一站式部署&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;3、一键三连&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;执行：&lt;/p&gt;
 &lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;hexo cl &lt;span class=&#34;token operator&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; hexo d &lt;span class=&#34;token parameter variable&#34;&gt;-g&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h2 id=&#34;域名绑定可选&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#域名绑定可选&#34;&gt;#&lt;/a&gt; 域名绑定（可选）&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;1、注册购买域名&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;一般的话，国内比较好的就 &lt;a href=&#34;https://wanwang.aliyun.com/domain/&#34;&gt;阿里云&lt;/a&gt;或者 &lt;a href=&#34;https://dnspod.cloud.tencent.com/&#34;&gt;腾讯云&lt;/a&gt;，国外就 &lt;a href=&#34;https://www.namesilo.com/&#34;&gt;NameSilo&lt;/a&gt; 和 &lt;a href=&#34;https://www.dynadot.com/&#34;&gt;Dynadot&lt;/a&gt;，当然，除了这些还有很多域名购买网站；然而，最好就是找那些比较大型稳定的网站购买；除此之外，你也可以到 &lt;a href=&#34;https://www.nazhumi.com/&#34;&gt;https://www.nazhumi.com/&lt;/a&gt; 中查看在哪里购买会性价比更高一些。&lt;/p&gt;
+&lt;p&gt;一般的话，国内比较好的就 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93YW53YW5nLmFsaXl1bi5jb20vZG9tYWluLw==&#34;&gt;阿里云&lt;/span&gt;或者 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9kbnNwb2QuY2xvdWQudGVuY2VudC5jb20v&#34;&gt;腾讯云&lt;/span&gt;，国外就 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cubmFtZXNpbG8uY29tLw==&#34;&gt;NameSilo&lt;/span&gt; 和 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuZHluYWRvdC5jb20v&#34;&gt;Dynadot&lt;/span&gt;，当然，除了这些还有很多域名购买网站；然而，最好就是找那些比较大型稳定的网站购买；除此之外，你也可以到 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cubmF6aHVtaS5jb20v&#34;&gt;https://www.nazhumi.com/&lt;/span&gt; 中查看在哪里购买会性价比更高一些。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;2、域名解析&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;对于不同的购买网站，其操作不同，这里用的是 NameSilo：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;image-20220512223909467.png&#34; alt=&#34;image-20220512223909467&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20220512223909467.png&#34; alt=&#34;image-20220512223909467&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;进入域名管理，然后在你想要设置的域名中，配置 DNS 解析。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;image-20220512224914568.png&#34; alt=&#34;image-20220512224914568&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20220512224914568.png&#34; alt=&#34;image-20220512224914568&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;在 DNS 设置部分，你可以删除自带的记录，再重新添加；又或者直接编辑原有的记录，不过要对应上类型，一般只需要  &lt;code&gt;C&lt;/code&gt;  和  &lt;code&gt;CNAME&lt;/code&gt;  这两个类型就足够了。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;3、绑定域名到 Hexo 博客&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;进入本地博客文件夹的 source 目录，打开记事本，里面输入自己的域名，如 &lt;a href=&#34;http://www.example.com&#34;&gt;http://www.example.com&lt;/a&gt;，保存名称为 “CNAME”。如我的是：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;image-20220512230351288.png&#34; alt=&#34;image-20220512230351288&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;进入本地博客文件夹的 source 目录，打开记事本，里面输入自己的域名，如 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3d3dy5leGFtcGxlLmNvbQ==&#34;&gt;http://www.example.com&lt;/span&gt;，保存名称为 “CNAME”。如我的是：&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20220512230351288.png&#34; alt=&#34;image-20220512230351288&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;记住，直接是 “CNAME” 文件，是不带后缀的。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;4、开启 HTTPS 服务&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;在完成上一步域名文件创建后，通过 “一键三连” 重新部署网站，然后来到 GitHub 博客仓库里进行打开：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;image-20220512231152522.png&#34; alt=&#34;image-20220512231152522&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20220512231152522.png&#34; alt=&#34;image-20220512231152522&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;HTTPS 证书部署成功需要一定时间，等大概几分钟再访问域名，就可以看到域名前面的小绿锁了，至此 HTTPS 配置完成！&lt;/p&gt;
 &lt;h1 id=&#34;主题修改&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#主题修改&#34;&gt;#&lt;/a&gt; 主题修改&lt;/h1&gt;
-&lt;p&gt;hexo 目前收录了三百多个&lt;a href=&#34;https://hexo.io/themes/&#34;&gt;主题&lt;/a&gt;，你可以对他们进行一直修改，这些都是可以的，当然，如果你也可以自己创作一个专属于你自己的主题。以下皆以 shoka 主题进行解说。&lt;/p&gt;
+&lt;p&gt;hexo 目前收录了三百多个&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL3RoZW1lcy8=&#34;&gt;主题&lt;/span&gt;，你可以对他们进行一直修改，这些都是可以的，当然，如果你也可以自己创作一个专属于你自己的主题。以下皆以 shoka 主题进行解说。&lt;/p&gt;
 &lt;h2 id=&#34;应用主题&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#应用主题&#34;&gt;#&lt;/a&gt; 应用主题&lt;/h2&gt;
 &lt;h3 id=&#34;安装主题文件&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#安装主题文件&#34;&gt;#&lt;/a&gt; 安装主题文件&lt;/h3&gt;
 &lt;p&gt;拉取 Shoka 主题到  &lt;code&gt;themes/shoka&lt;/code&gt;  目录，在 Hexo 根目录（即你的 blog 根目录，后面全部统称  &lt;code&gt;&amp;lt;root&amp;gt;&lt;/code&gt;  ）执行下面的命令：&lt;/p&gt;
@@ -570,10 +570,10 @@ cd &amp;quot;blog_dir&amp;quot;
 &lt;p&gt;主题配置的所有参数在  &lt;code&gt;&amp;lt;root&amp;gt;/themes/shoka/_config.yml&lt;/code&gt;  文件中。&lt;/p&gt;
 &lt;p&gt;为了避免以后主题版本升级或者提交出现配置合并或冲突，建议复制主题目录下的   &lt;code&gt;_config.yml&lt;/code&gt;  到 Hexo 根目录，并命名为  &lt;code&gt;_config.shoka.yml&lt;/code&gt;  ，也就是说，所有主题的自定义配置均保存于  &lt;code&gt;&amp;lt;root&amp;gt;/_config.shoka.yml&lt;/code&gt;  文件。现在，您可以删除 shoka 主题目录下的  &lt;code&gt;_config.yml&lt;/code&gt;  文件，或将它重命名为  &lt;code&gt;_config.yml.template&lt;/code&gt;  。&lt;/p&gt;
 &lt;p&gt;然后，里面的配置信息，这里就不阐述了，直接看 shoka 主题的博主姐姐的文章吧：&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://shoka.lostyu.me/computer-science/note/theme-shoka-doc/config/&#34;&gt;主题的基础配置可以参考这里&lt;/a&gt;&lt;br /&gt;
-&lt;a href=&#34;https://shoka.lostyu.me/computer-science/note/theme-shoka-doc/display/&#34;&gt;界面显示相关的配置参考这里&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9zaG9rYS5sb3N0eXUubWUvY29tcHV0ZXItc2NpZW5jZS9ub3RlL3RoZW1lLXNob2thLWRvYy9jb25maWcv&#34;&gt;主题的基础配置可以参考这里&lt;/span&gt;&lt;br /&gt;
+&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9zaG9rYS5sb3N0eXUubWUvY29tcHV0ZXItc2NpZW5jZS9ub3RlL3RoZW1lLXNob2thLWRvYy9kaXNwbGF5Lw==&#34;&gt;界面显示相关的配置参考这里&lt;/span&gt;&lt;/p&gt;
 &lt;h2 id=&#34;插件依赖&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#插件依赖&#34;&gt;#&lt;/a&gt; 插件依赖&lt;/h2&gt;
-&lt;p&gt;根据 shoka 主题的博主姐姐写的&lt;a href=&#34;https://shoka.lostyu.me/computer-science/note/theme-shoka-doc/dependents/&#34;&gt;文章&lt;/a&gt; ，净化的 shoka 主题必须安装以下两个插件：&lt;/p&gt;
+&lt;p&gt;根据 shoka 主题的博主姐姐写的&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9zaG9rYS5sb3N0eXUubWUvY29tcHV0ZXItc2NpZW5jZS9ub3RlL3RoZW1lLXNob2thLWRvYy9kZXBlbmRlbnRzLw==&#34;&gt;文章&lt;/span&gt; ，净化的 shoka 主题必须安装以下两个插件：&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -585,12 +585,12 @@ cd &amp;quot;blog_dir&amp;quot;
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;hexo-renderer-multi-markdown-it&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.npmjs.com/package/hexo-renderer-multi-markdown-it&#34;&gt;链接&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cubnBtanMuY29tL3BhY2thZ2UvaGV4by1yZW5kZXJlci1tdWx0aS1tYXJrZG93bi1pdA==&#34;&gt;链接&lt;/span&gt;&lt;/td&gt;
 &lt;td&gt;md 文件渲染器，压缩 css/js/html&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;hexo-autoprefixer&lt;/td&gt;
-&lt;td&gt;&lt;a href=&#34;https://www.npmjs.com/package/hexo-autoprefixer&#34;&gt;链接&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cubnBtanMuY29tL3BhY2thZ2UvaGV4by1hdXRvcHJlZml4ZXI=&#34;&gt;链接&lt;/span&gt;&lt;/td&gt;
 &lt;td&gt;给生成的 css 文件们添加浏览器前缀&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;

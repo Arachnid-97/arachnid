@@ -11,22 +11,22 @@
         <category>history</category>
         <category>电子</category>
         <category>硬件设计</category>
-        <category>hexo</category>
         <category>C</category>
         <category>MCU</category>
         <category>git</category>
-        <category>FreeRTOS</category>
         <category>工具</category>
+        <category>FreeRTOS</category>
+        <category>hexo</category>
         <category>IDE</category>
         <category>Linux</category>
+        <category>Ubuntu</category>
         <category>SQL</category>
         <category>JSON</category>
-        <category>Ubuntu</category>
-        <category>RTOS</category>
         <category>算法</category>
         <category>DMX512</category>
         <category>modbus</category>
         <category>Modem</category>
+        <category>RTOS</category>
         <item>
             <guid isPermalink="true">https://arachnid.cc/modbus-ascii-protocol/</guid>
             <title>Modbus家族之 ASCII</title>
@@ -106,7 +106,7 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;&lt;img src=&#34;image-20220326235527004.png&#34; alt=&#34;image-20220326235527004&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20220326235527004.png&#34; alt=&#34;image-20220326235527004&#34; /&gt;&lt;/p&gt;
 &lt;h2 id=&#34;功能码&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#功能码&#34;&gt;#&lt;/a&gt; 功能码&lt;/h2&gt;
 &lt;p&gt;ASCII 最常用的功能代码跟 RTU 的功能代码定义是一样的，这里就不多说了，可以去查看 《&lt;a href=&#34;https://arachnid.cc/modbus-rtu-protocol/&#34;&gt;Modbus 家族之 RTU&lt;/a&gt;》篇章的功能码部分，这里只是格式上有所不同而已，&lt;s&gt;下一篇会对这两个原始传输方式进行对比的。&lt;/s&gt; 嘛，还是直接合并到本篇，对 RTU 和 ASCII 进行对比分析吧，顺便回顾一下 RTU 协议。&lt;/p&gt;
 &lt;table&gt;
@@ -248,7 +248,7 @@
 &lt;p&gt;请求&lt;/p&gt;
 &lt;p&gt;读取从机中线圈的 ON/OFF 状态。不支持广播。请求消息指定了开始线圈和要读取的线圈数量。&lt;/p&gt;
 &lt;p&gt;下面是一个请求读取线圈的例子：19 - 55（Coil 20 to 56），37 个线圈，从设备节点 3（注意起始地址是 19 或 0x13，比线圈 20 小 1）：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;image-20220327151916968.png&#34; alt=&#34;image-20220327151916968&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20220327151916968.png&#34; alt=&#34;image-20220327151916968&#34; /&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;响应&lt;/p&gt;
@@ -257,7 +257,7 @@
 &lt;blockquote&gt;
 &lt;p&gt;Figure 6 shows an example of a response to the query shown in Figure 5：&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&#34;image-20220327152253123.png&#34; alt=&#34;image-20220327152253123&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20220327152253123.png&#34; alt=&#34;image-20220327152253123&#34; /&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;功能-0202h读离散输入&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#功能-0202h读离散输入&#34;&gt;#&lt;/a&gt; 功能 02（02H）读离散输入&lt;/h3&gt;
@@ -266,7 +266,7 @@
 &lt;p&gt;请求&lt;/p&gt;
 &lt;p&gt;读取从机中离散输入的 ON/OFF 状态。不支持广播。请求消息指定起始输入和要读取的输入数量。&lt;/p&gt;
 &lt;p&gt;下面是一个从从设备节点 3 读取离散输入 10101 - 10120，总共 20 个输入的例子（注意起始地址是 100 或 0x64，比输入 10101 小 10001）：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;image-20220327155421391.png&#34; alt=&#34;image-20220327155421391&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20220327155421391.png&#34; alt=&#34;image-20220327155421391&#34; /&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;响应&lt;/p&gt;
@@ -274,7 +274,7 @@
 &lt;blockquote&gt;
 &lt;p&gt;Figure 8 shows an example of a response to the query shown in Figure 7：&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&#34;image-20220327155851480.png&#34; alt=&#34;image-20220327155851480&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20220327155851480.png&#34; alt=&#34;image-20220327155851480&#34; /&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;功能-0303h读保持寄存器&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#功能-0303h读保持寄存器&#34;&gt;#&lt;/a&gt; 功能 03（03H）读保持寄存器&lt;/h3&gt;
@@ -283,7 +283,7 @@
 &lt;p&gt;请求&lt;/p&gt;
 &lt;p&gt;读取从机中保持寄存器的二进制内容。不支持广播。请求消息指定起始寄存器和要读取的寄存器数量。&lt;/p&gt;
 &lt;p&gt;下面是一个从从设备节点 7 读取保持寄存器 40201 - 40203，总共 3 个寄存器的请求的例子（注意起始地址是 200 或 0xC8，比寄存器 40201 小 40001）：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;image-20220327160332698.png&#34; alt=&#34;image-20220327160332698&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20220327160332698.png&#34; alt=&#34;image-20220327160332698&#34; /&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;响应&lt;/p&gt;
@@ -291,7 +291,7 @@
 &lt;blockquote&gt;
 &lt;p&gt;Figure 10 shows an example of a response to the query shown in Figure 9：&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&#34;image-20220327160607639.png&#34; alt=&#34;image-20220327160607639&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20220327160607639.png&#34; alt=&#34;image-20220327160607639&#34; /&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;功能-0404h读输入寄存器&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#功能-0404h读输入寄存器&#34;&gt;#&lt;/a&gt; 功能 04（04H）读输入寄存器&lt;/h3&gt;
@@ -300,7 +300,7 @@
 &lt;p&gt;请求&lt;/p&gt;
 &lt;p&gt;读取从机中保持寄存器的二进制内容。不支持广播。请求消息指定起始寄存器和要读取的寄存器数量。&lt;/p&gt;
 &lt;p&gt;下面是一个从从设备节点 7 读取输入寄存器 30301 - 30303，总共 3 个寄存器的请求的例子（注意起始地址是 300 或 0x12C，比寄存器 30301 小 30001）：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;image-20220327171629490.png&#34; alt=&#34;image-20220327171629490&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20220327171629490.png&#34; alt=&#34;image-20220327171629490&#34; /&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;响应&lt;/p&gt;
@@ -308,7 +308,7 @@
 &lt;blockquote&gt;
 &lt;p&gt;Figure 12 shows an example of a response to the query shown in Figure 11：&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&#34;image-20220327171942458.png&#34; alt=&#34;image-20220327171942458&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20220327171942458.png&#34; alt=&#34;image-20220327171942458&#34; /&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;功能-0505h写单线圈&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#功能-0505h写单线圈&#34;&gt;#&lt;/a&gt; 功能 05（05H）写单线圈&lt;/h3&gt;
@@ -318,7 +318,7 @@
 &lt;p&gt;将单个线圈写入 ON 或 OFF。当广播时，该函数强制所有附加的从机使用相同的线圈引用。请求消息指定要写入的线圈引用（启动线圈和状态）。&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;FF 00&lt;/code&gt;  的值要求线圈打开，值为  &lt;code&gt;00 00&lt;/code&gt;  的请求为关闭，所有其他值都是非法的，不会影响线圈。&lt;/p&gt;
 &lt;p&gt;下面是一个在从设备节点 3 中请求打开线圈 150 的例子（注意起始地址是 149 或 0x95，比线圈 150 小 1）：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;image-20220327172937327.png&#34; alt=&#34;image-20220327172937327&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20220327172937327.png&#34; alt=&#34;image-20220327172937327&#34; /&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;响应&lt;/p&gt;
@@ -326,7 +326,7 @@
 &lt;blockquote&gt;
 &lt;p&gt;Figure 14 shows an example of a response to the query shown in Figure 13：&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&#34;image-20220327173100544.png&#34; alt=&#34;image-20220327173100544&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20220327173100544.png&#34; alt=&#34;image-20220327173100544&#34; /&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;功能-0606h写单个保持寄存器&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#功能-0606h写单个保持寄存器&#34;&gt;#&lt;/a&gt; 功能 06（06H）写单个保持寄存器&lt;/h3&gt;
@@ -335,7 +335,7 @@
 &lt;p&gt;请求&lt;/p&gt;
 &lt;p&gt;将一个值写入单个保持寄存器中。当广播时，该函数在所有附加的从机上设置相同的寄存器引用。请求消息指定要写入的寄存器引用（指定地址和数值）。&lt;/p&gt;
 &lt;p&gt;下面是一个请求从从设备节点 3 中的保持寄存器 40150 写入 1000 数值的例子（注意起始地址为 149 或 0x95，比寄存器 40150 小 40001）：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;image-20220327175033869.png&#34; alt=&#34;image-20220327175033869&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20220327175033869.png&#34; alt=&#34;image-20220327175033869&#34; /&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;响应&lt;/p&gt;
@@ -343,7 +343,7 @@
 &lt;blockquote&gt;
 &lt;p&gt;Figure 16 shows an example of a response to the query shown in Figure 15：&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&#34;image-20220327175344005.png&#34; alt=&#34;image-20220327175344005&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20220327175344005.png&#34; alt=&#34;image-20220327175344005&#34; /&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;功能-150fh写多个线圈&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#功能-150fh写多个线圈&#34;&gt;#&lt;/a&gt; 功能 15（0FH）写多个线圈&lt;/h3&gt;
@@ -396,7 +396,7 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;&lt;img src=&#34;image-20220327182406708.png&#34; alt=&#34;image-20220327182406708&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20220327182406708.png&#34; alt=&#34;image-20220327182406708&#34; /&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;响应&lt;/p&gt;
@@ -404,7 +404,7 @@
 &lt;blockquote&gt;
 &lt;p&gt;Figure 24 shows an example of a response to the query shown in Figure 23：&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&#34;image-20220327182618637.png&#34; alt=&#34;image-20220327182618637&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20220327182618637.png&#34; alt=&#34;image-20220327182618637&#34; /&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;功能-1610h写多个保持寄存器&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#功能-1610h写多个保持寄存器&#34;&gt;#&lt;/a&gt; 功能 16（10H）写多个保持寄存器&lt;/h3&gt;
@@ -435,7 +435,7 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;&lt;img src=&#34;image-20220327184941057.png&#34; alt=&#34;image-20220327184941057&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20220327184941057.png&#34; alt=&#34;image-20220327184941057&#34; /&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;响应&lt;/p&gt;
@@ -443,7 +443,7 @@
 &lt;blockquote&gt;
 &lt;p&gt;Figure 26 shows an example of a response to the query shown in Figure 25：&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&#34;image-20220327185223421.png&#34; alt=&#34;image-20220327185223421&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20220327185223421.png&#34; alt=&#34;image-20220327185223421&#34; /&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;lrc校验&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#lrc校验&#34;&gt;#&lt;/a&gt; LRC 校验&lt;/h2&gt;
@@ -520,10 +520,10 @@
 &lt;/table&gt;
 &lt;p&gt;&lt;strong&gt;*T1-T2-T3-T4&lt;/strong&gt;：表示不通信时的 3.5 个字符。&lt;/p&gt;
 &lt;p&gt;所有其他字段都由 8 位数据组成。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;image-20220319201759692.png&#34; alt=&#34;image-20220319201759692&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20220319201759692.png&#34; alt=&#34;image-20220319201759692&#34; /&gt;&lt;/p&gt;
 &lt;h2 id=&#34;功能码&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#功能码&#34;&gt;#&lt;/a&gt; 功能码&lt;/h2&gt;
 &lt;p&gt;Modbus 设备最常用的功能代码如下表所示：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;image-20220319195917761.png&#34; alt=&#34;image-20220319195917761&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20220319195917761.png&#34; alt=&#34;image-20220319195917761&#34; /&gt;&lt;/p&gt;
 &lt;h3 id=&#34;功能-0101h读线圈&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#功能-0101h读线圈&#34;&gt;#&lt;/a&gt; 功能 01（01H）读线圈&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -653,7 +653,7 @@
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;strong&gt;流程图：&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;image-20220319211327513.png&#34; alt=&#34;image-20220319211327513&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20220319211327513.png&#34; alt=&#34;image-20220319211327513&#34; /&gt;&lt;/p&gt;
 &lt;h3 id=&#34;功能-0202h读离散输入&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#功能-0202h读离散输入&#34;&gt;#&lt;/a&gt; 功能 02（02H）读离散输入&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -783,7 +783,7 @@
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;strong&gt;流程图：&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;image-20220319212623922.png&#34; alt=&#34;image-20220319212623922&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20220319212623922.png&#34; alt=&#34;image-20220319212623922&#34; /&gt;&lt;/p&gt;
 &lt;h3 id=&#34;功能-0303h读保持寄存器&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#功能-0303h读保持寄存器&#34;&gt;#&lt;/a&gt; 功能 03（03H）读保持寄存器&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -912,7 +912,7 @@
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;strong&gt;流程图：&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;image-20220319213419588.png&#34; alt=&#34;image-20220319213419588&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20220319213419588.png&#34; alt=&#34;image-20220319213419588&#34; /&gt;&lt;/p&gt;
 &lt;h3 id=&#34;功能-0404h读输入寄存器&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#功能-0404h读输入寄存器&#34;&gt;#&lt;/a&gt; 功能 04（04H）读输入寄存器&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -1041,7 +1041,7 @@
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;strong&gt;流程图：&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;image-20220319214513539.png&#34; alt=&#34;image-20220319214513539&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20220319214513539.png&#34; alt=&#34;image-20220319214513539&#34; /&gt;&lt;/p&gt;
 &lt;h3 id=&#34;功能-0505h写单线圈&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#功能-0505h写单线圈&#34;&gt;#&lt;/a&gt; 功能 05（05H）写单线圈&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -1163,7 +1163,7 @@
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;strong&gt;流程图：&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;image-20220319215633462.png&#34; alt=&#34;image-20220319215633462&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20220319215633462.png&#34; alt=&#34;image-20220319215633462&#34; /&gt;&lt;/p&gt;
 &lt;h3 id=&#34;功能-0606h写单个保持寄存器&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#功能-0606h写单个保持寄存器&#34;&gt;#&lt;/a&gt; 功能 06（06H）写单个保持寄存器&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -1282,7 +1282,7 @@
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;strong&gt;流程图：&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;image-20220319220604204.png&#34; alt=&#34;image-20220319220604204&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20220319220604204.png&#34; alt=&#34;image-20220319220604204&#34; /&gt;&lt;/p&gt;
 &lt;h3 id=&#34;功能-150fh写多个线圈&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#功能-150fh写多个线圈&#34;&gt;#&lt;/a&gt; 功能 15（0FH）写多个线圈&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -1422,7 +1422,7 @@
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;strong&gt;流程图：&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;image-20220319223636555.png&#34; alt=&#34;image-20220319223636555&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20220319223636555.png&#34; alt=&#34;image-20220319223636555&#34; /&gt;&lt;/p&gt;
 &lt;h3 id=&#34;功能-1610h写多个保持寄存器&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#功能-1610h写多个保持寄存器&#34;&gt;#&lt;/a&gt; 功能 16（10H）写多个保持寄存器&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -1561,7 +1561,7 @@
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;strong&gt;流程图：&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;image-20220319224924985.png&#34; alt=&#34;image-20220319224924985&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20220319224924985.png&#34; alt=&#34;image-20220319224924985&#34; /&gt;&lt;/p&gt;
 &lt;h2 id=&#34;crc校验&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#crc校验&#34;&gt;#&lt;/a&gt; CRC 校验&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -1574,7 +1574,7 @@
 &lt;/ul&gt;
 &lt;h1 id=&#34;实例应用&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#实例应用&#34;&gt;#&lt;/a&gt; 实例应用&lt;/h1&gt;
 &lt;p&gt;测试应用可看以前的文章：&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://blog.csdn.net/qq_42992084/article/details/107590803&#34;&gt;Nano130 之 FreeModbus 移植&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyOTkyMDg0L2FydGljbGUvZGV0YWlscy8xMDc1OTA4MDM=&#34;&gt;Nano130 之 FreeModbus 移植&lt;/span&gt;&lt;/p&gt;
  ]]></description>
         </item>
         <item>
@@ -1599,7 +1599,7 @@
 &lt;li&gt;Modbus TCP&lt;/li&gt;
 &lt;li&gt;Modbus Plus&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;Modbus-Different-Types.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;Modbus-Different-Types.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 &lt;h2 id=&#34;modbus-rtu&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#modbus-rtu&#34;&gt;#&lt;/a&gt; Modbus RTU&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;Modbus RTU&lt;/code&gt;  是一种紧凑的，采用二进制表示数据的方式；因为使用二进制编码和 CRC 错误检查的结合使得 Modbus RTU 适用于工业应用，因为它比 ASCII 字符的替代方案更有效地传输。在 Modbus RTU 与 ASCII 之间进行选择时，如果考虑性能，则 RTU 是首选。&lt;/p&gt;
 &lt;h2 id=&#34;modbus-ascii&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#modbus-ascii&#34;&gt;#&lt;/a&gt; Modbus ASCII&lt;/h2&gt;
@@ -1624,32 +1624,32 @@
 &lt;li&gt;以太网&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Modbus RTU 和 Modbus ASCII 协议应用于串口链接（RS232、RS485、RS422），Modbus TCP/IP 协议应用于以太网链接。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;Modbus-Communication-Physical-Media.gif&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;Modbus-Communication-Physical-Media.gif&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
 &lt;h1 id=&#34;消息结构&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#消息结构&#34;&gt;#&lt;/a&gt; 消息结构&lt;/h1&gt;
 &lt;p&gt;Modbus 的主要消息结构是点对点，能够在点对点和多点网络上运行。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;image-20220208222537825.png&#34; alt=&#34;image-20220208222537825&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20220208222537825.png&#34; alt=&#34;image-20220208222537825&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Modbus 协议遵循 ** 主 / 从（客户端 / 服务器）** 架构，主（客户端）向从（服务器）发送请求并等待响应。注意！目前 Modbus 中使用的术语 “主” 和 “从” 已被术语 “客户端” 和 “服务器” 所取代了。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;image-20220209165731722.png&#34; alt=&#34;image-20220209165731722&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20220209165731722.png&#34; alt=&#34;image-20220209165731722&#34; /&gt;&lt;/p&gt;
 &lt;h1 id=&#34;常见-modbus开源库&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#常见-modbus开源库&#34;&gt;#&lt;/a&gt; 常见 Modbus 开源库&lt;/h1&gt;
-&lt;h2 id=&#34;freemodbus&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#freemodbus&#34;&gt;#&lt;/a&gt; &lt;a href=&#34;https://www.embedded-experts.at/en/freemodbus/&#34;&gt;FreeModbus&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;freemodbus&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#freemodbus&#34;&gt;#&lt;/a&gt; &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuZW1iZWRkZWQtZXhwZXJ0cy5hdC9lbi9mcmVlbW9kYnVzLw==&#34;&gt;FreeModbus&lt;/span&gt;&lt;/h2&gt;
 &lt;p&gt;FreeMODBUS 是流行的 Modbus 协议的免费实现，专门针对嵌入式系统。FreeMODBUS 提供了 &lt;em&gt;Modbus 应用协议 v1.1a&lt;/em&gt; 的实现，并支持 &lt;em&gt;Modbus over serial line 规范 1.0&lt;/em&gt; 中定义的 &lt;strong&gt;RTU/ASCII&lt;/strong&gt; 传输模式 ；自 0.7 版以来，FreeModbus 还支持 &lt;strong&gt;Modbus/TCP&lt;/strong&gt;；0.9 版添加了第一个 Modbus/TCP 端口嵌入式使用 LWIP TCP/IP 堆栈的系统。唯一可惜的是，该 FreeMODBUS 只对从机开放了源码，主机部分并未实现开源。&lt;/p&gt;
 &lt;p&gt;以下是该 FreeMODBUS 的下载链接：&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.embedded-experts.at/en/freemodbus-downloads/&#34;&gt;https://www.embedded-experts.at/en/freemodbus-downloads/&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;libmodbus&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#libmodbus&#34;&gt;#&lt;/a&gt; &lt;a href=&#34;https://libmodbus.org/&#34;&gt;libmodbus&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuZW1iZWRkZWQtZXhwZXJ0cy5hdC9lbi9mcmVlbW9kYnVzLWRvd25sb2Fkcy8=&#34;&gt;https://www.embedded-experts.at/en/freemodbus-downloads/&lt;/span&gt;&lt;/p&gt;
+&lt;h2 id=&#34;libmodbus&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#libmodbus&#34;&gt;#&lt;/a&gt; &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9saWJtb2RidXMub3JnLw==&#34;&gt;libmodbus&lt;/span&gt;&lt;/h2&gt;
 &lt;p&gt;libmodbus 是一个多平台的 Modbus 源库，适用于 Linux、Mac OS X、FreeBSD、QNX 和 Win32 等操作系统；可以根据 Modbus 协议发送和接收数据。支持 RTU（串行）和 TCP（以太网）通信。&lt;/p&gt;
 &lt;p&gt;以下是该 libmodbus 的下载链接：&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://libmodbus.org/download/&#34;&gt;https://libmodbus.org/download/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9saWJtb2RidXMub3JnL2Rvd25sb2FkLw==&#34;&gt;https://libmodbus.org/download/&lt;/span&gt;&lt;/p&gt;
 &lt;h1 id=&#34;参考&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#参考&#34;&gt;#&lt;/a&gt; 参考&lt;/h1&gt;
-&lt;p&gt;&lt;a href=&#34;https://modbus.org/&#34;&gt;Modbus 主页&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://zh.wikipedia.org/wiki/Modbus&#34;&gt;Modbus&lt;/a&gt; - wiki&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://realpars.com/modbus/&#34;&gt;WHAT IS MODBUS?&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;《&lt;a href=&#34;https://process.honeywell.com/us/en/support/product-documents-downloads?search=modbus%20communication%20manual&#34;&gt;modbus communication manual&lt;/a&gt;》&lt;/p&gt;
-&lt;p&gt;《&lt;a href=&#34;https://modbus.org/docs/Modbus_Application_Protocol_V1_1b.pdf&#34;&gt;MODBUS APPLICATION PROTOCOL SPECIFICATION V1.1b&lt;/a&gt;》&lt;/p&gt;
-&lt;p&gt;《&lt;a href=&#34;https://www.generationrobots.com/media/roboteq/modbus-manual.pdf&#34;&gt;Modbus Fieldbus Networking&lt;/a&gt;》&lt;/p&gt;
-&lt;p&gt;《&lt;a href=&#34;https://www.m-system.co.jp/mssenglish/service/emmodbus.pdf&#34;&gt;Modbus Protocol Reference Guide&lt;/a&gt;》&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.virtual-serial-port.org/cn/articles/modbus-rtu-guide/&#34;&gt;Modbus RTU 通信指南&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.virtual-serial-port.org/cn/articles/modbus-ascii-guide/&#34;&gt;高级 Modbus ASCII 教程&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.modbustools.com/modbus.html&#34;&gt;modbus tools&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9tb2RidXMub3JnLw==&#34;&gt;Modbus 主页&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvTW9kYnVz&#34;&gt;Modbus&lt;/span&gt; - wiki&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9yZWFscGFycy5jb20vbW9kYnVzLw==&#34;&gt;WHAT IS MODBUS?&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;《&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9wcm9jZXNzLmhvbmV5d2VsbC5jb20vdXMvZW4vc3VwcG9ydC9wcm9kdWN0LWRvY3VtZW50cy1kb3dubG9hZHM/c2VhcmNoPW1vZGJ1cyUyMGNvbW11bmljYXRpb24lMjBtYW51YWw=&#34;&gt;modbus communication manual&lt;/span&gt;》&lt;/p&gt;
+&lt;p&gt;《&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9tb2RidXMub3JnL2RvY3MvTW9kYnVzX0FwcGxpY2F0aW9uX1Byb3RvY29sX1YxXzFiLnBkZg==&#34;&gt;MODBUS APPLICATION PROTOCOL SPECIFICATION V1.1b&lt;/span&gt;》&lt;/p&gt;
+&lt;p&gt;《&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuZ2VuZXJhdGlvbnJvYm90cy5jb20vbWVkaWEvcm9ib3RlcS9tb2RidXMtbWFudWFsLnBkZg==&#34;&gt;Modbus Fieldbus Networking&lt;/span&gt;》&lt;/p&gt;
+&lt;p&gt;《&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cubS1zeXN0ZW0uY28uanAvbXNzZW5nbGlzaC9zZXJ2aWNlL2VtbW9kYnVzLnBkZg==&#34;&gt;Modbus Protocol Reference Guide&lt;/span&gt;》&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cudmlydHVhbC1zZXJpYWwtcG9ydC5vcmcvY24vYXJ0aWNsZXMvbW9kYnVzLXJ0dS1ndWlkZS8=&#34;&gt;Modbus RTU 通信指南&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cudmlydHVhbC1zZXJpYWwtcG9ydC5vcmcvY24vYXJ0aWNsZXMvbW9kYnVzLWFzY2lpLWd1aWRlLw==&#34;&gt;高级 Modbus ASCII 教程&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cubW9kYnVzdG9vbHMuY29tL21vZGJ1cy5odG1s&#34;&gt;modbus tools&lt;/span&gt;&lt;/p&gt;
  ]]></description>
         </item>
     </channel>

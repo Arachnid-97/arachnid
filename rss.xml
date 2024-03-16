@@ -9,8 +9,83 @@
     <atom:link href="https://arachnid.cc/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description>不曾亏欠, 不曾辜负, 如此足矣</description>
-    <pubDate>Sun, 17 Sep 2023 15:29:00 GMT</pubDate>
+    <pubDate>Sat, 16 Mar 2024 10:51:48 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Linux 网络一探究竟</title>
+      <link>https://arachnid.cc/linux-network-config-tool/</link>
+      <guid>https://arachnid.cc/linux-network-config-tool/</guid>
+      <pubDate>Wed, 06 Mar 2024 12:46:05 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description></description>
+          
+        
+      
+      
+      
+      
+      
+      <category domain="https://arachnid.cc/tags/Linux/">Linux</category>
+      
+      
+      <comments>https://arachnid.cc/linux-network-config-tool/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Linux 环境变量的增删改</title>
+      <link>https://arachnid.cc/Linux-environment-variables/</link>
+      <guid>https://arachnid.cc/Linux-environment-variables/</guid>
+      <pubDate>Fri, 01 Mar 2024 12:54:01 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description></description>
+          
+        
+      
+      
+      
+      
+      
+      <category domain="https://arachnid.cc/tags/Linux/">Linux</category>
+      
+      
+      <comments>https://arachnid.cc/Linux-environment-variables/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>关于 Keil 的一些总结性使用</title>
+      <link>https://arachnid.cc/summary-of-keil-tool-use/</link>
+      <guid>https://arachnid.cc/summary-of-keil-tool-use/</guid>
+      <pubDate>Thu, 04 Jan 2024 01:28:47 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description></description>
+          
+        
+      
+      
+      
+      
+      
+      <category domain="https://arachnid.cc/tags/IDE/">IDE</category>
+      
+      
+      <comments>https://arachnid.cc/summary-of-keil-tool-use/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>JTAG 和 SWD 接口定义</title>
@@ -84,6 +159,31 @@
       
       
       <comments>https://arachnid.cc/isolation-techniques/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Linux c 时间时区配置</title>
+      <link>https://arachnid.cc/linux_c-time-configuration/</link>
+      <guid>https://arachnid.cc/linux_c-time-configuration/</guid>
+      <pubDate>Wed, 21 Jun 2023 15:54:38 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description></description>
+          
+        
+      
+      
+      
+      
+      
+      <category domain="https://arachnid.cc/tags/Linux/">Linux</category>
+      
+      
+      <comments>https://arachnid.cc/linux_c-time-configuration/#disqus_thread</comments>
       
     </item>
     
@@ -419,118 +519,6 @@
       
       
       <comments>https://arachnid.cc/arch-linux-install/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>X/YModem 传输协议</title>
-      <link>https://arachnid.cc/x-ymodem-protocol/</link>
-      <guid>https://arachnid.cc/x-ymodem-protocol/</guid>
-      <pubDate>Sun, 27 Mar 2022 15:41:27 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description></description>
-          
-        
-      
-      
-      
-      
-      
-      <category domain="https://arachnid.cc/tags/history/">history</category>
-      
-      <category domain="https://arachnid.cc/tags/Modem/">Modem</category>
-      
-      
-      <comments>https://arachnid.cc/x-ymodem-protocol/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Modbus家族之 ASCII</title>
-      <link>https://arachnid.cc/modbus-ascii-protocol/</link>
-      <guid>https://arachnid.cc/modbus-ascii-protocol/</guid>
-      <pubDate>Sun, 20 Mar 2022 07:42:45 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description></description>
-          
-        
-      
-      
-      
-      
-      <category domain="https://arachnid.cc/categories/modbus/">modbus</category>
-      
-      
-      <category domain="https://arachnid.cc/tags/history/">history</category>
-      
-      <category domain="https://arachnid.cc/tags/modbus/">modbus</category>
-      
-      
-      <comments>https://arachnid.cc/modbus-ascii-protocol/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Modbus家族之 RTU</title>
-      <link>https://arachnid.cc/modbus-rtu-protocol/</link>
-      <guid>https://arachnid.cc/modbus-rtu-protocol/</guid>
-      <pubDate>Fri, 18 Mar 2022 13:01:20 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description></description>
-          
-        
-      
-      
-      
-      
-      <category domain="https://arachnid.cc/categories/modbus/">modbus</category>
-      
-      
-      <category domain="https://arachnid.cc/tags/history/">history</category>
-      
-      <category domain="https://arachnid.cc/tags/modbus/">modbus</category>
-      
-      
-      <comments>https://arachnid.cc/modbus-rtu-protocol/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>RT-Thread 应用总结</title>
-      <link>https://arachnid.cc/rt-thread-summarize/</link>
-      <guid>https://arachnid.cc/rt-thread-summarize/</guid>
-      <pubDate>Fri, 25 Feb 2022 13:33:59 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description></description>
-          
-        
-      
-      
-      
-      
-      
-      <category domain="https://arachnid.cc/tags/history/">history</category>
-      
-      <category domain="https://arachnid.cc/tags/RTOS/">RTOS</category>
-      
-      
-      <comments>https://arachnid.cc/rt-thread-summarize/#disqus_thread</comments>
       
     </item>
     
