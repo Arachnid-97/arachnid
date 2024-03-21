@@ -7,13 +7,10 @@
         <language>zh-CN</language>
         <pubDate>Fri, 25 Feb 2022 21:33:59 +0800</pubDate>
         <lastBuildDate>Fri, 25 Feb 2022 21:33:59 +0800</lastBuildDate>
-        <category>EDA</category>
-        <category>history</category>
         <category>电子</category>
+        <category>history</category>
         <category>硬件设计</category>
-        <category>hexo</category>
-        <category>SQL</category>
-        <category>JSON</category>
+        <category>EDA</category>
         <category>C</category>
         <category>MCU</category>
         <category>git</category>
@@ -22,7 +19,10 @@
         <category>IDE</category>
         <category>Linux</category>
         <category>Ubuntu</category>
+        <category>hexo</category>
+        <category>SQL</category>
         <category>RTOS</category>
+        <category>JSON</category>
         <category>算法</category>
         <category>modbus</category>
         <category>DMX512</category>
@@ -2484,7 +2484,7 @@ NVIC value of 255. */
 4、目标芯片：STM32F103VET6（Cotrex-M3）&lt;br /&gt;
 5、下载调试工具：J-Link&lt;/p&gt;
 &lt;h1 id=&#34;freertos-核心文件提取&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#freertos-核心文件提取&#34;&gt;#&lt;/a&gt; FreeRTOS 核心文件提取&lt;/h1&gt;
-&lt;p&gt;在上一篇 &lt;a href=&#34;https://arachnid.cc/docs/RTOS/FreeRTOS%20%E7%AF%87%E7%AB%A0%E4%B9%8B%E5%AE%98%E6%96%B9%E6%BA%90%E7%A0%81%E6%96%87%E6%A1%A3%E5%88%86%E6%9E%90/&#34;&gt;FreeRTOS 篇章之官方源码文档分析&lt;/a&gt; 已经分析出我们真正需要的文件是在 FreeRTOSv9.0.0/FreeRTOS 文件中，那么我们就去提取出需要的东西。&lt;/p&gt;
+&lt;p&gt;在上一篇 &lt;a href=&#34;https://arachnid.cc/freertos-file-analyse/&#34;&gt;FreeRTOS 篇章之官方源码文档分析&lt;/a&gt; 已经分析出我们真正需要的文件是在 FreeRTOSv9.0.0/FreeRTOS 文件中，那么我们就去提取出需要的东西。&lt;/p&gt;
 &lt;p&gt;先在工程主目录上建立一个名为 FreeRTOS 的文档&lt;/p&gt;
 &lt;p&gt;&lt;img data-src=&#34;20200212223821860.png&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;再在下载下来的  &lt;code&gt;FreeRTOSv9.0.0\FreeRTOS\Source&lt;/code&gt;  文件夹中把下图的这几个文件放进到工程的文档中，而这些零散的源文件我们创一个  &lt;code&gt;src&lt;/code&gt;  文档来对它们进行管理，具体看后面移植完的文件结构分布图：&lt;/p&gt;

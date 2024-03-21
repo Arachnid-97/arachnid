@@ -6,7 +6,7 @@
   <link href="https://arachnid.cc/atom.xml" rel="self"/>
   
   <link href="https://arachnid.cc/"/>
-  <updated>2024-03-16T10:51:48.496Z</updated>
+  <updated>2024-03-20T15:31:15.201Z</updated>
   <id>https://arachnid.cc/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux 网络管理套件</title>
+    <link href="https://arachnid.cc/net-tools-vs-proute2/"/>
+    <id>https://arachnid.cc/net-tools-vs-proute2/</id>
+    <published>2024-03-19T11:51:15.783Z</published>
+    <updated>2024-03-20T15:31:15.201Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    
+    <category term="Linux" scheme="https://arachnid.cc/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>Linux 网络一探究竟</title>
@@ -90,7 +113,7 @@
     <link href="https://arachnid.cc/jtag-and-swd/"/>
     <id>https://arachnid.cc/jtag-and-swd/</id>
     <published>2023-07-09T06:50:41.515Z</published>
-    <updated>2023-09-17T15:29:00.207Z</updated>
+    <updated>2024-03-21T15:46:51.022Z</updated>
     
     
       
@@ -458,31 +481,6 @@
     
     
     
-    
-  </entry>
-  
-  <entry>
-    <title>基于官方指导安装 Arch Linux</title>
-    <link href="https://arachnid.cc/arch-linux-install/"/>
-    <id>https://arachnid.cc/arch-linux-install/</id>
-    <published>2022-04-12T03:02:19.000Z</published>
-    <updated>2023-02-25T06:03:12.002Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html"></summary>
-        
-      
-    
-    
-    
-    
-    <category term="history" scheme="https://arachnid.cc/tags/history/"/>
-    
-    <category term="Linux" scheme="https://arachnid.cc/tags/Linux/"/>
     
   </entry>
   

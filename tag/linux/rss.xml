@@ -5,15 +5,12 @@
         <link>https://arachnid.cc</link>
         <description>不曾亏欠, 不曾辜负, 如此足矣</description>
         <language>zh-CN</language>
-        <pubDate>Wed, 06 Mar 2024 20:46:05 +0800</pubDate>
-        <lastBuildDate>Wed, 06 Mar 2024 20:46:05 +0800</lastBuildDate>
-        <category>EDA</category>
-        <category>history</category>
+        <pubDate>Tue, 19 Mar 2024 19:51:15 +0800</pubDate>
+        <lastBuildDate>Tue, 19 Mar 2024 19:51:15 +0800</lastBuildDate>
         <category>电子</category>
+        <category>history</category>
         <category>硬件设计</category>
-        <category>hexo</category>
-        <category>SQL</category>
-        <category>JSON</category>
+        <category>EDA</category>
         <category>C</category>
         <category>MCU</category>
         <category>git</category>
@@ -22,11 +19,182 @@
         <category>IDE</category>
         <category>Linux</category>
         <category>Ubuntu</category>
+        <category>hexo</category>
+        <category>SQL</category>
         <category>RTOS</category>
+        <category>JSON</category>
         <category>算法</category>
         <category>modbus</category>
         <category>DMX512</category>
         <category>Modem</category>
+        <item>
+            <guid isPermalink="true">https://arachnid.cc/net-tools-vs-proute2/</guid>
+            <title>Linux 网络管理套件</title>
+            <link>https://arachnid.cc/net-tools-vs-proute2/</link>
+            <category>Linux</category>
+            <pubDate>Tue, 19 Mar 2024 19:51:15 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;简述&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#简述&#34;&gt;#&lt;/a&gt; 简述&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;net-tools 起源于 BSD 的 TCP/IP 工具箱，后来成为老版本 Linux 内核中配置网络功能的工具。但自 2001 年起，Linux 社区已经对其停止维护，甚至一些 Linux 发行版比如 Arch Linux 和 CentOS/RHEL 7 则已经完全抛弃了 net-tools，只支持 iproute2。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;iproute2 的出现旨在从功能上取代 net-tools，是目前主流 Linux 所配带的网络套件，同时提供 net-tools 下 ifconfig 和 route 命令所不具备的高级特性。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;net-tools&lt;/th&gt;
+&lt;th&gt;iproute2&lt;/th&gt;
+&lt;th&gt;note&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;ifconfig&lt;/td&gt;
+&lt;td&gt;ip link&lt;/td&gt;
+&lt;td&gt;Listing interfaces&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ifconfig -a&lt;/td&gt;
+&lt;td&gt;ip addr&lt;/td&gt;
+&lt;td&gt;Show addresses&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;route&lt;/td&gt;
+&lt;td&gt;ip route&lt;/td&gt;
+&lt;td&gt;Routing tables&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;arp&lt;/td&gt;
+&lt;td&gt;ip neigh&lt;/td&gt;
+&lt;td&gt;Neighbors&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;iptunnel&lt;/td&gt;
+&lt;td&gt;ip tunnel&lt;/td&gt;
+&lt;td&gt;Tunnels&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;nameif, ifrename&lt;/td&gt;
+&lt;td&gt;ip link set name&lt;/td&gt;
+&lt;td&gt;Rename network interfaces&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ipmaddr&lt;/td&gt;
+&lt;td&gt;ip maddr&lt;/td&gt;
+&lt;td&gt;Multicast&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;netstat&lt;/td&gt;
+&lt;td&gt;ss&lt;/td&gt;
+&lt;td&gt;Show various networking statistics&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;brctl&lt;/td&gt;
+&lt;td&gt;bridge&lt;/td&gt;
+&lt;td&gt;Handle bridge addresses and devices&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h1 id=&#34;基本对照&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#基本对照&#34;&gt;#&lt;/a&gt; 基本对照&lt;/h1&gt;
+&lt;h2 id=&#34;列出-active-网卡接口信息&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#列出-active-网卡接口信息&#34;&gt;#&lt;/a&gt; 列出 active 网卡接口信息&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;net-tools&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ifconfig&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ul&gt;
+&lt;li&gt;iproute2&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ip&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;link&lt;/span&gt; show up&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h2 id=&#34;显示网络接口-ip-地址&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#显示网络接口-ip-地址&#34;&gt;#&lt;/a&gt; 显示网络接口 ip 地址&lt;/h2&gt;
+&lt;p&gt;显示所有接口或指定接口（eg：eth0）的 ip 地址&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;net-tools&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ifconfig&lt;/span&gt; &lt;span class=&#34;token parameter variable&#34;&gt;-a&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ifconfig&lt;/span&gt; eht0&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ul&gt;
+&lt;li&gt;iproute2&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ip&lt;/span&gt; a&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ip&lt;/span&gt; addr show dev eth0&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h2 id=&#34;激活或禁止网络接口&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#激活或禁止网络接口&#34;&gt;#&lt;/a&gt; 激活或禁止网络接口&lt;/h2&gt;
+&lt;p&gt;启动或关闭某个接口（eg：eth0）&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;net-tools&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ifconfig&lt;/span&gt; eth0 up/down&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ul&gt;
+&lt;li&gt;iproute2&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ip&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;link&lt;/span&gt; &lt;span class=&#34;token builtin class-name&#34;&gt;set&lt;/span&gt; up/down eth0&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h2 id=&#34;分配-ipv4ipv6-地址&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#分配-ipv4ipv6-地址&#34;&gt;#&lt;/a&gt; 分配 ipv4/ipv6 地址&lt;/h2&gt;
+&lt;p&gt;给某个接口（eg：eth0）临时配置 ipv4/ipv6 地址，并加上子掩码&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;net-tools&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ifconfig&lt;/span&gt; eth0 &lt;span class=&#34;token number&#34;&gt;192.168&lt;/span&gt;.1.56 netmask &lt;span class=&#34;token number&#34;&gt;255.255&lt;/span&gt;.255.0&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ifconfig&lt;/span&gt; eth0 inet6 &lt;span class=&#34;token function&#34;&gt;add&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;2002&lt;/span&gt;:0db5:0:f102::1/64&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ul&gt;
+&lt;li&gt;iproute2&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ip&lt;/span&gt; addr &lt;span class=&#34;token function&#34;&gt;add&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;192.168&lt;/span&gt;.1.56/24 dev eth0&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ip&lt;/span&gt; &lt;span class=&#34;token parameter variable&#34;&gt;-6&lt;/span&gt; addr &lt;span class=&#34;token function&#34;&gt;add&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;2002&lt;/span&gt;:0db5:0:f102::1/64 dev eth0&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h2 id=&#34;删除-ipv4ipv6-地址&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#删除-ipv4ipv6-地址&#34;&gt;#&lt;/a&gt; 删除 ipv4/ipv6 地址&lt;/h2&gt;
+&lt;p&gt;就 ip 地址的移除而言，除了给接口分配全 0 地址外，net-tools 没有提供任何合适的方法来移除网络接口的 ipv4 地址。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;net-tools&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ifconfig&lt;/span&gt; eth0 &lt;span class=&#34;token number&#34;&gt;0&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ifconfig&lt;/span&gt; eth0 inet6 del &lt;span class=&#34;token number&#34;&gt;2002&lt;/span&gt;:0db5:0:f102::1/64&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ul&gt;
+&lt;li&gt;iproute2&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ip&lt;/span&gt; addr del &lt;span class=&#34;token number&#34;&gt;192.168&lt;/span&gt;.1.56/24 dev eth0&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ip&lt;/span&gt; &lt;span class=&#34;token parameter variable&#34;&gt;-6&lt;/span&gt; addr del &lt;span class=&#34;token number&#34;&gt;2002&lt;/span&gt;:0db5:0:f102::1/64 dev eth0&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h2 id=&#34;修改-mac-地址&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#修改-mac-地址&#34;&gt;#&lt;/a&gt; 修改 MAC 地址&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;net-tools&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ifconfig&lt;/span&gt; eth0 hw ether 00:AA:BB:CC:DD:EE&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ul&gt;
+&lt;li&gt;iproute2&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ip&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;link&lt;/span&gt; &lt;span class=&#34;token builtin class-name&#34;&gt;set&lt;/span&gt; dev eth0 address 00:AA:BB:CC:DD:EE&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h2 id=&#34;查看套接字统计信息&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#查看套接字统计信息&#34;&gt;#&lt;/a&gt; 查看套接字统计信息&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;net-tools&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;netstat&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;netstat&lt;/span&gt; &lt;span class=&#34;token parameter variable&#34;&gt;-l&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ul&gt;
+&lt;li&gt;iproute2&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;ss&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;ss &lt;span class=&#34;token parameter variable&#34;&gt;-l&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h2 id=&#34;查看-arp-表&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#查看-arp-表&#34;&gt;#&lt;/a&gt; 查看 ARP 表&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;net-tools&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;arp &lt;span class=&#34;token parameter variable&#34;&gt;-an&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ul&gt;
+&lt;li&gt;iproute2&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ip&lt;/span&gt; n&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h2 id=&#34;添加-删除或查看多播地址&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#添加-删除或查看多播地址&#34;&gt;#&lt;/a&gt; 添加、删除或查看多播地址&lt;/h2&gt;
+&lt;p&gt;对某个接口（eg：eth0）临时操作多播地址及查看&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;net-tools&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;ipmaddr &lt;span class=&#34;token function&#34;&gt;add&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;33&lt;/span&gt;:44:00:00:00:01 dev eth0&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;ipmaddr del &lt;span class=&#34;token number&#34;&gt;33&lt;/span&gt;:44:00:00:00:01 dev eth0&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;ipmaddr show dev eth0&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ul&gt;
+&lt;li&gt;iproute2&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ip&lt;/span&gt; maddr &lt;span class=&#34;token function&#34;&gt;add&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;33&lt;/span&gt;:44:00:00:00:01 dev eth0&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ip&lt;/span&gt; maddr del &lt;span class=&#34;token number&#34;&gt;33&lt;/span&gt;:44:00:00:00:01 dev eth0&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ip&lt;/span&gt; maddr list dev eth0&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h2 id=&#34;查看-ip-路由表&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#查看-ip-路由表&#34;&gt;#&lt;/a&gt; 查看 ip 路由表&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;net-tools&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;route &lt;span class=&#34;token parameter variable&#34;&gt;-n&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ul&gt;
+&lt;li&gt;iproute2&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ip&lt;/span&gt; route&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h2 id=&#34;添加或修改默认路由&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#添加或修改默认路由&#34;&gt;#&lt;/a&gt; 添加或修改默认路由&lt;/h2&gt;
+&lt;p&gt;对某个接口（eg：eth0）添加或修改默认路由&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;net-tools&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;route add/del default gw &lt;span class=&#34;token number&#34;&gt;192.168&lt;/span&gt;.10.1 eth0&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ul&gt;
+&lt;li&gt;iproute2&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ip&lt;/span&gt; route add/del default via &lt;span class=&#34;token number&#34;&gt;192.168&lt;/span&gt;.10.1 dev eth0&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h2 id=&#34;添加或删除静态路由&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#添加或删除静态路由&#34;&gt;#&lt;/a&gt; 添加或删除静态路由&lt;/h2&gt;
+&lt;p&gt;对某个接口（eg：eth0）添加或删除静态路由&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;net-tools&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;route &lt;span class=&#34;token function&#34;&gt;add&lt;/span&gt; &lt;span class=&#34;token parameter variable&#34;&gt;-net&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;172.14&lt;/span&gt;.32.0/24 gw &lt;span class=&#34;token number&#34;&gt;192.168&lt;/span&gt;.1.1 dev eth0&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;route del &lt;span class=&#34;token parameter variable&#34;&gt;-net&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;172.14&lt;/span&gt;.32.0/24&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;ul&gt;
+&lt;li&gt;iproute2&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ip&lt;/span&gt; route &lt;span class=&#34;token function&#34;&gt;add&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;172.14&lt;/span&gt;.32.0/24 via &lt;span class=&#34;token number&#34;&gt;192.168&lt;/span&gt;.1.1 dev eth0&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ip&lt;/span&gt; route del &lt;span class=&#34;token number&#34;&gt;172.14&lt;/span&gt;.32.0/24&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h1 id=&#34;参考&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#参考&#34;&gt;#&lt;/a&gt; 参考&lt;/h1&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9kb3Vndml0YWxlLndvcmRwcmVzcy5jb20vMjAxMS8xMi8yMS9kZXByZWNhdGVkLWxpbnV4LW5ldHdvcmtpbmctY29tbWFuZHMtYW5kLXRoZWlyLXJlcGxhY2VtZW50cy8=&#34;&gt;https://dougvitale.wordpress.com/2011/12/21/deprecated-linux-networking-commands-and-their-replacements/&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuYmF0dXJpbi5vcmcvZG9jcy9pcHJvdXRlMi8=&#34;&gt;https://www.baturin.org/docs/iproute2/&lt;/span&gt;&lt;/p&gt;
+ ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">https://arachnid.cc/linux-network-config-tool/</guid>
             <title>Linux 网络一探究竟</title>

@@ -7,13 +7,10 @@
         <language>zh-CN</language>
         <pubDate>Thu, 03 Nov 2022 21:13:57 +0800</pubDate>
         <lastBuildDate>Thu, 03 Nov 2022 21:13:57 +0800</lastBuildDate>
-        <category>EDA</category>
-        <category>history</category>
         <category>电子</category>
+        <category>history</category>
         <category>硬件设计</category>
-        <category>hexo</category>
-        <category>SQL</category>
-        <category>JSON</category>
+        <category>EDA</category>
         <category>C</category>
         <category>MCU</category>
         <category>git</category>
@@ -22,7 +19,10 @@
         <category>IDE</category>
         <category>Linux</category>
         <category>Ubuntu</category>
+        <category>hexo</category>
+        <category>SQL</category>
         <category>RTOS</category>
+        <category>JSON</category>
         <category>算法</category>
         <category>modbus</category>
         <category>DMX512</category>

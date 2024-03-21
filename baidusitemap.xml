@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://arachnid.cc/jtag-and-swd/</loc>
+    <lastmod>2024-03-21</lastmod>
+  </url>
+  <url>
+    <loc>https://arachnid.cc/freertos-system-transplant/</loc>
+    <lastmod>2024-03-21</lastmod>
+  </url>
+  <url>
+    <loc>https://arachnid.cc/net-tools-vs-proute2/</loc>
+    <lastmod>2024-03-20</lastmod>
+  </url>
+  <url>
     <loc>https://arachnid.cc/linux-network-config-tool/</loc>
     <lastmod>2024-03-16</lastmod>
   </url>
@@ -31,10 +43,6 @@
   <url>
     <loc>https://arachnid.cc/sqlite-summarize/</loc>
     <lastmod>2024-02-20</lastmod>
-  </url>
-  <url>
-    <loc>https://arachnid.cc/jtag-and-swd/</loc>
-    <lastmod>2023-09-17</lastmod>
   </url>
   <url>
     <loc>https://arachnid.cc/isolation-techniques/</loc>
@@ -162,10 +170,6 @@
   </url>
   <url>
     <loc>https://arachnid.cc/md5-algorithm/</loc>
-    <lastmod>2023-02-13</lastmod>
-  </url>
-  <url>
-    <loc>https://arachnid.cc/freertos-system-transplant/</loc>
     <lastmod>2023-02-13</lastmod>
   </url>
   <url>
