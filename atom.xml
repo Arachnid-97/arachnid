@@ -6,7 +6,7 @@
   <link href="https://arachnid.cc/atom.xml" rel="self"/>
   
   <link href="https://arachnid.cc/"/>
-  <updated>2024-03-20T15:31:15.201Z</updated>
+  <updated>2024-04-21T06:48:23.714Z</updated>
   <id>https://arachnid.cc/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>mfgtool 工具烧写使用</title>
+    <link href="https://arachnid.cc/mfgtool-is-used/"/>
+    <id>https://arachnid.cc/mfgtool-is-used/</id>
+    <published>2024-04-19T14:07:57.112Z</published>
+    <updated>2024-04-21T06:48:23.714Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Linux 网络管理套件</title>
@@ -460,27 +481,6 @@
     
     
     <category term="hexo" scheme="https://arachnid.cc/tags/hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>markdown 语法测试</title>
-    <link href="https://arachnid.cc/markdown-syntax-testing/"/>
-    <id>https://arachnid.cc/markdown-syntax-testing/</id>
-    <published>2022-04-28T07:45:50.867Z</published>
-    <updated>2023-02-13T15:38:15.787Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html"></summary>
-        
-      
-    
-    
-    
     
   </entry>
   

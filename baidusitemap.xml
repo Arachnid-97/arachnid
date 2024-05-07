@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://arachnid.cc/Cortex-M-abnormal/</loc>
+    <lastmod>2024-05-07</lastmod>
+  </url>
+  <url>
+    <loc>https://arachnid.cc/using-git-command/</loc>
+    <lastmod>2024-05-07</lastmod>
+  </url>
+  <url>
+    <loc>https://arachnid.cc/mfgtool-is-used/</loc>
+    <lastmod>2024-04-21</lastmod>
+  </url>
+  <url>
+    <loc>https://arachnid.cc/usart-iic-spi/</loc>
+    <lastmod>2024-03-31</lastmod>
+  </url>
+  <url>
     <loc>https://arachnid.cc/jtag-and-swd/</loc>
     <lastmod>2024-03-21</lastmod>
   </url>
@@ -55,10 +71,6 @@
   <url>
     <loc>https://arachnid.cc/virtual-network-setup/</loc>
     <lastmod>2023-03-14</lastmod>
-  </url>
-  <url>
-    <loc>https://arachnid.cc/using-git-command/</loc>
-    <lastmod>2023-02-28</lastmod>
   </url>
   <url>
     <loc>https://arachnid.cc/uboot-starting/</loc>
@@ -145,10 +157,6 @@
     <lastmod>2023-02-13</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/usart-iic-spi/</loc>
-    <lastmod>2023-02-13</lastmod>
-  </url>
-  <url>
     <loc>https://arachnid.cc/dmx512-protocol/</loc>
     <lastmod>2023-02-13</lastmod>
   </url>
@@ -230,10 +238,6 @@
   </url>
   <url>
     <loc>https://arachnid.cc/CPU-Soc-MCU/</loc>
-    <lastmod>2023-02-13</lastmod>
-  </url>
-  <url>
-    <loc>https://arachnid.cc/Cortex-M-abnormal/</loc>
     <lastmod>2023-02-13</lastmod>
   </url>
   <url>

@@ -9,8 +9,31 @@
     <atom:link href="https://arachnid.cc/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description>不曾亏欠, 不曾辜负, 如此足矣</description>
-    <pubDate>Wed, 20 Mar 2024 15:31:15 GMT</pubDate>
+    <pubDate>Sun, 21 Apr 2024 06:48:23 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>mfgtool 工具烧写使用</title>
+      <link>https://arachnid.cc/mfgtool-is-used/</link>
+      <guid>https://arachnid.cc/mfgtool-is-used/</guid>
+      <pubDate>Fri, 19 Apr 2024 14:07:57 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description></description>
+          
+        
+      
+      
+      
+      
+      
+      
+      <comments>https://arachnid.cc/mfgtool-is-used/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>Linux 网络管理套件</title>
@@ -494,29 +517,6 @@
       
       
       <comments>https://arachnid.cc/hexo-shoka-create/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>markdown 语法测试</title>
-      <link>https://arachnid.cc/markdown-syntax-testing/</link>
-      <guid>https://arachnid.cc/markdown-syntax-testing/</guid>
-      <pubDate>Thu, 28 Apr 2022 07:45:50 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description></description>
-          
-        
-      
-      
-      
-      
-      
-      
-      <comments>https://arachnid.cc/markdown-syntax-testing/#disqus_thread</comments>
       
     </item>
     

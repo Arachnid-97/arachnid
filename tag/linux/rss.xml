@@ -7,25 +7,25 @@
         <language>zh-CN</language>
         <pubDate>Tue, 19 Mar 2024 19:51:15 +0800</pubDate>
         <lastBuildDate>Tue, 19 Mar 2024 19:51:15 +0800</lastBuildDate>
-        <category>电子</category>
-        <category>history</category>
-        <category>硬件设计</category>
         <category>EDA</category>
+        <category>history</category>
+        <category>电子</category>
+        <category>硬件设计</category>
+        <category>hexo</category>
         <category>C</category>
         <category>MCU</category>
         <category>git</category>
         <category>工具</category>
         <category>FreeRTOS</category>
+        <category>SQL</category>
+        <category>JSON</category>
         <category>IDE</category>
         <category>Linux</category>
         <category>Ubuntu</category>
-        <category>hexo</category>
-        <category>SQL</category>
         <category>RTOS</category>
-        <category>JSON</category>
         <category>算法</category>
-        <category>modbus</category>
         <category>DMX512</category>
+        <category>modbus</category>
         <category>Modem</category>
         <item>
             <guid isPermalink="true">https://arachnid.cc/net-tools-vs-proute2/</guid>
