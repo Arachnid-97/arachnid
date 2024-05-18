@@ -384,6 +384,31 @@
     </item>
     
     <item>
+      <title>Linux 命令简述总结</title>
+      <link>https://arachnid.cc/linux-command-summary/</link>
+      <guid>https://arachnid.cc/linux-command-summary/</guid>
+      <pubDate>Sat, 31 Dec 2022 07:40:35 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description></description>
+          
+        
+      
+      
+      
+      
+      
+      <category domain="https://arachnid.cc/tags/Linux/">Linux</category>
+      
+      
+      <comments>https://arachnid.cc/linux-command-summary/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
       <title>Ubuntu下 FTP的搭建配置</title>
       <link>https://arachnid.cc/ubuntu-ftp-create/</link>
       <guid>https://arachnid.cc/ubuntu-ftp-create/</guid>
@@ -440,6 +465,29 @@
     </item>
     
     <item>
+      <title>vscode 常用配置</title>
+      <link>https://arachnid.cc/vscode-config/</link>
+      <guid>https://arachnid.cc/vscode-config/</guid>
+      <pubDate>Sun, 02 Oct 2022 03:37:58 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description></description>
+          
+        
+      
+      
+      
+      
+      
+      
+      <comments>https://arachnid.cc/vscode-config/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
       <title>博客搭建笔记之功能扩展</title>
       <link>https://arachnid.cc/shoka-function-expansion/</link>
       <guid>https://arachnid.cc/shoka-function-expansion/</guid>
@@ -463,60 +511,6 @@
       
       
       <comments>https://arachnid.cc/shoka-function-expansion/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>博客搭建笔记之 shoka 配置</title>
-      <link>https://arachnid.cc/shoka-config/</link>
-      <guid>https://arachnid.cc/shoka-config/</guid>
-      <pubDate>Wed, 25 May 2022 12:38:40 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description></description>
-          
-        
-      
-      
-      
-      
-      <category domain="https://arachnid.cc/categories/Hexo/">Hexo-shoka</category>
-      
-      
-      <category domain="https://arachnid.cc/tags/hexo/">hexo</category>
-      
-      
-      <comments>https://arachnid.cc/shoka-config/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>博客搭建笔记之 Hexo-shoka</title>
-      <link>https://arachnid.cc/hexo-shoka-create/</link>
-      <guid>https://arachnid.cc/hexo-shoka-create/</guid>
-      <pubDate>Tue, 03 May 2022 05:16:58 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description></description>
-          
-        
-      
-      
-      
-      
-      <category domain="https://arachnid.cc/categories/Hexo/">Hexo-shoka</category>
-      
-      
-      <category domain="https://arachnid.cc/tags/hexo/">hexo</category>
-      
-      
-      <comments>https://arachnid.cc/hexo-shoka-create/#disqus_thread</comments>
       
     </item>
     

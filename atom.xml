@@ -111,7 +111,7 @@
     <link href="https://arachnid.cc/summary-of-keil-tool-use/"/>
     <id>https://arachnid.cc/summary-of-keil-tool-use/</id>
     <published>2024-01-04T01:28:47.296Z</published>
-    <updated>2024-03-16T10:43:02.233Z</updated>
+    <updated>2024-05-11T13:14:35.814Z</updated>
     
     
       
@@ -358,6 +358,29 @@
   </entry>
   
   <entry>
+    <title>Linux 命令简述总结</title>
+    <link href="https://arachnid.cc/linux-command-summary/"/>
+    <id>https://arachnid.cc/linux-command-summary/</id>
+    <published>2022-12-31T07:40:35.772Z</published>
+    <updated>2024-05-18T02:57:14.648Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    
+    <category term="Linux" scheme="https://arachnid.cc/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Ubuntu下 FTP的搭建配置</title>
     <link href="https://arachnid.cc/ubuntu-ftp-create/"/>
     <id>https://arachnid.cc/ubuntu-ftp-create/</id>
@@ -410,61 +433,32 @@
   </entry>
   
   <entry>
+    <title>vscode 常用配置</title>
+    <link href="https://arachnid.cc/vscode-config/"/>
+    <id>https://arachnid.cc/vscode-config/</id>
+    <published>2022-10-02T03:37:58.890Z</published>
+    <updated>2024-05-18T02:59:24.737Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>博客搭建笔记之功能扩展</title>
     <link href="https://arachnid.cc/shoka-function-expansion/"/>
     <id>https://arachnid.cc/shoka-function-expansion/</id>
     <published>2022-05-25T15:23:42.722Z</published>
     <updated>2023-02-20T12:59:13.251Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html"></summary>
-        
-      
-    
-    
-    
-    <category term="Hexo-shoka" scheme="https://arachnid.cc/categories/Hexo/"/>
-    
-    
-    <category term="hexo" scheme="https://arachnid.cc/tags/hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>博客搭建笔记之 shoka 配置</title>
-    <link href="https://arachnid.cc/shoka-config/"/>
-    <id>https://arachnid.cc/shoka-config/</id>
-    <published>2022-05-25T12:38:40.634Z</published>
-    <updated>2023-02-13T14:16:16.022Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html"></summary>
-        
-      
-    
-    
-    
-    <category term="Hexo-shoka" scheme="https://arachnid.cc/categories/Hexo/"/>
-    
-    
-    <category term="hexo" scheme="https://arachnid.cc/tags/hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>博客搭建笔记之 Hexo-shoka</title>
-    <link href="https://arachnid.cc/hexo-shoka-create/"/>
-    <id>https://arachnid.cc/hexo-shoka-create/</id>
-    <published>2022-05-03T05:16:58.610Z</published>
-    <updated>2023-02-13T14:16:08.962Z</updated>
     
     
       

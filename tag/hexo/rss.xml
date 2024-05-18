@@ -17,9 +17,9 @@
         <category>git</category>
         <category>工具</category>
         <category>FreeRTOS</category>
+        <category>IDE</category>
         <category>SQL</category>
         <category>JSON</category>
-        <category>IDE</category>
         <category>Linux</category>
         <category>Ubuntu</category>
         <category>RTOS</category>
@@ -675,12 +675,12 @@ cd &amp;quot;blog_dir&amp;quot;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;显示图片：&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;在  &lt;code&gt;&amp;lt;root&amp;gt;\themes\shoka\source\images&lt;/code&gt;  中找到  &lt;code&gt;404.png&lt;/code&gt;  ，用你喜欢的图片替换即可，如果是其它格式的，在 ``&amp;lt;root&amp;gt;\themes\shoka\source\css_common\components\pages\pages.styl &lt;code&gt;搜索&lt;/code&gt;  404.png` 替换即可；&lt;/p&gt;
+&lt;p&gt;在  &lt;code&gt;&amp;lt;root&amp;gt;\themes\shoka\source\images&lt;/code&gt;  中找到  &lt;code&gt;404.png&lt;/code&gt;  ，用你喜欢的图片替换即可，如果是其它格式的，在  &lt;code&gt;&amp;lt;root&amp;gt;\themes\shoka\source\css\_common\components\pages\pages.styl&lt;/code&gt;  搜索  &lt;code&gt;404.png&lt;/code&gt;  替换即可；&lt;/p&gt;
 &lt;p&gt;需要注意的是， &lt;code&gt;links&lt;/code&gt;  链接块中站点图片默认设为  &lt;code&gt;./*/images/404.png&lt;/code&gt;  。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;标题文字：&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;在 ``&amp;lt;root&amp;gt;themes\shoka\languages &lt;code&gt;文件夹中，找到你当前设置的语言文件，对&lt;/code&gt;  not_found` 字段进行更改 。&lt;/p&gt;
+&lt;p&gt;在  &lt;code&gt;&amp;lt;root&amp;gt;\themes\shoka\languages&lt;/code&gt;  文件夹中，找到你当前设置的语言文件，对  &lt;code&gt;not_found&lt;/code&gt;  字段进行更改 。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
  ]]></description>
