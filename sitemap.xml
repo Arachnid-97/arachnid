@@ -2,6 +2,33 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://arachnid.cc/404.html</loc>
+    
+    <lastmod>2024-06-02</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://arachnid.cc/shoka-config/</loc>
+    
+    <lastmod>2024-06-01</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://arachnid.cc/markdown-syntax-testing/</loc>
+    
+    <lastmod>2024-06-01</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://arachnid.cc/shoka-function-expansion/</loc>
     
     <lastmod>2024-05-31</lastmod>
@@ -398,15 +425,6 @@
   </url>
   
   <url>
-    <loc>https://arachnid.cc/markdown-syntax-testing/</loc>
-    
-    <lastmod>2023-02-13</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://arachnid.cc/dmx512-protocol/</loc>
     
     <lastmod>2023-02-13</lastmod>
@@ -542,15 +560,6 @@
   </url>
   
   <url>
-    <loc>https://arachnid.cc/shoka-config/</loc>
-    
-    <lastmod>2023-02-13</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://arachnid.cc/C-pointer/</loc>
     
     <lastmod>2023-02-13</lastmod>
@@ -668,15 +677,6 @@
   </url>
   
   <url>
-    <loc>https://arachnid.cc/404.html</loc>
-    
-    <lastmod>2022-05-23</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://arachnid.cc/about/index.html</loc>
     
     <lastmod>2022-04-29</lastmod>
@@ -688,7 +688,7 @@
 
   <url>
     <loc>https://arachnid.cc/</loc>
-    <lastmod>2024-06-01</lastmod>
+    <lastmod>2024-06-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>

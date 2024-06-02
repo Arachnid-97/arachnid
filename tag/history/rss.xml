@@ -11,19 +11,19 @@
         <category>history</category>
         <category>电子</category>
         <category>硬件设计</category>
+        <category>hexo</category>
+        <category>IDE</category>
         <category>C</category>
         <category>MCU</category>
         <category>git</category>
-        <category>FreeRTOS</category>
         <category>工具</category>
-        <category>hexo</category>
-        <category>IDE</category>
         <category>SQL</category>
         <category>JSON</category>
-        <category>Linux</category>
-        <category>Ubuntu</category>
         <category>RTOS</category>
+        <category>FreeRTOS</category>
+        <category>Linux</category>
         <category>算法</category>
+        <category>Ubuntu</category>
         <category>DMX512</category>
         <category>modbus</category>
         <category>Modem</category>
@@ -5963,8 +5963,8 @@ umount -r /mnt
             <title>FreeRTOS 篇章之任务通知</title>
             <link>https://arachnid.cc/freertos-task-notify/</link>
             <category>history</category>
-            <category>FreeRTOS</category>
             <category>RTOS</category>
+            <category>FreeRTOS</category>
             <pubDate>Mon, 25 Jan 2021 22:00:14 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;任务通知的特性&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#任务通知的特性&#34;&gt;#&lt;/a&gt; 任务通知的特性&lt;/h1&gt;
 &lt;p&gt;通过任务通知，无需单独的通信对象，任务就可以与其他任务进行交互，以及与 ISR 同步。通过使用任务通知，任务或 ISR 可以直接向接收任务发送事件。&lt;/p&gt;
