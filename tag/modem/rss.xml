@@ -16,9 +16,9 @@
         <category>git</category>
         <category>工具</category>
         <category>FreeRTOS</category>
+        <category>hexo</category>
         <category>SQL</category>
         <category>JSON</category>
-        <category>hexo</category>
         <category>IDE</category>
         <category>Linux</category>
         <category>Ubuntu</category>
@@ -50,9 +50,9 @@
 &lt;p&gt;除开上面介绍的三种 X / Y / ZModem 协议，还有个常见的传输协议 --- ASCII 协议，这是最快的传输协议，但只能传送文本文件。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;X / Ymodem 协议：&lt;br /&gt;
+&lt;p&gt;X / Ymodem 协议：&lt;br&gt;
 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3BhdWlsbGFjLmlucmlhLmZyL35kb2xpZ2V6L3ptb2RlbS95bW9kZW0udHh0&#34;&gt;http://pauillac.inria.fr/~doligez/zmodem/ymodem.txt&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;Zmodem 协议：&lt;br /&gt;
+&lt;p&gt;Zmodem 协议：&lt;br&gt;
 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL2dhbGxpdW0uaW5yaWEuZnIvfmRvbGlnZXovem1vZGVtL3ptb2RlbS50eHQ=&#34;&gt;http://gallium.inria.fr/~doligez/zmodem/zmodem.txt&lt;/span&gt;&lt;/p&gt;
 &lt;h1 id=&#34;控制字符定义&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#控制字符定义&#34;&gt;#&lt;/a&gt; 控制字符定义&lt;/h1&gt;
 &lt;pre&gt;&lt;code&gt;&amp;lt;SOH&amp;gt; 01H       // 传输 128Byte 启动标志

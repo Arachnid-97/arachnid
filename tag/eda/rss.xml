@@ -16,9 +16,9 @@
         <category>git</category>
         <category>工具</category>
         <category>FreeRTOS</category>
+        <category>hexo</category>
         <category>SQL</category>
         <category>JSON</category>
-        <category>hexo</category>
         <category>IDE</category>
         <category>Linux</category>
         <category>Ubuntu</category>
@@ -43,13 +43,13 @@
 &lt;p&gt;各操作文档说明：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9kb2NzLmtpY2FkLm9yZy8=&#34;&gt;https://docs.kicad.org/&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;由于 KiCad 是一个开源软件，所以我们可以获取到它的源码：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL0tpQ2FkL2tpY2FkLXNvdXJjZS1taXJyb3I=&#34;&gt;https://github.com/KiCad/kicad-source-mirror&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;当然，基于开源，它实现了跨平台：&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;image-20210814170409099.png&#34; alt=&#34;image-20210814170409099&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;/kicad-summary/image-20210814170409099.png&#34; alt=&#34;image-20210814170409099&#34;&gt;&lt;/p&gt;
 &lt;p&gt;然后在正式开篇之前，以下这些说明都是基于 V5.1.9 版本（最新版为 V5.1.10，修正了部分 Bug）；该死 V6.0 版本居然还没发布，对于想要了解 V6.0 版本的一些升级功能的，可以移到 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly90ZWNoZXhwbG9yYXRpb25zLmNvbS9ibG9nL2tpY2FkL2tpY2FkLTYtcmV2aWV3LW5ldy1hbmQtaW1wcm92ZWQtZmVhdHVyZXMvI3QtMTYxMTAzMTU5OTI0MA==&#34;&gt;KiCad 6 is coming!&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;&amp;lt;br/&amp;gt;&lt;/p&gt;
 &lt;h2 id=&#34;入门&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#入门&#34;&gt;#&lt;/a&gt; 入门&lt;/h2&gt;
 &lt;h3 id=&#34;工作流程&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#工作流程&#34;&gt;#&lt;/a&gt; 工作流程&lt;/h3&gt;
 &lt;p&gt;Kicad 有着其独特的工作流程：&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;kicad_flowchart.png&#34; alt=&#34;kicad_flowchart&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;/kicad-summary/kicad_flowchart.png&#34; alt=&#34;kicad_flowchart&#34;&gt;&lt;/p&gt;
 &lt;p&gt;设计一个 PCB 板，主要由两个任务来完成：绘制原理图和布置电路板。&lt;/p&gt;
 &lt;h3 id=&#34;文件说明&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#文件说明&#34;&gt;#&lt;/a&gt; 文件说明&lt;/h3&gt;
 &lt;p&gt;KiCad 在创建并使用时具有以下特定扩展名文件和文件夹，其主要用于原理图和电路板编辑。&lt;/p&gt;
@@ -482,19 +482,19 @@
 &lt;h3 id=&#34;主题配色&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#主题配色&#34;&gt;#&lt;/a&gt; 主题配色&lt;/h3&gt;
 &lt;p&gt;地址链接：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL3BvaW50aGkva2ljYWQtY29sb3Itc2NoZW1lcw==&#34;&gt;https://github.com/pointhi/kicad-color-schemes&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;例如笔者当前的主题配色为（&lt;strong&gt;behave-dark&lt;/strong&gt;）：&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;eeschema.png&#34; alt=&#34;eeschema&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;pcbnew.png&#34; alt=&#34;pcbnew&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;/kicad-summary/eeschema.png&#34; alt=&#34;eeschema&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;/kicad-summary/pcbnew.png&#34; alt=&#34;pcbnew&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;动态-bom&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#动态-bom&#34;&gt;#&lt;/a&gt; 动态 BOM&lt;/h3&gt;
 &lt;p&gt;吾称之为最硬合交互式 BOM 操作：&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;capture.gif&#34; alt=&#34;Interactive HTML BOM&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;/kicad-summary/capture.gif&#34; alt=&#34;Interactive HTML BOM&#34;&gt;&lt;/p&gt;
 &lt;p&gt;地址链接：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL29wZW5zY29wZXByb2plY3QvSW50ZXJhY3RpdmVIdG1sQm9t&#34;&gt;https://github.com/openscopeproject/InteractiveHtmlBom&lt;/span&gt;&lt;/p&gt;
 &lt;h3 id=&#34;泪滴生成&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#泪滴生成&#34;&gt;#&lt;/a&gt; 泪滴生成&lt;/h3&gt;
 &lt;p&gt;地址链接：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL05pbHVqZVBlcmNodXQva2ljYWRfc2NyaXB0cw==&#34;&gt;https://github.com/NilujePerchut/kicad_scripts&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;泪滴的作用，这里就不说啦，以前有讲过，然后演示：&lt;/p&gt;
 &lt;p&gt;焊盘：&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;image-20210814210020179.png&#34; alt=&#34;image-20210814210020179&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;/kicad-summary/image-20210814210020179.png&#34; alt=&#34;image-20210814210020179&#34;&gt;&lt;/p&gt;
 &lt;p&gt;通孔：&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;image-20210814211109805.png&#34; alt=&#34;image-20210814211109805&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;/kicad-summary/image-20210814211109805.png&#34; alt=&#34;image-20210814211109805&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&amp;lt;br/&amp;gt;&lt;/p&gt;
 &lt;h2 id=&#34;pcbnew中各层用途说明&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#pcbnew中各层用途说明&#34;&gt;#&lt;/a&gt; Pcbnew 中各层用途说明&lt;/h2&gt;
 &lt;h3 id=&#34;所支持的板层&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#所支持的板层&#34;&gt;#&lt;/a&gt; 所支持的板层&lt;/h3&gt;
@@ -514,7 +514,7 @@
 &lt;p&gt;4 个辅助层：Comments、E.C.O. 1、E.C.O. 2、Drawings；&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img data-src=&#34;image-20210814212055614.png&#34; alt=&#34;image-20210814212055614&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;/kicad-summary/image-20210814212055614.png&#34; alt=&#34;image-20210814212055614&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;层的使用说明&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#层的使用说明&#34;&gt;#&lt;/a&gt; 层的使用说明&lt;/h3&gt;
 &lt;h4 id=&#34;固定技术层&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#固定技术层&#34;&gt;#&lt;/a&gt; 固定技术层&lt;/h4&gt;
 &lt;p&gt;KiCad 中 12 个技术层分为 6 对：上层一个，下层一个。可以通过 F. 或者 B. 来区分它们的位置。&lt;/p&gt;
@@ -825,28 +825,28 @@
 &lt;p&gt;在使用本操作时，假定您已经在 KiCad 中完成了 PCB 的设计。&lt;/p&gt;
 &lt;h3 id=&#34;设置-pcb原点坐标&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#设置-pcb原点坐标&#34;&gt;#&lt;/a&gt; 设置 PCB 原点坐标&lt;/h3&gt;
 &lt;p&gt;选择 “菜单栏”，放置 -&amp;gt; 钻孔和位置偏移（或者在右边菜单栏直接选择），将原点放置到 PCB 板框左下角位置，再放置【层对齐标记】到刚刚放置的原点位置。&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;image-20210814222049491.png&#34; alt=&#34;image-20210814222049491&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;/kicad-summary/image-20210814222049491.png&#34; alt=&#34;image-20210814222049491&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;gerber导出&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#gerber导出&#34;&gt;#&lt;/a&gt; Gerber 导出&lt;/h3&gt;
 &lt;p&gt;从菜单栏中点击绘制按键：&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;image-20210814220901206.png&#34; alt=&#34;image-20210814220901206&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;/kicad-summary/image-20210814220901206.png&#34; alt=&#34;image-20210814220901206&#34;&gt;&lt;/p&gt;
 &lt;p&gt;绘制 Gerber，并输出到相应文件夹：&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;image-20210814221059310.png&#34; alt=&#34;image-20210814221059310&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;/kicad-summary/image-20210814221059310.png&#34; alt=&#34;image-20210814221059310&#34;&gt;&lt;/p&gt;
 &lt;p&gt;绘制完后，点击旁边的 “生成钻孔文件” 进入设置生成：&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;image-20210814222350241.png&#34; alt=&#34;image-20210814222350241&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;/kicad-summary/image-20210814222350241.png&#34; alt=&#34;image-20210814222350241&#34;&gt;&lt;/p&gt;
 &lt;p&gt;生成文件放置到同样的文件夹，同时需要注意一下钻孔单位一般要对应 Pcbnew 中所使用的单位。&lt;/p&gt;
 &lt;h3 id=&#34;bom输出&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#bom输出&#34;&gt;#&lt;/a&gt; BOM 输出&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;从原理图输出&lt;/p&gt;
 &lt;p&gt;点击生成 BOM：&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;image-20210814230416366.png&#34; alt=&#34;image-20210814230416366&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;/kicad-summary/image-20210814230416366.png&#34; alt=&#34;image-20210814230416366&#34;&gt;&lt;/p&gt;
 &lt;p&gt;选择生成插件：&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;image-20210814230521885.png&#34; alt=&#34;image-20210814230521885&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;/kicad-summary/image-20210814230521885.png&#34; alt=&#34;image-20210814230521885&#34;&gt;&lt;/p&gt;
 &lt;p&gt;值得注意的是，在箭头处需要添加后缀 “&lt;strong&gt;.csv&lt;/strong&gt;&amp;quot;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;从 PCB 中输出&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;image-20210814231010230.png&#34; alt=&#34;image-20210814231010230&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;/kicad-summary/image-20210814231010230.png&#34; alt=&#34;image-20210814231010230&#34;&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
  ]]></description>
@@ -897,8 +897,8 @@
 &lt;p&gt;16：Tab 键 在交互布线或放置元件、过孔等对象的过程中修改对象属性。&lt;/p&gt;
 &lt;p&gt;17：Ctrl + M 测量任意两点间的距离&lt;/p&gt;
 &lt;p&gt;18：Ctrl + Shift + T、B、L、R 可以快速对齐所选中的元件 上 / 下 / 左 / 右&lt;/p&gt;
-&lt;p&gt;19：器件联合 ---- 选中两个器件，然后右击 选择 “联合 - 从选中的器件生成联合” 这样可以操作两个位置在一起的器件&lt;br /&gt;
-当要去掉时候 选中器件 右击 选择 “联合 - 从联合打散器件” 那么连接在一起的就能够单独操作了&lt;br /&gt;
+&lt;p&gt;19：器件联合 ---- 选中两个器件，然后右击 选择 “联合 - 从选中的器件生成联合” 这样可以操作两个位置在一起的器件&lt;br&gt;
+当要去掉时候 选中器件 右击 选择 “联合 - 从联合打散器件” 那么连接在一起的就能够单独操作了&lt;br&gt;
 当选中联合的器件，右击选择联合，有个 “选择所有的联合” 这样一下子选择所有联合的器件。固定的外框就可以联合起来移动操作&lt;/p&gt;
 &lt;p&gt;20：M - I ---- 可以把选中所有的元件，翻转过来（其实就是顶层跟底层的切换）；这样可以在上下层切换，方便布线，调整印丝层。 很实用的一个操作。&lt;/p&gt;
 &lt;p&gt;21：E - A ---- 特殊粘贴 拼版或复制粘贴元件的时候可以保持网络也一起粘贴（具体自己选择相应的操作）&lt;/p&gt;
@@ -912,7 +912,7 @@
 &lt;li&gt;“-G” 转换出来的区域是多边形敷铜的第三种模式，如需更改，双击选自己需要的敷铜方式就行了；&lt;/li&gt;
 &lt;li&gt;“- R” 转换出来的是一个实心的区域图形，相当于实心作画；&lt;/li&gt;
 &lt;li&gt;“- T” 转换出来的是多边形剪切块，说白了就是拿来挖铜的；&lt;/li&gt;
-&lt;li&gt;“- B” 转换出来的是板剪切块，具体干嘛用的还不知道，只知道它相当于一个白色的底层背景，不会覆盖任何一个板层&lt;br /&gt;
+&lt;li&gt;“- B” 转换出来的是板剪切块，具体干嘛用的还不知道，只知道它相当于一个白色的底层背景，不会覆盖任何一个板层&lt;br&gt;
 &lt;mark&gt;（注意：转化前必须先对线性封闭图形选中再按快捷键，转换出来的区域是由外围线段决定的，不是封闭图形的话，只会转换选中的线条；转化后得到的区域图形所在的层是你当前的层）&lt;/mark&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;28：O - B ---- PCB 板参数设置&lt;/p&gt;
@@ -997,20 +997,20 @@
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;从 Topology 下拉菜单中选择拓扑类型选项。&lt;/p&gt;
-&lt;p&gt;AD 提供了以下几种布线拓扑规则：&lt;br /&gt;
-①	Shortest (最短) 规则设置最短规则， 该选项的定义是在布线时连 接所有节点的连线最短规则。&lt;br /&gt;
-②	Horizontal（水平）规则设置水平规则设置它采用连接节点的水 平连线最短规则。&lt;br /&gt;
-③	Vertical （垂直） 规则设置垂直规则设置它采和是连接所有节点， 在垂直方向连线最短规则。&lt;br /&gt;
-④	Daisy Simple（简单雏菊）规则设置简单雏菊规则设置。它采用的是使用链式连通法则，从一点到另一点连通所有的节点，并使连线 最短。&lt;br /&gt;
-⑤	Daisy MidDiven（雏菊中点）规则设置雏菊中点规则设置。该规 则选择一个 Source（源点），以它为中心向左右连通所有的节点， 并 使连线最短。&lt;br /&gt;
-⑥	Daisy Balanced（雏菊平衡）规则设置雏菊平衡规则设置。它也 选择一个源点，将所有的中间节点数目平均分成组，所有的组都连接 在源点上，并使连线最短。&lt;br /&gt;
+&lt;p&gt;AD 提供了以下几种布线拓扑规则：&lt;br&gt;
+①	Shortest (最短) 规则设置最短规则， 该选项的定义是在布线时连 接所有节点的连线最短规则。&lt;br&gt;
+②	Horizontal（水平）规则设置水平规则设置它采用连接节点的水 平连线最短规则。&lt;br&gt;
+③	Vertical （垂直） 规则设置垂直规则设置它采和是连接所有节点， 在垂直方向连线最短规则。&lt;br&gt;
+④	Daisy Simple（简单雏菊）规则设置简单雏菊规则设置。它采用的是使用链式连通法则，从一点到另一点连通所有的节点，并使连线 最短。&lt;br&gt;
+⑤	Daisy MidDiven（雏菊中点）规则设置雏菊中点规则设置。该规 则选择一个 Source（源点），以它为中心向左右连通所有的节点， 并 使连线最短。&lt;br&gt;
+⑥	Daisy Balanced（雏菊平衡）规则设置雏菊平衡规则设置。它也 选择一个源点，将所有的中间节点数目平均分成组，所有的组都连接 在源点上，并使连线最短。&lt;br&gt;
 ⑦	Star Burst（星形）规则设置星形规则设置。该规则也是采用选 择一个源点，以星形方式去连接别的节点，并使连线最短。&lt;/p&gt;
 &lt;ol start=&#34;3&#34;&gt;
 &lt;li&gt;
 &lt;p&gt;Routing Priority （布线优先级） 选项区域设置该规则用于设置布线 的优先次序，设置的范围从 0~100，数值越大，优先级越高。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Routing Layers（布线图规则）该规则设置布线板导的导线走线方 法。包括顶层和底层布线层，选择允许走线的层。&lt;br /&gt;
+&lt;p&gt;Routing Layers（布线图规则）该规则设置布线板导的导线走线方 法。包括顶层和底层布线层，选择允许走线的层。&lt;br&gt;
 AD 提供了 11 种布线走法。 各种布线方法为： Not Used 该层不进行布线； Horizontal 该层 按水平方向布线；Vertical 该层为垂直方向布线； Any 该层可以任意 方向布线；1.0 Clock 该层为按一点钟方向布线；2.0 Clock 该层为按两 点钟方向布线；4.0 Clock 该层为按四点钟方向布线；5.0 Clock 该层为 按五点钟方向布线； 45Up 该层为向上 45 ° 方向布线、 45Down 该层为向下 45° 方法布线； Fan Out 该层以扇形方式布线。对于系统默认的双面板情况， 一面布线采用 Horizontal 方式另一面采 用 Vertical 方式。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;

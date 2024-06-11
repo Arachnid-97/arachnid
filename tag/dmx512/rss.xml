@@ -16,9 +16,9 @@
         <category>git</category>
         <category>工具</category>
         <category>FreeRTOS</category>
+        <category>hexo</category>
         <category>SQL</category>
         <category>JSON</category>
-        <category>hexo</category>
         <category>IDE</category>
         <category>Linux</category>
         <category>Ubuntu</category>
@@ -37,12 +37,12 @@
             <description><![CDATA[ &lt;blockquote&gt;
 &lt;p&gt;DMX512（digital multiplex）&lt;/p&gt;
 &lt;p&gt;其实就是主机向从机整包单向广播发送的协议（protocol），从机自取所需。&lt;/p&gt;
-&lt;p&gt;DMX512 数据协议是美国舞台灯光协会（USITT）于 1990 年发布的一种灯光控制器与灯具设备进行数据传输的标准。它包括电气特性，数据协议，数据格式等方面的内容。&lt;br /&gt;
+&lt;p&gt;DMX512 数据协议是美国舞台灯光协会（USITT）于 1990 年发布的一种灯光控制器与灯具设备进行数据传输的标准。它包括电气特性，数据协议，数据格式等方面的内容。&lt;br&gt;
 512 协议规定使用的波特率是 250Kbps&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h1 id=&#34;链接拓扑network-topology&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#链接拓扑network-topology&#34;&gt;#&lt;/a&gt; 链接拓扑（network topology）&lt;/h1&gt;
 &lt;p&gt;根据后面的协议可以知道，其实就是将所有的 slave 挂到线上去。（线最长可以多长？）&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;20190805215926835.png&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;/dmx512-protocol/20190805215926835.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
 &lt;h1 id=&#34;协议protocol时序&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#协议protocol时序&#34;&gt;#&lt;/a&gt; 协议（protocol）时序&lt;/h1&gt;
 &lt;p&gt;1） 先说明地址，包的格式是固定的，第一个数据帧就是地址 1（说是 0 也可以），接下来的数据帧，地址逐渐 + 1。&lt;/p&gt;
 &lt;p&gt;2） 1 slot 或者叫 1 data frame（数据帧）= 1 start bit（低电平） + 8 data bits + 2 stop bits（高电平） = 11bits， 1bit = 4us，1slot = 44us。（下图右下角的蓝色字体部分）&lt;/p&gt;
@@ -54,9 +54,9 @@
 &lt;li&gt;MTBP，高电平有效，0 - 1s 之间&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;time = 88us + 8us + 44us + 512 * 44us + 0 = 22668us = 22.668ms 发包频率 44.11Hz，也就是控制频率了，如果地址用不完，把 slot 减少，时间也可以节省，然后频率可以更高了。(调光控制台每发送一个信息包，可以对全部 512 个受控通道形成一次全面的控制。发送一个信息包的时间大约是 23 ms，每秒钟将对所有 512 个受控通道完成 44 次控制，即受控光路的刷新频率 44 Hz，如果实际受控通道少于 512 个，那么刷新频率将相应提高。)&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;20190805220038760.png&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;/dmx512-protocol/20190805220038760.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
 &lt;p&gt;每个 slot 对应右下角放大的每帧时序：&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;20190805220057706.png&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;/dmx512-protocol/20190805220057706.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;START BIT 为开始位，宽度为一个比特，是受控灯具准备接收并解码控制数据的开始标志。&lt;/p&gt;
@@ -83,7 +83,7 @@
 &lt;/ol&gt;
 &lt;h1 id=&#34;时序规格标准&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#时序规格标准&#34;&gt;#&lt;/a&gt; 时序规格标准&lt;/h1&gt;
 &lt;p&gt;在 DMX512-A 草案中，执行的标准如下：&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;image-20230112233937497.png&#34; alt=&#34;image-20230112233937497&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;/dmx512-protocol/image-20230112233937497.png&#34; alt=&#34;image-20230112233937497&#34;&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Timing Diagram Values for Transmitter&lt;/li&gt;
 &lt;/ul&gt;
@@ -280,7 +280,7 @@
 &lt;/table&gt;
 &lt;h1 id=&#34;通道控制&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#通道控制&#34;&gt;#&lt;/a&gt; 通道控制&lt;/h1&gt;
 &lt;p&gt;目前由于灯光种类的多样性，不再是只用单通道控制一款灯亮度这么简单了；像摇头灯、彩色灯等灯光设备，需占几个或几十个控制通道；每个通道对应不同的功能，该功能根据灯厂资料提供，如下所例：&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;_______1.png&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;/dmx512-protocol/_______1.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuYWJvbGlnaHQuY29tL3Byb2Qvc29ydDIvczYucGhw&#34;&gt;https://www.abolight.com/prod/sort2/s6.php&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3d3dy5hYm9saWdodC5jb20vcHJvZC9zb3J0OC9sa2lwLWxlZDE1MGMucGhw&#34;&gt;http://www.abolight.com/prod/sort8/lkip-led150c.php&lt;/span&gt;&lt;/p&gt;
 &lt;h1 id=&#34;非标程序设计&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#非标程序设计&#34;&gt;#&lt;/a&gt; 非标程序设计&lt;/h1&gt;

@@ -16,9 +16,9 @@
         <category>git</category>
         <category>工具</category>
         <category>FreeRTOS</category>
+        <category>hexo</category>
         <category>SQL</category>
         <category>JSON</category>
-        <category>hexo</category>
         <category>IDE</category>
         <category>Linux</category>
         <category>Ubuntu</category>
@@ -124,11 +124,11 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;hr /&gt;
+&lt;hr&gt;
 &lt;h1 id=&#34;git-流程图&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#git-流程图&#34;&gt;#&lt;/a&gt; git 流程图&lt;/h1&gt;
-&lt;p&gt;&lt;img data-src=&#34;20200426223848910.png&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==&#34; alt=&#34;点击并拖拽以移动&#34; /&gt;&lt;/p&gt;
-&lt;hr /&gt;
+&lt;p&gt;&lt;img data-src=&#34;/using-git-command/20200426223848910.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==&#34; alt=&#34;点击并拖拽以移动&#34;&gt;&lt;/p&gt;
+&lt;hr&gt;
 &lt;h1 id=&#34;git-添加文件&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#git-添加文件&#34;&gt;#&lt;/a&gt; git 添加文件&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;git add -u&lt;/code&gt;&lt;/li&gt;
@@ -142,7 +142,7 @@
 &lt;li&gt;&lt;code&gt;git add -A&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;（  &lt;code&gt;git add --all&lt;/code&gt;  的缩写）  添加所有变化；&lt;strong&gt;是上面两个功能的合集&lt;/strong&gt;，可以提交未跟踪、修改和删除文件。&lt;/p&gt;
-&lt;hr /&gt;
+&lt;hr&gt;
 &lt;h1 id=&#34;git-远程强制推送&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#git-远程强制推送&#34;&gt;#&lt;/a&gt; git 远程强制推送&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -150,7 +150,7 @@
 &lt;p&gt;强制更新到 GitHub， &lt;code&gt;--force&lt;/code&gt;  假如遇到冲突也让 git 强制执行&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;hr /&gt;
+&lt;hr&gt;
 &lt;h1 id=&#34;git-删除当前分支下的所有历史版本与-log-并同步至-github&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#git-删除当前分支下的所有历史版本与-log-并同步至-github&#34;&gt;#&lt;/a&gt; git 删除当前分支下的所有历史版本与 log 并同步至 GitHub&lt;/h1&gt;
 &lt;ol&gt;
 &lt;li&gt;
@@ -178,11 +178,11 @@
 &lt;p&gt;&lt;code&gt;git push -f origin master&lt;/code&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;hr /&gt;
+&lt;hr&gt;
 &lt;h1 id=&#34;git-出现-fatal-refusing-to-merge-unrelated-histories&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#git-出现-fatal-refusing-to-merge-unrelated-histories&#34;&gt;#&lt;/a&gt; git 出现 &amp;quot;fatal: refusing to merge unrelated histories&amp;quot;&lt;/h1&gt;
 &lt;p&gt;&lt;strong&gt;背景&lt;/strong&gt;：在本地初始化了一个 git 代码仓库，关联到 Github 上新建的仓库，第一次执行  &lt;code&gt;git pull origin master&lt;/code&gt;  拉取远程分支时，出现标题上的问题（ Git 2.9 之后的版本才会出现此问题）。&lt;/p&gt;
 &lt;p&gt;需要添加  &lt;code&gt;--allow-unrelated-histories&lt;/code&gt;  告诉 git 允许不相关历史合并，即写成  &lt;code&gt;git pull origin master --allow-unrelated-histories&lt;/code&gt;  。&lt;/p&gt;
-&lt;hr /&gt;
+&lt;hr&gt;
 &lt;h1 id=&#34;git-撤销-commit&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#git-撤销-commit&#34;&gt;#&lt;/a&gt; git 撤销 commit&lt;/h1&gt;
 &lt;h2 id=&#34;方法一&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#方法一&#34;&gt;#&lt;/a&gt; 方法一&lt;/h2&gt;
 &lt;ol&gt;
@@ -224,7 +224,7 @@
 &lt;p&gt;&lt;code&gt;git commit --amend&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;此时会进入默认 vim 编辑器，修改注释完毕后保存就好了，当然你也可以直接：&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;git commit --amend –m &#39;新命名&#39;&lt;/code&gt;&lt;/p&gt;
-&lt;hr /&gt;
+&lt;hr&gt;
 &lt;h1 id=&#34;git-重写历史&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#git-重写历史&#34;&gt;#&lt;/a&gt; git 重写历史&lt;/h1&gt;
 &lt;p&gt;1、修改多个提交信息，可以通过给  &lt;code&gt;git rebase&lt;/code&gt;  增加  &lt;code&gt;-i&lt;/code&gt;  选项来交互式地运行变基。 必须指定想要重写多久远的历史，这可以通过告诉命令将要变基到的提交来做到。&lt;/p&gt;
 &lt;p&gt;例如，如果想要修改最近三次提交信息，或者那组提交中的任意一个提交信息， 将想要修改的最近一次提交的父提交作为参数传递给  &lt;code&gt;git rebase -i&lt;/code&gt;  命令，例如你想修改倒数第三次的历史，即  &lt;code&gt;HEAD~2^&lt;/code&gt;  或  &lt;code&gt;HEAD~3&lt;/code&gt; （两者是一样的），亦或者通过 commit id 来操作。 记住  &lt;code&gt;~3&lt;/code&gt;  可能比较容易，因为你正尝试修改最后三次提交，但是注意实际上指定了以前的四次提交；那么我们只需要修改提交的父提交：&lt;/p&gt;
@@ -232,20 +232,20 @@
 &lt;p&gt;再次记住这是一个变基命令 —— 在  &lt;code&gt;HEAD~3 … HEAD&lt;/code&gt;  范围内的每一个修改了提交信息的提交及其 &lt;strong&gt;所有后裔&lt;/strong&gt; 都会被重写。 不要涉及任何已经推送到中央服务器的提交 —— 这样做会产生一次变更的两个版本，因而使他人困惑。&lt;/p&gt;
 &lt;p&gt;2、在文本编辑器上找到想要修改的历史信息，修改 pick 为 edit；需要重点注意的是相对于正常使用的  &lt;code&gt;log&lt;/code&gt;  命令，这些提交显示的顺序是相反的。&lt;/p&gt;
 &lt;p&gt;3、当保存并退出编辑器时，git 将你带回到列表中的最后一次提交，然后输入  &lt;code&gt;git commit –amend&lt;/code&gt;  ，接着修改提交信息，然后退出编辑器；最后，运行  &lt;code&gt;git rebase --continue&lt;/code&gt;  ，这个命令将会自动地应用另外两个提交，然后就完成了。&lt;/p&gt;
-&lt;hr /&gt;
+&lt;hr&gt;
 &lt;h1 id=&#34;git-rebase-后出现-masterrebase-i-nm&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#git-rebase-后出现-masterrebase-i-nm&#34;&gt;#&lt;/a&gt; git rebase 后出现 (master|REBASE –i n/m)&lt;/h1&gt;
 &lt;p&gt;只需要： &lt;code&gt;git rebase --abort&lt;/code&gt;  ，放弃当前操作退出 rebase-merge 目录。&lt;/p&gt;
-&lt;hr /&gt;
+&lt;hr&gt;
 &lt;h1 id=&#34;git-合并多次commit然后在保存时出现-error-cannot-squash-without-a-previous-commit&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#git-合并多次commit然后在保存时出现-error-cannot-squash-without-a-previous-commit&#34;&gt;#&lt;/a&gt; git 合并多次 commit，然后在保存时出现 &amp;quot;error: cannot&#39;squash&#39; without a previous commit&amp;quot;&lt;/h1&gt;
 &lt;p&gt;注意不要合并先前提交过的东西，也就是已经提交远程分支的纪录。&lt;/p&gt;
-&lt;hr /&gt;
+&lt;hr&gt;
 &lt;h1 id=&#34;git-rebase-报错error-cannot-rebase-you-have-unstaged-changes-error-please-commit-or-stash-them&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#git-rebase-报错error-cannot-rebase-you-have-unstaged-changes-error-please-commit-or-stash-them&#34;&gt;#&lt;/a&gt; git rebase 报错：error: cannot rebase: You have unstaged changes. error: Please commit or stash them.&lt;/h1&gt;
 &lt;p&gt;有两种方法：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;一种是使用 commit 把未暂存的文件进行一次提交，但我们并不想增加一个脏的提交，虽然说可以进行 commit 合并，可这不是自找麻烦吗，那么你可以考虑第二种；&lt;/li&gt;
 &lt;li&gt;第二种就是使用  &lt;code&gt;git stash&lt;/code&gt;  （git 储藏）， &lt;code&gt;git stash&lt;/code&gt;  会把所有未提交的修改（包括暂存的和非暂存的）都保存起来，用于后续恢复当前工作目录；使用该命令后会推送一个新的储藏，当前的工作目录就干净了，这样就可以接着使用  &lt;code&gt;git rebase&lt;/code&gt;  了；需要说明一点， &lt;code&gt;stash&lt;/code&gt;  是本地的，不会通过  &lt;code&gt;git push&lt;/code&gt;  命令上传到  &lt;code&gt;git server&lt;/code&gt;  上；然后想重新应用缓存的  &lt;code&gt;stash&lt;/code&gt;  ，可以通过  &lt;code&gt;git stash pop&lt;/code&gt;  命令恢复之前缓存的工作目录。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;hr /&gt;
+&lt;hr&gt;
 &lt;h1 id=&#34;git-stash&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#git-stash&#34;&gt;#&lt;/a&gt; git stash&lt;/h1&gt;
 &lt;h2 id=&#34;常用操作&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#常用操作&#34;&gt;#&lt;/a&gt; 常用操作&lt;/h2&gt;
 &lt;ul&gt;
@@ -279,7 +279,7 @@
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;暂存部分文件&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#暂存部分文件&#34;&gt;#&lt;/a&gt; 暂存部分文件&lt;/h2&gt;
-&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;git&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;add&lt;/span&gt; file1 file2 &lt;span class=&#34;token comment&#34;&gt;# 保留不想备份的文件至工作区&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;git&lt;/span&gt; stash save &lt;span class=&#34;token parameter variable&#34;&gt;-k&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;# 暂存未 add 的更改文件&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;git&lt;/span&gt; reset &lt;span class=&#34;token comment&#34;&gt;# 恢复工作区文件，至此，只有未 add 的更改文件被储藏&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;hr /&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;git&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;add&lt;/span&gt; file1 file2 &lt;span class=&#34;token comment&#34;&gt;# 保留不想备份的文件至工作区&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;git&lt;/span&gt; stash save &lt;span class=&#34;token parameter variable&#34;&gt;-k&lt;/span&gt; &lt;span class=&#34;token comment&#34;&gt;# 暂存未 add 的更改文件&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;git&lt;/span&gt; reset &lt;span class=&#34;token comment&#34;&gt;# 恢复工作区文件，至此，只有未 add 的更改文件被储藏&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;hr&gt;
 &lt;h1 id=&#34;git-基于当前工作区新开一个本地分支并把远程仓库的文件强制覆盖本地某一分支的文件&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#git-基于当前工作区新开一个本地分支并把远程仓库的文件强制覆盖本地某一分支的文件&#34;&gt;#&lt;/a&gt; git 基于当前工作区新开一个本地分支，并把远程仓库的文件强制覆盖本地某一分支的文件&lt;/h1&gt;
 &lt;p&gt;有时候我们在 master 分支上 commit 了多次，但是后面觉得这些东西应该另外开一个分支 dev 存储比较好，并且想保留之前已经 push 上远程仓库的代码，那么需要以下操作：&lt;/p&gt;
 &lt;ol&gt;
@@ -316,7 +316,7 @@
 &lt;p&gt;&lt;code&gt;git stash pop&lt;/code&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;hr /&gt;
+&lt;hr&gt;
 &lt;h1 id=&#34;git-删除远程分支后仍能在本地中看到该分支&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#git-删除远程分支后仍能在本地中看到该分支&#34;&gt;#&lt;/a&gt; git 删除远程分支后，仍能在本地中看到该分支&lt;/h1&gt;
 &lt;ol&gt;
 &lt;li&gt;
@@ -332,7 +332,7 @@
 &lt;p&gt;执行  &lt;code&gt;git remote prune origin&lt;/code&gt;  删除远程没有本地有的分支。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;hr /&gt;
+&lt;hr&gt;
 &lt;h1 id=&#34;git-指定版本&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#git-指定版本&#34;&gt;#&lt;/a&gt; git 指定版本&lt;/h1&gt;
 &lt;p&gt;此时只需要三步走：&lt;/p&gt;
 &lt;p&gt;1、克隆代码： &lt;code&gt;git clone xxxx.git&lt;/code&gt;&lt;/p&gt;
@@ -341,7 +341,7 @@
 &lt;p&gt;注：  &lt;code&gt;&amp;lt;commit SHA&amp;gt;&lt;/code&gt;  可通过  &lt;code&gt;git log&lt;/code&gt;  查看。&lt;/p&gt;
 &lt;p&gt;在 git submodule 中也可以指定子模块的版本，方法就是：&lt;/p&gt;
 &lt;p&gt;首先添加子模块，然后 cd 到子模块，checkout 到指定的版本，然后提交就可以了，跟上面的操作一样。&lt;/p&gt;
-&lt;hr /&gt;
+&lt;hr&gt;
 &lt;h1 id=&#34;使用-gitignore-忽略-target-idea-文件夹等&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#使用-gitignore-忽略-target-idea-文件夹等&#34;&gt;#&lt;/a&gt; 使用 .gitignore 忽略 target、.idea 文件夹等&lt;/h1&gt;
 &lt;figure class=&#34;highlight txt&#34;&gt;&lt;figcaption data-lang=&#34;txt&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;#忽略所有.svn目录&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;.svn/&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;#忽略所有target目录&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;target/&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;#忽略所有.idea目录&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;.idea/&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;#忽略所有.iml文件&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;*.iml&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;table&gt;
 &lt;thead&gt;
@@ -377,7 +377,7 @@
 &lt;p&gt;要想解决，就是先把本地缓存删除（改变成未 track 状态），然后再提交（假设 target 文件已被添加）：&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;git rm -r --cached target&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;此时将不再追踪 target 这个文件了。&lt;/p&gt;
-&lt;hr /&gt;
+&lt;hr&gt;
 &lt;h1 id=&#34;git-代理设置&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#git-代理设置&#34;&gt;#&lt;/a&gt; git 代理设置&lt;/h1&gt;
 &lt;h2 id=&#34;前提条件&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#前提条件&#34;&gt;#&lt;/a&gt; 前提条件&lt;/h2&gt;
 &lt;ul&gt;
@@ -409,7 +409,7 @@
 &lt;figure class=&#34;highlight shell&#34;&gt;&lt;figcaption data-lang=&#34;Bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;submodule &lt;span class=&#34;token string&#34;&gt;&#34;ModuleA&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    path &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; ModuleA&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    url &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; ./module-a.git&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token punctuation&#34;&gt;[&lt;/span&gt;submodule &lt;span class=&#34;token string&#34;&gt;&#34;ModuleB&#34;&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;]&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    path &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; ModuleB&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;    url &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; ./module-b.git&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;每条记录对应一个子模块信息，path 和 url 对应远程仓库 url 和本地仓库路径。&lt;/p&gt;
 &lt;h1 id=&#34;git-分支合并提交-commit&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#git-分支合并提交-commit&#34;&gt;#&lt;/a&gt; git 分支合并提交 commit&lt;/h1&gt;
 &lt;p&gt;一般来说，如果使用  &lt;code&gt;git merge&lt;/code&gt;  ，对于分支签出往前开发后合并（fast forward merge），是没有任何合并指示的，如下图右方；若使用  &lt;code&gt;--no-ff&lt;/code&gt;  选项可确保一个 fast forward merge 不会发生，而是产生一个新的提交来记录该次合并请求，如下图左方。&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;FMD5h.png&#34; alt=&#34;fast forward merge vs explicit merge&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;/using-git-command/FMD5h.png&#34; alt=&#34;fast forward merge vs explicit merge&#34;&gt;&lt;/p&gt;
 &lt;p&gt;论述：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9zdGFja292ZXJmbG93LmNvbS9xdWVzdGlvbnMvOTA2OTA2MS93aGF0LWVmZmVjdC1kb2VzLXRoZS1uby1mZi1mbGFnLWhhdmUtZm9yLWdpdC1tZXJnZQ==&#34;&gt;https://stackoverflow.com/questions/9069061/what-effect-does-the-no-ff-flag-have-for-git-merge&lt;/span&gt;&lt;/p&gt;
 &lt;h1 id=&#34;附&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#附&#34;&gt;#&lt;/a&gt; 附&lt;/h1&gt;
 &lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9sZWFybmdpdGJyYW5jaGluZy5qcy5vcmcvP2xvY2FsZT16aF9DTg==&#34;&gt;Learn Git Branching&lt;/span&gt;&lt;/p&gt;
