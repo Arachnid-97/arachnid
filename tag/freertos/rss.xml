@@ -11,17 +11,17 @@
         <category>history</category>
         <category>电子</category>
         <category>硬件设计</category>
-        <category>C</category>
+        <category>hexo</category>
         <category>MCU</category>
+        <category>C</category>
         <category>git</category>
         <category>工具</category>
         <category>FreeRTOS</category>
-        <category>hexo</category>
-        <category>SQL</category>
-        <category>JSON</category>
         <category>IDE</category>
         <category>Linux</category>
+        <category>JSON</category>
         <category>Ubuntu</category>
+        <category>SQL</category>
         <category>RTOS</category>
         <category>算法</category>
         <category>DMX512</category>
@@ -220,10 +220,7 @@
 &lt;li&gt;&lt;strong&gt;uint32_t&lt;/strong&gt;：在任务的通知计数清空为零或递减之前的任务通知值。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;strong&gt;3、xTaskNotify () 和 xTaskNotifyFromISR () API 函数&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;BaseType_t  xTaskNotify( TaskHandle_t  xTaskToNotify,&lt;br&gt;
-uint32_t      ulValue,&lt;br&gt;
-eNotifyAction  eAction );&lt;/p&gt;
-&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;BaseType_t  &lt;span class=&#34;token function&#34;&gt;xTaskNotifyFromISR&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt; TaskHandle_t   xTaskToNotify&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;                                &lt;span class=&#34;token class-name&#34;&gt;uint32_t&lt;/span&gt;       ulValue&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;                                eNotifyAction  eAction&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;                                BaseType_t     &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;pxHigherPriorityTaskWoken &lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;传入参数：&lt;/p&gt;
+&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;BaseType_t  &lt;span class=&#34;token function&#34;&gt;xTaskNotify&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt; TaskHandle_t  xTaskToNotify&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;                         &lt;span class=&#34;token class-name&#34;&gt;uint32_t&lt;/span&gt;      ulValue&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;                         eNotifyAction  eAction &lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;figure class=&#34;highlight c&#34;&gt;&lt;figcaption data-lang=&#34;c&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;BaseType_t  &lt;span class=&#34;token function&#34;&gt;xTaskNotifyFromISR&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt; TaskHandle_t   xTaskToNotify&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;                                &lt;span class=&#34;token class-name&#34;&gt;uint32_t&lt;/span&gt;       ulValue&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;                                eNotifyAction  eAction&lt;span class=&#34;token punctuation&#34;&gt;,&lt;/span&gt; &lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;                                BaseType_t     &lt;span class=&#34;token operator&#34;&gt;*&lt;/span&gt;pxHigherPriorityTaskWoken &lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;传入参数：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;xTaskToNotify&lt;/strong&gt;：需要通知的任务句柄。这个句柄即是调用  &lt;code&gt;xTaskCreate()&lt;/code&gt;  创建任务时传递的句柄。&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;ulValue&lt;/strong&gt;：与通知一起发送的数据，如何使用  &lt;code&gt;ulValue&lt;/code&gt;  取决于  &lt;code&gt;eNotifyAction&lt;/code&gt;  值。&lt;/li&gt;

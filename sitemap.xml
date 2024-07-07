@@ -2,9 +2,54 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://arachnid.cc/linux-command-summary/</loc>
+    
+    <lastmod>2024-07-07</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://arachnid.cc/omv6-install/</loc>
+    
+    <lastmod>2024-06-30</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://arachnid.cc/freertos-task-notify/</loc>
+    
+    <lastmod>2024-06-12</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://arachnid.cc/6ull-uboot-transplant/</loc>
+    
+    <lastmod>2024-06-12</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://arachnid.cc/using-git-command/</loc>
+    
+    <lastmod>2024-06-12</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://arachnid.cc/markdown-syntax-testing/</loc>
     
-    <lastmod>2024-06-11</lastmod>
+    <lastmod>2024-06-12</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -32,24 +77,6 @@
     <loc>https://arachnid.cc/zlist/</loc>
     
     <lastmod>2024-06-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://arachnid.cc/6ull-uboot-transplant/</loc>
-    
-    <lastmod>2024-06-07</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://arachnid.cc/omv6-install/</loc>
-    
-    <lastmod>2024-06-07</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -101,15 +128,6 @@
   </url>
   
   <url>
-    <loc>https://arachnid.cc/using-git-command/</loc>
-    
-    <lastmod>2024-05-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://arachnid.cc/GCC-develop/</loc>
     
     <lastmod>2024-05-19</lastmod>
@@ -147,15 +165,6 @@
   
   <url>
     <loc>https://arachnid.cc/vscode-config/</loc>
-    
-    <lastmod>2024-05-18</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://arachnid.cc/linux-command-summary/</loc>
     
     <lastmod>2024-05-18</lastmod>
     
@@ -524,15 +533,6 @@
   </url>
   
   <url>
-    <loc>https://arachnid.cc/freertos-task-notify/</loc>
-    
-    <lastmod>2023-02-13</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://arachnid.cc/freertos-task/</loc>
     
     <lastmod>2023-02-13</lastmod>
@@ -724,7 +724,7 @@
 
   <url>
     <loc>https://arachnid.cc/</loc>
-    <lastmod>2024-06-11</lastmod>
+    <lastmod>2024-07-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
