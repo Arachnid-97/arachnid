@@ -2,9 +2,54 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://arachnid.cc/6ull-uboot-transplant/</loc>
+    
+    <lastmod>2024-08-12</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://arachnid.cc/6ull-kernel-transplant/</loc>
+    
+    <lastmod>2024-08-12</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://arachnid.cc/uboot-starting/</loc>
+    
+    <lastmod>2024-08-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://arachnid.cc/mfgtool-is-used/</loc>
+    
+    <lastmod>2024-08-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://arachnid.cc/linux-command-summary/</loc>
     
-    <lastmod>2024-07-07</lastmod>
+    <lastmod>2024-08-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://arachnid.cc/using-git-command/</loc>
+    
+    <lastmod>2024-07-23</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -13,7 +58,16 @@
   <url>
     <loc>https://arachnid.cc/omv6-install/</loc>
     
-    <lastmod>2024-06-30</lastmod>
+    <lastmod>2024-07-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://arachnid.cc/linux_c-exit-and-return/</loc>
+    
+    <lastmod>2024-07-07</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -21,24 +75,6 @@
   
   <url>
     <loc>https://arachnid.cc/freertos-task-notify/</loc>
-    
-    <lastmod>2024-06-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://arachnid.cc/6ull-uboot-transplant/</loc>
-    
-    <lastmod>2024-06-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://arachnid.cc/using-git-command/</loc>
     
     <lastmod>2024-06-12</lastmod>
     
@@ -77,15 +113,6 @@
     <loc>https://arachnid.cc/zlist/</loc>
     
     <lastmod>2024-06-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://arachnid.cc/6ull-kernel-transplant/</loc>
-    
-    <lastmod>2024-06-06</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -200,15 +227,6 @@
   </url>
   
   <url>
-    <loc>https://arachnid.cc/mfgtool-is-used/</loc>
-    
-    <lastmod>2024-04-21</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://arachnid.cc/usart-iic-spi/</loc>
     
     <lastmod>2024-03-31</lastmod>
@@ -302,15 +320,6 @@
     <loc>https://arachnid.cc/virtual-network-setup/</loc>
     
     <lastmod>2023-03-14</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://arachnid.cc/uboot-starting/</loc>
-    
-    <lastmod>2023-02-27</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -724,7 +733,7 @@
 
   <url>
     <loc>https://arachnid.cc/</loc>
-    <lastmod>2024-07-07</lastmod>
+    <lastmod>2024-08-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>

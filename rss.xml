@@ -9,8 +9,33 @@
     <atom:link href="https://arachnid.cc/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description>不曾亏欠, 不曾辜负, 如此足矣</description>
-    <pubDate>Sun, 09 Jun 2024 15:21:33 GMT</pubDate>
+    <pubDate>Sun, 07 Jul 2024 09:27:42 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Linux c _exit()、exit(0)、exit(1) 与 return 区别详解</title>
+      <link>https://arachnid.cc/linux_c-exit-and-return/</link>
+      <guid>https://arachnid.cc/linux_c-exit-and-return/</guid>
+      <pubDate>Sun, 07 Jul 2024 09:14:39 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description></description>
+          
+        
+      
+      
+      
+      
+      
+      <category domain="https://arachnid.cc/tags/Linux/">Linux</category>
+      
+      
+      <comments>https://arachnid.cc/linux_c-exit-and-return/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>zlist 链表分析</title>
@@ -32,29 +57,6 @@
       
       
       <comments>https://arachnid.cc/zlist/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>mfgtool 工具烧写使用</title>
-      <link>https://arachnid.cc/mfgtool-is-used/</link>
-      <guid>https://arachnid.cc/mfgtool-is-used/</guid>
-      <pubDate>Fri, 19 Apr 2024 14:07:57 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description></description>
-          
-        
-      
-      
-      
-      
-      
-      
-      <comments>https://arachnid.cc/mfgtool-is-used/#disqus_thread</comments>
       
     </item>
     
@@ -289,6 +291,14 @@
       <guid>https://arachnid.cc/6ull-kernel-transplant/</guid>
       <pubDate>Sat, 04 Mar 2023 15:32:46 GMT</pubDate>
       
+        
+        
+          
+          
+      <description></description>
+          
+        
+      
       
       
       
@@ -322,6 +332,29 @@
       
       
       <comments>https://arachnid.cc/6ull-uboot-transplant/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>mfgtool 工具烧写使用</title>
+      <link>https://arachnid.cc/mfgtool-is-used/</link>
+      <guid>https://arachnid.cc/mfgtool-is-used/</guid>
+      <pubDate>Sat, 25 Feb 2023 14:07:57 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description></description>
+          
+        
+      
+      
+      
+      
+      
+      
+      <comments>https://arachnid.cc/mfgtool-is-used/#disqus_thread</comments>
       
     </item>
     
@@ -470,31 +503,6 @@
       
       
       <comments>https://arachnid.cc/linux-system-constitute/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Linux 命令简述总结</title>
-      <link>https://arachnid.cc/linux-command-summary/</link>
-      <guid>https://arachnid.cc/linux-command-summary/</guid>
-      <pubDate>Sat, 31 Dec 2022 07:40:35 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description></description>
-          
-        
-      
-      
-      
-      
-      
-      <category domain="https://arachnid.cc/tags/Linux/">Linux</category>
-      
-      
-      <comments>https://arachnid.cc/linux-command-summary/#disqus_thread</comments>
       
     </item>
     

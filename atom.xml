@@ -6,7 +6,7 @@
   <link href="https://arachnid.cc/atom.xml" rel="self"/>
   
   <link href="https://arachnid.cc/"/>
-  <updated>2024-06-09T15:21:33.000Z</updated>
+  <updated>2024-07-07T09:27:42.218Z</updated>
   <id>https://arachnid.cc/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>zlist 链表分析</title>
-    <link href="https://arachnid.cc/zlist/"/>
-    <id>https://arachnid.cc/zlist/</id>
-    <published>2024-06-06T12:51:29.000Z</published>
-    <updated>2024-06-09T15:21:33.000Z</updated>
+    <title>Linux c _exit()、exit(0)、exit(1) 与 return 区别详解</title>
+    <link href="https://arachnid.cc/linux_c-exit-and-return/"/>
+    <id>https://arachnid.cc/linux_c-exit-and-return/</id>
+    <published>2024-07-07T09:14:39.000Z</published>
+    <updated>2024-07-07T09:27:42.218Z</updated>
     
     
       
@@ -35,14 +35,16 @@
     
     
     
+    <category term="Linux" scheme="https://arachnid.cc/tags/Linux/"/>
+    
   </entry>
   
   <entry>
-    <title>mfgtool 工具烧写使用</title>
-    <link href="https://arachnid.cc/mfgtool-is-used/"/>
-    <id>https://arachnid.cc/mfgtool-is-used/</id>
-    <published>2024-04-19T14:07:57.112Z</published>
-    <updated>2024-04-21T06:48:23.714Z</updated>
+    <title>zlist 链表分析</title>
+    <link href="https://arachnid.cc/zlist/"/>
+    <id>https://arachnid.cc/zlist/</id>
+    <published>2024-06-06T12:51:29.000Z</published>
+    <updated>2024-06-09T15:21:33.000Z</updated>
     
     
       
@@ -132,7 +134,7 @@
     <link href="https://arachnid.cc/omv6-install/"/>
     <id>https://arachnid.cc/omv6-install/</id>
     <published>2024-01-13T13:04:04.775Z</published>
-    <updated>2024-06-30T17:13:25.596Z</updated>
+    <updated>2024-07-21T07:42:33.964Z</updated>
     
     
       
@@ -270,22 +272,7 @@
     <link href="https://arachnid.cc/6ull-kernel-transplant/"/>
     <id>https://arachnid.cc/6ull-kernel-transplant/</id>
     <published>2023-03-04T15:32:46.000Z</published>
-    <updated>2024-06-06T13:41:22.154Z</updated>
-    
-    
-    
-    
-    
-    <category term="Linux" scheme="https://arachnid.cc/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>imx-6ULL uboot 移植</title>
-    <link href="https://arachnid.cc/6ull-uboot-transplant/"/>
-    <id>https://arachnid.cc/6ull-uboot-transplant/</id>
-    <published>2023-03-03T12:52:11.803Z</published>
-    <updated>2024-06-12T14:08:00.541Z</updated>
+    <updated>2024-08-12T14:17:22.509Z</updated>
     
     
       
@@ -300,6 +287,50 @@
     
     
     <category term="Linux" scheme="https://arachnid.cc/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>imx-6ULL uboot 移植</title>
+    <link href="https://arachnid.cc/6ull-uboot-transplant/"/>
+    <id>https://arachnid.cc/6ull-uboot-transplant/</id>
+    <published>2023-03-03T12:52:11.803Z</published>
+    <updated>2024-08-12T14:17:25.854Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    
+    <category term="Linux" scheme="https://arachnid.cc/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>mfgtool 工具烧写使用</title>
+    <link href="https://arachnid.cc/mfgtool-is-used/"/>
+    <id>https://arachnid.cc/mfgtool-is-used/</id>
+    <published>2023-02-25T14:07:57.000Z</published>
+    <updated>2024-08-11T02:33:27.482Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
     
   </entry>
   
@@ -331,7 +362,7 @@
     <link href="https://arachnid.cc/uboot-starting/"/>
     <id>https://arachnid.cc/uboot-starting/</id>
     <published>2023-02-22T13:19:51.653Z</published>
-    <updated>2023-02-27T12:28:03.030Z</updated>
+    <updated>2024-08-11T13:16:54.835Z</updated>
     
     
       
@@ -422,29 +453,6 @@
     <id>https://arachnid.cc/linux-system-constitute/</id>
     <published>2023-02-02T11:34:26.713Z</published>
     <updated>2023-02-18T07:04:28.291Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html"></summary>
-        
-      
-    
-    
-    
-    
-    <category term="Linux" scheme="https://arachnid.cc/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux 命令简述总结</title>
-    <link href="https://arachnid.cc/linux-command-summary/"/>
-    <id>https://arachnid.cc/linux-command-summary/</id>
-    <published>2022-12-31T07:40:35.772Z</published>
-    <updated>2024-07-07T06:13:22.787Z</updated>
     
     
       

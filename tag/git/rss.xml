@@ -11,21 +11,21 @@
         <category>history</category>
         <category>电子</category>
         <category>硬件设计</category>
-        <category>hexo</category>
-        <category>MCU</category>
         <category>C</category>
+        <category>MCU</category>
         <category>git</category>
         <category>工具</category>
         <category>FreeRTOS</category>
+        <category>hexo</category>
         <category>IDE</category>
+        <category>SQL</category>
         <category>Linux</category>
         <category>JSON</category>
         <category>Ubuntu</category>
-        <category>SQL</category>
-        <category>RTOS</category>
         <category>算法</category>
-        <category>DMX512</category>
+        <category>RTOS</category>
         <category>modbus</category>
+        <category>DMX512</category>
         <category>Modem</category>
         <item>
             <guid isPermalink="true">https://arachnid.cc/using-git-command/</guid>
@@ -412,6 +412,90 @@
 &lt;p&gt;一般来说，如果使用  &lt;code&gt;git merge&lt;/code&gt;  ，对于分支签出往前开发后合并（fast forward merge），是没有任何合并指示的，如下图右方；若使用  &lt;code&gt;--no-ff&lt;/code&gt;  选项可确保一个 fast forward merge 不会发生，而是产生一个新的提交来记录该次合并请求，如下图左方。&lt;/p&gt;
 &lt;p&gt;&lt;img data-src=&#34;/using-git-command/FMD5h.png&#34; alt=&#34;fast forward merge vs explicit merge&#34;&gt;&lt;/p&gt;
 &lt;p&gt;论述：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9zdGFja292ZXJmbG93LmNvbS9xdWVzdGlvbnMvOTA2OTA2MS93aGF0LWVmZmVjdC1kb2VzLXRoZS1uby1mZi1mbGFnLWhhdmUtZm9yLWdpdC1tZXJnZQ==&#34;&gt;https://stackoverflow.com/questions/9069061/what-effect-does-the-no-ff-flag-have-for-git-merge&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;还有一种合并是只对某次提交进行合并，可以使用  &lt;code&gt;git cherry-pick -e &amp;lt;commit id&amp;gt;&lt;/code&gt;  。&lt;/p&gt;
+&lt;h1 id=&#34;git-log-导出&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#git-log-导出&#34;&gt;#&lt;/a&gt; git log 导出&lt;/h1&gt;
+&lt;p&gt;参考：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXQtc2NtLmNvbS9ib29rL3poL3YyL0dpdC0lRTUlOUYlQkElRTclQTElODAtJUU2JTlGJUE1JUU3JTlDJThCJUU2JThGJTkwJUU0JUJBJUE0JUU1JThFJTg2JUU1JThGJUIy&#34;&gt;Git 基础 - 查看提交历史&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;命令项：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;--pretty 格式化输出&lt;/p&gt;
+&lt;p&gt;常见选项：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;选项&lt;/th&gt;
+&lt;th&gt;说明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;%H&lt;/td&gt;
+&lt;td&gt;提交的完整哈希值&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;%h&lt;/td&gt;
+&lt;td&gt;提交的简写哈希值&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;%T&lt;/td&gt;
+&lt;td&gt;树的完整哈希值&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;%t&lt;/td&gt;
+&lt;td&gt;树的简写哈希值&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;%P&lt;/td&gt;
+&lt;td&gt;父提交的完整哈希值&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;%p&lt;/td&gt;
+&lt;td&gt;父提交的简写哈希值&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;%an&lt;/td&gt;
+&lt;td&gt;作者名字&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;%ae&lt;/td&gt;
+&lt;td&gt;作者的电子邮件地址&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;%ad&lt;/td&gt;
+&lt;td&gt;作者修订日期（可以用 --date = 选项 来定制格式）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;%ar&lt;/td&gt;
+&lt;td&gt;作者修订日期，按多久以前的方式相对时间显示&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;%cn&lt;/td&gt;
+&lt;td&gt;提交者的名字&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;%ce&lt;/td&gt;
+&lt;td&gt;提交者的电子邮件地址&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;%cd&lt;/td&gt;
+&lt;td&gt;提交日期&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;%cr&lt;/td&gt;
+&lt;td&gt;提交日期（距今多长时间）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;%s&lt;/td&gt;
+&lt;td&gt;提交说明&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;--no-merges 不显示合并的提交&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;eg： &lt;code&gt;git log --no-merges --pretty=format:&amp;quot;%ai: %s&amp;quot; HEAD &amp;gt; CHANGELOG.txt&lt;/code&gt;&lt;/p&gt;
 &lt;h1 id=&#34;附&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#附&#34;&gt;#&lt;/a&gt; 附&lt;/h1&gt;
 &lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9sZWFybmdpdGJyYW5jaGluZy5qcy5vcmcvP2xvY2FsZT16aF9DTg==&#34;&gt;Learn Git Branching&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3d3dy5ydWFueWlmZW5nLmNvbS9ibG9nLzIwMTUvMTIvZ2l0LWNoZWF0LXNoZWV0Lmh0bWw=&#34;&gt;常用 Git 命令清单&lt;/span&gt;&lt;/p&gt;
