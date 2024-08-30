@@ -9,23 +9,26 @@
         <lastBuildDate>Sun, 27 Mar 2022 23:41:27 +0800</lastBuildDate>
         <category>EDA</category>
         <category>history</category>
+        <category>hexo</category>
         <category>电子</category>
         <category>硬件设计</category>
-        <category>C</category>
         <category>MCU</category>
         <category>git</category>
         <category>工具</category>
         <category>FreeRTOS</category>
-        <category>hexo</category>
+        <category>C</category>
         <category>IDE</category>
         <category>SQL</category>
-        <category>Linux</category>
         <category>JSON</category>
+        <category>Linux</category>
+        <category>linux_c</category>
+        <category>arm_linux</category>
         <category>Ubuntu</category>
-        <category>算法</category>
+        <category>imx6ull</category>
         <category>RTOS</category>
-        <category>modbus</category>
+        <category>算法</category>
         <category>DMX512</category>
+        <category>modbus</category>
         <category>Modem</category>
         <item>
             <guid isPermalink="true">https://arachnid.cc/x-ymodem-protocol/</guid>

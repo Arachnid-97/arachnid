@@ -9,7 +9,7 @@
     <atom:link href="https://arachnid.cc/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description>不曾亏欠, 不曾辜负, 如此足矣</description>
-    <pubDate>Sun, 07 Jul 2024 09:27:42 GMT</pubDate>
+    <pubDate>Thu, 29 Aug 2024 13:22:22 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -31,6 +31,8 @@
       
       
       <category domain="https://arachnid.cc/tags/Linux/">Linux</category>
+      
+      <category domain="https://arachnid.cc/tags/linux-c/">linux_c</category>
       
       
       <comments>https://arachnid.cc/linux_c-exit-and-return/#disqus_thread</comments>
@@ -280,8 +282,37 @@
       
       <category domain="https://arachnid.cc/tags/Linux/">Linux</category>
       
+      <category domain="https://arachnid.cc/tags/linux-c/">linux_c</category>
+      
       
       <comments>https://arachnid.cc/linux_c-time-configuration/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Linux 根文件系统的构建</title>
+      <link>https://arachnid.cc/linux-rootfs-create/</link>
+      <guid>https://arachnid.cc/linux-rootfs-create/</guid>
+      <pubDate>Wed, 08 Mar 2023 12:24:36 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description></description>
+          
+        
+      
+      
+      
+      
+      
+      <category domain="https://arachnid.cc/tags/Linux/">Linux</category>
+      
+      <category domain="https://arachnid.cc/tags/arm-linux/">arm_linux</category>
+      
+      
+      <comments>https://arachnid.cc/linux-rootfs-create/#disqus_thread</comments>
       
     </item>
     
@@ -304,6 +335,10 @@
       
       
       <category domain="https://arachnid.cc/tags/Linux/">Linux</category>
+      
+      <category domain="https://arachnid.cc/tags/arm-linux/">arm_linux</category>
+      
+      <category domain="https://arachnid.cc/tags/imx6ull/">imx6ull</category>
       
       
       <comments>https://arachnid.cc/6ull-kernel-transplant/#disqus_thread</comments>
@@ -329,6 +364,10 @@
       
       
       <category domain="https://arachnid.cc/tags/Linux/">Linux</category>
+      
+      <category domain="https://arachnid.cc/tags/arm-linux/">arm_linux</category>
+      
+      <category domain="https://arachnid.cc/tags/imx6ull/">imx6ull</category>
       
       
       <comments>https://arachnid.cc/6ull-uboot-transplant/#disqus_thread</comments>
@@ -359,7 +398,7 @@
     </item>
     
     <item>
-      <title>vmware 下 ubuntu 双网卡设置</title>
+      <title>vmware 下 Ubuntu 双网卡设置</title>
       <link>https://arachnid.cc/virtual-network-setup/</link>
       <guid>https://arachnid.cc/virtual-network-setup/</guid>
       <pubDate>Sat, 25 Feb 2023 09:28:19 GMT</pubDate>
@@ -402,6 +441,8 @@
       
       
       <category domain="https://arachnid.cc/tags/Linux/">Linux</category>
+      
+      <category domain="https://arachnid.cc/tags/arm-linux/">arm_linux</category>
       
       
       <comments>https://arachnid.cc/uboot-starting/#disqus_thread</comments>
@@ -478,31 +519,6 @@
       
       
       <comments>https://arachnid.cc/sqlite-summarize/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Linux 系统构成：bootloader、kernel、rootfs</title>
-      <link>https://arachnid.cc/linux-system-constitute/</link>
-      <guid>https://arachnid.cc/linux-system-constitute/</guid>
-      <pubDate>Thu, 02 Feb 2023 11:34:26 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description></description>
-          
-        
-      
-      
-      
-      
-      
-      <category domain="https://arachnid.cc/tags/Linux/">Linux</category>
-      
-      
-      <comments>https://arachnid.cc/linux-system-constitute/#disqus_thread</comments>
       
     </item>
     

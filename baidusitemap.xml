@@ -1,36 +1,84 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://arachnid.cc/6ull-uboot-transplant/</loc>
-    <lastmod>2024-08-12</lastmod>
+    <loc>https://arachnid.cc/ubuntu-tftp-nfs-create/</loc>
+    <lastmod>2024-08-30</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/6ull-kernel-transplant/</loc>
-    <lastmod>2024-08-12</lastmod>
+    <loc>https://arachnid.cc/linux-rootfs-create/</loc>
+    <lastmod>2024-08-30</lastmod>
   </url>
   <url>
     <loc>https://arachnid.cc/uboot-starting/</loc>
-    <lastmod>2024-08-11</lastmod>
+    <lastmod>2024-08-30</lastmod>
+  </url>
+  <url>
+    <loc>https://arachnid.cc/linux-system-constitute/</loc>
+    <lastmod>2024-08-29</lastmod>
+  </url>
+  <url>
+    <loc>https://arachnid.cc/6ull-uboot-transplant/</loc>
+    <lastmod>2024-08-29</lastmod>
+  </url>
+  <url>
+    <loc>https://arachnid.cc/6ull-kernel-transplant/</loc>
+    <lastmod>2024-08-29</lastmod>
+  </url>
+  <url>
+    <loc>https://arachnid.cc/linux_c-time-configuration/</loc>
+    <lastmod>2024-08-29</lastmod>
+  </url>
+  <url>
+    <loc>https://arachnid.cc/linux_c-exit-and-return/</loc>
+    <lastmod>2024-08-29</lastmod>
+  </url>
+  <url>
+    <loc>https://arachnid.cc/omv6-install/</loc>
+    <lastmod>2024-08-29</lastmod>
+  </url>
+  <url>
+    <loc>https://arachnid.cc/ubuntu-ftp-create/</loc>
+    <lastmod>2024-08-21</lastmod>
+  </url>
+  <url>
+    <loc>https://arachnid.cc/virtual-network-setup/</loc>
+    <lastmod>2024-08-20</lastmod>
+  </url>
+  <url>
+    <loc>https://arachnid.cc/linux-command-summary/</loc>
+    <lastmod>2024-08-15</lastmod>
+  </url>
+  <url>
+    <loc>https://arachnid.cc/freertos-task/</loc>
+    <lastmod>2024-08-14</lastmod>
+  </url>
+  <url>
+    <loc>https://arachnid.cc/freertos-file-analyse/</loc>
+    <lastmod>2024-08-14</lastmod>
+  </url>
+  <url>
+    <loc>https://arachnid.cc/freertos-binary-semaphore/</loc>
+    <lastmod>2024-08-14</lastmod>
+  </url>
+  <url>
+    <loc>https://arachnid.cc/freertos-heap/</loc>
+    <lastmod>2024-08-14</lastmod>
+  </url>
+  <url>
+    <loc>https://arachnid.cc/freertos-config/</loc>
+    <lastmod>2024-08-14</lastmod>
+  </url>
+  <url>
+    <loc>https://arachnid.cc/gcc-compiler-collection/</loc>
+    <lastmod>2024-08-13</lastmod>
   </url>
   <url>
     <loc>https://arachnid.cc/mfgtool-is-used/</loc>
     <lastmod>2024-08-11</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/linux-command-summary/</loc>
-    <lastmod>2024-08-10</lastmod>
-  </url>
-  <url>
     <loc>https://arachnid.cc/using-git-command/</loc>
     <lastmod>2024-07-23</lastmod>
-  </url>
-  <url>
-    <loc>https://arachnid.cc/omv6-install/</loc>
-    <lastmod>2024-07-21</lastmod>
-  </url>
-  <url>
-    <loc>https://arachnid.cc/linux_c-exit-and-return/</loc>
-    <lastmod>2024-07-07</lastmod>
   </url>
   <url>
     <loc>https://arachnid.cc/freertos-task-notify/</loc>
@@ -73,10 +121,6 @@
     <lastmod>2024-05-19</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/gcc-compiler-collection/</loc>
-    <lastmod>2024-05-19</lastmod>
-  </url>
-  <url>
     <loc>https://arachnid.cc/vscode-config/</loc>
     <lastmod>2024-05-18</lastmod>
   </url>
@@ -113,10 +157,6 @@
     <lastmod>2024-03-16</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/linux_c-time-configuration/</loc>
-    <lastmod>2024-03-16</lastmod>
-  </url>
-  <url>
     <loc>https://arachnid.cc/diode-parameter-design/</loc>
     <lastmod>2024-02-22</lastmod>
   </url>
@@ -131,10 +171,6 @@
   <url>
     <loc>https://arachnid.cc/makefile-summarize/</loc>
     <lastmod>2023-03-16</lastmod>
-  </url>
-  <url>
-    <loc>https://arachnid.cc/virtual-network-setup/</loc>
-    <lastmod>2023-03-14</lastmod>
   </url>
   <url>
     <loc>https://arachnid.cc/arch-linux-install/</loc>
@@ -153,19 +189,11 @@
     <lastmod>2023-02-22</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/freertos-config/</loc>
-    <lastmod>2023-02-22</lastmod>
-  </url>
-  <url>
     <loc>https://arachnid.cc/freertos-critical-scheduler/</loc>
     <lastmod>2023-02-22</lastmod>
   </url>
   <url>
     <loc>https://arachnid.cc/freertos-mutex-semaphore/</loc>
-    <lastmod>2023-02-22</lastmod>
-  </url>
-  <url>
-    <loc>https://arachnid.cc/freertos-heap/</loc>
     <lastmod>2023-02-22</lastmod>
   </url>
   <url>
@@ -201,10 +229,6 @@
     <lastmod>2023-02-22</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/linux-system-constitute/</loc>
-    <lastmod>2023-02-18</lastmod>
-  </url>
-  <url>
     <loc>https://arachnid.cc/dmx512-protocol/</loc>
     <lastmod>2023-02-13</lastmod>
   </url>
@@ -233,23 +257,7 @@
     <lastmod>2023-02-13</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/freertos-task/</loc>
-    <lastmod>2023-02-13</lastmod>
-  </url>
-  <url>
-    <loc>https://arachnid.cc/freertos-file-analyse/</loc>
-    <lastmod>2023-02-13</lastmod>
-  </url>
-  <url>
-    <loc>https://arachnid.cc/freertos-binary-semaphore/</loc>
-    <lastmod>2023-02-13</lastmod>
-  </url>
-  <url>
     <loc>https://arachnid.cc/freertos-queue/</loc>
-    <lastmod>2023-02-13</lastmod>
-  </url>
-  <url>
-    <loc>https://arachnid.cc/ubuntu-ftp-create/</loc>
     <lastmod>2023-02-13</lastmod>
   </url>
   <url>

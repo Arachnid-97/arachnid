@@ -6,7 +6,7 @@
   <link href="https://arachnid.cc/atom.xml" rel="self"/>
   
   <link href="https://arachnid.cc/"/>
-  <updated>2024-07-07T09:27:42.218Z</updated>
+  <updated>2024-08-29T13:22:22.617Z</updated>
   <id>https://arachnid.cc/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://arachnid.cc/linux_c-exit-and-return/"/>
     <id>https://arachnid.cc/linux_c-exit-and-return/</id>
     <published>2024-07-07T09:14:39.000Z</published>
-    <updated>2024-07-07T09:27:42.218Z</updated>
+    <updated>2024-08-29T13:22:22.617Z</updated>
     
     
       
@@ -36,6 +36,8 @@
     
     
     <category term="Linux" scheme="https://arachnid.cc/tags/Linux/"/>
+    
+    <category term="linux_c" scheme="https://arachnid.cc/tags/linux-c/"/>
     
   </entry>
   
@@ -134,7 +136,7 @@
     <link href="https://arachnid.cc/omv6-install/"/>
     <id>https://arachnid.cc/omv6-install/</id>
     <published>2024-01-13T13:04:04.775Z</published>
-    <updated>2024-07-21T07:42:33.964Z</updated>
+    <updated>2024-08-29T13:21:41.734Z</updated>
     
     
       
@@ -249,7 +251,7 @@
     <link href="https://arachnid.cc/linux_c-time-configuration/"/>
     <id>https://arachnid.cc/linux_c-time-configuration/</id>
     <published>2023-06-21T15:54:38.000Z</published>
-    <updated>2024-03-16T10:47:11.052Z</updated>
+    <updated>2024-08-29T13:22:28.669Z</updated>
     
     
       
@@ -264,6 +266,33 @@
     
     
     <category term="Linux" scheme="https://arachnid.cc/tags/Linux/"/>
+    
+    <category term="linux_c" scheme="https://arachnid.cc/tags/linux-c/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux 根文件系统的构建</title>
+    <link href="https://arachnid.cc/linux-rootfs-create/"/>
+    <id>https://arachnid.cc/linux-rootfs-create/</id>
+    <published>2023-03-08T12:24:36.000Z</published>
+    <updated>2024-08-30T15:15:56.280Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    
+    <category term="Linux" scheme="https://arachnid.cc/tags/Linux/"/>
+    
+    <category term="arm_linux" scheme="https://arachnid.cc/tags/arm-linux/"/>
     
   </entry>
   
@@ -272,7 +301,7 @@
     <link href="https://arachnid.cc/6ull-kernel-transplant/"/>
     <id>https://arachnid.cc/6ull-kernel-transplant/</id>
     <published>2023-03-04T15:32:46.000Z</published>
-    <updated>2024-08-12T14:17:22.509Z</updated>
+    <updated>2024-08-29T13:23:52.223Z</updated>
     
     
       
@@ -287,6 +316,10 @@
     
     
     <category term="Linux" scheme="https://arachnid.cc/tags/Linux/"/>
+    
+    <category term="arm_linux" scheme="https://arachnid.cc/tags/arm-linux/"/>
+    
+    <category term="imx6ull" scheme="https://arachnid.cc/tags/imx6ull/"/>
     
   </entry>
   
@@ -295,7 +328,7 @@
     <link href="https://arachnid.cc/6ull-uboot-transplant/"/>
     <id>https://arachnid.cc/6ull-uboot-transplant/</id>
     <published>2023-03-03T12:52:11.803Z</published>
-    <updated>2024-08-12T14:17:25.854Z</updated>
+    <updated>2024-08-29T13:23:57.593Z</updated>
     
     
       
@@ -310,6 +343,10 @@
     
     
     <category term="Linux" scheme="https://arachnid.cc/tags/Linux/"/>
+    
+    <category term="arm_linux" scheme="https://arachnid.cc/tags/arm-linux/"/>
+    
+    <category term="imx6ull" scheme="https://arachnid.cc/tags/imx6ull/"/>
     
   </entry>
   
@@ -335,11 +372,11 @@
   </entry>
   
   <entry>
-    <title>vmware 下 ubuntu 双网卡设置</title>
+    <title>vmware 下 Ubuntu 双网卡设置</title>
     <link href="https://arachnid.cc/virtual-network-setup/"/>
     <id>https://arachnid.cc/virtual-network-setup/</id>
     <published>2023-02-25T09:28:19.345Z</published>
-    <updated>2023-03-14T14:52:37.656Z</updated>
+    <updated>2024-08-20T14:17:29.448Z</updated>
     
     
       
@@ -362,7 +399,7 @@
     <link href="https://arachnid.cc/uboot-starting/"/>
     <id>https://arachnid.cc/uboot-starting/</id>
     <published>2023-02-22T13:19:51.653Z</published>
-    <updated>2024-08-11T13:16:54.835Z</updated>
+    <updated>2024-08-30T15:02:41.586Z</updated>
     
     
       
@@ -378,6 +415,8 @@
     
     <category term="Linux" scheme="https://arachnid.cc/tags/Linux/"/>
     
+    <category term="arm_linux" scheme="https://arachnid.cc/tags/arm-linux/"/>
+    
   </entry>
   
   <entry>
@@ -385,7 +424,7 @@
     <link href="https://arachnid.cc/gcc-compiler-collection/"/>
     <id>https://arachnid.cc/gcc-compiler-collection/</id>
     <published>2023-02-10T15:28:36.577Z</published>
-    <updated>2024-05-19T08:28:05.442Z</updated>
+    <updated>2024-08-13T12:53:26.464Z</updated>
     
     
       
@@ -444,29 +483,6 @@
     
     
     <category term="SQL" scheme="https://arachnid.cc/tags/SQL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux 系统构成：bootloader、kernel、rootfs</title>
-    <link href="https://arachnid.cc/linux-system-constitute/"/>
-    <id>https://arachnid.cc/linux-system-constitute/</id>
-    <published>2023-02-02T11:34:26.713Z</published>
-    <updated>2023-02-18T07:04:28.291Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html"></summary>
-        
-      
-    
-    
-    
-    
-    <category term="Linux" scheme="https://arachnid.cc/tags/Linux/"/>
     
   </entry>
   
