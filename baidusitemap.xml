@@ -1,6 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://arachnid.cc/vmware-space-recycling/</loc>
+    <lastmod>2024-09-01</lastmod>
+  </url>
+  <url>
+    <loc>https://arachnid.cc/virtual-network-setup/</loc>
+    <lastmod>2024-09-01</lastmod>
+  </url>
+  <url>
+    <loc>https://arachnid.cc/gcc-compiler-summary/</loc>
+    <lastmod>2024-09-01</lastmod>
+  </url>
+  <url>
+    <loc>https://arachnid.cc/gcc-compiler-collection/</loc>
+    <lastmod>2024-09-01</lastmod>
+  </url>
+  <url>
+    <loc>https://arachnid.cc/6ull-kernel-transplant/</loc>
+    <lastmod>2024-09-01</lastmod>
+  </url>
+  <url>
+    <loc>https://arachnid.cc/linux-command-summary/</loc>
+    <lastmod>2024-09-01</lastmod>
+  </url>
+  <url>
+    <loc>https://arachnid.cc/6ull-uboot-transplant/</loc>
+    <lastmod>2024-08-31</lastmod>
+  </url>
+  <url>
     <loc>https://arachnid.cc/using-git-command/</loc>
     <lastmod>2024-08-31</lastmod>
   </url>
@@ -21,14 +49,6 @@
     <lastmod>2024-08-29</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/6ull-uboot-transplant/</loc>
-    <lastmod>2024-08-29</lastmod>
-  </url>
-  <url>
-    <loc>https://arachnid.cc/6ull-kernel-transplant/</loc>
-    <lastmod>2024-08-29</lastmod>
-  </url>
-  <url>
     <loc>https://arachnid.cc/linux_c-time-configuration/</loc>
     <lastmod>2024-08-29</lastmod>
   </url>
@@ -43,14 +63,6 @@
   <url>
     <loc>https://arachnid.cc/ubuntu-ftp-create/</loc>
     <lastmod>2024-08-21</lastmod>
-  </url>
-  <url>
-    <loc>https://arachnid.cc/virtual-network-setup/</loc>
-    <lastmod>2024-08-20</lastmod>
-  </url>
-  <url>
-    <loc>https://arachnid.cc/linux-command-summary/</loc>
-    <lastmod>2024-08-15</lastmod>
   </url>
   <url>
     <loc>https://arachnid.cc/freertos-task/</loc>
@@ -71,10 +83,6 @@
   <url>
     <loc>https://arachnid.cc/freertos-config/</loc>
     <lastmod>2024-08-14</lastmod>
-  </url>
-  <url>
-    <loc>https://arachnid.cc/gcc-compiler-collection/</loc>
-    <lastmod>2024-08-13</lastmod>
   </url>
   <url>
     <loc>https://arachnid.cc/mfgtool-is-used/</loc>

@@ -13,23 +13,24 @@
         <category>硬件设计</category>
         <category>C</category>
         <category>MCU</category>
+        <category>git</category>
         <category>工具</category>
         <category>FreeRTOS</category>
-        <category>git</category>
-        <category>hexo</category>
-        <category>IDE</category>
         <category>SQL</category>
         <category>JSON</category>
+        <category>IDE</category>
+        <category>RTOS</category>
+        <category>算法</category>
+        <category>modbus</category>
+        <category>DMX512</category>
+        <category>Modem</category>
+        <category>hexo</category>
         <category>Linux</category>
         <category>linux_c</category>
         <category>arm_linux</category>
         <category>Ubuntu</category>
         <category>imx6ull</category>
-        <category>RTOS</category>
-        <category>算法</category>
-        <category>DMX512</category>
-        <category>modbus</category>
-        <category>Modem</category>
+        <category>gcc</category>
         <item>
             <guid isPermalink="true">https://arachnid.cc/dmx512-protocol/</guid>
             <title>DMX512 协议</title>
