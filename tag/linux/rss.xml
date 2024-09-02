@@ -13,24 +13,24 @@
         <category>硬件设计</category>
         <category>C</category>
         <category>MCU</category>
+        <category>Ubuntu</category>
         <category>git</category>
         <category>工具</category>
-        <category>FreeRTOS</category>
+        <category>hexo</category>
+        <category>gcc</category>
+        <category>IDE</category>
         <category>SQL</category>
         <category>JSON</category>
-        <category>IDE</category>
-        <category>RTOS</category>
-        <category>算法</category>
-        <category>modbus</category>
-        <category>DMX512</category>
-        <category>Modem</category>
-        <category>hexo</category>
         <category>Linux</category>
         <category>linux_c</category>
         <category>arm_linux</category>
-        <category>Ubuntu</category>
         <category>imx6ull</category>
-        <category>gcc</category>
+        <category>RTOS</category>
+        <category>FreeRTOS</category>
+        <category>算法</category>
+        <category>DMX512</category>
+        <category>modbus</category>
+        <category>Modem</category>
         <item>
             <guid isPermalink="true">https://arachnid.cc/linux_c-exit-and-return/</guid>
             <title>Linux c _exit()、exit(0)、exit(1) 与 return 区别详解</title>
@@ -2519,8 +2519,8 @@
             <guid isPermalink="true">https://arachnid.cc/virtual-network-setup/</guid>
             <title>vmware 下 Ubuntu 双网卡设置</title>
             <link>https://arachnid.cc/virtual-network-setup/</link>
-            <category>Linux</category>
             <category>Ubuntu</category>
+            <category>Linux</category>
             <pubDate>Sat, 25 Feb 2023 17:28:19 +0800</pubDate>
             <description><![CDATA[ &lt;blockquote&gt;
 &lt;p&gt;背景：主机电脑通过 WiFi 上网，网口用于跟开发板等设备有线连接；为此需要实现虚拟机内对系统可以进行外网访问网页或下载工具包等（避免切换主机操作），同时具备通过网线访问内网设备机器进行控制调试等操作。&lt;/p&gt;
@@ -3561,8 +3561,8 @@
             <title>Ubuntu 搭建 tftp 及 NFS 服务</title>
             <link>https://arachnid.cc/ubuntu-tftp-nfs-create/</link>
             <category>history</category>
-            <category>Linux</category>
             <category>Ubuntu</category>
+            <category>Linux</category>
             <pubDate>Tue, 13 Dec 2022 22:56:07 +0800</pubDate>
             <description><![CDATA[ &lt;blockquote&gt;
 &lt;p&gt;平台：Ubuntu 18.04.6&lt;/p&gt;
@@ -3684,8 +3684,8 @@
             <title>Ubuntu 下 FTP 的搭建配置</title>
             <link>https://arachnid.cc/ubuntu-ftp-create/</link>
             <category>history</category>
-            <category>Linux</category>
             <category>Ubuntu</category>
+            <category>Linux</category>
             <pubDate>Thu, 03 Nov 2022 21:13:57 +0800</pubDate>
             <description><![CDATA[ &lt;blockquote&gt;
 &lt;p&gt;平台：Ubuntu 18.04.6&lt;/p&gt;
