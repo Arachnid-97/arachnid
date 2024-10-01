@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://arachnid.cc/linux-command-summary/</loc>
+    <lastmod>2024-10-01</lastmod>
+  </url>
+  <url>
+    <loc>https://arachnid.cc/omv6-install/</loc>
+    <lastmod>2024-09-22</lastmod>
+  </url>
+  <url>
+    <loc>https://arachnid.cc/posix-pthread/</loc>
+    <lastmod>2024-09-22</lastmod>
+  </url>
+  <url>
     <loc>https://arachnid.cc/c-pointer/</loc>
     <lastmod>2024-09-02</lastmod>
   </url>
@@ -57,10 +69,6 @@
     <lastmod>2024-09-01</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/linux-command-summary/</loc>
-    <lastmod>2024-09-01</lastmod>
-  </url>
-  <url>
     <loc>https://arachnid.cc/6ull-uboot-transplant/</loc>
     <lastmod>2024-08-31</lastmod>
   </url>
@@ -90,10 +98,6 @@
   </url>
   <url>
     <loc>https://arachnid.cc/linux_c-exit-and-return/</loc>
-    <lastmod>2024-08-29</lastmod>
-  </url>
-  <url>
-    <loc>https://arachnid.cc/omv6-install/</loc>
     <lastmod>2024-08-29</lastmod>
   </url>
   <url>

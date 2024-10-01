@@ -2,6 +2,33 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://arachnid.cc/linux-command-summary/</loc>
+    
+    <lastmod>2024-10-01</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://arachnid.cc/omv6-install/</loc>
+    
+    <lastmod>2024-09-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://arachnid.cc/posix-pthread/</loc>
+    
+    <lastmod>2024-09-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://arachnid.cc/c-pointer/</loc>
     
     <lastmod>2024-09-02</lastmod>
@@ -128,15 +155,6 @@
   </url>
   
   <url>
-    <loc>https://arachnid.cc/linux-command-summary/</loc>
-    
-    <lastmod>2024-09-01</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://arachnid.cc/6ull-uboot-transplant/</loc>
     
     <lastmod>2024-08-31</lastmod>
@@ -201,15 +219,6 @@
   
   <url>
     <loc>https://arachnid.cc/linux_c-exit-and-return/</loc>
-    
-    <lastmod>2024-08-29</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://arachnid.cc/omv6-install/</loc>
     
     <lastmod>2024-08-29</lastmod>
     
@@ -769,7 +778,7 @@
 
   <url>
     <loc>https://arachnid.cc/</loc>
-    <lastmod>2024-09-02</lastmod>
+    <lastmod>2024-10-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>

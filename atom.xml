@@ -6,7 +6,7 @@
   <link href="https://arachnid.cc/atom.xml" rel="self"/>
   
   <link href="https://arachnid.cc/"/>
-  <updated>2024-09-01T13:04:38.683Z</updated>
+  <updated>2024-09-22T03:04:58.200Z</updated>
   <id>https://arachnid.cc/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>POSIX 线程设计应用</title>
+    <link href="https://arachnid.cc/posix-pthread/"/>
+    <id>https://arachnid.cc/posix-pthread/</id>
+    <published>2024-09-02T13:32:05.844Z</published>
+    <updated>2024-09-22T03:04:58.200Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    
+    <category term="Linux" scheme="https://arachnid.cc/tags/Linux/"/>
+    
+  </entry>
   
   <entry>
     <title>GCC 应用总结</title>
@@ -182,7 +205,7 @@
     <link href="https://arachnid.cc/omv6-install/"/>
     <id>https://arachnid.cc/omv6-install/</id>
     <published>2024-01-13T13:04:04.775Z</published>
-    <updated>2024-08-29T13:21:41.734Z</updated>
+    <updated>2024-09-22T13:57:45.616Z</updated>
     
     
       
@@ -464,29 +487,6 @@
     <category term="Linux" scheme="https://arachnid.cc/tags/Linux/"/>
     
     <category term="arm_linux" scheme="https://arachnid.cc/tags/arm-linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>GCC 编译器套件说明</title>
-    <link href="https://arachnid.cc/gcc-compiler-collection/"/>
-    <id>https://arachnid.cc/gcc-compiler-collection/</id>
-    <published>2023-02-10T15:28:36.000Z</published>
-    <updated>2024-09-01T13:03:44.053Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html"></summary>
-        
-      
-    
-    
-    
-    
-    <category term="gcc" scheme="https://arachnid.cc/tags/gcc/"/>
     
   </entry>
   
