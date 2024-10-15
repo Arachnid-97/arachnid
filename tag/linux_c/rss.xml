@@ -11,41 +11,41 @@
         <category>history</category>
         <category>电子</category>
         <category>硬件设计</category>
-        <category>hexo</category>
         <category>C</category>
-        <category>Ubuntu</category>
         <category>MCU</category>
+        <category>Ubuntu</category>
         <category>git</category>
         <category>工具</category>
+        <category>hexo</category>
         <category>gcc</category>
         <category>IDE</category>
         <category>SQL</category>
+        <category>JSON</category>
         <category>Linux</category>
         <category>linux_c</category>
         <category>arm_linux</category>
-        <category>JSON</category>
         <category>imx6ull</category>
-        <category>算法</category>
         <category>RTOS</category>
         <category>FreeRTOS</category>
+        <category>算法</category>
         <category>DMX512</category>
         <category>modbus</category>
         <category>Modem</category>
         <item>
             <guid isPermalink="true">https://arachnid.cc/linux_c-exit-and-return/</guid>
-            <title>Linux c _exit()、exit(0)、exit(1) 与 return 区别详解</title>
+            <title>Linux c exit 与 return 区别</title>
             <link>https://arachnid.cc/linux_c-exit-and-return/</link>
             <category>Linux</category>
             <category>linux_c</category>
             <pubDate>Sun, 07 Jul 2024 17:14:39 +0800</pubDate>
-            <description><![CDATA[ &lt;h1 id=&#34;功能&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#功能&#34;&gt;#&lt;/a&gt; 功能：&lt;/h1&gt;
+            <description><![CDATA[ &lt;h1 id=&#34;功能&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#功能&#34;&gt;#&lt;/a&gt; 功能&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;_exit () ：退出程序。&lt;/li&gt;
 &lt;li&gt;exit（0）：运行正常退出程序；&lt;/li&gt;
 &lt;li&gt;exit（1）：运行异常退出程序；&lt;/li&gt;
 &lt;li&gt;return（）：返回函数，若在主函数中，则会退出函数并返回值。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h1 id=&#34;_exit-和-exit-区别&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#_exit-和-exit-区别&#34;&gt;#&lt;/a&gt; _exit () 和 exit () 区别：&lt;/h1&gt;
+&lt;h1 id=&#34;_exit-和-exit-区别&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#_exit-和-exit-区别&#34;&gt;#&lt;/a&gt; _exit () 和 exit () 区别&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;exit () 会将缓冲区的数据写完再结束进程到内核中去（退出进程会清理 I/O 缓冲区）。&lt;/p&gt;
@@ -70,12 +70,12 @@
 &lt;p&gt;printf 函数使用的是缓冲 I/O 的方式，该函数在遇到  &lt;code&gt;\n&lt;/code&gt;  换行符时自动的从缓冲区中将记录读出。&lt;/p&gt;
 &lt;p&gt;exit () 将缓冲区的数据写完后才能退出来，所以调用 exit () 函数后程序并不会马上退出，会把 OK 也输出出来。&lt;/p&gt;
 &lt;p&gt;_exit () 是直接退出进入到内核中了。&lt;/p&gt;
-&lt;h1 id=&#34;exit0-和-exit1-区别&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#exit0-和-exit1-区别&#34;&gt;#&lt;/a&gt; exit (0) 和 exit (1) 区别：&lt;/h1&gt;
+&lt;h1 id=&#34;exit0-和-exit1-区别&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#exit0-和-exit1-区别&#34;&gt;#&lt;/a&gt; exit (0) 和 exit (1) 区别&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;exit (0)：运行正常退出程序。&lt;/li&gt;
 &lt;li&gt;exit (1)：运行异常退出程序，返回值 1 是返回给操作系统的。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h1 id=&#34;return-和-exit-区别&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#return-和-exit-区别&#34;&gt;#&lt;/a&gt; return 和 exit () 区别：&lt;/h1&gt;
+&lt;h1 id=&#34;return-和-exit-区别&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#return-和-exit-区别&#34;&gt;#&lt;/a&gt; return 和 exit () 区别&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;return 是关键字；exit () 是函数。&lt;/li&gt;
 &lt;li&gt;return 是语言级别的，表示调用堆栈的返回；而 exit () 是系统调用级别的，表示进程的结束。&lt;/li&gt;

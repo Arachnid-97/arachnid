@@ -63,11 +63,11 @@
   </entry>
   
   <entry>
-    <title>Linux c _exit()、exit(0)、exit(1) 与 return 区别详解</title>
+    <title>Linux c exit 与 return 区别</title>
     <link href="https://arachnid.cc/linux_c-exit-and-return/"/>
     <id>https://arachnid.cc/linux_c-exit-and-return/</id>
     <published>2024-07-07T09:14:39.000Z</published>
-    <updated>2024-08-29T13:22:22.617Z</updated>
+    <updated>2024-10-15T13:24:59.160Z</updated>
     
     
       
@@ -396,8 +396,8 @@
     <title>imx-6ULL uboot 移植</title>
     <link href="https://arachnid.cc/6ull-uboot-transplant/"/>
     <id>https://arachnid.cc/6ull-uboot-transplant/</id>
-    <published>2023-03-03T12:52:11.803Z</published>
-    <updated>2024-08-31T10:50:53.035Z</updated>
+    <published>2023-03-03T12:52:11.000Z</published>
+    <updated>2024-10-15T13:18:08.080Z</updated>
     
     
       

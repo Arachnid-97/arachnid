@@ -63,7 +63,7 @@
     </item>
     
     <item>
-      <title>Linux c _exit()、exit(0)、exit(1) 与 return 区别详解</title>
+      <title>Linux c exit 与 return 区别</title>
       <link>https://arachnid.cc/linux_c-exit-and-return/</link>
       <guid>https://arachnid.cc/linux_c-exit-and-return/</guid>
       <pubDate>Sun, 07 Jul 2024 09:14:39 GMT</pubDate>

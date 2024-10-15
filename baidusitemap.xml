@@ -1,335 +1,335 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://arachnid.cc/linux-command-summary/</loc>
+    <loc>https://arachnid.cc/linux_c-exit-and-return//</loc>
+    <lastmod>2024-10-15</lastmod>
+  </url>
+  <url>
+    <loc>https://arachnid.cc/6ull-uboot-transplant//</loc>
+    <lastmod>2024-10-15</lastmod>
+  </url>
+  <url>
+    <loc>https://arachnid.cc/linux-command-summary//</loc>
     <lastmod>2024-10-01</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/omv6-install/</loc>
+    <loc>https://arachnid.cc/omv6-install//</loc>
     <lastmod>2024-09-22</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/posix-pthread/</loc>
+    <loc>https://arachnid.cc/posix-pthread//</loc>
     <lastmod>2024-09-22</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/c-pointer/</loc>
+    <loc>https://arachnid.cc/c-pointer//</loc>
     <lastmod>2024-09-02</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/cpu-soc-mcu/</loc>
+    <loc>https://arachnid.cc/cpu-soc-mcu//</loc>
     <lastmod>2024-09-02</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/cortex-m-abnormal/</loc>
+    <loc>https://arachnid.cc/cortex-m-abnormal//</loc>
     <lastmod>2024-09-02</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/sdcc-develop/</loc>
+    <loc>https://arachnid.cc/sdcc-develop//</loc>
     <lastmod>2024-09-02</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/gdb-debuging/</loc>
+    <loc>https://arachnid.cc/gdb-debuging//</loc>
     <lastmod>2024-09-02</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/gcc-develop/</loc>
+    <loc>https://arachnid.cc/gcc-develop//</loc>
     <lastmod>2024-09-02</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/freertos-newlib-coexist/</loc>
+    <loc>https://arachnid.cc/freertos-newlib-coexist//</loc>
     <lastmod>2024-09-02</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/c-structure-alignment/</loc>
+    <loc>https://arachnid.cc/c-structure-alignment//</loc>
     <lastmod>2024-09-02</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/adc-value-conversion-analysis/</loc>
+    <loc>https://arachnid.cc/adc-value-conversion-analysis//</loc>
     <lastmod>2024-09-02</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/vmware-space-recycling/</loc>
+    <loc>https://arachnid.cc/vmware-space-recycling//</loc>
     <lastmod>2024-09-01</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/virtual-network-setup/</loc>
+    <loc>https://arachnid.cc/virtual-network-setup//</loc>
     <lastmod>2024-09-01</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/gcc-compiler-summary/</loc>
+    <loc>https://arachnid.cc/gcc-compiler-summary//</loc>
     <lastmod>2024-09-01</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/gcc-compiler-collection/</loc>
+    <loc>https://arachnid.cc/gcc-compiler-collection//</loc>
     <lastmod>2024-09-01</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/6ull-kernel-transplant/</loc>
+    <loc>https://arachnid.cc/6ull-kernel-transplant//</loc>
     <lastmod>2024-09-01</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/6ull-uboot-transplant/</loc>
+    <loc>https://arachnid.cc/using-git-command//</loc>
     <lastmod>2024-08-31</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/using-git-command/</loc>
-    <lastmod>2024-08-31</lastmod>
-  </url>
-  <url>
-    <loc>https://arachnid.cc/ubuntu-tftp-nfs-create/</loc>
+    <loc>https://arachnid.cc/ubuntu-tftp-nfs-create//</loc>
     <lastmod>2024-08-30</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/linux-rootfs-create/</loc>
+    <loc>https://arachnid.cc/linux-rootfs-create//</loc>
     <lastmod>2024-08-30</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/uboot-starting/</loc>
+    <loc>https://arachnid.cc/uboot-starting//</loc>
     <lastmod>2024-08-30</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/linux-system-constitute/</loc>
+    <loc>https://arachnid.cc/linux-system-constitute//</loc>
     <lastmod>2024-08-29</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/linux_c-time-configuration/</loc>
+    <loc>https://arachnid.cc/linux_c-time-configuration//</loc>
     <lastmod>2024-08-29</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/linux_c-exit-and-return/</loc>
-    <lastmod>2024-08-29</lastmod>
-  </url>
-  <url>
-    <loc>https://arachnid.cc/ubuntu-ftp-create/</loc>
+    <loc>https://arachnid.cc/ubuntu-ftp-create//</loc>
     <lastmod>2024-08-21</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/freertos-task/</loc>
+    <loc>https://arachnid.cc/freertos-task//</loc>
     <lastmod>2024-08-14</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/freertos-file-analyse/</loc>
+    <loc>https://arachnid.cc/freertos-file-analyse//</loc>
     <lastmod>2024-08-14</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/freertos-binary-semaphore/</loc>
+    <loc>https://arachnid.cc/freertos-binary-semaphore//</loc>
     <lastmod>2024-08-14</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/freertos-heap/</loc>
+    <loc>https://arachnid.cc/freertos-heap//</loc>
     <lastmod>2024-08-14</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/freertos-config/</loc>
+    <loc>https://arachnid.cc/freertos-config//</loc>
     <lastmod>2024-08-14</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/mfgtool-is-used/</loc>
+    <loc>https://arachnid.cc/mfgtool-is-used//</loc>
     <lastmod>2024-08-11</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/freertos-task-notify/</loc>
+    <loc>https://arachnid.cc/freertos-task-notify//</loc>
     <lastmod>2024-06-12</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/markdown-syntax-testing/</loc>
+    <loc>https://arachnid.cc/markdown-syntax-testing//</loc>
     <lastmod>2024-06-12</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/linux-environment-variables/</loc>
+    <loc>https://arachnid.cc/linux-environment-variables//</loc>
     <lastmod>2024-06-10</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/isolation-techniques/</loc>
+    <loc>https://arachnid.cc/isolation-techniques//</loc>
     <lastmod>2024-06-10</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/zlist/</loc>
+    <loc>https://arachnid.cc/zlist//</loc>
     <lastmod>2024-06-09</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/shoka-config/</loc>
+    <loc>https://arachnid.cc/shoka-config//</loc>
     <lastmod>2024-06-01</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/shoka-function-expansion/</loc>
+    <loc>https://arachnid.cc/shoka-function-expansion//</loc>
     <lastmod>2024-05-31</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/vscode-config/</loc>
+    <loc>https://arachnid.cc/vscode-config//</loc>
     <lastmod>2024-05-18</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/hexo-shoka-create/</loc>
+    <loc>https://arachnid.cc/hexo-shoka-create//</loc>
     <lastmod>2024-05-18</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/summary-of-keil-tool-use/</loc>
+    <loc>https://arachnid.cc/summary-of-keil-tool-use//</loc>
     <lastmod>2024-05-11</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/usart-iic-spi/</loc>
+    <loc>https://arachnid.cc/usart-iic-spi//</loc>
     <lastmod>2024-03-31</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/jtag-and-swd/</loc>
+    <loc>https://arachnid.cc/jtag-and-swd//</loc>
     <lastmod>2024-03-21</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/freertos-system-transplant/</loc>
+    <loc>https://arachnid.cc/freertos-system-transplant//</loc>
     <lastmod>2024-03-21</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/net-tools-vs-proute2/</loc>
+    <loc>https://arachnid.cc/net-tools-vs-proute2//</loc>
     <lastmod>2024-03-20</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/linux-network-config-tool/</loc>
+    <loc>https://arachnid.cc/linux-network-config-tool//</loc>
     <lastmod>2024-03-16</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/diode-parameter-design/</loc>
+    <loc>https://arachnid.cc/diode-parameter-design//</loc>
     <lastmod>2024-02-22</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/keil-iar-memory-analysis/</loc>
+    <loc>https://arachnid.cc/keil-iar-memory-analysis//</loc>
     <lastmod>2024-02-20</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/sqlite-summarize/</loc>
+    <loc>https://arachnid.cc/sqlite-summarize//</loc>
     <lastmod>2024-02-20</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/makefile-summarize/</loc>
+    <loc>https://arachnid.cc/makefile-summarize//</loc>
     <lastmod>2023-03-16</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/arch-linux-install/</loc>
+    <loc>https://arachnid.cc/arch-linux-install//</loc>
     <lastmod>2023-02-25</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/common-windows-commands/</loc>
+    <loc>https://arachnid.cc/common-windows-commands//</loc>
     <lastmod>2023-02-25</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/device-Interface/</loc>
+    <loc>https://arachnid.cc/device-Interface//</loc>
     <lastmod>2023-02-22</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/rt-thread-summarize/</loc>
+    <loc>https://arachnid.cc/rt-thread-summarize//</loc>
     <lastmod>2023-02-22</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/freertos-critical-scheduler/</loc>
+    <loc>https://arachnid.cc/freertos-critical-scheduler//</loc>
     <lastmod>2023-02-22</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/freertos-mutex-semaphore/</loc>
+    <loc>https://arachnid.cc/freertos-mutex-semaphore//</loc>
     <lastmod>2023-02-22</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/x-ymodem-protocol/</loc>
+    <loc>https://arachnid.cc/x-ymodem-protocol//</loc>
     <lastmod>2023-02-22</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/modbus-family/</loc>
+    <loc>https://arachnid.cc/modbus-family//</loc>
     <lastmod>2023-02-22</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/modbus-ascii-protocol/</loc>
+    <loc>https://arachnid.cc/modbus-ascii-protocol//</loc>
     <lastmod>2023-02-22</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/modbus-rtu-protocol/</loc>
+    <loc>https://arachnid.cc/modbus-rtu-protocol//</loc>
     <lastmod>2023-02-22</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/cjson-api-next-part/</loc>
+    <loc>https://arachnid.cc/cjson-api-next-part//</loc>
     <lastmod>2023-02-22</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/logical-level/</loc>
+    <loc>https://arachnid.cc/logical-level//</loc>
     <lastmod>2023-02-22</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/differential-transmission/</loc>
+    <loc>https://arachnid.cc/differential-transmission//</loc>
     <lastmod>2023-02-22</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/dmx512-protocol/</loc>
+    <loc>https://arachnid.cc/dmx512-protocol//</loc>
     <lastmod>2023-02-13</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/sorting-algorithm/</loc>
+    <loc>https://arachnid.cc/sorting-algorithm//</loc>
     <lastmod>2023-02-13</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/partitioning-placement-algorithm/</loc>
+    <loc>https://arachnid.cc/partitioning-placement-algorithm//</loc>
     <lastmod>2023-02-13</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/check-algorithm/</loc>
+    <loc>https://arachnid.cc/check-algorithm//</loc>
     <lastmod>2023-02-13</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/filtering-algorithm/</loc>
+    <loc>https://arachnid.cc/filtering-algorithm//</loc>
     <lastmod>2023-02-13</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/md5-algorithm/</loc>
+    <loc>https://arachnid.cc/md5-algorithm//</loc>
     <lastmod>2023-02-13</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/freertos-event/</loc>
+    <loc>https://arachnid.cc/freertos-event//</loc>
     <lastmod>2023-02-13</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/freertos-queue/</loc>
+    <loc>https://arachnid.cc/freertos-queue//</loc>
     <lastmod>2023-02-13</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/linux-routing-table/</loc>
+    <loc>https://arachnid.cc/linux-routing-table//</loc>
     <lastmod>2023-02-13</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/cjson-api-first-part/</loc>
+    <loc>https://arachnid.cc/cjson-api-first-part//</loc>
     <lastmod>2023-02-13</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/stepper-motor/</loc>
+    <loc>https://arachnid.cc/stepper-motor//</loc>
     <lastmod>2023-02-13</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/using-wireshark/</loc>
+    <loc>https://arachnid.cc/using-wireshark//</loc>
     <lastmod>2023-02-13</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/resistor/</loc>
+    <loc>https://arachnid.cc/resistor//</loc>
     <lastmod>2023-02-13</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/capacitor/</loc>
+    <loc>https://arachnid.cc/capacitor//</loc>
     <lastmod>2023-02-13</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/inductor/</loc>
+    <loc>https://arachnid.cc/inductor//</loc>
     <lastmod>2023-02-13</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/logic-device/</loc>
+    <loc>https://arachnid.cc/logic-device//</loc>
     <lastmod>2023-02-13</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/kicad-summary/</loc>
+    <loc>https://arachnid.cc/kicad-summary//</loc>
     <lastmod>2023-02-13</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/altium-designer-summary/</loc>
+    <loc>https://arachnid.cc/altium-designer-summary//</loc>
     <lastmod>2023-02-13</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/altium-pcb-rule/</loc>
+    <loc>https://arachnid.cc/altium-pcb-rule//</loc>
     <lastmod>2023-02-13</lastmod>
   </url>
 </urlset> 
