@@ -11,16 +11,16 @@
         <category>history</category>
         <category>电子</category>
         <category>硬件设计</category>
-        <category>C</category>
+        <category>hexo</category>
         <category>MCU</category>
+        <category>C</category>
         <category>Ubuntu</category>
         <category>git</category>
         <category>工具</category>
-        <category>hexo</category>
-        <category>gcc</category>
-        <category>IDE</category>
         <category>SQL</category>
         <category>JSON</category>
+        <category>gcc</category>
+        <category>IDE</category>
         <category>Linux</category>
         <category>linux_c</category>
         <category>arm_linux</category>
@@ -28,8 +28,8 @@
         <category>RTOS</category>
         <category>FreeRTOS</category>
         <category>算法</category>
-        <category>DMX512</category>
         <category>modbus</category>
+        <category>DMX512</category>
         <category>Modem</category>
         <item>
             <guid isPermalink="true">https://arachnid.cc/sqlite-summarize/</guid>
@@ -73,14 +73,14 @@
 &lt;p&gt;&lt;strong&gt;2、数据类型&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;布尔数据类型：&lt;br&gt;
+&lt;p&gt;布尔数据类型：&lt;br /&gt;
 SQLite 并没有提供专门的布尔存储类型，取而代之的是存储整型 1 表示 true，0 表示 false。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;日期和时间数据类型：&lt;br&gt;
-和布尔类型一样，SQLite 也同样没有提供专门的日期时间存储类型，而是以 TEXT、REAL 和 INTEGER 类型分别不同的格式表示该类型，如：&lt;br&gt;
-&lt;strong&gt;TEXT&lt;/strong&gt; : &amp;quot;YYYY-MM-DD HH:MM:SS.SSS&amp;quot;。&lt;br&gt;
-&lt;strong&gt;REAL&lt;/strong&gt; ：以 Julian 日期格式存储。&lt;br&gt;
+&lt;p&gt;日期和时间数据类型：&lt;br /&gt;
+和布尔类型一样，SQLite 也同样没有提供专门的日期时间存储类型，而是以 TEXT、REAL 和 INTEGER 类型分别不同的格式表示该类型，如：&lt;br /&gt;
+&lt;strong&gt;TEXT&lt;/strong&gt; : &amp;quot;YYYY-MM-DD HH:MM:SS.SSS&amp;quot;。&lt;br /&gt;
+&lt;strong&gt;REAL&lt;/strong&gt; ：以 Julian 日期格式存储。&lt;br /&gt;
 &lt;strong&gt;INTEGER&lt;/strong&gt; ：以 Unix 时间形式保存数据值，即从 1970-01-01 00:00:00 到当前时间所流经的秒数。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;

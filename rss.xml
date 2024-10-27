@@ -38,6 +38,31 @@
     </item>
     
     <item>
+      <title>Linux 设备常用操作</title>
+      <link>https://arachnid.cc/linux-device-common-operation/</link>
+      <guid>https://arachnid.cc/linux-device-common-operation/</guid>
+      <pubDate>Sun, 01 Sep 2024 06:18:07 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description></description>
+          
+        
+      
+      
+      
+      
+      
+      <category domain="https://arachnid.cc/tags/Linux/">Linux</category>
+      
+      
+      <comments>https://arachnid.cc/linux-device-common-operation/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
       <title>GCC 应用总结</title>
       <link>https://arachnid.cc/gcc-compiler-summary/</link>
       <guid>https://arachnid.cc/gcc-compiler-summary/</guid>
@@ -496,33 +521,6 @@
       
       
       <comments>https://arachnid.cc/virtual-network-setup/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>uboot 引导启动分析</title>
-      <link>https://arachnid.cc/uboot-starting/</link>
-      <guid>https://arachnid.cc/uboot-starting/</guid>
-      <pubDate>Wed, 22 Feb 2023 13:19:51 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description></description>
-          
-        
-      
-      
-      
-      
-      
-      <category domain="https://arachnid.cc/tags/Linux/">Linux</category>
-      
-      <category domain="https://arachnid.cc/tags/arm-linux/">arm_linux</category>
-      
-      
-      <comments>https://arachnid.cc/uboot-starting/#disqus_thread</comments>
       
     </item>
     

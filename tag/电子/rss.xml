@@ -11,16 +11,16 @@
         <category>history</category>
         <category>电子</category>
         <category>硬件设计</category>
-        <category>C</category>
+        <category>hexo</category>
         <category>MCU</category>
+        <category>C</category>
         <category>Ubuntu</category>
         <category>git</category>
         <category>工具</category>
-        <category>hexo</category>
-        <category>gcc</category>
-        <category>IDE</category>
         <category>SQL</category>
         <category>JSON</category>
+        <category>gcc</category>
+        <category>IDE</category>
         <category>Linux</category>
         <category>linux_c</category>
         <category>arm_linux</category>
@@ -28,8 +28,8 @@
         <category>RTOS</category>
         <category>FreeRTOS</category>
         <category>算法</category>
-        <category>DMX512</category>
         <category>modbus</category>
+        <category>DMX512</category>
         <category>Modem</category>
         <item>
             <guid isPermalink="true">https://arachnid.cc/diode-parameter-design/</guid>
@@ -59,7 +59,7 @@
 &lt;/ol&gt;
 &lt;p&gt;note：二极管的反向漏电流与反向电压大致呈指数关系，表示为： &lt;code&gt;I = Ir x e^(-Vr/Vt)&lt;/code&gt;  ，其中  &lt;code&gt;Ir&lt;/code&gt;  为常数，代表二极管在反向饱和状态下的最小漏电流； &lt;code&gt;Vr&lt;/code&gt;  为反向电压， &lt;code&gt;Vt&lt;/code&gt;  为热电压常数，约为 26mV。&lt;/p&gt;
 &lt;p&gt;由于肖特基二极管反向漏电流较大，并且随温度变化较大，因此当出现反向电压时，往往会导致正向极出现电压（反向电压增大或温度升高），导致 “反向导通” 的现象。&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/diode-parameter-design/chap3-4-2_en.png&#34; alt=&#34;图3-6：不同金属的SBD的V&amp;lt;sub&amp;gt;F&amp;lt;/sub&amp;gt;–I&amp;lt;sub&amp;gt;F&amp;lt;/sub&amp;gt;曲线&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;chap3-4-2_en.png&#34; alt=&#34;图3-6：不同金属的SBD的V&amp;lt;sub&amp;gt;F&amp;lt;/sub&amp;gt;–I&amp;lt;sub&amp;gt;F&amp;lt;/sub&amp;gt;曲线&#34; /&gt;&lt;/p&gt;
 &lt;h1 id=&#34;pn-结二极管&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#pn-结二极管&#34;&gt;#&lt;/a&gt; PN 结二极管&lt;/h1&gt;
 &lt;p&gt;&lt;strong&gt;一般也称为 &amp;quot;一般整流二极管&amp;quot;、&amp;quot;普通二极管&amp;quot;&lt;/strong&gt; 。通过施加正向偏置，利用半导体中 PN 接合的整流性质来实现单向特性的应用，是最基本的半导体二极管。常见应用于&lt;strong&gt;低频整流&lt;/strong&gt;以及&lt;strong&gt;与电感并联保护其他器件&lt;/strong&gt;。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;1、主要参数&lt;/strong&gt;&lt;/p&gt;
@@ -75,7 +75,7 @@
 &lt;li&gt;直流阻断电压 VDC（DC blocking voltage）：当直流电压大于该参数电压，将会导致二极管击穿或烧毁。&lt;/li&gt;
 &lt;li&gt;反向漏电流 IR（DC reverse current）：当施加安全的反向电压时，二极管处于反向截止状态，但此时会有一个反向的电流泄漏。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img data-src=&#34;/diode-parameter-design/diode07.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;diode07.png&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
 &lt;h1 id=&#34;齐纳二极管&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#齐纳二极管&#34;&gt;#&lt;/a&gt; 齐纳二极管&lt;/h1&gt;
 &lt;p&gt;&lt;strong&gt;一般也称为 &amp;quot;稳压二极管&amp;quot;&lt;/strong&gt; 。是利用二极管在反向电压作用下的齐纳击穿（崩溃）效应，制造而成的一种具有稳定电压功能的电子技术器件。齐纳二极管的正向偏置和一般二极管相同，但是其反向击穿电压（又称齐纳电压）的范围远大于一般的二极管，能承受比一般二极管更高的电压，而且齐纳二极管的反向电压操作是可逆的；常见的齐纳电压从 3 伏特到 100 伏特。常见应用于&lt;strong&gt;直流稳压&lt;/strong&gt;。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;1、主要参数&lt;/strong&gt;&lt;/p&gt;
@@ -92,7 +92,7 @@
 &lt;li&gt;反向电压 VR（Reverse voltage）：一般是给 IR 值作参考，表示在未进入稳压状态下的最大反向电压，并且小于 VZ。&lt;/li&gt;
 &lt;li&gt;反向漏电流 IR（DC reverse current）：一般标识为  &lt;code&gt;IR@VR&lt;/code&gt;  ，表示电压处于 VR 时 IR 的值，而此时的 VR 是 小于 VZ 的，因此并不能击穿齐纳管得到恒定的电压，这时就相当于一个反向阻断的普通二极管（可以看作不导通），但还是会有 IR 的漏电流。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img data-src=&#34;/diode-parameter-design/zd-ivc.gif&#34; alt=&#34;Zener diode I-V Curve&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;zd-ivc.gif&#34; alt=&#34;Zener diode I-V Curve&#34; /&gt;&lt;/p&gt;
 &lt;h1 id=&#34;开关二极管&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#开关二极管&#34;&gt;#&lt;/a&gt; 开关二极管&lt;/h1&gt;
 &lt;p&gt;&lt;strong&gt;一般也称为 &amp;quot;小信号二极管&amp;quot;&lt;/strong&gt; 。它是专门为电路上的 “开” 和 “关” 而设计和制造的，顾名思义，就是指具有开关功能的二极管。该二极管具有在正向施加电压时通过电流 (ON) 和在反向施加电压时停止 (OFF) 电流的性能。与其它二极管相比，反向恢复时间较短，即开关二极管从导通状态到完全关断状态所用的时间较短。常见应用于&lt;strong&gt;开关电路&lt;/strong&gt;。&lt;/p&gt;
 &lt;p&gt;开关二极管跟肖特基二极管很像，都具有反向恢复时间短的特性；但不同的是：&lt;/p&gt;
@@ -121,7 +121,7 @@
 &lt;li&gt;导通压降 VF（Instantaneous forward voltage）&lt;/li&gt;
 &lt;li&gt;反向漏电流 IR（DC reverse current）&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img data-src=&#34;/diode-parameter-design/e5ac16c1-e7e0-406d-9e13-1d482ac1d98a.png&#34; alt=&#34;Diode ＜Types of Diodes＞ | Electronics Basics | ROHM&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;e5ac16c1-e7e0-406d-9e13-1d482ac1d98a.png&#34; alt=&#34;Diode ＜Types of Diodes＞ | Electronics Basics | ROHM&#34; /&gt;&lt;/p&gt;
 &lt;h1 id=&#34;瞬态抑制二极管&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#瞬态抑制二极管&#34;&gt;#&lt;/a&gt; 瞬态抑制二极管&lt;/h1&gt;
 &lt;p&gt;&lt;strong&gt;一般也称为 &amp;quot;TVS 管&amp;quot;&lt;/strong&gt; 。是一种用于过电压保护和 ESD 保护的器件，主要应用于&lt;strong&gt;保护后段的 IC 免受由静电和电源波动引起的意外过电压和浪涌&lt;/strong&gt;。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;1、主要参数&lt;/strong&gt;&lt;/p&gt;
@@ -138,11 +138,11 @@
 &lt;li&gt;测试电流 IT （Test Current）：结合图形查看参考。&lt;/li&gt;
 &lt;li&gt;峰值脉冲功耗 PPPM（Peak pulse power dissipation）：定义为设备在给定脉冲条件下消耗的瞬时功率，并且是在给定瞬态事件期间 TVS 结中消耗的功率的度量。它通过以下关系式计算： &lt;code&gt;PPPM = VC x IPP&lt;/code&gt; ，其中 PPPM = 峰值脉冲功耗（W），VC = 箝位电压（V），IPP = 峰值脉冲电流（A）。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img data-src=&#34;/diode-parameter-design/image-20230702211343539.png&#34; alt=&#34;image-20230702211343539&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20230702211343539.png&#34; alt=&#34;image-20230702211343539&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;note：挑选 TVS 管先看 &lt;strong&gt;VRWM&lt;/strong&gt;，尽可能与&lt;strong&gt;最大工作电压&lt;/strong&gt;接近，直流大概是 1.1~1.2 倍的最大工作电压，交流是 1.4~1.5 倍的最大工作电压；一般 &lt;strong&gt;VBR&lt;/strong&gt; = VRWM / (0.8~0.9)；然后 &lt;strong&gt;VC&lt;/strong&gt; 不高于被保护器件的最大允许安全电压；&lt;strong&gt;Cj&lt;/strong&gt; 要尽量小，此值会影响 TVS 的响应时间；&lt;strong&gt;IR&lt;/strong&gt; 也要尽量小，避免影响到静态电流及电流倒灌；&lt;strong&gt;交流电压&lt;/strong&gt;只能用双向 TVS。&lt;/p&gt;
 &lt;h1 id=&#34;pin-型二极管&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#pin-型二极管&#34;&gt;#&lt;/a&gt; PIN 型二极管&lt;/h1&gt;
 &lt;p&gt;即在 P 型材料与 N 型材料中间插入一层低掺杂纯度的接近于本征半导体材料所组成的 I （Intrinsic）层。由于 I 层的存在，PIN 型二极管通常比普通的二极管拥有更宽的耗尽层，更大的接面电阻和更小的接面电容。常见应用于 &lt;strong&gt;RF 领域&lt;/strong&gt;、&lt;strong&gt;光电探测器&lt;/strong&gt;及&lt;strong&gt;高压整流器（如 FRD/SRD）&lt;/strong&gt;。&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/diode-parameter-design/Construction-PIN-Diode-300x121.png&#34; alt=&#34;What is PIN Diode? - Structure, Working, Characteristics &amp;amp; Its Applications&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;Construction-PIN-Diode-300x121.png&#34; alt=&#34;What is PIN Diode? - Structure, Working, Characteristics &amp;amp; Its Applications&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;常用参数（不同种类参考相应的参数）&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;平均正向整流电流 IF (AV)（Average forward rectified current）&lt;/li&gt;
@@ -168,10 +168,10 @@
 &lt;li&gt;均方根反向电压 VRMS（Root-Mean-Square voltage）&lt;/li&gt;
 &lt;li&gt;直流阻断电压 VDC（DC blocking voltage）&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img data-src=&#34;/diode-parameter-design/frd06_1.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;frd06_1.png&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
 &lt;h1 id=&#34;功率二极管&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#功率二极管&#34;&gt;#&lt;/a&gt; 功率二极管&lt;/h1&gt;
 &lt;p&gt;功率二极管由重掺杂纯度的 &lt;strong&gt;N+ 层构成阴极&lt;/strong&gt;，其上有一个轻掺杂的 N- 层外延包夹在重掺杂的 &lt;strong&gt;P+ 阳极层&lt;/strong&gt;上，它们的交界处形成 PN 结，而这个&lt;strong&gt;外延 N- 层被称为漂移层&lt;/strong&gt;。功率二极管与一般的二极管相比，具有更大的 PN 结面积，从而具有高达数百安培 (KA) 的高正向电流能力和高达数千伏 (KV) 的反向阻断电压。&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/diode-parameter-design/image-20230708003940655.png&#34; alt=&#34;image-20230708003940655&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20230708003940655.png&#34; alt=&#34;image-20230708003940655&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;主要要求：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;反向电压 VR 越高越好。&lt;/li&gt;
@@ -194,7 +194,7 @@
 &lt;li&gt;反向恢复时间 trr（Reverse recovery time）&lt;/li&gt;
 &lt;li&gt;典型结电容 Cj （Typical Junction Capacitance）&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img data-src=&#34;/diode-parameter-design/image-13.png&#34; alt=&#34;vi characteristics of power diode&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-13.png&#34; alt=&#34;vi characteristics of power diode&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;参考：&lt;/p&gt;
 &lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cudXYuZXMvbWFyaW5qbC9lbGVjdHJvL2Rpb2RvLmh0bWw=&#34;&gt;https://www.uv.es/marinjl/electro/diodo.html&lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9xdWljay1sZWFybi5pbi9wb3dlci1kaW9kZS1zdHJ1Y3R1cmUtdHlwZXMtY2hhcmFjdGVyaXN0aWNzLw==&#34;&gt;https://quick-learn.in/power-diode-structure-types-characteristics/&lt;/span&gt;&lt;/p&gt;
@@ -311,7 +311,7 @@
 &lt;/ul&gt;
 &lt;h1 id=&#34;拓展&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#拓展&#34;&gt;#&lt;/a&gt; 拓展&lt;/h1&gt;
 &lt;p&gt;VRWM、VRRM、VRSM 及 VBR 参数关系&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/diode-parameter-design/carac.gif&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;carac.gif&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;反向峰值工作电压 (VRWM)：设备可以连续承受的电压，没有雪崩破裂的危险。&lt;/li&gt;
 &lt;li&gt;重复性峰值反向电压 (VRRM)：它可以在 1 毫秒的峰值内持续，每 10 毫秒连续重复一次。&lt;/li&gt;
@@ -339,17 +339,17 @@
 &lt;p&gt;电流隔离屏障有三种常见技术 —— 光电隔离、磁隔离和电容式隔离。虽然这三种技术隔离屏障的介质有所不同，但最终目标都是相同的。&lt;/p&gt;
 &lt;h1 id=&#34;光电隔离成熟易用的技术&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#光电隔离成熟易用的技术&#34;&gt;#&lt;/a&gt; 光电隔离：成熟易用的技术&lt;/h1&gt;
 &lt;p&gt;光电隔离 (或称光隔离)，是三种技术中使用最早的，并且易于使用。如下图：&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/isolation-techniques/190403-capacitive-isolation-img3.jpg&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;190403-capacitive-isolation-img3.jpg&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;它利用光将信息传输到隔离栅的另一端。通常由发光二极管 (LED) 将信息传输到光敏接收器（如晶体管）。光隔离的主要优势是应用广泛，对于慢速数字信号传输是公认的低成本隔离解决方案；高速、数字光耦合器则往往较为昂贵。 光耦合器隔离法一般用于信号的直流状态很重要的场合。随着时间的推移，LED 可能会损耗，因此光隔离通常需要补偿和频带防护，以保证在整个寿命期间正常工作。&lt;/p&gt;
 &lt;h1 id=&#34;磁隔离速率高而磁场抗扰度弱&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#磁隔离速率高而磁场抗扰度弱&#34;&gt;#&lt;/a&gt; 磁隔离：速率高而磁场抗扰度弱&lt;/h1&gt;
 &lt;p&gt;磁耦是基于磁隔离技术的隔离器件，也成为磁隔离器。如下图：&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/isolation-techniques/190403-capacitive-isolation-img4.jpg&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;190403-capacitive-isolation-img4.jpg&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;变压器隔离利用变压器线圈将信息传输到隔离栅的另一端。隔离栅一端的变压器绕组中的电流发生变化时，会在另一端的变压器绕组中感生相应的电流变化。变压器隔离法一般用于涉及交流信号（例如以太网）、非常适合进行变压器耦合的应用场合。变压器隔离在数据速率较高的系统中具有优势，而且它还可以用来提供隔离电源，但与其它解决方案相比，变压器通常非常庞大。&lt;/p&gt;
 &lt;p&gt;我们会发现，有些磁耦可以以高达 100Mbps 速度的脉冲电流通过隔离屏障，磁耦的数据传输速率特性可以在 datasheet 中找到。&lt;/p&gt;
 &lt;p&gt;但是要留意的是，磁耦的功耗会随着数据速率增加而增加。它对电磁干扰也很敏感，而在 HVAC 系统和涉及电机的工厂自动化环境中的磁场是很大。&lt;/p&gt;
 &lt;h1 id=&#34;电容式隔离更好的解决方案&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#电容式隔离更好的解决方案&#34;&gt;#&lt;/a&gt; 电容式隔离：更好的解决方案&lt;/h1&gt;
 &lt;p&gt;与磁隔离一样，电容式隔离具有用于编码和解码输入 AC 信号的数字电路，利用可变的电场在隔离屏障中传输信息。如下图：&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/isolation-techniques/190403-capacitive-isolation-img6.jpg&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;190403-capacitive-isolation-img6.jpg&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;电容式隔离器无法传递直流信号，因此它们本身就是一个很好的隔离器。电容式隔离器不易受磁场噪声影响，而仍然保持高数据速率和低功耗；这种方法与光耦合器相比具有明显的性能优势，但通常很容易受共模和 ESD 瞬变影响。&lt;/p&gt;
  ]]></description>
         </item>
@@ -369,7 +369,7 @@
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;与门&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/logic-device/AND.jpg&#34; alt=&#34;AND&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;AND.jpg&#34; alt=&#34;AND&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;特点：所有输入为高电平时（逻辑 1），才会有高电平（逻辑 1）输出；其中一个输入为低电平（逻辑 0）则出低电平（逻辑 0）。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;真值表：&lt;/strong&gt;&lt;/p&gt;
 &lt;table&gt;
@@ -412,7 +412,7 @@
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;或门&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/logic-device/OR.jpg&#34; alt=&#34;OR&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;OR.jpg&#34; alt=&#34;OR&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;特点：其中一个输入为高电平时（逻辑 1），输出为高电平（逻辑 1）；只有当所有输入为低电平（逻辑 0）才出低电平（逻辑 0）。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;真值表：&lt;/strong&gt;&lt;/p&gt;
 &lt;table&gt;
@@ -455,7 +455,7 @@
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;非门&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/logic-device/NOT.jpg&#34; alt=&#34;NOT&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;NOT.jpg&#34; alt=&#34;NOT&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;特点：输出的电平与输入的电平（逻辑）相反。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;真值表：&lt;/strong&gt;&lt;/p&gt;
 &lt;table&gt;
@@ -487,7 +487,7 @@
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;异或&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/logic-device/XOR.jpg&#34; alt=&#34;XOR&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;XOR.jpg&#34; alt=&#34;XOR&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;特点：输入的电平相同时，输出为低电平（逻辑 0）；若输入的电平不同，则输出高电平（逻辑 1）。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;真值表：&lt;/strong&gt;&lt;/p&gt;
 &lt;table&gt;
@@ -530,7 +530,7 @@
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;同或&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/logic-device/XNOR.jpg&#34; alt=&#34;XNOR&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;XNOR.jpg&#34; alt=&#34;XNOR&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;特点：只有当输入的电平相同时，输出才为高电平（逻辑 1）；而输入的电平不同时，输出低电平（逻辑 0）。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;真值表：&lt;/strong&gt;&lt;/p&gt;
 &lt;table&gt;
@@ -574,7 +574,7 @@
 &lt;/ul&gt;
 &lt;h2 id=&#34;与非和或非&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#与非和或非&#34;&gt;#&lt;/a&gt; 与非和或非&lt;/h2&gt;
 &lt;p&gt;与非和或非，其实相当于与门和或门输出取反：&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/logic-device/X.jpg&#34; alt=&#34;X&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;X.jpg&#34; alt=&#34;X&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;真值表这里就不放了，其实就是把与门和或门的输出状态取反。。。&lt;/p&gt;
 &lt;h2 id=&#34;逻辑门电路实现&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#逻辑门电路实现&#34;&gt;#&lt;/a&gt; 逻辑门电路实现&lt;/h2&gt;
 &lt;p&gt;逻辑门电路的实现，可由三极管或者 CMOS 管构建而成，可以看以前的文章：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyOTkyMDg0L2FydGljbGUvZGV0YWlscy85ODc4NDk2Mw==&#34;&gt;三极管 --- 初识 (图文并茂)&lt;/span&gt;&lt;/p&gt;
@@ -594,42 +594,42 @@
 &lt;h1 id=&#34;锁存器&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#锁存器&#34;&gt;#&lt;/a&gt; 锁存器&lt;/h1&gt;
 &lt;p&gt;锁存器的类型有很多种：S-R、J-K、T and D latches。这里只介绍比较常用的 S-R latch and Gated D latch。&lt;/p&gt;
 &lt;h2 id=&#34;sr锁存器&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#sr锁存器&#34;&gt;#&lt;/a&gt; SR 锁存器&lt;/h2&gt;
-&lt;p&gt;&lt;img data-src=&#34;/logic-device/R-S_mk2.gif&#34; alt=&#34;R-S_mk2&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;R-S_mk2.gif&#34; alt=&#34;R-S_mk2&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;SR 锁存器（Set-Reset Latch）是静态存储单元当中最基本、也是电路结构最简单的一种。通常它由两个&lt;strong&gt;或非门&lt;/strong&gt;或者&lt;strong&gt;与非门&lt;/strong&gt;组成。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Ⅰ、电路组成：&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;由&lt;strong&gt;或非门&lt;/strong&gt;构成&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/logic-device/Logic_Design_NOR_Latches.jpg&#34; alt=&#34;Logic_Design_NOR_Latches&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;Logic_Design_NOR_Latches.jpg&#34; alt=&#34;Logic_Design_NOR_Latches&#34; /&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;由&lt;strong&gt;与非门&lt;/strong&gt;构成&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/logic-device/Logic_Design_NAND_Latches.jpg&#34; alt=&#34;Logic_Design_NAND_Latches&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;Logic_Design_NAND_Latches.jpg&#34; alt=&#34;Logic_Design_NAND_Latches&#34; /&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;strong&gt;Ⅱ、状态分析：&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;从上面的两种构成进行比较，根据它们对应的状态表可以看出，当 S、R 信号为高电平（逻辑 1）【对应的，&lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mover accent=&#34;true&#34;&gt;&lt;mi&gt;S&lt;/mi&gt;&lt;mo stretchy=&#34;true&#34;&gt;‾&lt;/mo&gt;&lt;/mover&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;\overline{S}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.8833300000000001em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord overline&#34;&gt;&lt;span class=&#34;vlist-t&#34;&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.8833300000000001em;&#34;&gt;&lt;span style=&#34;top:-3em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.05764em;&#34;&gt;S&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;top:-3.80333em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;overline-line&#34; style=&#34;border-bottom-width:0.04em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;、&lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mover accent=&#34;true&#34;&gt;&lt;mi&gt;R&lt;/mi&gt;&lt;mo stretchy=&#34;true&#34;&gt;‾&lt;/mo&gt;&lt;/mover&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;\overline{R}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.8833300000000001em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord overline&#34;&gt;&lt;span class=&#34;vlist-t&#34;&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.8833300000000001em;&#34;&gt;&lt;span style=&#34;top:-3em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.00773em;&#34;&gt;R&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;top:-3.80333em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;overline-line&#34; style=&#34;border-bottom-width:0.04em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; 信号（由于符号表示的是非的关系）就为低电平（逻辑 0）】，就相当于这两个状态表高亮部分，所以无论是由哪个逻辑门构成，其输出状态都是一样的；因此，找其中一个表对照着理解就好了，那么就来稍微分析一下吧：&lt;/p&gt;
 &lt;ul class=&#34;task-list&#34;&gt;
 &lt;li class=&#34;task-list-item&#34;&gt;
-&lt;p&gt;&lt;input type=&#34;checkbox&#34; id=&#34;cbx_0&#34; disabled=&#34;true&#34;&gt;&lt;label for=&#34;cbx_0&#34;&gt; 当输入的 S = 0、R = 1（&lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mover accent=&#34;true&#34;&gt;&lt;mi&gt;S&lt;/mi&gt;&lt;mo stretchy=&#34;true&#34;&gt;‾&lt;/mo&gt;&lt;/mover&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;\overline{S}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.8833300000000001em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord overline&#34;&gt;&lt;span class=&#34;vlist-t&#34;&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.8833300000000001em;&#34;&gt;&lt;span style=&#34;top:-3em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.05764em;&#34;&gt;S&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;top:-3.80333em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;overline-line&#34; style=&#34;border-bottom-width:0.04em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; = 1、&lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mover accent=&#34;true&#34;&gt;&lt;mi&gt;R&lt;/mi&gt;&lt;mo stretchy=&#34;true&#34;&gt;‾&lt;/mo&gt;&lt;/mover&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;\overline{R}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.8833300000000001em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord overline&#34;&gt;&lt;span class=&#34;vlist-t&#34;&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.8833300000000001em;&#34;&gt;&lt;span style=&#34;top:-3em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.00773em;&#34;&gt;R&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;top:-3.80333em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;overline-line&#34; style=&#34;border-bottom-width:0.04em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; = 0），输出 Q = 0 和 &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mover accent=&#34;true&#34;&gt;&lt;mi&gt;Q&lt;/mi&gt;&lt;mo stretchy=&#34;true&#34;&gt;‾&lt;/mo&gt;&lt;/mover&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;\overline{Q}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:1.0777700000000001em;vertical-align:-0.19444em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord overline&#34;&gt;&lt;span class=&#34;vlist-t vlist-t2&#34;&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.8833300000000001em;&#34;&gt;&lt;span style=&#34;top:-3em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;Q&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;top:-3.80333em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;overline-line&#34; style=&#34;border-bottom-width:0.04em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;vlist-s&#34;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.19444em;&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; = 1（定义为 0 状态）；&lt;/label&gt;&lt;/p&gt;
+&lt;p&gt;&lt;input type=&#34;checkbox&#34; id=&#34;cbx_0&#34; disabled=&#34;true&#34; /&gt;&lt;label for=&#34;cbx_0&#34;&gt; 当输入的 S = 0、R = 1（&lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mover accent=&#34;true&#34;&gt;&lt;mi&gt;S&lt;/mi&gt;&lt;mo stretchy=&#34;true&#34;&gt;‾&lt;/mo&gt;&lt;/mover&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;\overline{S}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.8833300000000001em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord overline&#34;&gt;&lt;span class=&#34;vlist-t&#34;&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.8833300000000001em;&#34;&gt;&lt;span style=&#34;top:-3em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.05764em;&#34;&gt;S&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;top:-3.80333em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;overline-line&#34; style=&#34;border-bottom-width:0.04em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; = 1、&lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mover accent=&#34;true&#34;&gt;&lt;mi&gt;R&lt;/mi&gt;&lt;mo stretchy=&#34;true&#34;&gt;‾&lt;/mo&gt;&lt;/mover&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;\overline{R}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.8833300000000001em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord overline&#34;&gt;&lt;span class=&#34;vlist-t&#34;&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.8833300000000001em;&#34;&gt;&lt;span style=&#34;top:-3em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.00773em;&#34;&gt;R&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;top:-3.80333em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;overline-line&#34; style=&#34;border-bottom-width:0.04em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; = 0），输出 Q = 0 和 &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mover accent=&#34;true&#34;&gt;&lt;mi&gt;Q&lt;/mi&gt;&lt;mo stretchy=&#34;true&#34;&gt;‾&lt;/mo&gt;&lt;/mover&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;\overline{Q}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:1.0777700000000001em;vertical-align:-0.19444em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord overline&#34;&gt;&lt;span class=&#34;vlist-t vlist-t2&#34;&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.8833300000000001em;&#34;&gt;&lt;span style=&#34;top:-3em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;Q&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;top:-3.80333em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;overline-line&#34; style=&#34;border-bottom-width:0.04em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;vlist-s&#34;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.19444em;&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; = 1（定义为 0 状态）；&lt;/label&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li class=&#34;task-list-item&#34;&gt;
-&lt;p&gt;&lt;input type=&#34;checkbox&#34; id=&#34;cbx_1&#34; disabled=&#34;true&#34;&gt;&lt;label for=&#34;cbx_1&#34;&gt; 当输入的 S = 1、R = 0（&lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mover accent=&#34;true&#34;&gt;&lt;mi&gt;S&lt;/mi&gt;&lt;mo stretchy=&#34;true&#34;&gt;‾&lt;/mo&gt;&lt;/mover&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;\overline{S}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.8833300000000001em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord overline&#34;&gt;&lt;span class=&#34;vlist-t&#34;&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.8833300000000001em;&#34;&gt;&lt;span style=&#34;top:-3em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.05764em;&#34;&gt;S&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;top:-3.80333em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;overline-line&#34; style=&#34;border-bottom-width:0.04em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; = 0、&lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mover accent=&#34;true&#34;&gt;&lt;mi&gt;R&lt;/mi&gt;&lt;mo stretchy=&#34;true&#34;&gt;‾&lt;/mo&gt;&lt;/mover&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;\overline{R}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.8833300000000001em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord overline&#34;&gt;&lt;span class=&#34;vlist-t&#34;&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.8833300000000001em;&#34;&gt;&lt;span style=&#34;top:-3em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.00773em;&#34;&gt;R&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;top:-3.80333em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;overline-line&#34; style=&#34;border-bottom-width:0.04em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; = 1），输出 Q = 1 和 &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mover accent=&#34;true&#34;&gt;&lt;mi&gt;Q&lt;/mi&gt;&lt;mo stretchy=&#34;true&#34;&gt;‾&lt;/mo&gt;&lt;/mover&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;\overline{Q}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:1.0777700000000001em;vertical-align:-0.19444em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord overline&#34;&gt;&lt;span class=&#34;vlist-t vlist-t2&#34;&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.8833300000000001em;&#34;&gt;&lt;span style=&#34;top:-3em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;Q&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;top:-3.80333em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;overline-line&#34; style=&#34;border-bottom-width:0.04em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;vlist-s&#34;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.19444em;&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; = 0（定义为 1 状态）；&lt;/label&gt;&lt;/p&gt;
+&lt;p&gt;&lt;input type=&#34;checkbox&#34; id=&#34;cbx_1&#34; disabled=&#34;true&#34; /&gt;&lt;label for=&#34;cbx_1&#34;&gt; 当输入的 S = 1、R = 0（&lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mover accent=&#34;true&#34;&gt;&lt;mi&gt;S&lt;/mi&gt;&lt;mo stretchy=&#34;true&#34;&gt;‾&lt;/mo&gt;&lt;/mover&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;\overline{S}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.8833300000000001em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord overline&#34;&gt;&lt;span class=&#34;vlist-t&#34;&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.8833300000000001em;&#34;&gt;&lt;span style=&#34;top:-3em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.05764em;&#34;&gt;S&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;top:-3.80333em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;overline-line&#34; style=&#34;border-bottom-width:0.04em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; = 0、&lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mover accent=&#34;true&#34;&gt;&lt;mi&gt;R&lt;/mi&gt;&lt;mo stretchy=&#34;true&#34;&gt;‾&lt;/mo&gt;&lt;/mover&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;\overline{R}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.8833300000000001em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord overline&#34;&gt;&lt;span class=&#34;vlist-t&#34;&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.8833300000000001em;&#34;&gt;&lt;span style=&#34;top:-3em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.00773em;&#34;&gt;R&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;top:-3.80333em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;overline-line&#34; style=&#34;border-bottom-width:0.04em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; = 1），输出 Q = 1 和 &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mover accent=&#34;true&#34;&gt;&lt;mi&gt;Q&lt;/mi&gt;&lt;mo stretchy=&#34;true&#34;&gt;‾&lt;/mo&gt;&lt;/mover&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;\overline{Q}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:1.0777700000000001em;vertical-align:-0.19444em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord overline&#34;&gt;&lt;span class=&#34;vlist-t vlist-t2&#34;&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.8833300000000001em;&#34;&gt;&lt;span style=&#34;top:-3em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;Q&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;top:-3.80333em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;overline-line&#34; style=&#34;border-bottom-width:0.04em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;vlist-s&#34;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.19444em;&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; = 0（定义为 1 状态）；&lt;/label&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li class=&#34;task-list-item&#34;&gt;
-&lt;p&gt;&lt;input type=&#34;checkbox&#34; id=&#34;cbx_2&#34; disabled=&#34;true&#34;&gt;&lt;label for=&#34;cbx_2&#34;&gt; 当输入的 S = R = 0（ &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mover accent=&#34;true&#34;&gt;&lt;mi&gt;S&lt;/mi&gt;&lt;mo stretchy=&#34;true&#34;&gt;‾&lt;/mo&gt;&lt;/mover&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;\overline{S}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.8833300000000001em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord overline&#34;&gt;&lt;span class=&#34;vlist-t&#34;&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.8833300000000001em;&#34;&gt;&lt;span style=&#34;top:-3em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.05764em;&#34;&gt;S&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;top:-3.80333em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;overline-line&#34; style=&#34;border-bottom-width:0.04em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; = &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mover accent=&#34;true&#34;&gt;&lt;mi&gt;R&lt;/mi&gt;&lt;mo stretchy=&#34;true&#34;&gt;‾&lt;/mo&gt;&lt;/mover&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;\overline{R}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.8833300000000001em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord overline&#34;&gt;&lt;span class=&#34;vlist-t&#34;&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.8833300000000001em;&#34;&gt;&lt;span style=&#34;top:-3em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.00773em;&#34;&gt;R&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;top:-3.80333em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;overline-line&#34; style=&#34;border-bottom-width:0.04em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; = 1）；输出将会保持；&lt;/label&gt;&lt;/p&gt;
+&lt;p&gt;&lt;input type=&#34;checkbox&#34; id=&#34;cbx_2&#34; disabled=&#34;true&#34; /&gt;&lt;label for=&#34;cbx_2&#34;&gt; 当输入的 S = R = 0（ &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mover accent=&#34;true&#34;&gt;&lt;mi&gt;S&lt;/mi&gt;&lt;mo stretchy=&#34;true&#34;&gt;‾&lt;/mo&gt;&lt;/mover&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;\overline{S}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.8833300000000001em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord overline&#34;&gt;&lt;span class=&#34;vlist-t&#34;&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.8833300000000001em;&#34;&gt;&lt;span style=&#34;top:-3em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.05764em;&#34;&gt;S&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;top:-3.80333em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;overline-line&#34; style=&#34;border-bottom-width:0.04em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; = &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mover accent=&#34;true&#34;&gt;&lt;mi&gt;R&lt;/mi&gt;&lt;mo stretchy=&#34;true&#34;&gt;‾&lt;/mo&gt;&lt;/mover&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;\overline{R}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.8833300000000001em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord overline&#34;&gt;&lt;span class=&#34;vlist-t&#34;&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.8833300000000001em;&#34;&gt;&lt;span style=&#34;top:-3em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.00773em;&#34;&gt;R&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;top:-3.80333em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;overline-line&#34; style=&#34;border-bottom-width:0.04em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; = 1）；输出将会保持；&lt;/label&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li class=&#34;task-list-item&#34;&gt;
-&lt;p&gt;&lt;input type=&#34;checkbox&#34; id=&#34;cbx_3&#34; disabled=&#34;true&#34;&gt;&lt;label for=&#34;cbx_3&#34;&gt; 当输入的 S = 1、R = 1（&lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mover accent=&#34;true&#34;&gt;&lt;mi&gt;S&lt;/mi&gt;&lt;mo stretchy=&#34;true&#34;&gt;‾&lt;/mo&gt;&lt;/mover&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;\overline{S}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.8833300000000001em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord overline&#34;&gt;&lt;span class=&#34;vlist-t&#34;&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.8833300000000001em;&#34;&gt;&lt;span style=&#34;top:-3em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.05764em;&#34;&gt;S&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;top:-3.80333em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;overline-line&#34; style=&#34;border-bottom-width:0.04em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; = 0、&lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mover accent=&#34;true&#34;&gt;&lt;mi&gt;R&lt;/mi&gt;&lt;mo stretchy=&#34;true&#34;&gt;‾&lt;/mo&gt;&lt;/mover&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;\overline{R}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.8833300000000001em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord overline&#34;&gt;&lt;span class=&#34;vlist-t&#34;&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.8833300000000001em;&#34;&gt;&lt;span style=&#34;top:-3em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.00773em;&#34;&gt;R&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;top:-3.80333em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;overline-line&#34; style=&#34;border-bottom-width:0.04em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; = 0），输出 Q 和 &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mover accent=&#34;true&#34;&gt;&lt;mi&gt;Q&lt;/mi&gt;&lt;mo stretchy=&#34;true&#34;&gt;‾&lt;/mo&gt;&lt;/mover&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;\overline{Q}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:1.0777700000000001em;vertical-align:-0.19444em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord overline&#34;&gt;&lt;span class=&#34;vlist-t vlist-t2&#34;&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.8833300000000001em;&#34;&gt;&lt;span style=&#34;top:-3em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;Q&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;top:-3.80333em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;overline-line&#34; style=&#34;border-bottom-width:0.04em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;vlist-s&#34;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.19444em;&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; 其状态是不确定的；因此，在 SR 锁存器里，有一条约束条件：S・R = 0（即不应该出现 &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mover accent=&#34;true&#34;&gt;&lt;mi&gt;S&lt;/mi&gt;&lt;mo stretchy=&#34;true&#34;&gt;‾&lt;/mo&gt;&lt;/mover&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;\overline{S}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.8833300000000001em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord overline&#34;&gt;&lt;span class=&#34;vlist-t&#34;&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.8833300000000001em;&#34;&gt;&lt;span style=&#34;top:-3em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.05764em;&#34;&gt;S&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;top:-3.80333em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;overline-line&#34; style=&#34;border-bottom-width:0.04em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; = &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mover accent=&#34;true&#34;&gt;&lt;mi&gt;R&lt;/mi&gt;&lt;mo stretchy=&#34;true&#34;&gt;‾&lt;/mo&gt;&lt;/mover&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;\overline{R}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.8833300000000001em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord overline&#34;&gt;&lt;span class=&#34;vlist-t&#34;&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.8833300000000001em;&#34;&gt;&lt;span style=&#34;top:-3em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.00773em;&#34;&gt;R&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;top:-3.80333em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;overline-line&#34; style=&#34;border-bottom-width:0.04em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; = 0，这种情况）。&lt;/label&gt;&lt;/p&gt;
+&lt;p&gt;&lt;input type=&#34;checkbox&#34; id=&#34;cbx_3&#34; disabled=&#34;true&#34; /&gt;&lt;label for=&#34;cbx_3&#34;&gt; 当输入的 S = 1、R = 1（&lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mover accent=&#34;true&#34;&gt;&lt;mi&gt;S&lt;/mi&gt;&lt;mo stretchy=&#34;true&#34;&gt;‾&lt;/mo&gt;&lt;/mover&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;\overline{S}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.8833300000000001em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord overline&#34;&gt;&lt;span class=&#34;vlist-t&#34;&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.8833300000000001em;&#34;&gt;&lt;span style=&#34;top:-3em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.05764em;&#34;&gt;S&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;top:-3.80333em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;overline-line&#34; style=&#34;border-bottom-width:0.04em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; = 0、&lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mover accent=&#34;true&#34;&gt;&lt;mi&gt;R&lt;/mi&gt;&lt;mo stretchy=&#34;true&#34;&gt;‾&lt;/mo&gt;&lt;/mover&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;\overline{R}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.8833300000000001em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord overline&#34;&gt;&lt;span class=&#34;vlist-t&#34;&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.8833300000000001em;&#34;&gt;&lt;span style=&#34;top:-3em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.00773em;&#34;&gt;R&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;top:-3.80333em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;overline-line&#34; style=&#34;border-bottom-width:0.04em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; = 0），输出 Q 和 &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mover accent=&#34;true&#34;&gt;&lt;mi&gt;Q&lt;/mi&gt;&lt;mo stretchy=&#34;true&#34;&gt;‾&lt;/mo&gt;&lt;/mover&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;\overline{Q}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:1.0777700000000001em;vertical-align:-0.19444em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord overline&#34;&gt;&lt;span class=&#34;vlist-t vlist-t2&#34;&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.8833300000000001em;&#34;&gt;&lt;span style=&#34;top:-3em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;Q&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;top:-3.80333em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;overline-line&#34; style=&#34;border-bottom-width:0.04em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;vlist-s&#34;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.19444em;&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; 其状态是不确定的；因此，在 SR 锁存器里，有一条约束条件：S・R = 0（即不应该出现 &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mover accent=&#34;true&#34;&gt;&lt;mi&gt;S&lt;/mi&gt;&lt;mo stretchy=&#34;true&#34;&gt;‾&lt;/mo&gt;&lt;/mover&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;\overline{S}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.8833300000000001em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord overline&#34;&gt;&lt;span class=&#34;vlist-t&#34;&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.8833300000000001em;&#34;&gt;&lt;span style=&#34;top:-3em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.05764em;&#34;&gt;S&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;top:-3.80333em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;overline-line&#34; style=&#34;border-bottom-width:0.04em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; = &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mover accent=&#34;true&#34;&gt;&lt;mi&gt;R&lt;/mi&gt;&lt;mo stretchy=&#34;true&#34;&gt;‾&lt;/mo&gt;&lt;/mover&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;\overline{R}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.8833300000000001em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord overline&#34;&gt;&lt;span class=&#34;vlist-t&#34;&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.8833300000000001em;&#34;&gt;&lt;span style=&#34;top:-3em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.00773em;&#34;&gt;R&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;top:-3.80333em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;overline-line&#34; style=&#34;border-bottom-width:0.04em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; = 0，这种情况）。&lt;/label&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;strong&gt;Ⅲ、时序分析：&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;以&lt;strong&gt;与非门&lt;/strong&gt;构成电路为例：&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/logic-device/SR%20latch.png&#34; alt=&#34;SR latch&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;SR%20latch.png&#34; alt=&#34;SR latch&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;在上图可以看到， t3 ~ t4 时刻，输入端出现了 &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mover accent=&#34;true&#34;&gt;&lt;mi&gt;S&lt;/mi&gt;&lt;mo stretchy=&#34;true&#34;&gt;‾&lt;/mo&gt;&lt;/mover&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;\overline{S}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.8833300000000001em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord overline&#34;&gt;&lt;span class=&#34;vlist-t&#34;&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.8833300000000001em;&#34;&gt;&lt;span style=&#34;top:-3em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.05764em;&#34;&gt;S&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;top:-3.80333em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;overline-line&#34; style=&#34;border-bottom-width:0.04em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; = &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mover accent=&#34;true&#34;&gt;&lt;mi&gt;R&lt;/mi&gt;&lt;mo stretchy=&#34;true&#34;&gt;‾&lt;/mo&gt;&lt;/mover&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;\overline{R}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.8833300000000001em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord overline&#34;&gt;&lt;span class=&#34;vlist-t&#34;&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.8833300000000001em;&#34;&gt;&lt;span style=&#34;top:-3em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.00773em;&#34;&gt;R&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;top:-3.80333em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;overline-line&#34; style=&#34;border-bottom-width:0.04em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; = 0 的状态，但由于 &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mover accent=&#34;true&#34;&gt;&lt;mi&gt;S&lt;/mi&gt;&lt;mo stretchy=&#34;true&#34;&gt;‾&lt;/mo&gt;&lt;/mover&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;\overline{S}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.8833300000000001em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord overline&#34;&gt;&lt;span class=&#34;vlist-t&#34;&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.8833300000000001em;&#34;&gt;&lt;span style=&#34;top:-3em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.05764em;&#34;&gt;S&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;top:-3.80333em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;overline-line&#34; style=&#34;border-bottom-width:0.04em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; 首先回到了高电平，所以 SR 锁存器的次态仍是可以确定的；可能你会觉得，上面不是说了无法确定状态吗？这是由于 &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mover accent=&#34;true&#34;&gt;&lt;mi&gt;S&lt;/mi&gt;&lt;mo stretchy=&#34;true&#34;&gt;‾&lt;/mo&gt;&lt;/mover&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;\overline{S}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.8833300000000001em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord overline&#34;&gt;&lt;span class=&#34;vlist-t&#34;&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.8833300000000001em;&#34;&gt;&lt;span style=&#34;top:-3em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.05764em;&#34;&gt;S&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;top:-3.80333em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;overline-line&#34; style=&#34;border-bottom-width:0.04em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; = &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mover accent=&#34;true&#34;&gt;&lt;mi&gt;R&lt;/mi&gt;&lt;mo stretchy=&#34;true&#34;&gt;‾&lt;/mo&gt;&lt;/mover&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;\overline{R}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.8833300000000001em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord overline&#34;&gt;&lt;span class=&#34;vlist-t&#34;&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.8833300000000001em;&#34;&gt;&lt;span style=&#34;top:-3em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.00773em;&#34;&gt;R&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;top:-3.80333em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;overline-line&#34; style=&#34;border-bottom-width:0.04em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; = 0 时会出现非定义的 Q =  &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mover accent=&#34;true&#34;&gt;&lt;mi&gt;Q&lt;/mi&gt;&lt;mo stretchy=&#34;true&#34;&gt;‾&lt;/mo&gt;&lt;/mover&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;\overline{Q}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:1.0777700000000001em;vertical-align:-0.19444em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord overline&#34;&gt;&lt;span class=&#34;vlist-t vlist-t2&#34;&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.8833300000000001em;&#34;&gt;&lt;span style=&#34;top:-3em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&lt;span class=&#34;mord mathnormal&#34;&gt;Q&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;top:-3.80333em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;overline-line&#34; style=&#34;border-bottom-width:0.04em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;vlist-s&#34;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.19444em;&#34;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; = 1 的非法状态（要知道我们只定义了 0 和 1 的状态），而且当 &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mover accent=&#34;true&#34;&gt;&lt;mi&gt;S&lt;/mi&gt;&lt;mo stretchy=&#34;true&#34;&gt;‾&lt;/mo&gt;&lt;/mover&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;\overline{S}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.8833300000000001em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord overline&#34;&gt;&lt;span class=&#34;vlist-t&#34;&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.8833300000000001em;&#34;&gt;&lt;span style=&#34;top:-3em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.05764em;&#34;&gt;S&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;top:-3.80333em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;overline-line&#34; style=&#34;border-bottom-width:0.04em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; 和 &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mover accent=&#34;true&#34;&gt;&lt;mi&gt;R&lt;/mi&gt;&lt;mo stretchy=&#34;true&#34;&gt;‾&lt;/mo&gt;&lt;/mover&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;\overline{R}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.8833300000000001em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord overline&#34;&gt;&lt;span class=&#34;vlist-t&#34;&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.8833300000000001em;&#34;&gt;&lt;span style=&#34;top:-3em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.00773em;&#34;&gt;R&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;top:-3.80333em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;overline-line&#34; style=&#34;border-bottom-width:0.04em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; 同时回到高电平以后锁存器的状态难以确定，因此一般情况下还是避免这种 &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mover accent=&#34;true&#34;&gt;&lt;mi&gt;S&lt;/mi&gt;&lt;mo stretchy=&#34;true&#34;&gt;‾&lt;/mo&gt;&lt;/mover&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;\overline{S}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.8833300000000001em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord overline&#34;&gt;&lt;span class=&#34;vlist-t&#34;&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.8833300000000001em;&#34;&gt;&lt;span style=&#34;top:-3em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.05764em;&#34;&gt;S&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;top:-3.80333em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;overline-line&#34; style=&#34;border-bottom-width:0.04em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; = &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mover accent=&#34;true&#34;&gt;&lt;mi&gt;R&lt;/mi&gt;&lt;mo stretchy=&#34;true&#34;&gt;‾&lt;/mo&gt;&lt;/mover&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;\overline{R}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.8833300000000001em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord overline&#34;&gt;&lt;span class=&#34;vlist-t&#34;&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.8833300000000001em;&#34;&gt;&lt;span style=&#34;top:-3em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.00773em;&#34;&gt;R&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;top:-3.80333em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;overline-line&#34; style=&#34;border-bottom-width:0.04em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; = 0 的状态；同时，由于这个缺陷，&lt;strong&gt;JK 触发器&lt;/strong&gt;产生了，下面会讲。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Ⅳ、电路改进：&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;从上面可以得知，由&lt;strong&gt;与非门&lt;/strong&gt;构成的 SR 触发器，输入的电平（逻辑）是反向的输入（即为  &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mover accent=&#34;true&#34;&gt;&lt;mi&gt;S&lt;/mi&gt;&lt;mo stretchy=&#34;true&#34;&gt;‾&lt;/mo&gt;&lt;/mover&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;\overline{S}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.8833300000000001em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord overline&#34;&gt;&lt;span class=&#34;vlist-t&#34;&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.8833300000000001em;&#34;&gt;&lt;span style=&#34;top:-3em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.05764em;&#34;&gt;S&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;top:-3.80333em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;overline-line&#34; style=&#34;border-bottom-width:0.04em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;、&lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mover accent=&#34;true&#34;&gt;&lt;mi&gt;R&lt;/mi&gt;&lt;mo stretchy=&#34;true&#34;&gt;‾&lt;/mo&gt;&lt;/mover&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;\overline{R}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.8833300000000001em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord overline&#34;&gt;&lt;span class=&#34;vlist-t&#34;&gt;&lt;span class=&#34;vlist-r&#34;&gt;&lt;span class=&#34;vlist&#34; style=&#34;height:0.8833300000000001em;&#34;&gt;&lt;span style=&#34;top:-3em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.00773em;&#34;&gt;R&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;top:-3.80333em;&#34;&gt;&lt;span class=&#34;pstrut&#34; style=&#34;height:3em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;overline-line&#34; style=&#34;border-bottom-width:0.04em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; ），因此，人们在电路的前端输入部分添加了转换功能，并且引入了使能控制信号，如下图：&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/logic-device/Logic_Design_gated_SR_latch.jpg&#34; alt=&#34;Logic_Design_gated_SR_latch&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;Logic_Design_gated_SR_latch.jpg&#34; alt=&#34;Logic_Design_gated_SR_latch&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;于是乎，把上面的电路称之为：&lt;strong&gt;门控 SR 锁存器&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;门控使能信号（一般表示为 E 或者 C）的作用：&lt;/p&gt;
 &lt;table&gt;
@@ -656,11 +656,11 @@
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;基于 SR NAND 锁存器的门控 D 锁存器&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/logic-device/676px-D-Type_Transparent_Latch.svg.png&#34; alt=&#34;676px-D-Type_Transparent_Latch.svg&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;676px-D-Type_Transparent_Latch.svg.png&#34; alt=&#34;676px-D-Type_Transparent_Latch.svg&#34; /&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;基于 SR NOR 锁存器的门控 D 锁存器&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/logic-device/676px-D-type_Transparent_Latch_(NOR).svg.png&#34; alt=&#34;676px-D-type_Transparent_Latch_(NOR).svg&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;676px-D-type_Transparent_Latch_(NOR).svg.png&#34; alt=&#34;676px-D-type_Transparent_Latch_(NOR).svg&#34; /&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;对应上面两个门控 D 锁存器，其真值表都是一样的：&lt;/p&gt;
@@ -670,7 +670,7 @@
 &lt;th style=&#34;text-align:center&#34;&gt;E&lt;/th&gt;
 &lt;th style=&#34;text-align:center&#34;&gt;D&lt;/th&gt;
 &lt;th style=&#34;text-align:center&#34;&gt;Q&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34; q&gt;\overline&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34; Q=&#34;&#34;&gt;\overline&lt;/th&gt;
 &lt;th style=&#34;text-align:center&#34;&gt;Comment&lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
@@ -700,18 +700,18 @@
 &lt;/table&gt;
 &lt;p&gt;从真值表上看，可以知道，在使能信号输入为高电平（逻辑 1）时，D 锁存器才起作用，否则，输出信号将保持原状态；并且，当 D 锁存器起作用时，输出的信号 Q 状态跟 D 输入状态一致，因此，D 锁存器也叫 D 跟随。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Ⅱ、时序分析&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/logic-device/Gated%20D%20latch.png&#34; alt=&#34;Gated D latch&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;Gated%20D%20latch.png&#34; alt=&#34;Gated D latch&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;锁存器部分相关链接：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9sZWFybi5jaXJjdWl0dmVyc2Uub3JnL2RvY3MvTGF0Y2hlcw==&#34;&gt;https://learn.circuitverse.org/docs/Latches&lt;/span&gt;&lt;/p&gt;
 &lt;h1 id=&#34;触发器&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#触发器&#34;&gt;#&lt;/a&gt; 触发器&lt;/h1&gt;
 &lt;p&gt;触发器的类型同样也有很多种：S-R、J-K、T and D Flip flops。这里也只是分析常见的 J-K、T and D Flip flops。&lt;/p&gt;
 &lt;p&gt;根据时钟信号触发的不同，可以分为两种情况（上升沿触发和下降沿触发）：&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/logic-device/Logic_Design_SR_flip_flop_symbol.jpg&#34; alt=&#34;Logic_Design_SR_flip_flop_symbol&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;Logic_Design_SR_flip_flop_symbol.jpg&#34; alt=&#34;Logic_Design_SR_flip_flop_symbol&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;从上图可以看到，上升沿触发和下降沿触发根本区别在于时钟信号输入端是否多了个非门。&lt;/p&gt;
 &lt;h2 id=&#34;jk触发器&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#jk触发器&#34;&gt;#&lt;/a&gt; JK 触发器&lt;/h2&gt;
 &lt;p&gt;根据边沿触发的不同，有以下两种逻辑符号：&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/logic-device/Logic_Design_JK_flip_flop_symbol.jpg&#34; alt=&#34;Logic_Design_JK_flip_flop_symbol&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;Logic_Design_JK_flip_flop_symbol.jpg&#34; alt=&#34;Logic_Design_JK_flip_flop_symbol&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;以上升沿为例，其电路组成如下：&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/logic-device/jk%20flip%20flop.png&#34; alt=&#34;jk flip flop&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;jk%20flip%20flop.png&#34; alt=&#34;jk flip flop&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;对应的真值表：&lt;/strong&gt;&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -800,14 +800,14 @@
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;p&gt;&lt;strong&gt;时序分析：&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/logic-device/JK%20Flip-Flop.png&#34; alt=&#34;JK Flip-Flop&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;JK%20Flip-Flop.png&#34; alt=&#34;JK Flip-Flop&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;特征方程式：&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/logic-device/JK.png&#34; alt=&#34;JK&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;JK.png&#34; alt=&#34;JK&#34; /&gt;&lt;/p&gt;
 &lt;h2 id=&#34;t触发器&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#t触发器&#34;&gt;#&lt;/a&gt; T 触发器&lt;/h2&gt;
 &lt;p&gt;根据边沿触发的不同，有以下两种逻辑符号：&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/logic-device/Logic_Design_T_flip_flop_symbol.jpg&#34; alt=&#34;Logic_Design_T_flip_flop_symbol&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;Logic_Design_T_flip_flop_symbol.jpg&#34; alt=&#34;Logic_Design_T_flip_flop_symbol&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;以上升沿为例，其电路组成如下：&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/logic-device/T%20flip%20flop.png&#34; alt=&#34;T flip flop&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;T%20flip%20flop.png&#34; alt=&#34;T flip flop&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;对应的真值表：&lt;/strong&gt;&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -858,14 +858,14 @@
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;p&gt;&lt;strong&gt;时序分析：&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/logic-device/T%20Filp-Flop.png&#34; alt=&#34;T Filp-Flop&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;T%20Filp-Flop.png&#34; alt=&#34;T Filp-Flop&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;特征方程式：&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/logic-device/T.png&#34; alt=&#34;T&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;T.png&#34; alt=&#34;T&#34; /&gt;&lt;/p&gt;
 &lt;h2 id=&#34;d触发器&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#d触发器&#34;&gt;#&lt;/a&gt; D 触发器&lt;/h2&gt;
 &lt;p&gt;根据边沿触发的不同，有以下两种逻辑符号：&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/logic-device/Logic_Design_D_flip_flop_symbols.jpg&#34; alt=&#34;Logic_Design_D_flip_flop_symbols&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;Logic_Design_D_flip_flop_symbols.jpg&#34; alt=&#34;Logic_Design_D_flip_flop_symbols&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;以上升沿为例，其电路组成如下：&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/logic-device/D%20flip%20flop.png&#34; alt=&#34;D flip flop&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;D%20flip%20flop.png&#34; alt=&#34;D flip flop&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;对应的真值表：&lt;/strong&gt;&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -916,9 +916,9 @@
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;p&gt;&lt;strong&gt;时序分析：&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/logic-device/D%20Filp-Flop.png&#34; alt=&#34;D Filp-Flop&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;D%20Filp-Flop.png&#34; alt=&#34;D Filp-Flop&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;特征方程式：&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/logic-device/D.png&#34; alt=&#34;D&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;D.png&#34; alt=&#34;D&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;触发器部分相关链接：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9sZWFybi5jaXJjdWl0dmVyc2Uub3JnL2RvY3MvZmxpcGZsb3A=&#34;&gt;https://learn.circuitverse.org/docs/flipflop&lt;/span&gt;&lt;/p&gt;
 &lt;h1 id=&#34;相关资料&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#相关资料&#34;&gt;#&lt;/a&gt; 相关资料&lt;/h1&gt;
 &lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9lbi53aWtpcGVkaWEub3JnL3dpa2kvRmxpcC1mbG9wXyhlbGVjdHJvbmljcyk=&#34;&gt;https://en.wikipedia.org/wiki/Flip-flop_(electronics)&lt;/span&gt;&lt;/p&gt;
@@ -944,10 +944,10 @@
 
 &lt;/p&gt;
 &lt;h1 id=&#34;漫画篇&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#漫画篇&#34;&gt;#&lt;/a&gt; 漫画篇&lt;/h1&gt;
-&lt;p&gt;&lt;img data-src=&#34;/inductor/clip_image002.jpg&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/inductor/clip_image004.jpg&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/inductor/clip_image006.jpg&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/inductor/clip_image008.jpg&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;clip_image002.jpg&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;clip_image004.jpg&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;clip_image006.jpg&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;clip_image008.jpg&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;图片提取自 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuanAudGRrLmNvbS9jb3JwL3poL2luZGV4Lmh0bQ==&#34;&gt;TDK 株式会社&lt;/span&gt;&lt;/p&gt;
 &lt;h1 id=&#34;文字篇&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#文字篇&#34;&gt;#&lt;/a&gt; 文字篇&lt;/h1&gt;
 &lt;p&gt;&lt;strong&gt;1、电感器与电感&lt;/strong&gt;&lt;/p&gt;
@@ -959,7 +959,7 @@
 &lt;p&gt;・互感：假设一个闭合回路的电流改变，由于感应作用在另外一个闭合回路中产生电动势，这种电感称为&lt;strong&gt;互感&lt;/strong&gt;（mutual inductance）&lt;/p&gt;
 &lt;p&gt;互感是以字母 “M” 标记，是其英文（Mutual Inductance）的第一个字母&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;3、表达式&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/inductor/clip_image010.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;clip_image010.png&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;其中：&lt;/p&gt;
 &lt;p&gt;ε 是电动势&lt;/p&gt;
 &lt;p&gt;L 是电感&lt;/p&gt;
@@ -973,13 +973,13 @@
 &lt;ul&gt;
 &lt;li&gt;并联电路中的电感元件每个都有相同的电势差。其总的等效电感（&lt;em&gt;L&lt;/em&gt;eq）：&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img data-src=&#34;/inductor/clip_image012.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/inductor/clip_image014.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;clip_image012.png&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;clip_image014.png&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;通过串联电感的电流保持不变，但每个电感元件上的电压可不同。其电压之和等于总电压。总电感：&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img data-src=&#34;/inductor/clip_image016.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/inductor/clip_image018.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;clip_image016.png&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;clip_image018.png&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;这种简单的关系只有在没有磁场互耦（mutual coupling）的条件下才成立&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;6、电感的应用&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;・功率电感：主要用于电压转换，常用的 DCDC 电路都要使用功率电感&lt;/p&gt;
@@ -989,17 +989,17 @@
 &lt;p&gt;&lt;strong&gt;7、感性负载电压电流的超前滞后&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;首先要提醒，相位的概念是针对正弦信号而言的，直流信号、非周期变化信号等都没有相位的概念&lt;/p&gt;
 &lt;p&gt;由于 Sin [ωt] 在求导或积分后会出现 Sin [ωt ± 90°]，所以对于接上了正弦波的感性负载，通过接上理想的直流电压表、直流电流表，可以观察到波形超前滞后的现象&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/inductor/clip_image020.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;clip_image020.png&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;如果还表现的还不够生动，可以用动态图演示，其用红色表示电压，蓝色表示电流：&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/inductor/clip_image021.gif&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;clip_image021.gif&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;电压的变化超前于电流，电流的变化滞后于电压，所以若电感器通入交流的信号，相角为 90 度，亦即电流滞后电压 90 度&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/inductor/clip_image022.gif&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;clip_image022.gif&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;用不同的颜色描述电压的大小，蓝色 &amp;gt; 黄色 &amp;gt; 红色；用不同的粗细和箭头描述电流的大小和方向，电流最大时电感磁场能最大&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;8、感抗&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;因为电路中存在电感电路（如线圈），由此产生的变化的电磁场，会产生相应的阻碍电流变化的感生电动势。这个作用称为&lt;strong&gt;感抗&lt;/strong&gt; 。电流变化越大，即电路频率越大，感抗越大；当频率变为 0，即成为直流电时，感抗也变为 0。感抗会引起电流与电压之间的相位差。感抗可由下面公式计算而来：&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/inductor/clip_image024.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;clip_image024.png&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;复数分析中：&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/inductor/clip_image026.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;clip_image026.png&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;其中&lt;/p&gt;
 &lt;p&gt;・j 是复数单位&lt;/p&gt;
 &lt;p&gt;・Xl 就是感抗，单位为欧姆&lt;/p&gt;
@@ -1018,7 +1018,7 @@
 &lt;p&gt;&lt;strong&gt;11、品质因数&lt;/strong&gt; &lt;strong&gt;Q&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;一个理想的电感元件是不会因流经线圈的电流的大小而改变其敏感度。但是于实际环境下，线圈内的金属线会令电感元件带有绕组电阻；由于绕组电阻是以串联著电感元件的电阻形式出现，所以亦被称为串联电阻。由于串联电阻的存在，实际电感元件的特性会不同于理想电感，可以用品质因数表示电感和电阻之的比例&lt;/p&gt;
 &lt;p&gt;电感元件的品质因数 Q 能由以下方程式可得，R 是电感元件的内部电抗：&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/inductor/clip_image028.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;clip_image028.png&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;相同条件下内阻越大，品质因数越小。品质因数可以看做是衡量电感元件好坏的标准之一，品质因数越高通常意味着电感的质量越好；电感器品质因数的高低与线圈导线的直流电阻、线圈骨架的介质损耗及铁心、屏蔽罩等引起的损耗等有关&lt;/p&gt;
  ]]></description>
         </item>
@@ -1039,9 +1039,9 @@
 
 &lt;/p&gt;
 &lt;h1 id=&#34;漫画篇&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#漫画篇&#34;&gt;#&lt;/a&gt; 漫画篇&lt;/h1&gt;
-&lt;p&gt;&lt;img data-src=&#34;/capacitor/clip_image002.jpg&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/capacitor/clip_image004.jpg&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/capacitor/clip_image006.jpg&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;clip_image002.jpg&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;clip_image004.jpg&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;clip_image006.jpg&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;图片提取自 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuanAudGRrLmNvbS9jb3JwL3poL2luZGV4Lmh0bQ==&#34;&gt;TDK 株式会社&lt;/span&gt;&lt;/p&gt;
 &lt;h1 id=&#34;文字篇&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#文字篇&#34;&gt;#&lt;/a&gt; 文字篇&lt;/h1&gt;
 &lt;p&gt;&lt;strong&gt;1、电容器与电容&lt;/strong&gt;&lt;/p&gt;
@@ -1049,11 +1049,11 @@
 &lt;p&gt;电容器包括二个电极，二个电极储存的电荷大小相等，符号相反。电极本身是导体，二个电极之间由称为介电质的绝缘体隔开。电极的金属片通常用的是铝片或是铝箔，若用氧化铝来做介质的就是电解电容器。电荷会储存在电极表面，靠近介电质的部分。由于二个电极储存的电荷大小相等，符号相反，因此电容器中始终保持为电中性&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;2、原理&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;电容器的电容（&lt;em&gt;C&lt;/em&gt;）是测量当电容器两端的电势差或电压（&lt;em&gt;V&lt;/em&gt;）为单位值时，储存在电容器电极的电荷量（&lt;em&gt;Q&lt;/em&gt;）：&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/capacitor/clip_image008.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;clip_image008.png&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;上式的意义是，在一个具有 C 法拉的电容两端跨接 V 伏的电压时，该电容的一个极板上就有 Q 库仑的电荷存储，而另一个极板上也有 -Q 库仑的电荷存储；其电荷量的单位为 -- 库仑（C），则此电容器的电容量单位为 -- 法拉（F）&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;3、电容的定义式&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;由于电容器的总电场，在电容器两端会出现电压。电压 V 和电容器一端的绝对电荷量 Q 成正比，而 Q 是流过电容器的电流对时间的积分。其数学式如下：&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/capacitor/clip_image010.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;clip_image010.png&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;其中：&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;I&lt;/em&gt; 是流过电容器的电流，单位为&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU1JUFFJTg5JUU1JTlGJUI5&#34;&gt;安培&lt;/span&gt;。&lt;/p&gt;
 &lt;p&gt;dV /dt 是电压对时间的微分，单位是&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU0JUJDJThGJUU3JTg5JUI5&#34;&gt;伏特&lt;/span&gt; / 秒。&lt;/p&gt;
@@ -1062,7 +1062,7 @@
 &lt;p&gt;电容的单位是法拉，简称 “法”，单位符号为 “F”，是国际单位制导出单位。一般来说，1 法拉算是很大的电容，大多数用于电子电路的电容器，其电容会小于法拉几个数量级&lt;/p&gt;
 &lt;p&gt;常用的单位有：微法拉（microfarad，μF）、纳法拉（nanofarad，nF）、皮法拉（picofarad，pF）&lt;/p&gt;
 &lt;p&gt;单位转换：&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/capacitor/clip_image012.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;clip_image012.png&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;5、电容种类&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;・瓷片电容（可以耐高压，通常用作安规电容）&lt;/p&gt;
 &lt;p&gt;・积层陶瓷电容（其标准化封装，尺寸小，适用于自动化高密度贴片生产）&lt;/p&gt;
@@ -1071,13 +1071,13 @@
 &lt;p&gt;一般地，陶瓷与聚酯薄膜类用于大多数不太重要的电路中；钽电容用于需要较大电容量的场合，而电解质电容则用于电源滤波的场合&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;6、电容的串联与并联&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;·     &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU0JUI4JUE2JUU4JTgxJUFG&#34;&gt;并联&lt;/span&gt;的数个电容有相同的电压。其总电容（&lt;em&gt;Ceq&lt;/em&gt;）如下：&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/capacitor/clip_image014.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/capacitor/clip_image016.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;clip_image014.png&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;clip_image016.png&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;​       一般而言，电容并联的目的是增加储存的总能量。电容储存的能量如下：&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/capacitor/clip_image018.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;clip_image018.png&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;·     &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU0JUI4JUIyJUU4JTgxJUFG&#34;&gt;串联&lt;/span&gt;的数个电容会流过相同电流，但各个电容的电势差（电压）可能不同，而电容的电压的和会等于总电压，电容串联后的电容值如下：&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/capacitor/clip_image020.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/capacitor/clip_image022.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;clip_image020.png&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;clip_image022.png&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;・在电容并联时，电容电极的有效面积变大，因此电容值增加；而在电容串联时，相当于电容电极的距离变大，因此电容值减小&lt;/p&gt;
 &lt;p&gt;・电容串联后，电容减小了，但是耐压能力提高了，所以要承受较高的电压，可以把电容串联起来；电容并联后，电容增大了，耐压能力并没有提高，所以在需要大电容时，可以把电容并联起来&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;7、电容的代换注意&lt;/strong&gt;&lt;/p&gt;
@@ -1090,18 +1090,18 @@
 &lt;p&gt;&lt;strong&gt;9、容性负载电压电流的超前滞后&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;首先要提醒，相位的概念是针对正弦信号而言的，直流信号、非周期变化信号等都没有相位的概念&lt;/p&gt;
 &lt;p&gt;由于 Sin [ωt] 在求导或积分后会出现 Sin [ωt ± 90°]，所以对于接上了正弦波的容性负载，通过接上理想的直流电压表、直流电流表，可以观察到波形超前滞后的现象&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/capacitor/clip_image024.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;clip_image024.png&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;如果还表现的还不够生动，可以用动态图演示，其用红色表示电压，蓝色表示电流：&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/capacitor/clip_image025.gif&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;clip_image025.gif&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;电压的变化滞后于电流，电流的变化超前于电压，所以若电容器通入交流的信号，相角为 90 度，亦即电流领先电压 90 度。电压的大小和电流成正比，和频率和电容量 C 的乘积成反比&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/capacitor/clip_image026.gif&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;clip_image026.gif&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;用不同的颜色描述电压的大小，蓝色 &amp;gt; 黄色 &amp;gt; 红色；用不同的粗细和箭头描述电流的大小和方向，电流最大时电容电场能最小&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;10、容抗&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;容抗&lt;/strong&gt;的概念反映了交流电可以通过电容器这一特性，交流电频率越高，容抗越小，即电容的阻碍作用越小。容抗同样会引起电流与电容两端电压的相位差；当频率等于零，容抗无限大，即直流电不能流过电容器。&lt;/p&gt;
 &lt;p&gt;容抗可由下面公式计算而来：&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/capacitor/clip_image028.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;clip_image028.png&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;在交流电的复数分析中，容抗表示为：&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/capacitor/clip_image030.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;clip_image030.png&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;其中&lt;/p&gt;
 &lt;p&gt;・j 是复数单位&lt;/p&gt;
 &lt;p&gt;・Xc 是容抗，单位为欧姆&lt;/p&gt;
@@ -1131,10 +1131,10 @@
 &lt;p&gt;・电路耦合&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;15、RC 无源滤波器&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;・低通滤波器&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/capacitor/clip_image032.jpg&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;clip_image032.jpg&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;容许低频信号通过，但减弱（或减少）频率高于截止频率信号通过的滤波器。对于不同滤波器而言，每个频率的信号的减弱程度不同&lt;/p&gt;
 &lt;p&gt;・高通滤波器&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/capacitor/clip_image034.jpg&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;clip_image034.jpg&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;容许高频信号通过、但减弱（或减少）频率低于截止频率信号通过的滤波器。对于不同滤波器而言，每个频率的信号的减弱程度不同&lt;/p&gt;
 &lt;p&gt;高通、低通滤波器利用电容在频率响应上的特点，将一个电容或电感与一个电阻相配合，产生一个分压器，以将不需要的分量衰减掉，而容许所需的分量通过&lt;/p&gt;
  ]]></description>
@@ -1156,13 +1156,13 @@
 
 &lt;/p&gt;
 &lt;h1 id=&#34;漫画篇&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#漫画篇&#34;&gt;#&lt;/a&gt; 漫画篇&lt;/h1&gt;
-&lt;p&gt;&lt;img data-src=&#34;/resistor/clip_image002.jpg&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;clip_image002.jpg&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;图片取自网络&lt;/p&gt;
 &lt;h1 id=&#34;文字篇&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#文字篇&#34;&gt;#&lt;/a&gt; 文字篇&lt;/h1&gt;
 &lt;p&gt;&lt;strong&gt;电阻，作为最基础的无源器件之一，在电子电路中的应用十分广泛。&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;1、电阻器与欧姆定律&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;电阻器&lt;/strong&gt;（Resistor），泛指所有用以产生电阻的电子或电机配件。电阻器的运作跟随&lt;strong&gt;欧姆定律&lt;/strong&gt;，其电阻值定义为其电压与电流相除所得的比值。&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/resistor/clip_image004.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;clip_image004.png&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;其中&lt;/p&gt;
 &lt;p&gt;・I 是流过导体的电流，单位是&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU1JUFFJTg5JUU1JTlGJUI5&#34;&gt;安培&lt;/span&gt;（A）。&lt;/p&gt;
 &lt;p&gt;・V 是导体两端的电位差，单位是&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU0JUJDJThGJUU3JTg5JUI5&#34;&gt;伏特&lt;/span&gt;（V）。&lt;/p&gt;
@@ -1172,8 +1172,8 @@
 &lt;p&gt;其还有其他转换单位：千欧 (KΩ) 、兆欧 (MΩ)&lt;/p&gt;
 &lt;p&gt;单位转换：1 兆欧 (MΩ) = 1000 千欧 (KΩ) = 1000000 欧姆 (Ω)&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;3、电阻器的电路标志&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/resistor/clip_image006.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/resistor/clip_image008.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;clip_image006.png&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;clip_image008.png&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;4、电阻器的主要用途&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;・在放大器中，他被用做有源器件的负载、偏置电路或反馈元件；&lt;/p&gt;
 &lt;p&gt;・它与电容结合使用即可形成时间常数，并作为滤波器使用；&lt;/p&gt;
@@ -1186,20 +1186,20 @@
 &lt;p&gt;・在射频电路中，甚至可以用来作为线圈，取代电感。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;5、电阻的串联与并联&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;・以下是一列&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU0JUI4JUIyJUU4JTgxJUFG&#34;&gt;串联&lt;/span&gt;起来的电阻器：&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/resistor/clip_image010.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;clip_image010.png&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;​       电路两端的总电阻值为各电阻器的电阻之和，即&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/resistor/clip_image012.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;clip_image012.png&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;因此，利用电阻的串联，总可以得到一个阻值较大的电阻。&lt;/p&gt;
 &lt;p&gt;・以下是一组&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly96aC53aWtpcGVkaWEub3JnL3dpa2kvJUU0JUI4JUE2JUU4JTgxJUFG&#34;&gt;并联&lt;/span&gt;的电阻器：&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/resistor/clip_image014.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;clip_image014.png&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;由于所有电阻的电压相同，根据欧姆定律，它们的电流与电阻成反比，故&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/resistor/clip_image016.png&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;clip_image016.png&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;因此，利用电阻的并联，总可以得到一个阻值较小的电阻。&lt;/p&gt;
 &lt;p&gt;・在对电子电路进行分析时，我们往往更喜欢利用对电路的直觉与简化来分析问题，而不是习惯于复杂的代数公式&lt;/p&gt;
 &lt;p&gt;当简要分析电路是，对于串并联的分析，我们可以简化成：一个较大的电阻与一个较小的电阻串联（或并联）后其阻值接近于较大的（或较小）的电阻&lt;/p&gt;
 &lt;p&gt;而为了培养我们的直觉，我们也使用 电导 G = 1 /R 一词来理解记忆，一个较小的电阻反而是一个较大的电导，在所加的电压作用下可通过较大的电流&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;6、电阻色环阻值&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/resistor/clip_image017.jpg&#34; alt=&#34;img&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;clip_image017.jpg&#34; alt=&#34;img&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;7、电阻种类&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;・碳膜电阻（主要是在陶瓷棒上形成一层碳混合物膜）&lt;/p&gt;
 &lt;p&gt;・金属膜电阻（主要是利用真空沉积技术在陶瓷棒上形成一层镍铬合金镀膜）&lt;/p&gt;
@@ -1234,13 +1234,13 @@
 &lt;p&gt;&lt;strong&gt;11、纯阻性负载电压电流的超前滞后&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;首先要提醒，相位的概念是针对正弦信号而言的，直流信号、非周期变化信号等都没有相位的概念&lt;/p&gt;
 &lt;p&gt;对于接上了正弦波的阻性负载，通过接上理想的直流电压表、直流电流表，可以观察到波形超前滞后的现象&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/resistor/clip_image018.gif&#34; alt=&#34;说明: 在这里插入图片描述&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;clip_image018.gif&#34; alt=&#34;说明: 在这里插入图片描述&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;如果还表现的还不够生动，可以用动态图演示，其用红色表示电压，蓝色表示电流：&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/resistor/clip_image019.gif&#34; alt=&#34;说明: 在这里插入图片描述&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;clip_image019.gif&#34; alt=&#34;说明: 在这里插入图片描述&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;纯阻性负载其超前角是 0 度，这个时候功率因数为 1&lt;/p&gt;
 &lt;h1 id=&#34;附录&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#附录&#34;&gt;#&lt;/a&gt; 附录：&lt;/h1&gt;
-&lt;p&gt;&lt;img data-src=&#34;/resistor/E_96.jpg&#34; alt=&#34;E-96 阻值表&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img data-src=&#34;/resistor/E_24.png&#34; alt=&#34;E-24 阻值表&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;E_96.jpg&#34; alt=&#34;E-96 阻值表&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;E_24.png&#34; alt=&#34;E-24 阻值表&#34; /&gt;&lt;/p&gt;
  ]]></description>
         </item>
     </channel>
