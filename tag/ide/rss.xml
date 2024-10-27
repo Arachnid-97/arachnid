@@ -11,16 +11,16 @@
         <category>history</category>
         <category>电子</category>
         <category>硬件设计</category>
-        <category>hexo</category>
-        <category>MCU</category>
         <category>C</category>
+        <category>MCU</category>
         <category>Ubuntu</category>
         <category>git</category>
         <category>工具</category>
-        <category>SQL</category>
-        <category>JSON</category>
+        <category>hexo</category>
         <category>gcc</category>
         <category>IDE</category>
+        <category>SQL</category>
+        <category>JSON</category>
         <category>Linux</category>
         <category>linux_c</category>
         <category>arm_linux</category>
@@ -28,8 +28,8 @@
         <category>RTOS</category>
         <category>FreeRTOS</category>
         <category>算法</category>
-        <category>modbus</category>
         <category>DMX512</category>
+        <category>modbus</category>
         <category>Modem</category>
         <item>
             <guid isPermalink="true">https://arachnid.cc/summary-of-keil-tool-use/</guid>
@@ -677,7 +677,7 @@ source [find target/stm32l1.cfg]
 &lt;p&gt;你看，颜色都不一样的：&lt;/p&gt;
 &lt;p&gt;&lt;img data-src=&#34;20201001010634906.png&#34; alt=&#34;在这里插入图片描述&#34; /&gt;&lt;/p&gt;
 &lt;h1 id=&#34;其他&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#其他&#34;&gt;#&lt;/a&gt; 其他&lt;/h1&gt;
-&lt;p&gt;下一篇，下载 &amp;amp; 调试环境搭建：&lt;a href=&#34;https://arachnid.cc/GDB-debuging/&#34;&gt;GDB 调试器 + VSCode 开发&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;下一篇，下载 &amp;amp; 调试环境搭建：&lt;a href=&#34;https://arachnid.cc/gdb-debuging/&#34;&gt;GDB 调试器 + VSCode 开发&lt;/a&gt;&lt;/p&gt;
  ]]></description>
         </item>
         <item>
