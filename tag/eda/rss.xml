@@ -7,36 +7,36 @@
         <language>zh-CN</language>
         <pubDate>Sat, 14 Aug 2021 17:00:24 +0800</pubDate>
         <lastBuildDate>Sat, 14 Aug 2021 17:00:24 +0800</lastBuildDate>
-        <category>EDA</category>
-        <category>history</category>
         <category>电子</category>
+        <category>history</category>
+        <category>EDA</category>
         <category>硬件设计</category>
+        <category>IDE</category>
+        <category>gcc</category>
+        <category>hexo</category>
         <category>C</category>
         <category>MCU</category>
         <category>Ubuntu</category>
         <category>git</category>
         <category>工具</category>
-        <category>hexo</category>
-        <category>gcc</category>
-        <category>IDE</category>
         <category>SQL</category>
         <category>JSON</category>
+        <category>RTOS</category>
+        <category>FreeRTOS</category>
+        <category>算法</category>
         <category>Linux</category>
         <category>linux_c</category>
         <category>arm_linux</category>
         <category>imx6ull</category>
-        <category>RTOS</category>
-        <category>FreeRTOS</category>
-        <category>算法</category>
-        <category>DMX512</category>
         <category>modbus</category>
+        <category>DMX512</category>
         <category>Modem</category>
         <item>
             <guid isPermalink="true">https://arachnid.cc/kicad-summary/</guid>
             <title>Kicad 应用总结</title>
             <link>https://arachnid.cc/kicad-summary/</link>
-            <category>EDA</category>
             <category>history</category>
+            <category>EDA</category>
             <pubDate>Sat, 14 Aug 2021 17:00:24 +0800</pubDate>
             <description><![CDATA[ &lt;blockquote&gt;
 &lt;p&gt;在当前这个时代，对于 PCB 设计，有太多的 EDA 设计软件了，如：Cadence、PADS、Altium 等，但绝大多数是要授权的，而且如今人们版权意识正在提高；这对电子爱好者来说，要想 DIY 一个好东西，免不了依赖于这些设计软件，但如果有开源的、顺手的软件，那么我们更倾于应用这些软件，毕竟从版权意识上看以及投向开源社区来讲都是好的。&lt;/p&gt;
@@ -859,8 +859,8 @@
             <guid isPermalink="true">https://arachnid.cc/altium-designer-summary/</guid>
             <title>Altium Designer 常用总结</title>
             <link>https://arachnid.cc/altium-designer-summary/</link>
-            <category>EDA</category>
             <category>history</category>
+            <category>EDA</category>
             <pubDate>Fri, 05 Jul 2019 22:37:45 +0800</pubDate>
             <description><![CDATA[ &lt;blockquote&gt;
 &lt;p&gt;首先说明一下，== 单个按键直接用字母表示；组合键（是指先按住第一个键不放，然后按下第二个键，再放开这两个键。）则用 “+” 表示；多次按键（是指先按下第一个键并放开，然后按下第二个键并放开，以此类推。）则用 “ - ” 表示。&lt;/p&gt;
@@ -963,8 +963,8 @@
             <guid isPermalink="true">https://arachnid.cc/altium-pcb-rule/</guid>
             <title>(转)Altium PCB 基本规则的详解</title>
             <link>https://arachnid.cc/altium-pcb-rule/</link>
-            <category>EDA</category>
             <category>history</category>
+            <category>EDA</category>
             <pubDate>Sun, 03 Mar 2019 21:00:20 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93ZW5rdS5iYWlkdS5jb20vdmlldy83ZmQ0ZTYwZDc3YzY2MTM3ZWUwNmVmZjlhZWY4OTQxZWE3NmU0Yjc4Lmh0bWw/cmU9dmlldw==&#34;&gt;原文出处&lt;/span&gt; ☜戳我啊&lt;/p&gt;
 &lt;blockquote&gt;

@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://arachnid.cc/using-git-command/</loc>
+    <lastmod>2024-12-22</lastmod>
+  </url>
+  <url>
+    <loc>https://arachnid.cc/omv6-install/</loc>
+    <lastmod>2024-12-21</lastmod>
+  </url>
+  <url>
+    <loc>https://arachnid.cc/linux-command-summary/</loc>
+    <lastmod>2024-12-14</lastmod>
+  </url>
+  <url>
+    <loc>https://arachnid.cc/sqlite-summarize/</loc>
+    <lastmod>2024-12-07</lastmod>
+  </url>
+  <url>
+    <loc>https://arachnid.cc/6ull-kernel-transplant/</loc>
+    <lastmod>2024-11-30</lastmod>
+  </url>
+  <url>
+    <loc>https://arachnid.cc/6ull-uboot-transplant/</loc>
+    <lastmod>2024-11-30</lastmod>
+  </url>
+  <url>
     <loc>https://arachnid.cc/freertos-newlib-coexist/</loc>
     <lastmod>2024-10-27</lastmod>
   </url>
@@ -33,16 +57,8 @@
     <lastmod>2024-10-26</lastmod>
   </url>
   <url>
-    <loc>https://arachnid.cc/linux-command-summary/</loc>
-    <lastmod>2024-10-26</lastmod>
-  </url>
-  <url>
     <loc>https://arachnid.cc/gcc-compiler-collection/</loc>
     <lastmod>2024-10-26</lastmod>
-  </url>
-  <url>
-    <loc>https://arachnid.cc/omv6-install/</loc>
-    <lastmod>2024-10-20</lastmod>
   </url>
   <url>
     <loc>https://arachnid.cc/markdown-syntax-testing/</loc>
@@ -50,10 +66,6 @@
   </url>
   <url>
     <loc>https://arachnid.cc/linux_c-exit-and-return/</loc>
-    <lastmod>2024-10-15</lastmod>
-  </url>
-  <url>
-    <loc>https://arachnid.cc/6ull-uboot-transplant/</loc>
     <lastmod>2024-10-15</lastmod>
   </url>
   <url>
@@ -99,14 +111,6 @@
   <url>
     <loc>https://arachnid.cc/gcc-compiler-summary/</loc>
     <lastmod>2024-09-01</lastmod>
-  </url>
-  <url>
-    <loc>https://arachnid.cc/6ull-kernel-transplant/</loc>
-    <lastmod>2024-09-01</lastmod>
-  </url>
-  <url>
-    <loc>https://arachnid.cc/using-git-command/</loc>
-    <lastmod>2024-08-31</lastmod>
   </url>
   <url>
     <loc>https://arachnid.cc/ubuntu-tftp-nfs-create/</loc>
@@ -206,10 +210,6 @@
   </url>
   <url>
     <loc>https://arachnid.cc/keil-iar-memory-analysis/</loc>
-    <lastmod>2024-02-20</lastmod>
-  </url>
-  <url>
-    <loc>https://arachnid.cc/sqlite-summarize/</loc>
     <lastmod>2024-02-20</lastmod>
   </url>
   <url>

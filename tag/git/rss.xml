@@ -7,29 +7,29 @@
         <language>zh-CN</language>
         <pubDate>Thu, 19 Mar 2020 21:48:04 +0800</pubDate>
         <lastBuildDate>Thu, 19 Mar 2020 21:48:04 +0800</lastBuildDate>
-        <category>EDA</category>
-        <category>history</category>
         <category>电子</category>
+        <category>history</category>
+        <category>EDA</category>
         <category>硬件设计</category>
+        <category>IDE</category>
+        <category>gcc</category>
+        <category>hexo</category>
         <category>C</category>
         <category>MCU</category>
         <category>Ubuntu</category>
         <category>git</category>
         <category>工具</category>
-        <category>hexo</category>
-        <category>gcc</category>
-        <category>IDE</category>
         <category>SQL</category>
         <category>JSON</category>
+        <category>RTOS</category>
+        <category>FreeRTOS</category>
+        <category>算法</category>
         <category>Linux</category>
         <category>linux_c</category>
         <category>arm_linux</category>
         <category>imx6ull</category>
-        <category>RTOS</category>
-        <category>FreeRTOS</category>
-        <category>算法</category>
-        <category>DMX512</category>
         <category>modbus</category>
+        <category>DMX512</category>
         <category>Modem</category>
         <item>
             <guid isPermalink="true">https://arachnid.cc/using-git-command/</guid>
@@ -500,7 +500,7 @@
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;eg： &lt;code&gt;git log --no-merges --pretty=format:&amp;quot;%ai: %s&amp;quot; HEAD &amp;gt; CHANGELOG.txt&lt;/code&gt;&lt;/p&gt;
-&lt;h2 id=&#34;git-文件目录区分大小写&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#git-文件目录区分大小写&#34;&gt;#&lt;/a&gt; git 文件目录区分大小写&lt;/h2&gt;
+&lt;h1 id=&#34;git-文件目录区分大小写&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#git-文件目录区分大小写&#34;&gt;#&lt;/a&gt; git 文件目录区分大小写&lt;/h1&gt;
 &lt;p&gt;在某些时候，如果仓库中已存在并监视了某个文件夹，然后你想把该文件夹更改一下大小转换，，而某个文件里的链接需要调用这个文件夹路径，同时你也一起更改了；当你提交到远程后，但你会发现，这样会导致修改文件夹大小写后，git 提交不生效，导致文件引用失效。&lt;/p&gt;
 &lt;p&gt;其实 git 在提交的文件的时候，默认是不区分大小写更改的，可以通过以下命令查看（正常应回应 true，意味着不区分大小写）：&lt;/p&gt;
 &lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;git&lt;/span&gt; config core.ignorecase&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token boolean&#34;&gt;true&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;然后，我们可以使用  &lt;code&gt;git config core.ignorecase false&lt;/code&gt;  使其区分大小写，值得注意的是，该操作是对这项工程起作用，并非所有 git 操作，因此在使用该命令时，必须在想要修改的 git 工程里面操作。&lt;/p&gt;

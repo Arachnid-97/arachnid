@@ -7,29 +7,29 @@
         <language>zh-CN</language>
         <pubDate>Tue, 13 Dec 2022 22:56:07 +0800</pubDate>
         <lastBuildDate>Tue, 13 Dec 2022 22:56:07 +0800</lastBuildDate>
-        <category>EDA</category>
-        <category>history</category>
         <category>电子</category>
+        <category>history</category>
+        <category>EDA</category>
         <category>硬件设计</category>
+        <category>IDE</category>
+        <category>gcc</category>
+        <category>hexo</category>
         <category>C</category>
         <category>MCU</category>
         <category>Ubuntu</category>
         <category>git</category>
         <category>工具</category>
-        <category>hexo</category>
-        <category>gcc</category>
-        <category>IDE</category>
         <category>SQL</category>
         <category>JSON</category>
+        <category>RTOS</category>
+        <category>FreeRTOS</category>
+        <category>算法</category>
         <category>Linux</category>
         <category>linux_c</category>
         <category>arm_linux</category>
         <category>imx6ull</category>
-        <category>RTOS</category>
-        <category>FreeRTOS</category>
-        <category>算法</category>
-        <category>DMX512</category>
         <category>modbus</category>
+        <category>DMX512</category>
         <category>Modem</category>
         <item>
             <guid isPermalink="true">https://arachnid.cc/ubuntu-tftp-nfs-create/</guid>
@@ -4024,8 +4024,8 @@ umount -r /mnt
             <guid isPermalink="true">https://arachnid.cc/kicad-summary/</guid>
             <title>Kicad 应用总结</title>
             <link>https://arachnid.cc/kicad-summary/</link>
-            <category>EDA</category>
             <category>history</category>
+            <category>EDA</category>
             <pubDate>Sat, 14 Aug 2021 17:00:24 +0800</pubDate>
             <description><![CDATA[ &lt;blockquote&gt;
 &lt;p&gt;在当前这个时代，对于 PCB 设计，有太多的 EDA 设计软件了，如：Cadence、PADS、Altium 等，但绝大多数是要授权的，而且如今人们版权意识正在提高；这对电子爱好者来说，要想 DIY 一个好东西，免不了依赖于这些设计软件，但如果有开源的、顺手的软件，那么我们更倾于应用这些软件，毕竟从版权意识上看以及投向开源社区来讲都是好的。&lt;/p&gt;
