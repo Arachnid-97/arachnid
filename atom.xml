@@ -6,7 +6,7 @@
   <link href="https://arachnid.cc/atom.xml" rel="self"/>
   
   <link href="https://arachnid.cc/"/>
-  <updated>2024-09-22T03:04:58.200Z</updated>
+  <updated>2025-08-16T15:12:25.505Z</updated>
   <id>https://arachnid.cc/</id>
   
   <author>
@@ -15,6 +15,260 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>docker 部署之 paperless-ngx 文档归类</title>
+    <link href="https://arachnid.cc/docker-deployment-of-paperless/"/>
+    <id>https://arachnid.cc/docker-deployment-of-paperless/</id>
+    <published>2025-06-18T14:11:18.000Z</published>
+    <updated>2025-08-16T15:12:25.505Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="NAS" scheme="https://arachnid.cc/categories/NAS/"/>
+    
+    
+    <category term="docker" scheme="https://arachnid.cc/tags/docker/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>docker 部署之 v2raya 科学上网</title>
+    <link href="https://arachnid.cc/docker-deployment-of-v2raya/"/>
+    <id>https://arachnid.cc/docker-deployment-of-v2raya/</id>
+    <published>2025-04-02T11:34:32.000Z</published>
+    <updated>2025-08-16T15:18:55.795Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="NAS" scheme="https://arachnid.cc/categories/NAS/"/>
+    
+    
+    <category term="docker" scheme="https://arachnid.cc/tags/docker/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>docker 部署之 jellyfin 家庭影院</title>
+    <link href="https://arachnid.cc/docker-deployment-of-jellyfin/"/>
+    <id>https://arachnid.cc/docker-deployment-of-jellyfin/</id>
+    <published>2025-03-19T11:11:35.000Z</published>
+    <updated>2025-08-16T15:15:00.127Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="NAS" scheme="https://arachnid.cc/categories/NAS/"/>
+    
+    
+    <category term="docker" scheme="https://arachnid.cc/tags/docker/"/>
+    
+    <category term="nas" scheme="https://arachnid.cc/tags/nas/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>docker 部署之 navidrome 音乐播放</title>
+    <link href="https://arachnid.cc/docker-deployment-of-navidrome/"/>
+    <id>https://arachnid.cc/docker-deployment-of-navidrome/</id>
+    <published>2025-03-19T11:11:35.000Z</published>
+    <updated>2025-08-17T07:41:50.526Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="NAS" scheme="https://arachnid.cc/categories/NAS/"/>
+    
+    
+    <category term="docker" scheme="https://arachnid.cc/tags/docker/"/>
+    
+    <category term="nas" scheme="https://arachnid.cc/tags/nas/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>docker 部署之 qbittorrent 资源下载</title>
+    <link href="https://arachnid.cc/docker-deployment-of-qbittorrent/"/>
+    <id>https://arachnid.cc/docker-deployment-of-qbittorrent/</id>
+    <published>2025-03-08T01:54:09.000Z</published>
+    <updated>2025-08-16T15:15:53.443Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="NAS" scheme="https://arachnid.cc/categories/NAS/"/>
+    
+    
+    <category term="docker" scheme="https://arachnid.cc/tags/docker/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>docker 部署之 komga 漫画管理</title>
+    <link href="https://arachnid.cc/docker-deployment-of-komga/"/>
+    <id>https://arachnid.cc/docker-deployment-of-komga/</id>
+    <published>2024-12-17T15:33:29.000Z</published>
+    <updated>2025-08-16T15:12:48.901Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="NAS" scheme="https://arachnid.cc/categories/NAS/"/>
+    
+    
+    <category term="docker" scheme="https://arachnid.cc/tags/docker/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>docker 部署之 photoview 图片相册</title>
+    <link href="https://arachnid.cc/docker-deployment-of-photoview/"/>
+    <id>https://arachnid.cc/docker-deployment-of-photoview/</id>
+    <published>2024-12-17T15:33:29.000Z</published>
+    <updated>2025-08-16T15:15:33.625Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="NAS" scheme="https://arachnid.cc/categories/NAS/"/>
+    
+    
+    <category term="docker" scheme="https://arachnid.cc/tags/docker/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>docker 部署之 webdav 文件服务</title>
+    <link href="https://arachnid.cc/docker-deployment-of-webdav/"/>
+    <id>https://arachnid.cc/docker-deployment-of-webdav/</id>
+    <published>2024-12-01T07:28:53.000Z</published>
+    <updated>2025-08-09T09:36:57.222Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="NAS" scheme="https://arachnid.cc/categories/NAS/"/>
+    
+    
+    <category term="docker" scheme="https://arachnid.cc/tags/docker/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>docker 部署之 gitea 代码管控</title>
+    <link href="https://arachnid.cc/docker-deployment-of-gitea/"/>
+    <id>https://arachnid.cc/docker-deployment-of-gitea/</id>
+    <published>2024-12-01T07:25:21.000Z</published>
+    <updated>2025-08-09T09:36:06.422Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="NAS" scheme="https://arachnid.cc/categories/NAS/"/>
+    
+    
+    <category term="docker" scheme="https://arachnid.cc/tags/docker/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>docker 部署之 ddns-go 域名解析</title>
+    <link href="https://arachnid.cc/docker-deployment-of-ddns/"/>
+    <id>https://arachnid.cc/docker-deployment-of-ddns/</id>
+    <published>2024-12-01T07:04:11.000Z</published>
+    <updated>2025-08-16T15:13:39.674Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="NAS" scheme="https://arachnid.cc/categories/NAS/"/>
+    
+    
+    <category term="docker" scheme="https://arachnid.cc/tags/docker/"/>
+    
+  </entry>
   
   <entry>
     <title>POSIX 线程设计应用</title>
@@ -134,6 +388,56 @@
   </entry>
   
   <entry>
+    <title>docker 部署之 calibre-web 图书馆藏</title>
+    <link href="https://arachnid.cc/docker-deployment-of-gitea/"/>
+    <id>https://arachnid.cc/docker-deployment-of-gitea/</id>
+    <published>2024-06-30T17:21:45.000Z</published>
+    <updated>2025-08-16T15:13:06.274Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="NAS" scheme="https://arachnid.cc/categories/NAS/"/>
+    
+    
+    <category term="docker" scheme="https://arachnid.cc/tags/docker/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>docker 部署之 portainer 管理面板</title>
+    <link href="https://arachnid.cc/docker-deployment-of-portainer/"/>
+    <id>https://arachnid.cc/docker-deployment-of-portainer/</id>
+    <published>2024-06-15T12:32:02.000Z</published>
+    <updated>2025-08-14T12:54:05.592Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="NAS" scheme="https://arachnid.cc/categories/NAS/"/>
+    
+    
+    <category term="docker" scheme="https://arachnid.cc/tags/docker/"/>
+    
+  </entry>
+  
+  <entry>
     <title>zlist 链表分析</title>
     <link href="https://arachnid.cc/zlist/"/>
     <id>https://arachnid.cc/zlist/</id>
@@ -195,294 +499,6 @@
     
     
     
-    
-    <category term="Linux" scheme="https://arachnid.cc/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux 环境变量的增删改</title>
-    <link href="https://arachnid.cc/linux-environment-variables/"/>
-    <id>https://arachnid.cc/linux-environment-variables/</id>
-    <published>2024-03-01T12:54:01.000Z</published>
-    <updated>2024-06-10T03:45:36.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html"></summary>
-        
-      
-    
-    
-    
-    
-    <category term="Linux" scheme="https://arachnid.cc/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>debian 11 桌面安装 OMV 6</title>
-    <link href="https://arachnid.cc/omv6-install/"/>
-    <id>https://arachnid.cc/omv6-install/</id>
-    <published>2024-01-13T13:04:04.775Z</published>
-    <updated>2024-12-21T06:17:16.052Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html"></summary>
-        
-      
-    
-    
-    
-    
-    <category term="Linux" scheme="https://arachnid.cc/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>关于 Keil 的一些总结性使用</title>
-    <link href="https://arachnid.cc/summary-of-keil-tool-use/"/>
-    <id>https://arachnid.cc/summary-of-keil-tool-use/</id>
-    <published>2024-01-04T01:28:47.296Z</published>
-    <updated>2024-05-11T13:14:35.814Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html"></summary>
-        
-      
-    
-    
-    
-    
-    <category term="IDE" scheme="https://arachnid.cc/tags/IDE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JTAG 和 SWD 接口定义</title>
-    <link href="https://arachnid.cc/jtag-and-swd/"/>
-    <id>https://arachnid.cc/jtag-and-swd/</id>
-    <published>2023-07-09T06:50:41.515Z</published>
-    <updated>2024-03-21T15:46:51.022Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html"></summary>
-        
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>二极管常见参数</title>
-    <link href="https://arachnid.cc/diode-parameter-design/"/>
-    <id>https://arachnid.cc/diode-parameter-design/</id>
-    <published>2023-06-30T14:14:04.289Z</published>
-    <updated>2024-02-22T15:58:58.868Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html"></summary>
-        
-      
-    
-    
-    
-    
-    <category term="电子" scheme="https://arachnid.cc/tags/%E7%94%B5%E5%AD%90/"/>
-    
-    <category term="硬件设计" scheme="https://arachnid.cc/tags/%E7%A1%AC%E4%BB%B6%E8%AE%BE%E8%AE%A1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>光电隔离、磁隔离和电容式隔离三种常见隔离技术的特性</title>
-    <link href="https://arachnid.cc/isolation-techniques/"/>
-    <id>https://arachnid.cc/isolation-techniques/</id>
-    <published>2023-06-29T15:53:51.000Z</published>
-    <updated>2024-06-10T02:32:58.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html"></summary>
-        
-      
-    
-    
-    
-    
-    <category term="电子" scheme="https://arachnid.cc/tags/%E7%94%B5%E5%AD%90/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux c 时间时区配置</title>
-    <link href="https://arachnid.cc/linux_c-time-configuration/"/>
-    <id>https://arachnid.cc/linux_c-time-configuration/</id>
-    <published>2023-06-21T15:54:38.000Z</published>
-    <updated>2024-08-29T13:22:28.669Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html"></summary>
-        
-      
-    
-    
-    
-    
-    <category term="Linux" scheme="https://arachnid.cc/tags/Linux/"/>
-    
-    <category term="linux_c" scheme="https://arachnid.cc/tags/linux-c/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux 根文件系统的构建</title>
-    <link href="https://arachnid.cc/linux-rootfs-create/"/>
-    <id>https://arachnid.cc/linux-rootfs-create/</id>
-    <published>2023-03-08T12:24:36.000Z</published>
-    <updated>2024-08-30T15:15:56.280Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html"></summary>
-        
-      
-    
-    
-    
-    
-    <category term="Linux" scheme="https://arachnid.cc/tags/Linux/"/>
-    
-    <category term="arm_linux" scheme="https://arachnid.cc/tags/arm-linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>imx-6ULL kernel 移植</title>
-    <link href="https://arachnid.cc/6ull-kernel-transplant/"/>
-    <id>https://arachnid.cc/6ull-kernel-transplant/</id>
-    <published>2023-03-04T15:32:46.000Z</published>
-    <updated>2024-11-30T12:42:57.289Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html"></summary>
-        
-      
-    
-    
-    
-    
-    <category term="Linux" scheme="https://arachnid.cc/tags/Linux/"/>
-    
-    <category term="arm_linux" scheme="https://arachnid.cc/tags/arm-linux/"/>
-    
-    <category term="imx6ull" scheme="https://arachnid.cc/tags/imx6ull/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>imx-6ULL uboot 移植</title>
-    <link href="https://arachnid.cc/6ull-uboot-transplant/"/>
-    <id>https://arachnid.cc/6ull-uboot-transplant/</id>
-    <published>2023-03-03T12:52:11.000Z</published>
-    <updated>2024-11-30T12:41:42.751Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html"></summary>
-        
-      
-    
-    
-    
-    
-    <category term="Linux" scheme="https://arachnid.cc/tags/Linux/"/>
-    
-    <category term="arm_linux" scheme="https://arachnid.cc/tags/arm-linux/"/>
-    
-    <category term="imx6ull" scheme="https://arachnid.cc/tags/imx6ull/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>mfgtool 工具烧写使用</title>
-    <link href="https://arachnid.cc/mfgtool-is-used/"/>
-    <id>https://arachnid.cc/mfgtool-is-used/</id>
-    <published>2023-02-25T14:07:57.000Z</published>
-    <updated>2024-10-26T12:00:19.565Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html"></summary>
-        
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>vmware 下 Ubuntu 双网卡设置</title>
-    <link href="https://arachnid.cc/virtual-network-setup/"/>
-    <id>https://arachnid.cc/virtual-network-setup/</id>
-    <published>2023-02-25T09:28:19.345Z</published>
-    <updated>2024-09-01T14:57:55.927Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html"></summary>
-        
-      
-    
-    
-    
-    
-    <category term="Ubuntu" scheme="https://arachnid.cc/tags/Ubuntu/"/>
     
     <category term="Linux" scheme="https://arachnid.cc/tags/Linux/"/>
     

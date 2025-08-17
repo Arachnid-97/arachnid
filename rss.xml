@@ -9,8 +9,282 @@
     <atom:link href="https://arachnid.cc/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description>不曾亏欠, 不曾辜负, 如此足矣</description>
-    <pubDate>Sun, 22 Sep 2024 03:04:58 GMT</pubDate>
+    <pubDate>Sat, 16 Aug 2025 15:12:25 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>docker 部署之 paperless-ngx 文档归类</title>
+      <link>https://arachnid.cc/docker-deployment-of-paperless/</link>
+      <guid>https://arachnid.cc/docker-deployment-of-paperless/</guid>
+      <pubDate>Wed, 18 Jun 2025 14:11:18 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description></description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://arachnid.cc/categories/NAS/">NAS</category>
+      
+      
+      <category domain="https://arachnid.cc/tags/docker/">docker</category>
+      
+      
+      <comments>https://arachnid.cc/docker-deployment-of-paperless/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>docker 部署之 v2raya 科学上网</title>
+      <link>https://arachnid.cc/docker-deployment-of-v2raya/</link>
+      <guid>https://arachnid.cc/docker-deployment-of-v2raya/</guid>
+      <pubDate>Wed, 02 Apr 2025 11:34:32 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description></description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://arachnid.cc/categories/NAS/">NAS</category>
+      
+      
+      <category domain="https://arachnid.cc/tags/docker/">docker</category>
+      
+      
+      <comments>https://arachnid.cc/docker-deployment-of-v2raya/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>docker 部署之 jellyfin 家庭影院</title>
+      <link>https://arachnid.cc/docker-deployment-of-jellyfin/</link>
+      <guid>https://arachnid.cc/docker-deployment-of-jellyfin/</guid>
+      <pubDate>Wed, 19 Mar 2025 11:11:35 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description></description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://arachnid.cc/categories/NAS/">NAS</category>
+      
+      
+      <category domain="https://arachnid.cc/tags/docker/">docker</category>
+      
+      <category domain="https://arachnid.cc/tags/nas/">nas</category>
+      
+      
+      <comments>https://arachnid.cc/docker-deployment-of-jellyfin/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>docker 部署之 navidrome 音乐播放</title>
+      <link>https://arachnid.cc/docker-deployment-of-navidrome/</link>
+      <guid>https://arachnid.cc/docker-deployment-of-navidrome/</guid>
+      <pubDate>Wed, 19 Mar 2025 11:11:35 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description></description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://arachnid.cc/categories/NAS/">NAS</category>
+      
+      
+      <category domain="https://arachnid.cc/tags/docker/">docker</category>
+      
+      <category domain="https://arachnid.cc/tags/nas/">nas</category>
+      
+      
+      <comments>https://arachnid.cc/docker-deployment-of-navidrome/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>docker 部署之 qbittorrent 资源下载</title>
+      <link>https://arachnid.cc/docker-deployment-of-qbittorrent/</link>
+      <guid>https://arachnid.cc/docker-deployment-of-qbittorrent/</guid>
+      <pubDate>Sat, 08 Mar 2025 01:54:09 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description></description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://arachnid.cc/categories/NAS/">NAS</category>
+      
+      
+      <category domain="https://arachnid.cc/tags/docker/">docker</category>
+      
+      
+      <comments>https://arachnid.cc/docker-deployment-of-qbittorrent/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>docker 部署之 komga 漫画管理</title>
+      <link>https://arachnid.cc/docker-deployment-of-komga/</link>
+      <guid>https://arachnid.cc/docker-deployment-of-komga/</guid>
+      <pubDate>Tue, 17 Dec 2024 15:33:29 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description></description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://arachnid.cc/categories/NAS/">NAS</category>
+      
+      
+      <category domain="https://arachnid.cc/tags/docker/">docker</category>
+      
+      
+      <comments>https://arachnid.cc/docker-deployment-of-komga/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>docker 部署之 photoview 图片相册</title>
+      <link>https://arachnid.cc/docker-deployment-of-photoview/</link>
+      <guid>https://arachnid.cc/docker-deployment-of-photoview/</guid>
+      <pubDate>Tue, 17 Dec 2024 15:33:29 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description></description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://arachnid.cc/categories/NAS/">NAS</category>
+      
+      
+      <category domain="https://arachnid.cc/tags/docker/">docker</category>
+      
+      
+      <comments>https://arachnid.cc/docker-deployment-of-photoview/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>docker 部署之 webdav 文件服务</title>
+      <link>https://arachnid.cc/docker-deployment-of-webdav/</link>
+      <guid>https://arachnid.cc/docker-deployment-of-webdav/</guid>
+      <pubDate>Sun, 01 Dec 2024 07:28:53 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description></description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://arachnid.cc/categories/NAS/">NAS</category>
+      
+      
+      <category domain="https://arachnid.cc/tags/docker/">docker</category>
+      
+      
+      <comments>https://arachnid.cc/docker-deployment-of-webdav/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>docker 部署之 gitea 代码管控</title>
+      <link>https://arachnid.cc/docker-deployment-of-gitea/</link>
+      <guid>https://arachnid.cc/docker-deployment-of-gitea/</guid>
+      <pubDate>Sun, 01 Dec 2024 07:25:21 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description></description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://arachnid.cc/categories/NAS/">NAS</category>
+      
+      
+      <category domain="https://arachnid.cc/tags/docker/">docker</category>
+      
+      
+      <comments>https://arachnid.cc/docker-deployment-of-gitea/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>docker 部署之 ddns-go 域名解析</title>
+      <link>https://arachnid.cc/docker-deployment-of-ddns/</link>
+      <guid>https://arachnid.cc/docker-deployment-of-ddns/</guid>
+      <pubDate>Sun, 01 Dec 2024 07:04:11 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description></description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://arachnid.cc/categories/NAS/">NAS</category>
+      
+      
+      <category domain="https://arachnid.cc/tags/docker/">docker</category>
+      
+      
+      <comments>https://arachnid.cc/docker-deployment-of-ddns/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>POSIX 线程设计应用</title>
@@ -140,6 +414,60 @@
     </item>
     
     <item>
+      <title>docker 部署之 calibre-web 图书馆藏</title>
+      <link>https://arachnid.cc/docker-deployment-of-gitea/</link>
+      <guid>https://arachnid.cc/docker-deployment-of-gitea/</guid>
+      <pubDate>Sun, 30 Jun 2024 17:21:45 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description></description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://arachnid.cc/categories/NAS/">NAS</category>
+      
+      
+      <category domain="https://arachnid.cc/tags/docker/">docker</category>
+      
+      
+      <comments>https://arachnid.cc/docker-deployment-of-gitea/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>docker 部署之 portainer 管理面板</title>
+      <link>https://arachnid.cc/docker-deployment-of-portainer/</link>
+      <guid>https://arachnid.cc/docker-deployment-of-portainer/</guid>
+      <pubDate>Sat, 15 Jun 2024 12:32:02 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description></description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://arachnid.cc/categories/NAS/">NAS</category>
+      
+      
+      <category domain="https://arachnid.cc/tags/docker/">docker</category>
+      
+      
+      <comments>https://arachnid.cc/docker-deployment-of-portainer/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
       <title>zlist 链表分析</title>
       <link>https://arachnid.cc/zlist/</link>
       <guid>https://arachnid.cc/zlist/</guid>
@@ -209,318 +537,6 @@
       
       
       <comments>https://arachnid.cc/linux-network-config-tool/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Linux 环境变量的增删改</title>
-      <link>https://arachnid.cc/linux-environment-variables/</link>
-      <guid>https://arachnid.cc/linux-environment-variables/</guid>
-      <pubDate>Fri, 01 Mar 2024 12:54:01 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description></description>
-          
-        
-      
-      
-      
-      
-      
-      <category domain="https://arachnid.cc/tags/Linux/">Linux</category>
-      
-      
-      <comments>https://arachnid.cc/linux-environment-variables/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>debian 11 桌面安装 OMV 6</title>
-      <link>https://arachnid.cc/omv6-install/</link>
-      <guid>https://arachnid.cc/omv6-install/</guid>
-      <pubDate>Sat, 13 Jan 2024 13:04:04 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description></description>
-          
-        
-      
-      
-      
-      
-      
-      <category domain="https://arachnid.cc/tags/Linux/">Linux</category>
-      
-      
-      <comments>https://arachnid.cc/omv6-install/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>关于 Keil 的一些总结性使用</title>
-      <link>https://arachnid.cc/summary-of-keil-tool-use/</link>
-      <guid>https://arachnid.cc/summary-of-keil-tool-use/</guid>
-      <pubDate>Thu, 04 Jan 2024 01:28:47 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description></description>
-          
-        
-      
-      
-      
-      
-      
-      <category domain="https://arachnid.cc/tags/IDE/">IDE</category>
-      
-      
-      <comments>https://arachnid.cc/summary-of-keil-tool-use/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>JTAG 和 SWD 接口定义</title>
-      <link>https://arachnid.cc/jtag-and-swd/</link>
-      <guid>https://arachnid.cc/jtag-and-swd/</guid>
-      <pubDate>Sun, 09 Jul 2023 06:50:41 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description></description>
-          
-        
-      
-      
-      
-      
-      
-      
-      <comments>https://arachnid.cc/jtag-and-swd/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>二极管常见参数</title>
-      <link>https://arachnid.cc/diode-parameter-design/</link>
-      <guid>https://arachnid.cc/diode-parameter-design/</guid>
-      <pubDate>Fri, 30 Jun 2023 14:14:04 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description></description>
-          
-        
-      
-      
-      
-      
-      
-      <category domain="https://arachnid.cc/tags/%E7%94%B5%E5%AD%90/">电子</category>
-      
-      <category domain="https://arachnid.cc/tags/%E7%A1%AC%E4%BB%B6%E8%AE%BE%E8%AE%A1/">硬件设计</category>
-      
-      
-      <comments>https://arachnid.cc/diode-parameter-design/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>光电隔离、磁隔离和电容式隔离三种常见隔离技术的特性</title>
-      <link>https://arachnid.cc/isolation-techniques/</link>
-      <guid>https://arachnid.cc/isolation-techniques/</guid>
-      <pubDate>Thu, 29 Jun 2023 15:53:51 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description></description>
-          
-        
-      
-      
-      
-      
-      
-      <category domain="https://arachnid.cc/tags/%E7%94%B5%E5%AD%90/">电子</category>
-      
-      
-      <comments>https://arachnid.cc/isolation-techniques/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Linux c 时间时区配置</title>
-      <link>https://arachnid.cc/linux_c-time-configuration/</link>
-      <guid>https://arachnid.cc/linux_c-time-configuration/</guid>
-      <pubDate>Wed, 21 Jun 2023 15:54:38 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description></description>
-          
-        
-      
-      
-      
-      
-      
-      <category domain="https://arachnid.cc/tags/Linux/">Linux</category>
-      
-      <category domain="https://arachnid.cc/tags/linux-c/">linux_c</category>
-      
-      
-      <comments>https://arachnid.cc/linux_c-time-configuration/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Linux 根文件系统的构建</title>
-      <link>https://arachnid.cc/linux-rootfs-create/</link>
-      <guid>https://arachnid.cc/linux-rootfs-create/</guid>
-      <pubDate>Wed, 08 Mar 2023 12:24:36 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description></description>
-          
-        
-      
-      
-      
-      
-      
-      <category domain="https://arachnid.cc/tags/Linux/">Linux</category>
-      
-      <category domain="https://arachnid.cc/tags/arm-linux/">arm_linux</category>
-      
-      
-      <comments>https://arachnid.cc/linux-rootfs-create/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>imx-6ULL kernel 移植</title>
-      <link>https://arachnid.cc/6ull-kernel-transplant/</link>
-      <guid>https://arachnid.cc/6ull-kernel-transplant/</guid>
-      <pubDate>Sat, 04 Mar 2023 15:32:46 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description></description>
-          
-        
-      
-      
-      
-      
-      
-      <category domain="https://arachnid.cc/tags/Linux/">Linux</category>
-      
-      <category domain="https://arachnid.cc/tags/arm-linux/">arm_linux</category>
-      
-      <category domain="https://arachnid.cc/tags/imx6ull/">imx6ull</category>
-      
-      
-      <comments>https://arachnid.cc/6ull-kernel-transplant/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>imx-6ULL uboot 移植</title>
-      <link>https://arachnid.cc/6ull-uboot-transplant/</link>
-      <guid>https://arachnid.cc/6ull-uboot-transplant/</guid>
-      <pubDate>Fri, 03 Mar 2023 12:52:11 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description></description>
-          
-        
-      
-      
-      
-      
-      
-      <category domain="https://arachnid.cc/tags/Linux/">Linux</category>
-      
-      <category domain="https://arachnid.cc/tags/arm-linux/">arm_linux</category>
-      
-      <category domain="https://arachnid.cc/tags/imx6ull/">imx6ull</category>
-      
-      
-      <comments>https://arachnid.cc/6ull-uboot-transplant/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>mfgtool 工具烧写使用</title>
-      <link>https://arachnid.cc/mfgtool-is-used/</link>
-      <guid>https://arachnid.cc/mfgtool-is-used/</guid>
-      <pubDate>Sat, 25 Feb 2023 14:07:57 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description></description>
-          
-        
-      
-      
-      
-      
-      
-      
-      <comments>https://arachnid.cc/mfgtool-is-used/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>vmware 下 Ubuntu 双网卡设置</title>
-      <link>https://arachnid.cc/virtual-network-setup/</link>
-      <guid>https://arachnid.cc/virtual-network-setup/</guid>
-      <pubDate>Sat, 25 Feb 2023 09:28:19 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description></description>
-          
-        
-      
-      
-      
-      
-      
-      <category domain="https://arachnid.cc/tags/Ubuntu/">Ubuntu</category>
-      
-      <category domain="https://arachnid.cc/tags/Linux/">Linux</category>
-      
-      
-      <comments>https://arachnid.cc/virtual-network-setup/#disqus_thread</comments>
       
     </item>
     
