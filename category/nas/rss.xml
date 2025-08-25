@@ -5,8 +5,8 @@
         <link>https://arachnid.cc</link>
         <description>不曾亏欠, 不曾辜负, 如此足矣</description>
         <language>zh-CN</language>
-        <pubDate>Wed, 18 Jun 2025 22:11:18 +0800</pubDate>
-        <lastBuildDate>Wed, 18 Jun 2025 22:11:18 +0800</lastBuildDate>
+        <pubDate>Sat, 23 Aug 2025 09:18:11 +0800</pubDate>
+        <lastBuildDate>Sat, 23 Aug 2025 09:18:11 +0800</lastBuildDate>
         <category>EDA</category>
         <category>history</category>
         <category>电子</category>
@@ -19,20 +19,180 @@
         <category>hexo</category>
         <category>gcc</category>
         <category>IDE</category>
-        <category>SQL</category>
-        <category>JSON</category>
         <category>Linux</category>
         <category>linux_c</category>
         <category>arm_linux</category>
         <category>imx6ull</category>
+        <category>SQL</category>
+        <category>JSON</category>
         <category>docker</category>
         <category>nas</category>
+        <category>算法</category>
         <category>RTOS</category>
         <category>FreeRTOS</category>
-        <category>算法</category>
         <category>DMX512</category>
         <category>modbus</category>
         <category>Modem</category>
+        <item>
+            <guid isPermalink="true">https://arachnid.cc/use-the-acme-tool/</guid>
+            <title>使用 acme.sh 签发 SSL 证书</title>
+            <link>https://arachnid.cc/use-the-acme-tool/</link>
+            <pubDate>Sat, 23 Aug 2025 09:18:11 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;acmesh&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#acmesh&#34;&gt;#&lt;/a&gt; &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL2FjbWUuc2g=&#34;&gt;acme.sh&lt;/span&gt; 安装操作&lt;/h1&gt;
+&lt;p&gt;安装：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;curl https://get.acme.sh | sh -s email=my@example.com
+
+# or
+
+wget -O -  https://get.acme.sh | sh -s email=my@example.com
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;普通用户和 root 用户皆可安装使用，命令执行完成后，&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL2FjbWUuc2g=&#34;&gt;acme.sh&lt;/span&gt; 的所有相关脚本和文件都会被统一安装到  &lt;code&gt;~/.acme.sh/&lt;/code&gt;  目录下，同时会在  &lt;code&gt;~/.bashrc&lt;/code&gt;  环境变量中写入  &lt;code&gt;alias acme.sh=~/.acme.sh/acme.sh&lt;/code&gt;  以便执行  &lt;code&gt;acme.sh&lt;/code&gt;  脚本。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;安装过程不会污染已有的系统任何功能和文件&lt;/strong&gt;，所有的修改都限制在安装目录中:  &lt;code&gt;~/.acme.sh/&lt;/code&gt;  ；安装完成后使用  &lt;code&gt;acme.sh -v&lt;/code&gt;  测试，如若输出  &lt;code&gt;-bash: acme.sh: command not found&lt;/code&gt;  ，则需要手动执行：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;source ~/.bashrc
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;整个安装流程分为以下几步：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;把 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL2FjbWUuc2g=&#34;&gt;acme.sh&lt;/span&gt; 安装到你当前用户的 &lt;strong&gt;home&lt;/strong&gt; 目录下： &lt;code&gt;~/.acme.sh/&lt;/code&gt;  ；&lt;/li&gt;
+&lt;li&gt;通过执行  &lt;code&gt;. &amp;quot;~/.acme.sh/acme.sh.env&amp;quot;&lt;/code&gt;  载入到当前用户的环境变量并为其 alias；&lt;/li&gt;
+&lt;li&gt;自动为你创建 cronjob， 每天 0:00 点自动检测所有的证书，如果快过期了，需要更新，则会自动更新证书。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;note：&lt;/p&gt;
+&lt;p&gt;更多高级安装操作可看：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2FjbWVzaC1vZmZpY2lhbC9hY21lLnNoL3dpa2kvSG93LXRvLWluc3RhbGw=&#34;&gt;https://github.com/acmesh-official/acme.sh/wiki/How-to-install&lt;/span&gt;&lt;/p&gt;
+&lt;h1 id=&#34;ssl-证书签发&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#ssl-证书签发&#34;&gt;#&lt;/a&gt; SSL 证书签发&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL2FjbWUuc2g=&#34;&gt;acme.sh&lt;/span&gt;&lt;/strong&gt; 实现了 &lt;strong&gt;acme&lt;/strong&gt; 协议支持的所有验证协议；一般有两种方式验证: HTTP 和 DNS 验证签发。&lt;/p&gt;
+&lt;h2 id=&#34;http-验证&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#http-验证&#34;&gt;#&lt;/a&gt; HTTP 验证&lt;/h2&gt;
+&lt;p&gt;先说明 HTTP 验证不适用于泛域名证书 *.example.com，并需要对服务器的网站根目录（webroot）具有有写入权限。&lt;/p&gt;
+&lt;h3 id=&#34;直接签发&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#直接签发&#34;&gt;#&lt;/a&gt; 直接签发&lt;/h3&gt;
+&lt;p&gt;只需要指定域名，并指定域名所在的对应的服务器的网站根目录（webroot）， &lt;strong&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL2FjbWUuc2g=&#34;&gt;acme.sh&lt;/span&gt;&lt;/strong&gt; 会全自动创建生成临时验证文件，待 CA 机构验证该文件的可访问性及验证该域名所有权后，将会颁发证书，并删除验证文件。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;acme.sh --issue -d domain.com -d www.domain.com --webroot /&amp;lt;webroot_path&amp;gt;/
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;独立服务模式&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#独立服务模式&#34;&gt;#&lt;/a&gt; 独立服务模式&lt;/h3&gt;
+&lt;p&gt;适用场景：服务器上无运行中的 web 服务，80 /tcp 端口处于空闲状态。&lt;/p&gt;
+&lt;p&gt;以 root 用户，让 &lt;strong&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL2FjbWUuc2g=&#34;&gt;acme.sh&lt;/span&gt;&lt;/strong&gt; 开一个 80 端口监听并完成验证：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;acme.sh --issue --standalone -d example.com -d www.example.com
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;dns-验证&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#dns-验证&#34;&gt;#&lt;/a&gt; DNS 验证&lt;/h2&gt;
+&lt;p&gt;DNS 验证与 HTTP 验证的区别在于：你不需要任何服务器，不需要任何公网 IP，只需要获取到 DNS 的解析记录即可为你的域名完成验证。&lt;/p&gt;
+&lt;h3 id=&#34;手动验证&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#手动验证&#34;&gt;#&lt;/a&gt; 手动验证&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;&amp;gt;&amp;gt; 如果有自动更新证书的需求，请使用自动验证 &amp;lt;&amp;lt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;手动验证跟下面的自动验证操作仅有一步之差，那就是手动验证不需要  &lt;code&gt;export Namesilo_Key=&amp;quot;&amp;lt;key&amp;gt;&amp;quot;&lt;/code&gt;  ，但需要你手动在域名上添加一条 TXT 记录，验证域名所有权。&lt;/p&gt;
+&lt;p&gt;申请签发：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;acme.sh --issue --dns -d domain.com --keylength 2048
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;--issue&lt;/code&gt;  表明该命令执行用于申请发配证书。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;--dns&lt;/code&gt;  默认不带参数表示手动验证；如果带参数，eg： &lt;code&gt;dns_namesilo&lt;/code&gt;  ，则表明使用 Namesilo 的 DNS 插件，需要配置环境变量，看下文 &amp;quot;自动验证&amp;quot; 中的操作。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;-d&lt;/code&gt;  配置参数表示需要签发的域名，需要申请多个域名，追加  &lt;code&gt;-d example.com&lt;/code&gt;  即可。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;--keylength&lt;/code&gt;  参数用于指明密钥类型及长度，可选操作有：
+&lt;ul&gt;
+&lt;li&gt;RSA： &lt;code&gt;2048&lt;/code&gt;  ,  &lt;code&gt;3072&lt;/code&gt;  ,  &lt;code&gt;4096&lt;/code&gt;  ,  &lt;code&gt;8192&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;ECC： &lt;code&gt;ec-256&lt;/code&gt;  ,  &lt;code&gt;ec-384&lt;/code&gt;  ,  &lt;code&gt;ec-521&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;验证签发：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;acme.sh --renew -d domain.com
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;复制证书：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;acme.sh --install-cert -d domain.com \
+--key-file       /&amp;lt;path&amp;gt;/SSL/private.key  \
+--fullchain-file /&amp;lt;path&amp;gt;/SSL/chain.pem \
+--capath         /&amp;lt;path&amp;gt;/SSL/ca.pem  \
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;自动验证&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#自动验证&#34;&gt;#&lt;/a&gt; 自动验证&lt;/h3&gt;
+&lt;p&gt;进入 SSL 证书签发流程（&lt;strong&gt;为了演示不同的操作，这里以泛域名为演示&lt;/strong&gt;）：&lt;/p&gt;
+&lt;p&gt;1、声明所需变量及设置 CA：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# 导入 Namesilo API Key
+export Namesilo_Key=&amp;quot;&amp;lt;key&amp;gt;&amp;quot;
+
+# 设置默认 CA 为 Let&#39;s Encrypt
+acme.sh --set-default-ca --server letsencrypt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;note：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;export&lt;/code&gt;  声明的变量，根据 acme 提供的，使用不同的服务商，所需要的验证不一样，这里以 Namesilo 服务商为参考，具体可看：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2FjbWVzaC1vZmZpY2lhbC9hY21lLnNoL3dpa2kvZG5zYXBpI2Ruc19uYW1lc2lsbw==&#34;&gt;https://github.com/acmesh-official/acme.sh/wiki/dnsapi#dns_namesilo&lt;/span&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;参数  &lt;code&gt;&amp;lt;key&amp;gt;&lt;/code&gt;  为对应服务商申请提供的 key，不同的服务商可能需要多个 key。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;2、签发证书&lt;/p&gt;
+&lt;p&gt;因为以 Namesilo 服务商为参考，根据上方链接，填入相应的命令：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# 签发 RSA 证书
+acme.sh --issue --dns dns_namesilo -d &#39;*.domain.com&#39; --keylength 2048 --dnssleep 1800
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;note：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;-d&lt;/code&gt;  配置参数表示需要签发的域名，因为这里只用泛域名，所以只有一个  &lt;code&gt;-d &#39;*.domain.com&#39;&lt;/code&gt;  ，若需要多个则追加，建议主域放在第一个。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;dnssleep 1800&lt;/code&gt;  ，原有默认使用 900S 等待，如果使用的是 Namesilo 建议修改成 1500+，若不进行适当的等待，在验证过程中可能会因为 DNS 记录尚未完全传播而导致验证失败，导致后面的证书不能正确申请。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;在申请过程中，期间会自动解析一条名为  &lt;code&gt;_acme-challenge&lt;/code&gt;  的 TXT 记录，此时如果你去域名管理页面中查看，，可以看到该 TXT 解析记录，等校验完成后会自动删除，所以建议大家选择 DNS 校验，最后将在指定路径下输出：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Your cert is in: /&amp;lt;path&amp;gt;/&amp;lt;*.domain.com&amp;gt;/xxx.cer
+Your cert key is in: /&amp;lt;path&amp;gt;/&amp;lt;*.domain.com&amp;gt;/xxx.key
+The intermediate CA cert is in: /&amp;lt;path&amp;gt;/&amp;lt;*.domain.com&amp;gt;/ca.cer
+And the full-chain cert is in: /&amp;lt;path&amp;gt;/&amp;lt;*.domain.com&amp;gt;/fullchain.cer
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;3、安装证书到指定位置&lt;/p&gt;
+&lt;p&gt;当上一步执行完毕并成功签发证书下来，即可执行如下操作：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# 安装 RSA 证书到指定路径
+acme.sh --install-cert -d &#39;*.domain.com&#39; \
+--key-file       /&amp;lt;path&amp;gt;/SSL/RSA/private.key  \
+--fullchain-file /&amp;lt;path&amp;gt;/SSL/RSA/chain.pem \
+--capath         /&amp;lt;path&amp;gt;/SSL/RSA/ca.pem  \
+--reloadcmd      &amp;quot;service nginx reload&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;--install-cert&lt;/code&gt;  命令用于把证书复制到目标路径文件；请勿直接使用默认生成的  &lt;code&gt;~/.acme.sh/&lt;/code&gt;  目录下的证书文件，这里面的文件都是内部使用，而且目录结构将来可能会发生变化。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;若是在 “签发证书” 过程中出现错误，仍执行这一步，会提示缺少证书文件。&lt;/p&gt;
+&lt;p&gt;4、ECC 证书签发并安装（如若不需，跳过即可）&lt;/p&gt;
+&lt;p&gt;ECC 证书获取跟上面的第二第三点类似，只须把部分参数更改一下即可：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;--keylength 2048&lt;/code&gt;  参数换成  &lt;code&gt;--keylength ec-256&lt;/code&gt;  ；&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;acme.sh --install-cert&lt;/code&gt;  参数上追加成  &lt;code&gt;acme.sh --install-cert --ecc&lt;/code&gt;  。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;ECC 签证完整操作：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# 签发 ECC 证书，若不需要，跳过即可
+acme.sh --issue --dns dns_namesilo -d &#39;*.domain.com&#39; --keylength ec-256 --dnssleep 1800
+
+# 安装 ECC 证书到指定路径
+acme.sh --install-cert -d &#39;*.domain.com&#39; --ecc \
+--key-file       /&amp;lt;path&amp;gt;/SSL/ECC/private.key  \
+--fullchain-file /&amp;lt;path&amp;gt;/SSL/ECC/chain.pem \
+--capath         /&amp;lt;path&amp;gt;/SSL/ECC/ca.pem  \
+--reloadcmd      &amp;quot;service nginx reload&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;5、收尾&lt;/p&gt;
+&lt;p&gt;最后取消先前的  &lt;code&gt;export &amp;lt;key&amp;gt;&lt;/code&gt;  的声明，避免 Key 泄露：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# 取消环境变量
+unset Namesilo_Key
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;查看已签证证书：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;acme.sh --list
+Main_Domain    KeyLength  SAN_Domains  CA               Created               Renew
+*.domain.com  &amp;quot;2048&amp;quot;     no           LetsEncrypt.org  2025-08-23T15:31:28Z  2025-10-21T15:31:28Z
+*.domain.com  &amp;quot;ec-256&amp;quot;   no           LetsEncrypt.org  2025-08-23T05:06:07Z  2025-10-21T05:06:07Z
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;查看指定证书的详细信息：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# RSA
+acme.sh --info -d &amp;lt;Main_Domain&amp;gt;
+
+# ECC
+acme.sh --info -d &amp;lt;Main_Domain&amp;gt; --ecc
+
+# note：&amp;lt;Main_Domain&amp;gt; 为执行 &#39;acme.sh --list&#39; 输出给出的参数
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;namesilo-泛域名签发整流程&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#namesilo-泛域名签发整流程&#34;&gt;#&lt;/a&gt; Namesilo 泛域名签发整流程&lt;/h1&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 下方 &amp;lt;domain_conf_path&gt; 为不同域名申请签发存储的文件路径&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 下方 &amp;lt;path&gt; 为调用 SSL 证书所存放的证书路径&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 导入 Namesilo API Key&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token builtin class-name&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;token assign-left variable&#34;&gt;Namesilo_Key&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;&amp;lt;key&gt;&#34;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 设置默认 CA 为 Let&#39;s Encrypt&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;acme.sh --config-home /&lt;span class=&#34;token operator&#34;&gt;&amp;lt;&lt;/span&gt;domain_conf_path&lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt;/ --set-default-ca &lt;span class=&#34;token parameter variable&#34;&gt;--server&lt;/span&gt; letsencrypt&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 签发 RSA 证书&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;acme.sh --config-home /&lt;span class=&#34;token operator&#34;&gt;&amp;lt;&lt;/span&gt;domain_conf_path&lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt;/ &lt;span class=&#34;token parameter variable&#34;&gt;--issue&lt;/span&gt; &lt;span class=&#34;token parameter variable&#34;&gt;--dns&lt;/span&gt; dns_namesilo &lt;span class=&#34;token parameter variable&#34;&gt;-d&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#39;*.domain.com&#39;&lt;/span&gt; &lt;span class=&#34;token parameter variable&#34;&gt;--keylength&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;2048&lt;/span&gt; &lt;span class=&#34;token parameter variable&#34;&gt;--dnssleep&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;1800&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 安装 RSA 证书到指定路径&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;acme.sh --config-home /&lt;span class=&#34;token operator&#34;&gt;&amp;lt;&lt;/span&gt;domain_conf_path&lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt;/ &lt;span class=&#34;token punctuation&#34;&gt;\&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;--install-cert &lt;span class=&#34;token parameter variable&#34;&gt;-d&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#39;*.domain.com&#39;&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;\&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;16&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;--key-file       /&lt;span class=&#34;token operator&#34;&gt;&amp;lt;&lt;/span&gt;path&lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt;/SSL/RSA/private.key  &lt;span class=&#34;token punctuation&#34;&gt;\&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;17&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;--fullchain-file /&lt;span class=&#34;token operator&#34;&gt;&amp;lt;&lt;/span&gt;path&lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt;/SSL/RSA/chain.pem &lt;span class=&#34;token punctuation&#34;&gt;\&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;18&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token parameter variable&#34;&gt;--capath&lt;/span&gt;         /&lt;span class=&#34;token operator&#34;&gt;&amp;lt;&lt;/span&gt;path&lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt;/SSL/RSA/ca.pem  &lt;span class=&#34;token punctuation&#34;&gt;\&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;19&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token parameter variable&#34;&gt;--reloadcmd&lt;/span&gt;      &lt;span class=&#34;token string&#34;&gt;&#34;service nginx reload&#34;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;20&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;21&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 签发 ECC 证书，若不需要，跳过即可&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;22&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;acme.sh --config-home /&lt;span class=&#34;token operator&#34;&gt;&amp;lt;&lt;/span&gt;domain_conf_path&lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt;/ &lt;span class=&#34;token parameter variable&#34;&gt;--issue&lt;/span&gt; &lt;span class=&#34;token parameter variable&#34;&gt;--dns&lt;/span&gt; dns_namesilo &lt;span class=&#34;token parameter variable&#34;&gt;-d&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#39;*.domain.com&#39;&lt;/span&gt; &lt;span class=&#34;token parameter variable&#34;&gt;--keylength&lt;/span&gt; ec-256 &lt;span class=&#34;token parameter variable&#34;&gt;--dnssleep&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;1800&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;23&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;24&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 安装 ECC 证书到指定路径&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;25&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;acme.sh --config-home /&lt;span class=&#34;token operator&#34;&gt;&amp;lt;&lt;/span&gt;domain_conf_path&lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt;/ &lt;span class=&#34;token punctuation&#34;&gt;\&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;26&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;--install-cert &lt;span class=&#34;token parameter variable&#34;&gt;-d&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#39;*.domain.com&#39;&lt;/span&gt; &lt;span class=&#34;token parameter variable&#34;&gt;--ecc&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;\&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;27&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;--key-file       /&lt;span class=&#34;token operator&#34;&gt;&amp;lt;&lt;/span&gt;path&lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt;/SSL/ECC/private.key  &lt;span class=&#34;token punctuation&#34;&gt;\&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;28&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;--fullchain-file /&lt;span class=&#34;token operator&#34;&gt;&amp;lt;&lt;/span&gt;path&lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt;/SSL/ECC/chain.pem &lt;span class=&#34;token punctuation&#34;&gt;\&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;29&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token parameter variable&#34;&gt;--capath&lt;/span&gt;         /&lt;span class=&#34;token operator&#34;&gt;&amp;lt;&lt;/span&gt;path&lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt;/SSL/ECC/ca.pem  &lt;span class=&#34;token punctuation&#34;&gt;\&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;30&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token parameter variable&#34;&gt;--reloadcmd&lt;/span&gt;      &lt;span class=&#34;token string&#34;&gt;&#34;service nginx reload&#34;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;31&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;32&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 取消环境变量&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;33&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token builtin class-name&#34;&gt;unset&lt;/span&gt; Namesilo_Key&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;34&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;35&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 查看签证&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;36&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;acme.sh --config-home /&lt;span class=&#34;token operator&#34;&gt;&amp;lt;&lt;/span&gt;domain_conf_path&lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt;/ &lt;span class=&#34;token parameter variable&#34;&gt;--list&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;37&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;38&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token comment&#34;&gt;# 查看指定证书的详细信息 &amp;lt;Main_Domain&gt; 为执行 &#34;查看签证&#34; 输出给出的参数&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;39&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;acme.sh --config-home /&lt;span class=&#34;token operator&#34;&gt;&amp;lt;&lt;/span&gt;domain_conf_path&lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt;/ &lt;span class=&#34;token parameter variable&#34;&gt;--info&lt;/span&gt; &lt;span class=&#34;token parameter variable&#34;&gt;-d&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;&amp;lt;&lt;/span&gt;Main_Domain&lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h1 id=&#34;nginx-签证配置&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#nginx-签证配置&#34;&gt;#&lt;/a&gt; Nginx 签证配置&lt;/h1&gt;
+&lt;p&gt;关于在 Nginx 中使用 SSL 的配置方法放在 &lt;a href=&#34;https://arachnid.cc/nginx-uses-anti-proxy-and-ssl/&#34;&gt;Nginx 反代理并安装 SSL&lt;/a&gt; 文章中，以便整体了解 Nginx 配置操作。&lt;/p&gt;
+&lt;h1 id=&#34;参考&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#参考&#34;&gt;#&lt;/a&gt; 参考&lt;/h1&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9hdHB4LmNvbS9ibG9nL2F1dG8tdXBkYXRlLXNzbC13aXRoLWFjbWUv&#34;&gt;使用 acme.sh 自动签发和更新证书&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cubW9vbmZseS5uZXQvYXJjaGl2ZXMvMTM4Lmh0bWw=&#34;&gt;使用 acme.sh 进行 SSL 证书的申请和自动更新&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9haW1lci1mYW4uZ2l0aHViLmlvL290aGVycy9hY21lLnNo&#34;&gt;acme.sh 中文文档&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9mb3J1bS5waXdpbmQuY29tL2QvMjItc2hpLXlvbmctYWNtZXNoYmFuLWZhLXRsc3poZW5nLXNodS1iaW5nLWFuLXpodWFuZy1kYW8tbmdpbnhhcGFjaGVzaGkteGlhbi13YW5nLXpoYW4taHR0cHNmYW5nLXdlbg==&#34;&gt;使用 acme.sh 颁发 TLS 证书并安装到 nginx/apache 实现网站 https 访问&lt;/span&gt;&lt;/p&gt;
+ ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">https://arachnid.cc/docker-deployment-of-paperless/</guid>
             <title>docker 部署之 paperless-ngx 文档归类</title>
@@ -894,6 +1054,178 @@ PAPERLESS_FILENAME_FORMAT=other/&amp;#123;&amp;#123; original_name &amp;#125;&am
 &lt;p&gt;由于 ddns-go 设置密码必须使用复杂密码，因此如果忘记忘记，可以使用以下命令重置：&lt;/p&gt;
 &lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;[root@localhost] #&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;docker&lt;/span&gt; &lt;span class=&#34;token builtin class-name&#34;&gt;exec&lt;/span&gt; ddns-go ./ddns-go &lt;span class=&#34;token parameter variable&#34;&gt;-resetPassword&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;123456&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;[root@localhost] #&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;docker&lt;/span&gt; restart ddns-go&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;或者进入容器的控制终端后台：&lt;/p&gt;
 &lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;[root@localhost] #&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;docker&lt;/span&gt; &lt;span class=&#34;token builtin class-name&#34;&gt;exec&lt;/span&gt; &lt;span class=&#34;token parameter variable&#34;&gt;-it&lt;/span&gt; ddns-go /bin/sh&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;/app #&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;ls&lt;/span&gt; &lt;span class=&#34;token parameter variable&#34;&gt;-al&lt;/span&gt; /root/&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;total &lt;span class=&#34;token number&#34;&gt;16&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;drwxr-xr-x    &lt;span class=&#34;token number&#34;&gt;2&lt;/span&gt; root     root          &lt;span class=&#34;token number&#34;&gt;4096&lt;/span&gt; Dec  &lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;15&lt;/span&gt;:50 &lt;span class=&#34;token builtin class-name&#34;&gt;.&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;drwxr-xr-x    &lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt; root     root          &lt;span class=&#34;token number&#34;&gt;4096&lt;/span&gt; Dec  &lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;15&lt;/span&gt;:04 &lt;span class=&#34;token punctuation&#34;&gt;..&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;-rw-------    &lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt; root     root           &lt;span class=&#34;token number&#34;&gt;180&lt;/span&gt; Dec  &lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;16&lt;/span&gt;:13 .ash_history&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;-rw-------    &lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt; root     root           &lt;span class=&#34;token number&#34;&gt;958&lt;/span&gt; Dec  &lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;16&lt;/span&gt;:28 .ddns_go_config.yaml&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td data-command=&#34;/app #&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;vi&lt;/span&gt; /root/.ddns_go_config.yaml&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;通过编辑  &lt;code&gt;/root/.ddns_go_config.yaml&lt;/code&gt;  文件更改账号密码。&lt;/p&gt;
+ ]]></description>
+        </item>
+        <item>
+            <guid isPermalink="true">https://arachnid.cc/nginx-uses-anti-proxy-and-ssl/</guid>
+            <title>Nginx 反代理并安装 SSL</title>
+            <link>https://arachnid.cc/nginx-uses-anti-proxy-and-ssl/</link>
+            <pubDate>Fri, 23 Aug 2024 09:18:11 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;反代理&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#反代理&#34;&gt;#&lt;/a&gt; 反代理&lt;/h1&gt;
+&lt;p&gt;一般实现不同域名直连，也即表示你不带端口实现访问部署在不同端口的多服务，那么你需要腾出 80、443、81 端口，以便反代理工具接管这些端口数据流向；因此在使用 Nginx 反代理实现统一端口路由多服务时，必须为 Nginx 服务至少腾出 80、443 端口，然后让 Nginx 通过监听 80、443 端口，当外部统一通过 80 端口访问服务时，根据 URL 路径前缀转发到部署在不同端口的服务上。&lt;/p&gt;
+&lt;h2 id=&#34;nginx-的处理顺序&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#nginx-的处理顺序&#34;&gt;#&lt;/a&gt; Nginx 的处理顺序&lt;/h2&gt;
+&lt;p&gt;当请求到达时，Nginx 会：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;匹配  &lt;code&gt;server_name&lt;/code&gt;  完全相同的配置&lt;/li&gt;
+&lt;li&gt;如果没有完全匹配，匹配通配符配置&lt;/li&gt;
+&lt;li&gt;如果没有通配符匹配，使用  &lt;code&gt;default_server&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;如果没有  &lt;code&gt;default_server&lt;/code&gt; ，使用第一个定义的 server 块&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;查看  &lt;code&gt;default_server&lt;/code&gt;  是否存在：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;grep&lt;/span&gt; &lt;span class=&#34;token parameter variable&#34;&gt;-r&lt;/span&gt; &lt;span class=&#34;token string&#34;&gt;&#34;default_server&#34;&lt;/span&gt; /etc/nginx/&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;如若没有，在配置文件夹里（一般在  &lt;code&gt;/etc/nginx/conf.d/&lt;/code&gt;  目录）编写  &lt;code&gt;other.conf&lt;/code&gt;  ，防止其它不匹配的  &lt;code&gt;server_name&lt;/code&gt;  非法跳转访问：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-conf&#34;&gt;server &amp;#123;
+    listen 80 default_server;
+    listen [::]:80 default_server;
+
+    return 444; # 关闭连接
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;主机安装使用&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#主机安装使用&#34;&gt;#&lt;/a&gt; 主机安装使用&lt;/h2&gt;
+&lt;p&gt;由于本人是在 Openmediavault 服务器中操作，因此它是默认安装了 Nginx 服务的，如果是其它 Linux 平台，并没有 Nginx 服务，可以如下 &amp;quot;安装运行&amp;quot; 开启 Nginx 服务，若不清楚是否存在 Nginx 服务，可用  &lt;code&gt;nginx -v&lt;/code&gt;  命令查看。&lt;/p&gt;
+&lt;h3 id=&#34;安装运行&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#安装运行&#34;&gt;#&lt;/a&gt; 安装运行&lt;/h3&gt;
+&lt;p&gt;以 debian 平台为示例，更新安装 Nginx：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;sudo&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;apt&lt;/span&gt; update&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;sudo&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;apt&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;install&lt;/span&gt; nginx&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;启动并启用 Nginx：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;sudo&lt;/span&gt; systemctl start nginx    &lt;span class=&#34;token comment&#34;&gt;# 启动服务&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;sudo&lt;/span&gt; systemctl &lt;span class=&#34;token builtin class-name&#34;&gt;enable&lt;/span&gt; nginx   &lt;span class=&#34;token comment&#34;&gt;# 设置开机自启&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h3 id=&#34;编写-nginx-配置&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#编写-nginx-配置&#34;&gt;#&lt;/a&gt; 编写 Nginx 配置&lt;/h3&gt;
+&lt;p&gt;创建该服务的配置文件：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;vim&lt;/span&gt; /etc/nginx/conf.d/app1_service.conf&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;在这里选择最通用  &lt;code&gt;/etc/nginx/conf.d/&lt;/code&gt;  目录存放自定义配置，避免不同平台存在差异。&lt;/p&gt;
+&lt;p&gt;note：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt; &lt;code&gt;/etc/nginx/conf.d/&lt;/code&gt; &lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;这是放置自定义配置最推荐、最通用的目录&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;你可以在里面创建任意名称的  &lt;code&gt;.conf&lt;/code&gt;  文件（例如  &lt;code&gt;my-website.conf&lt;/code&gt; ,  &lt;code&gt;reverse-proxy.conf&lt;/code&gt; ），Nginx 会自动加载它们。&lt;/li&gt;
+&lt;li&gt;例如： &lt;code&gt;/etc/nginx/conf.d/reverse-proxy.conf&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt; &lt;code&gt;/etc/nginx/sites-available/&lt;/code&gt;  和  &lt;code&gt;/etc/nginx/sites-enabled/&lt;/code&gt; &lt;/strong&gt; (常见于 Debian / Ubuntu)
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt; &lt;code&gt;sites-available/&lt;/code&gt; &lt;/strong&gt;：存放所有可用的服务器块（虚拟主机）配置文件。这是一个 “仓库”。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt; &lt;code&gt;sites-enabled/&lt;/code&gt; &lt;/strong&gt;：存放当前已启用的服务器块配置文件的&lt;strong&gt;符号链接&lt;/strong&gt;（快捷方式）。&lt;/li&gt;
+&lt;li&gt;这种设计允许你轻松启用 / 禁用站点。&lt;/li&gt;
+&lt;li&gt;管理命令： &lt;code&gt;sudo ln -s /etc/nginx/sites-available/my-site /etc/nginx/sites-enabled/&lt;/code&gt;  (启用)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;假设给  &lt;code&gt;app1.domain.com&lt;/code&gt;  域名访问绑定至  &lt;code&gt;8081&lt;/code&gt;  端口，写入如下信息：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-conf&#34;&gt;server &amp;#123;
+    listen    80;
+    listen    [::]:80;
+    server_name app1.domain.com;
+
+    #access_log  /var/log/nginx/app1.access.log;
+
+    # proxy the app1 scripts to Nginx listening on 127.0.0.1:8081
+
+    location / &amp;#123;
+        proxy_set_header Host $proxy_host;
+        proxy_set_header X-Real_IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header X-Forwarded-Host $host;
+        proxy_set_header X-Forwarded-Port $server_port;
+        proxy_buffering off;
+
+        proxy_pass   http://localhost:8081;
+    &amp;#125;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;使用下面的命令检查一下修改后的配置文件是否有错：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;nginx &lt;span class=&#34;token parameter variable&#34;&gt;-t&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;使其生效：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;nginx &lt;span class=&#34;token parameter variable&#34;&gt;-s&lt;/span&gt; reload&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;至此，一个简单的域名访问服务的操作就完成了，同理你可以配置更多不同的域名绑至不同的端口服务。&lt;/p&gt;
+&lt;h2 id=&#34;docker-部署使用&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#docker-部署使用&#34;&gt;#&lt;/a&gt; Docker 部署使用&lt;/h2&gt;
+&lt;p&gt;同样的，若是需要域名直连访问不同端口服务，需要预留监听 80、443 的端口给到  Nginx docker 服务。&lt;/p&gt;
+&lt;h3 id=&#34;安装运行-2&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#安装运行-2&#34;&gt;#&lt;/a&gt; 安装运行&lt;/h3&gt;
+&lt;p&gt;先临时启动一个 Nginx docker 提取主要配置文件，当然你也可以复制一份已有的配置映射到容器中。&lt;/p&gt;
+&lt;p&gt;执行以下命令，临时创建 Nginx docker 服务：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;docker&lt;/span&gt; run &lt;span class=&#34;token parameter variable&#34;&gt;--rm&lt;/span&gt; &lt;span class=&#34;token parameter variable&#34;&gt;-d&lt;/span&gt; &lt;span class=&#34;token parameter variable&#34;&gt;--name&lt;/span&gt; nginx &lt;span class=&#34;token parameter variable&#34;&gt;-p&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;80&lt;/span&gt;:80 nginx&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;提取里面的配置文件到主机中，以便编辑配置，你说为什么不直接在容器中操作？拜托，里面可是连个默认的文本编辑器都没有，只有最小系统及 Nginx 服务；而至于为啥不直接把里面的文件反映射到主机？是因为一旦映射后，容器里面的文件夹将根据主机内容变化，即主机上需映射的文件夹如果是空，一旦映射到容器里，容器上的文件夹跟着变空；因此需要先提取出来再映射：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;mkdir&lt;/span&gt; &lt;span class=&#34;token parameter variable&#34;&gt;-p&lt;/span&gt; /&lt;span class=&#34;token operator&#34;&gt;&amp;lt;&lt;/span&gt;path&lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt;/nginx/config/conf.d&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;docker&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;cp&lt;/span&gt; nginx:/etc/nginx/conf.d/default.conf /&lt;span class=&#34;token operator&#34;&gt;&amp;lt;&lt;/span&gt;path&lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt;/nginx/config/conf.d&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;docker&lt;/span&gt; &lt;span class=&#34;token function&#34;&gt;cp&lt;/span&gt; nginx:/etc/nginx/nginx.conf /&lt;span class=&#34;token operator&#34;&gt;&amp;lt;&lt;/span&gt;path&lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt;/nginx/config&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;停止 Nginx docker 服务，此时由于  &lt;code&gt;--rm&lt;/code&gt;  参数将自动删除该容器：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;docker&lt;/span&gt; stop nginx&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;正式启动 Nginx docker 容器：&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;figcaption data-lang=&#34;bash&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token function&#34;&gt;docker&lt;/span&gt; run &lt;span class=&#34;token parameter variable&#34;&gt;-d&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;\&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;     &lt;span class=&#34;token parameter variable&#34;&gt;--name&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;nginx &lt;span class=&#34;token punctuation&#34;&gt;\&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;     &lt;span class=&#34;token parameter variable&#34;&gt;-e&lt;/span&gt; &lt;span class=&#34;token assign-left variable&#34;&gt;PUID&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;1000&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;\&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;     &lt;span class=&#34;token parameter variable&#34;&gt;-e&lt;/span&gt; &lt;span class=&#34;token assign-left variable&#34;&gt;PGID&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;993&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;\&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;     &lt;span class=&#34;token parameter variable&#34;&gt;-e&lt;/span&gt; &lt;span class=&#34;token assign-left variable&#34;&gt;TZ&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;Asia/Shanghai &lt;span class=&#34;token punctuation&#34;&gt;\&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;6&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;     &lt;span class=&#34;token parameter variable&#34;&gt;-p&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;80&lt;/span&gt;:80 &lt;span class=&#34;token punctuation&#34;&gt;\&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;7&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;     &lt;span class=&#34;token parameter variable&#34;&gt;-p&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;81&lt;/span&gt;:81 &lt;span class=&#34;token punctuation&#34;&gt;\&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;8&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;     &lt;span class=&#34;token parameter variable&#34;&gt;-p&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;443&lt;/span&gt;:443 &lt;span class=&#34;token punctuation&#34;&gt;\&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;9&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;     &lt;span class=&#34;token parameter variable&#34;&gt;-v&lt;/span&gt; /&lt;span class=&#34;token operator&#34;&gt;&amp;lt;&lt;/span&gt;path&lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt;/nginx/config/nginx.conf:/etc/nginx/nginx.conf &lt;span class=&#34;token punctuation&#34;&gt;\&lt;/span&gt;    &lt;span class=&#34;token comment&#34;&gt;# 主配置文件&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;10&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;     &lt;span class=&#34;token parameter variable&#34;&gt;-v&lt;/span&gt; /&lt;span class=&#34;token operator&#34;&gt;&amp;lt;&lt;/span&gt;path&lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt;/nginx/config/conf.d:/etc/nginx/conf.d &lt;span class=&#34;token punctuation&#34;&gt;\&lt;/span&gt;    &lt;span class=&#34;token comment&#34;&gt;# 附加配置文件目录&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;11&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;     &lt;span class=&#34;token parameter variable&#34;&gt;-v&lt;/span&gt; /&lt;span class=&#34;token operator&#34;&gt;&amp;lt;&lt;/span&gt;path&lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt;/nginx/data:/usr/share/nginx/html:ro &lt;span class=&#34;token punctuation&#34;&gt;\&lt;/span&gt;    &lt;span class=&#34;token comment&#34;&gt;# 默认网站根目录&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;12&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;     &lt;span class=&#34;token parameter variable&#34;&gt;-v&lt;/span&gt; /&lt;span class=&#34;token operator&#34;&gt;&amp;lt;&lt;/span&gt;path&lt;span class=&#34;token operator&#34;&gt;&gt;&lt;/span&gt;/SSL:/usr/share/ssl:ro &lt;span class=&#34;token punctuation&#34;&gt;\&lt;/span&gt;    &lt;span class=&#34;token comment&#34;&gt;# SSL 证书目录&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;13&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;     --health-cmd&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token string&#34;&gt;&#34;curl -fs -S --max-time 3 http://localhost || exit 1&#34;&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;\&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;14&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;     --health-interval&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;30s &lt;span class=&#34;token punctuation&#34;&gt;\&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;15&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;     --health-timeout&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;10s &lt;span class=&#34;token punctuation&#34;&gt;\&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;16&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;     --health-retries&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;3&lt;/span&gt; &lt;span class=&#34;token punctuation&#34;&gt;\&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;17&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;     --health-start-period&lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt;5s &lt;span class=&#34;token punctuation&#34;&gt;\&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;18&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;     --add-host host.docker.internal:host-gateway &lt;span class=&#34;token punctuation&#34;&gt;\&lt;/span&gt;    &lt;span class=&#34;token comment&#34;&gt;# 用于解析链接到宿主机中的服务&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;19&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;     &lt;span class=&#34;token parameter variable&#34;&gt;--restart&lt;/span&gt; always &lt;span class=&#34;token punctuation&#34;&gt;\&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;20&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;     nginx:latest&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;note：&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;--add-host host.docker.internal:host-gateway&lt;/code&gt;  该参数选项非常重要，后于后面配置 Nginx 配置时，使得在 docker 里面能访问到主机上的服务及其它 docker 容器服务（哪怕所有容器不在同一网络）；而它的大概意思也就是容器内部访问这个域名  &lt;code&gt;host.docker.internal&lt;/code&gt;  时，就会访问到对应的主机上的  &lt;code&gt;host-gateway&lt;/code&gt;  地址。&lt;/p&gt;
+&lt;h3 id=&#34;编写-nginx-配置-2&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#编写-nginx-配置-2&#34;&gt;#&lt;/a&gt; 编写 Nginx 配置&lt;/h3&gt;
+&lt;p&gt;docker 上的配置文件编写跟上面主机编写的 Nginx 配置变化不大，唯一需要更改的是  &lt;code&gt;proxy_pass&lt;/code&gt;  字段中的参数，由于当前 Nginx 是在容器中，因此需要把网络转发到宿主机上面，再通过宿主机的本机路由再转给相应的端口服务：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-conf&#34;&gt;server &amp;#123;
+    listen    80;
+    listen    [::]:80;
+    server_name app1.domain.com;
+
+    #access_log  /var/log/nginx/app1.access.log;
+
+    # proxy the app1 scripts to Nginx listening on 127.0.0.1:8081
+
+    location / &amp;#123;
+        proxy_set_header Host $proxy_host;
+        proxy_set_header X-Real_IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header X-Forwarded-Host $host;
+        proxy_set_header X-Forwarded-Port $server_port;
+        proxy_buffering off;
+
+        proxy_pass   http://host.docker.internal:8081;
+    &amp;#125;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;安装-ssl&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#安装-ssl&#34;&gt;#&lt;/a&gt; 安装 SSL&lt;/h1&gt;
+&lt;p&gt;在以上配置中，如果你通过访问可以知道当前页面是 HTTP 页面，同时第一次访问配置好的服务，会提示当前非 HTTPS 页面的警告，那么为了安全及消除这样的警告，你需要为你的服务安装 SSL 认证，使其启用 HTTPS 访问。&lt;/p&gt;
+&lt;p&gt;根据 &lt;a href=&#34;https://arachnid.cc/use-the-acme-tool/&#34;&gt;使用 acme.sh 签发 SSL 证书&lt;/a&gt; 文章中成功获取签发的证书后，即可为相应的域名绑定服务并安装 SSL 证书了：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-conf&#34;&gt;# HTTP 重定向到 HTTPS
+server &amp;#123;
+    listen 80;
+    listen [::]:80;
+    server_name app1.domain.com;
+    return 301 https://$server_name$request_uri;
+&amp;#125;
+
+# HTTPS 服务器
+server &amp;#123;
+    listen 443 ssl http2;
+    listen [::]:443 ssl http2;
+    server_name app1.domain.com;
+
+    # SSL 证书路径
+    #RSA
+    ssl_certificate /&amp;lt;path&amp;gt;/SSL/RSA/chain.crt;
+    ssl_certificate_key /&amp;lt;path&amp;gt;/SSL/RSA/private.key;
+
+    #ECC
+    ssl_certificate /&amp;lt;path&amp;gt;/SSL/ECC/chain.crt;
+    ssl_certificate_key /&amp;lt;path&amp;gt;/SSL/ECC/private.key;
+
+    # 基本 SSL 配置
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE;
+    ssl_prefer_server_ciphers off;
+
+    ssl_session_cache shared:SSL:10m;
+    ssl_session_timeout 10m;
+    ssl_session_tickets on;
+
+    # 代理设置
+    location / &amp;#123;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header X-Forwarded-Host $host;
+        proxy_set_header X-Forwarded-Port $server_port;
+        proxy_buffering off;
+        
+        proxy_connect_timeout 30s;
+        proxy_send_timeout 30s;
+        proxy_read_timeout 30s;
+        
+        proxy_pass http://localhost:8081; # 如果是 docker 需要更换为 host.docker.internal
+    &amp;#125;
+
+    # 记录
+    access_log /var/log/nginx/app1.access.log;
+    error_log /var/log/nginx/app1.error.log;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;测试：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;curl -IL http://app1.domain.com
+&lt;/code&gt;&lt;/pre&gt;
  ]]></description>
         </item>
         <item>
