@@ -9,8 +9,35 @@
     <atom:link href="https://arachnid.cc/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description>不曾亏欠, 不曾辜负, 如此足矣</description>
-    <pubDate>Mon, 25 Aug 2025 14:13:32 GMT</pubDate>
+    <pubDate>Sat, 21 Mar 2026 11:01:07 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>docker 部署之 FreshRSS 信息订阅</title>
+      <link>https://arachnid.cc/docker-deployment-of-freshrss/</link>
+      <guid>https://arachnid.cc/docker-deployment-of-freshrss/</guid>
+      <pubDate>Sat, 21 Mar 2026 03:46:42 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description></description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://arachnid.cc/categories/NAS/">NAS</category>
+      
+      
+      <category domain="https://arachnid.cc/tags/docker/">docker</category>
+      
+      
+      <comments>https://arachnid.cc/docker-deployment-of-freshrss/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>Nginx 反代理并安装 SSL</title>
@@ -514,29 +541,6 @@
       
       
       <comments>https://arachnid.cc/docker-deployment-of-portainer/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>zlist 链表分析</title>
-      <link>https://arachnid.cc/zlist/</link>
-      <guid>https://arachnid.cc/zlist/</guid>
-      <pubDate>Thu, 06 Jun 2024 12:51:29 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description></description>
-          
-        
-      
-      
-      
-      
-      
-      
-      <comments>https://arachnid.cc/zlist/#disqus_thread</comments>
       
     </item>
     

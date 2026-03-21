@@ -7,28 +7,28 @@
         <language>zh-CN</language>
         <pubDate>Thu, 04 Jan 2024 09:28:47 +0800</pubDate>
         <lastBuildDate>Thu, 04 Jan 2024 09:28:47 +0800</lastBuildDate>
-        <category>EDA</category>
-        <category>history</category>
-        <category>电子</category>
-        <category>硬件设计</category>
-        <category>C</category>
-        <category>hexo</category>
-        <category>MCU</category>
-        <category>Ubuntu</category>
-        <category>git</category>
-        <category>工具</category>
         <category>gcc</category>
         <category>IDE</category>
+        <category>history</category>
+        <category>C</category>
+        <category>Ubuntu</category>
+        <category>MCU</category>
+        <category>git</category>
+        <category>工具</category>
+        <category>电子</category>
+        <category>JSON</category>
+        <category>SQL</category>
+        <category>硬件设计</category>
+        <category>docker</category>
+        <category>nas</category>
         <category>Linux</category>
+        <category>RTOS</category>
+        <category>FreeRTOS</category>
         <category>linux_c</category>
         <category>arm_linux</category>
         <category>imx6ull</category>
-        <category>SQL</category>
-        <category>JSON</category>
-        <category>docker</category>
-        <category>nas</category>
-        <category>RTOS</category>
-        <category>FreeRTOS</category>
+        <category>EDA</category>
+        <category>hexo</category>
         <category>算法</category>
         <category>DMX512</category>
         <category>modbus</category>
@@ -347,8 +347,8 @@
             <guid isPermalink="true">https://arachnid.cc/sdcc-develop/</guid>
             <title>SDCC 编译器 + VSCode 开发</title>
             <link>https://arachnid.cc/sdcc-develop/</link>
-            <category>history</category>
             <category>IDE</category>
+            <category>history</category>
             <pubDate>Tue, 27 Oct 2020 21:06:19 +0800</pubDate>
             <description><![CDATA[ &lt;blockquote&gt;
 &lt;p&gt;SDCC 是一个小型设备的 C 语言编译器，该编译器支持标准 C 语言；相对于 GCC 编译器来说可能知名度不是很高，但它跟 GCC 一样，是跨平台，并且遵循 GPL 开源协议。本次实验是使用 nuvoton 的 MS51 系列单片机来操作（基于 8051 内核）&lt;/p&gt;
@@ -489,8 +489,8 @@
             <guid isPermalink="true">https://arachnid.cc/gdb-debuging/</guid>
             <title>GDB 调试器 + VSCode 开发</title>
             <link>https://arachnid.cc/gdb-debuging/</link>
-            <category>history</category>
             <category>IDE</category>
+            <category>history</category>
             <pubDate>Sat, 03 Oct 2020 00:20:26 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;软件下载&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#软件下载&#34;&gt;#&lt;/a&gt; 软件下载&lt;/h1&gt;
 &lt;p&gt;OpenOCD：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9nbnV0b29sY2hhaW5zLmNvbS9hcm0tZWFiaS9vcGVub2NkLw==&#34;&gt;https://gnutoolchains.com/arm-eabi/openocd/&lt;/span&gt;&lt;/p&gt;
@@ -558,8 +558,8 @@ source [find target/stm32l1.cfg]
             <guid isPermalink="true">https://arachnid.cc/gcc-develop/</guid>
             <title>GCC 编译器 + VSCode 开发</title>
             <link>https://arachnid.cc/gcc-develop/</link>
-            <category>history</category>
             <category>IDE</category>
+            <category>history</category>
             <pubDate>Thu, 01 Oct 2020 01:09:34 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;程序安装&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#程序安装&#34;&gt;#&lt;/a&gt; 程序安装&lt;/h1&gt;
 &lt;p&gt;1、VSCode：&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9jb2RlLnZpc3VhbHN0dWRpby5jb20vRG93bmxvYWQ=&#34;&gt;https://code.visualstudio.com/Download&lt;/span&gt;&lt;/p&gt;
@@ -686,8 +686,8 @@ source [find target/stm32l1.cfg]
             <guid isPermalink="true">https://arachnid.cc/keil-iar-memory-analysis/</guid>
             <title>关于 Keil、IAR 编译后数据内存的分析</title>
             <link>https://arachnid.cc/keil-iar-memory-analysis/</link>
-            <category>history</category>
             <category>IDE</category>
+            <category>history</category>
             <pubDate>Tue, 19 Mar 2019 23:13:17 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;keil-c51编译器&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#keil-c51编译器&#34;&gt;#&lt;/a&gt; Keil C51 编译器&lt;/h1&gt;
 &lt;p&gt;1、首先，在 Options ----&amp;gt; Target ----&amp;gt; Memory Model 里可以设置变量分配的空间，如图示：&lt;br /&gt;

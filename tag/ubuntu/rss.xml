@@ -7,28 +7,28 @@
         <language>zh-CN</language>
         <pubDate>Sun, 07 Jul 2024 15:02:28 +0800</pubDate>
         <lastBuildDate>Sun, 07 Jul 2024 15:02:28 +0800</lastBuildDate>
-        <category>EDA</category>
-        <category>history</category>
-        <category>电子</category>
-        <category>硬件设计</category>
-        <category>C</category>
-        <category>hexo</category>
-        <category>MCU</category>
-        <category>Ubuntu</category>
-        <category>git</category>
-        <category>工具</category>
         <category>gcc</category>
         <category>IDE</category>
+        <category>history</category>
+        <category>C</category>
+        <category>Ubuntu</category>
+        <category>MCU</category>
+        <category>git</category>
+        <category>工具</category>
+        <category>电子</category>
+        <category>JSON</category>
+        <category>SQL</category>
+        <category>硬件设计</category>
+        <category>docker</category>
+        <category>nas</category>
         <category>Linux</category>
+        <category>RTOS</category>
+        <category>FreeRTOS</category>
         <category>linux_c</category>
         <category>arm_linux</category>
         <category>imx6ull</category>
-        <category>SQL</category>
-        <category>JSON</category>
-        <category>docker</category>
-        <category>nas</category>
-        <category>RTOS</category>
-        <category>FreeRTOS</category>
+        <category>EDA</category>
+        <category>hexo</category>
         <category>算法</category>
         <category>DMX512</category>
         <category>modbus</category>

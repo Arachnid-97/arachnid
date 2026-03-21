@@ -6,7 +6,7 @@
   <link href="https://arachnid.cc/atom.xml" rel="self"/>
   
   <link href="https://arachnid.cc/"/>
-  <updated>2025-08-25T14:13:32.100Z</updated>
+  <updated>2026-03-21T11:01:07.770Z</updated>
   <id>https://arachnid.cc/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>docker 部署之 FreshRSS 信息订阅</title>
+    <link href="https://arachnid.cc/docker-deployment-of-freshrss/"/>
+    <id>https://arachnid.cc/docker-deployment-of-freshrss/</id>
+    <published>2026-03-21T03:46:42.000Z</published>
+    <updated>2026-03-21T11:01:07.770Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="NAS" scheme="https://arachnid.cc/categories/NAS/"/>
+    
+    
+    <category term="docker" scheme="https://arachnid.cc/tags/docker/"/>
+    
+  </entry>
   
   <entry>
     <title>Nginx 反代理并安装 SSL</title>
@@ -67,7 +92,7 @@
     <link href="https://arachnid.cc/docker-deployment-of-paperless/"/>
     <id>https://arachnid.cc/docker-deployment-of-paperless/</id>
     <published>2025-06-18T14:11:18.000Z</published>
-    <updated>2025-10-25T11:50:23.542Z</updated>
+    <updated>2026-01-25T03:11:47.896Z</updated>
     
     
       
@@ -117,7 +142,7 @@
     <link href="https://arachnid.cc/docker-deployment-of-jellyfin/"/>
     <id>https://arachnid.cc/docker-deployment-of-jellyfin/</id>
     <published>2025-03-19T11:11:35.000Z</published>
-    <updated>2025-11-04T13:14:50.597Z</updated>
+    <updated>2026-01-25T03:21:43.271Z</updated>
     
     
       
@@ -221,7 +246,7 @@
     <link href="https://arachnid.cc/docker-deployment-of-photoview/"/>
     <id>https://arachnid.cc/docker-deployment-of-photoview/</id>
     <published>2024-12-17T15:33:29.000Z</published>
-    <updated>2025-08-16T15:15:33.625Z</updated>
+    <updated>2026-03-21T05:55:13.222Z</updated>
     
     
       
@@ -480,27 +505,6 @@
     
     
     <category term="docker" scheme="https://arachnid.cc/tags/docker/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>zlist 链表分析</title>
-    <link href="https://arachnid.cc/zlist/"/>
-    <id>https://arachnid.cc/zlist/</id>
-    <published>2024-06-06T12:51:29.000Z</published>
-    <updated>2024-06-09T15:21:33.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html"></summary>
-        
-      
-    
-    
-    
     
   </entry>
   
