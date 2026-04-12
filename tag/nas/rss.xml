@@ -7,32 +7,32 @@
         <language>zh-CN</language>
         <pubDate>Wed, 19 Mar 2025 19:11:35 +0800</pubDate>
         <lastBuildDate>Wed, 19 Mar 2025 19:11:35 +0800</lastBuildDate>
-        <category>gcc</category>
-        <category>IDE</category>
+        <category>EDA</category>
         <category>history</category>
+        <category>电子</category>
+        <category>硬件设计</category>
+        <category>SQL</category>
+        <category>JSON</category>
         <category>C</category>
-        <category>Ubuntu</category>
         <category>MCU</category>
+        <category>Ubuntu</category>
         <category>git</category>
         <category>工具</category>
-        <category>电子</category>
-        <category>JSON</category>
-        <category>SQL</category>
-        <category>硬件设计</category>
-        <category>docker</category>
-        <category>nas</category>
+        <category>hexo</category>
+        <category>gcc</category>
+        <category>IDE</category>
         <category>Linux</category>
-        <category>RTOS</category>
-        <category>FreeRTOS</category>
         <category>linux_c</category>
         <category>arm_linux</category>
         <category>imx6ull</category>
-        <category>EDA</category>
-        <category>hexo</category>
-        <category>算法</category>
+        <category>RTOS</category>
+        <category>FreeRTOS</category>
+        <category>docker</category>
+        <category>nas</category>
         <category>DMX512</category>
         <category>modbus</category>
         <category>Modem</category>
+        <category>算法</category>
         <item>
             <guid isPermalink="true">https://arachnid.cc/docker-deployment-of-jellyfin/</guid>
             <title>docker 部署之 jellyfin 家庭影院</title>
@@ -277,8 +277,8 @@
             <guid isPermalink="true">https://arachnid.cc/omv6-install/</guid>
             <title>debian 11 桌面安装 OMV 6</title>
             <link>https://arachnid.cc/omv6-install/</link>
-            <category>nas</category>
             <category>Linux</category>
+            <category>nas</category>
             <pubDate>Sat, 13 Jan 2024 21:04:04 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;debian-安装&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#debian-安装&#34;&gt;#&lt;/a&gt; Debian 安装&lt;/h1&gt;
 &lt;p&gt;需要注意的几个点是：&lt;/p&gt;
