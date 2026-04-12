@@ -10,25 +10,25 @@
         <category>EDA</category>
         <category>history</category>
         <category>电子</category>
-        <category>硬件设计</category>
-        <category>SQL</category>
-        <category>JSON</category>
         <category>C</category>
         <category>MCU</category>
+        <category>硬件设计</category>
         <category>Ubuntu</category>
         <category>git</category>
         <category>工具</category>
-        <category>hexo</category>
-        <category>gcc</category>
-        <category>IDE</category>
+        <category>SQL</category>
+        <category>JSON</category>
         <category>Linux</category>
         <category>linux_c</category>
         <category>arm_linux</category>
         <category>imx6ull</category>
+        <category>gcc</category>
+        <category>IDE</category>
+        <category>nas</category>
+        <category>docker</category>
         <category>RTOS</category>
         <category>FreeRTOS</category>
-        <category>docker</category>
-        <category>nas</category>
+        <category>hexo</category>
         <category>DMX512</category>
         <category>modbus</category>
         <category>Modem</category>
@@ -37,8 +37,8 @@
             <guid isPermalink="true">https://arachnid.cc/docker-deployment-of-jellyfin/</guid>
             <title>docker 部署之 jellyfin 家庭影院</title>
             <link>https://arachnid.cc/docker-deployment-of-jellyfin/</link>
-            <category>docker</category>
             <category>nas</category>
+            <category>docker</category>
             <pubDate>Wed, 19 Mar 2025 19:11:35 +0800</pubDate>
             <description><![CDATA[ &lt;blockquote&gt;
 &lt;p&gt;Version：&lt;a href=&#34;https://github.com/jellyfin/jellyfin-web/releases/tag/v10.10.6&#34;&gt;&lt;strong&gt;Jellyfin&lt;/strong&gt;&lt;/a&gt; 10.10.6&lt;/p&gt;
@@ -123,8 +123,8 @@
             <guid isPermalink="true">https://arachnid.cc/docker-deployment-of-navidrome/</guid>
             <title>docker 部署之 navidrome 音乐播放</title>
             <link>https://arachnid.cc/docker-deployment-of-navidrome/</link>
-            <category>docker</category>
             <category>nas</category>
+            <category>docker</category>
             <pubDate>Wed, 19 Mar 2025 19:11:35 +0800</pubDate>
             <description><![CDATA[ &lt;blockquote&gt;
 &lt;p&gt;Version：&lt;a href=&#34;https://github.com/navidrome/navidrome/tree/v0.55.2&#34;&gt;&lt;strong&gt;Navidrome&lt;/strong&gt;&lt;/a&gt; 0.55.2&lt;/p&gt;
