@@ -6,7 +6,7 @@
   <link href="https://arachnid.cc/atom.xml" rel="self"/>
   
   <link href="https://arachnid.cc/"/>
-  <updated>2026-04-12T14:11:07.114Z</updated>
+  <updated>2026-06-02T12:20:43.978Z</updated>
   <id>https://arachnid.cc/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>OMV 拓展之 UPS 不间断电源</title>
+    <link href="https://arachnid.cc/openmediavault-tool-of-ups/"/>
+    <id>https://arachnid.cc/openmediavault-tool-of-ups/</id>
+    <published>2026-05-31T02:26:42.000Z</published>
+    <updated>2026-06-02T12:20:43.978Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    <category term="NAS" scheme="https://arachnid.cc/categories/NAS/"/>
+    
+    
+    <category term="nas" scheme="https://arachnid.cc/tags/nas/"/>
+    
+    <category term="docker" scheme="https://arachnid.cc/tags/docker/"/>
+    
+  </entry>
   
   <entry>
     <title>docker 部署之 Draw 工具组</title>
@@ -46,7 +73,7 @@
     <link href="https://arachnid.cc/docker-deployment-of-freshrss/"/>
     <id>https://arachnid.cc/docker-deployment-of-freshrss/</id>
     <published>2026-03-21T03:46:42.000Z</published>
-    <updated>2026-03-21T11:01:07.770Z</updated>
+    <updated>2026-05-31T09:19:57.602Z</updated>
     
     
       
@@ -480,31 +507,6 @@
     
     
     <category term="Ubuntu" scheme="https://arachnid.cc/tags/Ubuntu/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>docker 部署之 calibre-web 图书馆藏</title>
-    <link href="https://arachnid.cc/docker-deployment-of-gitea/"/>
-    <id>https://arachnid.cc/docker-deployment-of-gitea/</id>
-    <published>2024-06-30T17:21:45.000Z</published>
-    <updated>2025-08-16T15:13:06.274Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html"></summary>
-        
-      
-    
-    
-    
-    <category term="NAS" scheme="https://arachnid.cc/categories/NAS/"/>
-    
-    
-    <category term="docker" scheme="https://arachnid.cc/tags/docker/"/>
     
   </entry>
   

@@ -9,8 +9,37 @@
     <atom:link href="https://arachnid.cc/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description>不曾亏欠, 不曾辜负, 如此足矣</description>
-    <pubDate>Sun, 12 Apr 2026 14:11:07 GMT</pubDate>
+    <pubDate>Tue, 02 Jun 2026 12:20:43 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>OMV 拓展之 UPS 不间断电源</title>
+      <link>https://arachnid.cc/openmediavault-tool-of-ups/</link>
+      <guid>https://arachnid.cc/openmediavault-tool-of-ups/</guid>
+      <pubDate>Sun, 31 May 2026 02:26:42 GMT</pubDate>
+      
+        
+        
+          
+          
+      <description></description>
+          
+        
+      
+      
+      
+      
+      <category domain="https://arachnid.cc/categories/NAS/">NAS</category>
+      
+      
+      <category domain="https://arachnid.cc/tags/nas/">nas</category>
+      
+      <category domain="https://arachnid.cc/tags/docker/">docker</category>
+      
+      
+      <comments>https://arachnid.cc/openmediavault-tool-of-ups/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>docker 部署之 Draw 工具组</title>
@@ -514,33 +543,6 @@
       
       
       <comments>https://arachnid.cc/vmware-space-recycling/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>docker 部署之 calibre-web 图书馆藏</title>
-      <link>https://arachnid.cc/docker-deployment-of-gitea/</link>
-      <guid>https://arachnid.cc/docker-deployment-of-gitea/</guid>
-      <pubDate>Sun, 30 Jun 2024 17:21:45 GMT</pubDate>
-      
-        
-        
-          
-          
-      <description></description>
-          
-        
-      
-      
-      
-      
-      <category domain="https://arachnid.cc/categories/NAS/">NAS</category>
-      
-      
-      <category domain="https://arachnid.cc/tags/docker/">docker</category>
-      
-      
-      <comments>https://arachnid.cc/docker-deployment-of-gitea/#disqus_thread</comments>
       
     </item>
     

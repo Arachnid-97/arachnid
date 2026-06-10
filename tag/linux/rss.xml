@@ -10,29 +10,29 @@
         <category>EDA</category>
         <category>history</category>
         <category>电子</category>
-        <category>C</category>
-        <category>MCU</category>
         <category>硬件设计</category>
-        <category>Ubuntu</category>
-        <category>git</category>
-        <category>工具</category>
+        <category>hexo</category>
+        <category>gcc</category>
+        <category>IDE</category>
         <category>SQL</category>
         <category>JSON</category>
+        <category>C</category>
+        <category>Ubuntu</category>
+        <category>MCU</category>
+        <category>git</category>
+        <category>工具</category>
         <category>Linux</category>
         <category>linux_c</category>
         <category>arm_linux</category>
         <category>imx6ull</category>
-        <category>gcc</category>
-        <category>IDE</category>
         <category>nas</category>
         <category>docker</category>
         <category>RTOS</category>
         <category>FreeRTOS</category>
-        <category>hexo</category>
-        <category>DMX512</category>
-        <category>modbus</category>
-        <category>Modem</category>
         <category>算法</category>
+        <category>modbus</category>
+        <category>DMX512</category>
+        <category>Modem</category>
         <item>
             <guid isPermalink="true">https://arachnid.cc/posix-pthread/</guid>
             <title>POSIX 线程设计应用</title>
@@ -1507,7 +1507,8 @@
 &lt;p&gt;note：如果存在多个用户，在众多用户里，至少要有一个用户添加到  &lt;code&gt;openmediavault-admin&lt;/code&gt;  的  &lt;code&gt;ssh group&lt;/code&gt;  中，这将决定在登录 omv web 后是否拥有配置操作，否则任意用户登录 omv web 上都不存完整的配置操作。具体可看 &lt;strong&gt;omv 登陆后界面只剩仪表盘&lt;/strong&gt; 。&lt;/p&gt;
 &lt;h2 id=&#34;配置-ssh&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#配置-ssh&#34;&gt;#&lt;/a&gt; 配置 SSH&lt;/h2&gt;
 &lt;p&gt;进入  &lt;code&gt;服务&lt;/code&gt;  -&amp;gt;  &lt;code&gt;SSH&lt;/code&gt; ，选择勾选  &lt;code&gt;已启用&lt;/code&gt;  选项，接着按个人需求修改配置，同时为能 SSH 登录操作的用户添加到  &lt;code&gt;ssh group&lt;/code&gt;  ；如果你想为了安全，而选择关闭  &lt;code&gt;允许 root 登陆&lt;/code&gt;  和  &lt;code&gt;密码验证&lt;/code&gt;  选项，那么需要注意的是，至少要为一个用户添加  &lt;code&gt;ssh group&lt;/code&gt;  ，否则将没有用户可以登录 SSH，同时为用户配置好 SSH 密钥对。&lt;/p&gt;
-&lt;p&gt;note：SSH 密钥对生成，需要先在本机系统中（即需要控制的机器上，一般就是我们的 windows 系统上），输入  &lt;code&gt;ssh-keygen&lt;/code&gt;  命令，然后输入存储的路径及命名  &lt;code&gt;~/.ssh/omv-id_rsa&lt;/code&gt;  ，如果需要为调用私钥而添加密码认证，则输入密码，否者直接留空回车，不设密码，最后再次确认回车，至此就生成了 SSH 密钥对了；紧接着在 omv web 的  &lt;code&gt;用户&lt;/code&gt;  -&amp;gt;  &lt;code&gt;用户&lt;/code&gt;  中选择你需要进行 SSH 密钥登录的账户，然后编辑，在  &lt;code&gt;SSH 公钥&lt;/code&gt;  中添加刚才生成的密钥对中的公钥（即  &lt;code&gt;omv-id_rsa.pub&lt;/code&gt;  ），至此就完成了。&lt;/p&gt;
+&lt;p&gt;如果你想要进一步防护 SSH 登录，可以在  &lt;code&gt;扩展选项&lt;/code&gt;  中添加属性，例如：&lt;/p&gt;
+&lt;figure class=&#34;highlight text&#34;&gt;&lt;figcaption data-lang=&#34;text&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;ClientAliveInterval 600   # 600 秒无活动则检查&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;ClientAliveCountMax 3   # 最多检查 3 次后断开&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;note：SSH 密钥对生成，需要先在本机系统中（即需要控制的机器上，一般就是我们的 windows 系统上），输入  &lt;code&gt;ssh-keygen&lt;/code&gt;  命令，然后输入存储的路径及命名  &lt;code&gt;~/.ssh/omv-id_rsa&lt;/code&gt;  ，如果需要为调用私钥而添加密码认证，则输入密码，否者直接留空回车，不设密码，最后再次确认回车，至此就生成了 SSH 密钥对了；紧接着在 omv web 的  &lt;code&gt;用户&lt;/code&gt;  -&amp;gt;  &lt;code&gt;用户&lt;/code&gt;  中选择你需要进行 SSH 密钥登录的账户，然后编辑，在  &lt;code&gt;SSH 公钥&lt;/code&gt;  中添加刚才生成的密钥对中的公钥（即  &lt;code&gt;omv-id_rsa.pub&lt;/code&gt;  ），至此就完成了。&lt;/p&gt;
 &lt;h2 id=&#34;创建-raid-软阵列&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#创建-raid-软阵列&#34;&gt;#&lt;/a&gt; 创建 Raid 软阵列&lt;/h2&gt;
 &lt;p&gt;在这里，不选择在 omv 页面上创建，而是使用命令创建。以 Raid 1 为例：&lt;/p&gt;
 &lt;ol&gt;
