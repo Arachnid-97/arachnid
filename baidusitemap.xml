@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://arachnid.cc/docker-deployment-of-homeassistant/</loc>
+    <lastmod>2026-06-14</lastmod>
+  </url>
+  <url>
+    <loc>https://arachnid.cc/linux-command-summary/</loc>
+    <lastmod>2026-06-14</lastmod>
+  </url>
+  <url>
     <loc>https://arachnid.cc/openmediavault-tool-of-ups/</loc>
     <lastmod>2026-06-02</lastmod>
   </url>
@@ -39,10 +47,6 @@
   <url>
     <loc>https://arachnid.cc/docker-deployment-of-navidrome/</loc>
     <lastmod>2025-12-13</lastmod>
-  </url>
-  <url>
-    <loc>https://arachnid.cc/linux-command-summary/</loc>
-    <lastmod>2025-10-14</lastmod>
   </url>
   <url>
     <loc>https://arachnid.cc/use-the-acme-tool/</loc>
